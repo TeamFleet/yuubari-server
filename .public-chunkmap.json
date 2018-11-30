@@ -1,0 +1,155 @@
+{
+    ".entrypoints": {
+        "critical": [
+            "public/includes/extract.11.f58ba991a1108d404f4c.css",
+            "public/includes/core.f58ba991a1108d404f4c.js"
+        ],
+        "polyfill": [
+            "public/includes/chunk.8bc35c20dab287c46cc3.js",
+            "public/includes/core.ecb9a4f2314944b2c84a.js"
+        ],
+        "client": [
+            "public/includes/chunk.8bc35c20dab287c46cc3.js",
+            "public/includes/core.2ffd0ec107f8ec793257.js"
+        ]
+    },
+    ".files": {
+        "dev-components~entities~entityDetails~equipmentDetails~shipDetails~ships.js": "public/includes/chunk.6975387e9dfa308182af.js",
+        "arsenal~calctp~equipments~舰队模拟.js": "public/includes/chunk.e141e40667cc718498b9.js",
+        "dev-components~entityDetails~equipmentDetails~ships.js": "public/includes/chunk.c3f63b546d2af6636f17.js",
+        "arsenal~equipmentDetails~shipDetails.js": "public/includes/chunk.e96ff8b790bf03a727df.js",
+        "commons.js": "public/includes/chunk.8bc35c20dab287c46cc3.js",
+        "equipmentDetails~shipDetails.js": "public/includes/chunk.750389824afd129ff0fc.js",
+        "about.js": "public/includes/chunk.b67955ea14360ff3d279.js",
+        "academy.js": "public/includes/chunk.57af360c34db460e33ac.js",
+        "arsenal.js": "public/includes/chunk.0bb5c785b751e40ed78d.js",
+        "calctp.js": "public/includes/chunk.8fa836b98e30291cb6a7.js",
+        "client.js": "public/includes/core.2ffd0ec107f8ec793257.js",
+        "critical.css": "public/includes/extract.11.f58ba991a1108d404f4c.css",
+        "critical.js": "public/includes/core.f58ba991a1108d404f4c.js",
+        "dev-components.js": "public/includes/chunk.a001660fc8292a31b6a7.js",
+        "dev-icons.js": "public/includes/chunk.cf8e5997afe6e3c930b0.js",
+        "dev-ipsum.js": "public/includes/chunk.2f712a36d1c233a8cd85.js",
+        "entities.js": "public/includes/chunk.ffd9e641a5bad6561830.js",
+        "entityDetails.js": "public/includes/chunk.59e17853905a894ec3ac.js",
+        "equipmentDetails.js": "public/includes/chunk.233a4694d63dda172abf.js",
+        "equipments.js": "public/includes/chunk.85c6fe350379c531d5cd.js",
+        "exillusts.js": "public/includes/chunk.7ab91c1a2b9cb07a8dc3.js",
+        "expeditions.js": "public/includes/chunk.834032f624a0e19dfa25.js",
+        "fleets.js": "public/includes/chunk.49ac1e8e7f9029c1d3fc.js",
+        "home.js": "public/includes/chunk.ae43f3aa840b0fef753b.js",
+        "polyfill.js": "public/includes/core.ecb9a4f2314944b2c84a.js",
+        "shipDetails.js": "public/includes/chunk.52bbfa3806e5af4b0cec.js",
+        "ships.js": "public/includes/chunk.dbc2dfde09499a177c7a.js",
+        "sorties.js": "public/includes/chunk.5241cbc2eac0ec88556e.js",
+        "vendors~home.js": "public/includes/chunk.bba207cfb2c26b5adb47.js",
+        "vendors~nedb.js": "public/includes/chunk.cf9f0fd7789a95d2c7c3.js",
+        "vendors~shipDetails.js": "public/includes/chunk.42327314d21576fcfb13.js",
+        "舰队模拟.js": "public/includes/chunk.282a5ac000872973d733.js",
+        "舰队模拟配置.js": "public/includes/chunk.0b019575c2fc536edc3d.js",
+        "__KOOT__EXTRACT__CSS__.css": "public/includes/extract.all.045c6281457680f8bad8bdf65fd72047.css"
+    },
+    "dev-components~entities~entityDetails~equipmentDetails~shipDetails~ships": [
+        "public/includes/chunk.6975387e9dfa308182af.js"
+    ],
+    "arsenal~calctp~equipments~舰队模拟": [
+        "public/includes/chunk.e141e40667cc718498b9.js"
+    ],
+    "dev-components~entityDetails~equipmentDetails~ships": [
+        "public/includes/chunk.c3f63b546d2af6636f17.js"
+    ],
+    "arsenal~equipmentDetails~shipDetails": [
+        "public/includes/chunk.e96ff8b790bf03a727df.js"
+    ],
+    "commons": [
+        "public/includes/chunk.8bc35c20dab287c46cc3.js"
+    ],
+    "equipmentDetails~shipDetails": [
+        "public/includes/chunk.750389824afd129ff0fc.js"
+    ],
+    "about": [
+        "public/includes/chunk.b67955ea14360ff3d279.js"
+    ],
+    "academy": [
+        "public/includes/chunk.57af360c34db460e33ac.js"
+    ],
+    "arsenal": [
+        "public/includes/chunk.0bb5c785b751e40ed78d.js"
+    ],
+    "calctp": [
+        "public/includes/chunk.8fa836b98e30291cb6a7.js"
+    ],
+    "client": [
+        "public/includes/core.2ffd0ec107f8ec793257.js"
+    ],
+    "critical": [
+        "public/includes/extract.11.f58ba991a1108d404f4c.css",
+        "public/includes/core.f58ba991a1108d404f4c.js"
+    ],
+    "dev-components": [
+        "public/includes/chunk.a001660fc8292a31b6a7.js"
+    ],
+    "dev-icons": [
+        "public/includes/chunk.cf8e5997afe6e3c930b0.js"
+    ],
+    "dev-ipsum": [
+        "public/includes/chunk.2f712a36d1c233a8cd85.js"
+    ],
+    "entities": [
+        "public/includes/chunk.ffd9e641a5bad6561830.js"
+    ],
+    "entityDetails": [
+        "public/includes/chunk.59e17853905a894ec3ac.js"
+    ],
+    "equipmentDetails": [
+        "public/includes/chunk.233a4694d63dda172abf.js"
+    ],
+    "equipments": [
+        "public/includes/chunk.85c6fe350379c531d5cd.js"
+    ],
+    "exillusts": [
+        "public/includes/chunk.7ab91c1a2b9cb07a8dc3.js"
+    ],
+    "expeditions": [
+        "public/includes/chunk.834032f624a0e19dfa25.js"
+    ],
+    "fleets": [
+        "public/includes/chunk.49ac1e8e7f9029c1d3fc.js"
+    ],
+    "home": [
+        "public/includes/chunk.ae43f3aa840b0fef753b.js"
+    ],
+    "polyfill": [
+        "public/includes/core.ecb9a4f2314944b2c84a.js"
+    ],
+    "shipDetails": [
+        "public/includes/chunk.52bbfa3806e5af4b0cec.js"
+    ],
+    "ships": [
+        "public/includes/chunk.dbc2dfde09499a177c7a.js"
+    ],
+    "sorties": [
+        "public/includes/chunk.5241cbc2eac0ec88556e.js"
+    ],
+    "vendors~home": [
+        "public/includes/chunk.bba207cfb2c26b5adb47.js"
+    ],
+    "vendors~nedb": [
+        "public/includes/chunk.cf9f0fd7789a95d2c7c3.js"
+    ],
+    "vendors~shipDetails": [
+        "public/includes/chunk.42327314d21576fcfb13.js"
+    ],
+    "舰队模拟": [
+        "public/includes/chunk.282a5ac000872973d733.js"
+    ],
+    "舰队模拟配置": [
+        "public/includes/chunk.0b019575c2fc536edc3d.js"
+    ],
+    "__KOOT__EXTRACT__CSS__": [
+        "public/includes/extract.all.045c6281457680f8bad8bdf65fd72047.css"
+    ],
+    "service-worker": [
+        "public/service-worker.js"
+    ]
+}
