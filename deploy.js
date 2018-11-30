@@ -1,5 +1,5 @@
 const printTitle = (title) => {
-    console.log('')
+    console.log('\n')
     console.log(`\x1b[43m \x1b[0m` + `\x1b[33m ` + title + `\x1b[0m`)
     console.log('')
 }
@@ -34,6 +34,11 @@ const run = async () => {
     // pm2 restart using config json
     printTitle('Starting server')
     await spawn('pm2 restart pm2.json')
+
+    // 
+    console.log('\n')
+    console.log(`\x1b[42m \x1b[0m` + `\x1b[32m ` + 'Server started' + `\x1b[0m`)
+    console.log('')
 
 }
 
