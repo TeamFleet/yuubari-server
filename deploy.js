@@ -4,9 +4,17 @@ const printTitle = (title) => {
     console.log('')
 }
 
-const spawn = async(...args) => {
+const spawn = async(cmd) => {
+    const chunks = cmd.split(' ')
     await new Promise(resolve => {
-        const child = require('child_process').spawn(...args)
+        const child = require('child_process').spawn(
+            chunks.shift(),
+            chunks,
+            {
+                stdio: 'inherit',
+                shell: true,
+            }
+        )
         child.on('close', () => {
             resolve()
         })
@@ -17,20 +25,15 @@ const run = async () => {
 
     // npm install
     printTitle('Pulling changes')
+    await spawn('git pull')
 
     // npm install
     printTitle('Installing modules')
-    await spawn(`npm`, ['install', '--no-package-lock'], {
-        stdio: 'inherit',
-        shell: true,
-    })
+    await spawn('npm install --no-package-lock')
 
     // pm2 restart using config json
     printTitle('Starting server')
-    await spawn(`pm2`, ['restart', 'pm2.json'], {
-        stdio: 'inherit',
-        shell: true,
-    })
+    await spawn('pm2 restart pm2.json')
 
 }
 
