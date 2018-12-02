@@ -29,7 +29,7 @@ const run = async () => {
 
     // npm install
     printTitle('Installing modules')
-    await spawn('npm install --no-package-lock')
+    await spawn('npm install --no-save')
 
     // pm2 restart using config json
     printTitle('Starting server')
