@@ -7,132 +7,132 @@
         ],
         "polyfill": [
             "public/includes/chunk.2597f6fd4bb9ca07dcaa.js",
-            "public/includes/entry.82ae670dd08972690af6.js"
+            "public/includes/entry.d69a674642f687850309.js"
         ],
         "client": [
             "public/includes/chunk.2597f6fd4bb9ca07dcaa.js",
-            "public/includes/entry.14678615764258f55122.js"
+            "public/includes/entry.28d799c6edee8a175661.js"
         ]
     },
     ".files": {
-        "DEV. Components~Equipment Details~People~People Details~Ship Details~Ship List.js": "public/includes/chunk.9bb5e864d0a53562e8c0.js",
-        "DEV. Components~Equipment Details~People Details~Ship Details~Ship List.js": "public/includes/chunk.7c9cb30c0e67c2695250.js",
-        "Arsenal~Equipments~Fleet Builder (WIP)~TP Calculator.js": "public/includes/chunk.0d73d12462f3c160c6ed.js",
-        "Arsenal~Equipment Details~Ship Details.js": "public/includes/chunk.ab68c2735deb1bd15674.js",
+        "DEV. Components~Equipment Details~People~People Details~Ship Details~Ship List.js": "public/includes/chunk.9b2d3890be62c9a7c1d2.js",
+        "DEV. Components~Equipment Details~People Details~Ship Details~Ship List.js": "public/includes/chunk.76162bf7bf762cd51da6.js",
+        "Arsenal~Equipments~Fleet Builder (WIP)~TP Calculator.js": "public/includes/chunk.52b8cde9cd265efdbb23.js",
+        "Arsenal~Equipment Details~Ship Details.js": "public/includes/chunk.d5c5f3530cb192397bcd.js",
         "commons.js": "public/includes/chunk.2597f6fd4bb9ca07dcaa.js",
-        "About.js": "public/includes/chunk.ef4650c680e1dccb6b8f.js",
-        "Academy.js": "public/includes/chunk.77d2f666b2dc9d5a3661.js",
-        "Arsenal.js": "public/includes/chunk.da8a9c4d2387f714de3f.js",
-        "DEV. Components.js": "public/includes/chunk.413a866687982a3a7f27.js",
-        "DEV. Icons.js": "public/includes/chunk.5f0d3e4eed24a1bb42cf.js",
-        "DEV. Lorem-ipsum.js": "public/includes/chunk.eae9a60754ed93293a58.js",
-        "Equipment Details.js": "public/includes/chunk.7f657b916e424ab87c37.js",
-        "Equipments.js": "public/includes/chunk.bb5c5817b54c9a4c4867.js",
-        "Ex-CGs.js": "public/includes/chunk.921cc7f1472fb3264116.js",
-        "Expeditions.js": "public/includes/chunk.393d9331c0e8985db4c9.js",
-        "Fleet Builder.js": "public/includes/chunk.511b0946f84afe13e2d7.js",
-        "Fleet Builder (WIP).js": "public/includes/chunk.cf0489f65fa7413cd48e.js",
-        "Fleet Builder Fleet Details.js": "public/includes/chunk.8fb21dfdb27c7ac72cb0.js",
-        "Home.js": "public/includes/chunk.3186005f151ddf6cbcdc.js",
-        "People.js": "public/includes/chunk.f5493756947dac4e6813.js",
-        "People Details.js": "public/includes/chunk.7cc7c52f0a3e686518a6.js",
-        "Ship Details.js": "public/includes/chunk.9126c009c6a175fb107f.js",
-        "Ship List.js": "public/includes/chunk.682d814a6ba268f01e54.js",
-        "Sorties.js": "public/includes/chunk.ac7b1f6b887df50f0929.js",
-        "TP Calculator.js": "public/includes/chunk.5689a92320686f9b05df.js",
-        "client.js": "public/includes/entry.14678615764258f55122.js",
+        "About.js": "public/includes/chunk.f248a477c5c95480edc4.js",
+        "Academy.js": "public/includes/chunk.5da0745030602b9c3719.js",
+        "Arsenal.js": "public/includes/chunk.8347321630222eccb948.js",
+        "DEV. Components.js": "public/includes/chunk.a9cbe4c0fd84e45c8e07.js",
+        "DEV. Icons.js": "public/includes/chunk.5876a48b8958094e9d48.js",
+        "DEV. Lorem-ipsum.js": "public/includes/chunk.ccfae0f9283f13f30b52.js",
+        "Equipment Details.js": "public/includes/chunk.14de8a165070e6bf8319.js",
+        "Equipments.js": "public/includes/chunk.33ff44f86c35ef11408f.js",
+        "Ex-CGs.js": "public/includes/chunk.63517a90e594247a2fd6.js",
+        "Expeditions.js": "public/includes/chunk.b08f4ddaa69aa109365c.js",
+        "Fleet Builder.js": "public/includes/chunk.6e9760b7bd6bdc6203df.js",
+        "Fleet Builder (WIP).js": "public/includes/chunk.4ad77281c3f87eb0557d.js",
+        "Fleet Builder Fleet Details.js": "public/includes/chunk.0fe726994cfccd2b3de1.js",
+        "Home.js": "public/includes/chunk.16cde4abfc75dcb40102.js",
+        "People.js": "public/includes/chunk.c440944afbf1a4d3dfcb.js",
+        "People Details.js": "public/includes/chunk.9810ca49195174e3e43e.js",
+        "Ship Details.js": "public/includes/chunk.4b1bc892b5ca914b978c.js",
+        "Ship List.js": "public/includes/chunk.fd80543a5f3b61302c7d.js",
+        "Sorties.js": "public/includes/chunk.aa86da4eb6eeae892e7d.js",
+        "TP Calculator.js": "public/includes/chunk.04387a56eff6b2e76e14.js",
+        "client.js": "public/includes/entry.28d799c6edee8a175661.js",
         "critical.css": "public/includes/extract.26.5bb80e87eb9943326de4.css",
         "critical.js": "public/includes/entry.5bb80e87eb9943326de4.js",
-        "polyfill.js": "public/includes/entry.82ae670dd08972690af6.js",
+        "polyfill.js": "public/includes/entry.d69a674642f687850309.js",
         "vendors~Home.js": "public/includes/chunk.e3b5ede1354c97e69cd9.js",
         "vendors~Ship Details.js": "public/includes/chunk.a4787e240f6113e2318b.js",
         "vendors~nedb.js": "public/includes/chunk.f58a89d3ff5cef0dfb1d.js",
         "__KOOT__EXTRACT__CSS__.css": "public/includes/extract.all.045c6281457680f8bad8bdf65fd72047.css"
     },
     "DEV. Components~Equipment Details~People~People Details~Ship Details~Ship List": [
-        "public/includes/chunk.9bb5e864d0a53562e8c0.js"
+        "public/includes/chunk.9b2d3890be62c9a7c1d2.js"
     ],
     "DEV. Components~Equipment Details~People Details~Ship Details~Ship List": [
-        "public/includes/chunk.7c9cb30c0e67c2695250.js"
+        "public/includes/chunk.76162bf7bf762cd51da6.js"
     ],
     "Arsenal~Equipments~Fleet Builder (WIP)~TP Calculator": [
-        "public/includes/chunk.0d73d12462f3c160c6ed.js"
+        "public/includes/chunk.52b8cde9cd265efdbb23.js"
     ],
     "Arsenal~Equipment Details~Ship Details": [
-        "public/includes/chunk.ab68c2735deb1bd15674.js"
+        "public/includes/chunk.d5c5f3530cb192397bcd.js"
     ],
     "commons": [
         "public/includes/chunk.2597f6fd4bb9ca07dcaa.js"
     ],
     "About": [
-        "public/includes/chunk.ef4650c680e1dccb6b8f.js"
+        "public/includes/chunk.f248a477c5c95480edc4.js"
     ],
     "Academy": [
-        "public/includes/chunk.77d2f666b2dc9d5a3661.js"
+        "public/includes/chunk.5da0745030602b9c3719.js"
     ],
     "Arsenal": [
-        "public/includes/chunk.da8a9c4d2387f714de3f.js"
+        "public/includes/chunk.8347321630222eccb948.js"
     ],
     "DEV. Components": [
-        "public/includes/chunk.413a866687982a3a7f27.js"
+        "public/includes/chunk.a9cbe4c0fd84e45c8e07.js"
     ],
     "DEV. Icons": [
-        "public/includes/chunk.5f0d3e4eed24a1bb42cf.js"
+        "public/includes/chunk.5876a48b8958094e9d48.js"
     ],
     "DEV. Lorem-ipsum": [
-        "public/includes/chunk.eae9a60754ed93293a58.js"
+        "public/includes/chunk.ccfae0f9283f13f30b52.js"
     ],
     "Equipment Details": [
-        "public/includes/chunk.7f657b916e424ab87c37.js"
+        "public/includes/chunk.14de8a165070e6bf8319.js"
     ],
     "Equipments": [
-        "public/includes/chunk.bb5c5817b54c9a4c4867.js"
+        "public/includes/chunk.33ff44f86c35ef11408f.js"
     ],
     "Ex-CGs": [
-        "public/includes/chunk.921cc7f1472fb3264116.js"
+        "public/includes/chunk.63517a90e594247a2fd6.js"
     ],
     "Expeditions": [
-        "public/includes/chunk.393d9331c0e8985db4c9.js"
+        "public/includes/chunk.b08f4ddaa69aa109365c.js"
     ],
     "Fleet Builder": [
-        "public/includes/chunk.511b0946f84afe13e2d7.js"
+        "public/includes/chunk.6e9760b7bd6bdc6203df.js"
     ],
     "Fleet Builder (WIP)": [
-        "public/includes/chunk.cf0489f65fa7413cd48e.js"
+        "public/includes/chunk.4ad77281c3f87eb0557d.js"
     ],
     "Fleet Builder Fleet Details": [
-        "public/includes/chunk.8fb21dfdb27c7ac72cb0.js"
+        "public/includes/chunk.0fe726994cfccd2b3de1.js"
     ],
     "Home": [
-        "public/includes/chunk.3186005f151ddf6cbcdc.js"
+        "public/includes/chunk.16cde4abfc75dcb40102.js"
     ],
     "People": [
-        "public/includes/chunk.f5493756947dac4e6813.js"
+        "public/includes/chunk.c440944afbf1a4d3dfcb.js"
     ],
     "People Details": [
-        "public/includes/chunk.7cc7c52f0a3e686518a6.js"
+        "public/includes/chunk.9810ca49195174e3e43e.js"
     ],
     "Ship Details": [
-        "public/includes/chunk.9126c009c6a175fb107f.js"
+        "public/includes/chunk.4b1bc892b5ca914b978c.js"
     ],
     "Ship List": [
-        "public/includes/chunk.682d814a6ba268f01e54.js"
+        "public/includes/chunk.fd80543a5f3b61302c7d.js"
     ],
     "Sorties": [
-        "public/includes/chunk.ac7b1f6b887df50f0929.js"
+        "public/includes/chunk.aa86da4eb6eeae892e7d.js"
     ],
     "TP Calculator": [
-        "public/includes/chunk.5689a92320686f9b05df.js"
+        "public/includes/chunk.04387a56eff6b2e76e14.js"
     ],
     "client": [
-        "public/includes/entry.14678615764258f55122.js"
+        "public/includes/entry.28d799c6edee8a175661.js"
     ],
     "critical": [
         "public/includes/extract.26.5bb80e87eb9943326de4.css",
         "public/includes/entry.5bb80e87eb9943326de4.js"
     ],
     "polyfill": [
-        "public/includes/entry.82ae670dd08972690af6.js"
+        "public/includes/entry.d69a674642f687850309.js"
     ],
     "vendors~Home": [
         "public/includes/chunk.e3b5ede1354c97e69cd9.js"
