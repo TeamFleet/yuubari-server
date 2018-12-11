@@ -11,7 +11,7 @@
         ],
         "client": [
             "public/includes/chunk.1c1ea0c2058a1b7883d4.js",
-            "public/includes/entry.745162a61778f830efcf.js"
+            "public/includes/entry.310c52438c3786d188c7.js"
         ]
     },
     ".files": {
@@ -26,21 +26,21 @@
         "DEV. Components.js": "public/includes/chunk.02e4cf235fdca2927ec3.js",
         "DEV. Icons.js": "public/includes/chunk.20c5d1441f7f0c3e7a55.js",
         "DEV. Lorem-ipsum.js": "public/includes/chunk.baac56ae943d135d7f63.js",
-        "Equipment Details.js": "public/includes/chunk.85f29dc024e209d93081.js",
-        "Equipments.js": "public/includes/chunk.10a17289795b19e1703f.js",
+        "Equipment Details.js": "public/includes/chunk.234ea01bc521edc4f1e3.js",
+        "Equipments.js": "public/includes/chunk.40483edce0d4c88b5f51.js",
         "Ex-CGs.js": "public/includes/chunk.d13c00b17d0181a17861.js",
         "Expeditions.js": "public/includes/chunk.86c298ff705bd3d923dd.js",
         "Fleet Builder.js": "public/includes/chunk.7a176bcfb9a77a7a6e59.js",
         "Fleet Builder (WIP).js": "public/includes/chunk.01cb47721184c97a12a8.js",
-        "Fleet Builder Fleet Details.js": "public/includes/chunk.747adea4c735003e71f3.js",
-        "Home.js": "public/includes/chunk.57bb5562b828ca0f1e37.js",
+        "Fleet Builder Fleet Details.js": "public/includes/chunk.a3a23ed5bc7cbd4ede65.js",
+        "Home.js": "public/includes/chunk.8875892340cb8545268a.js",
         "People.js": "public/includes/chunk.099189a594094bdd1ef5.js",
         "People Details.js": "public/includes/chunk.80aeb57b791491d5905f.js",
-        "Ship Details.js": "public/includes/chunk.212aba1bd026391defe0.js",
-        "Ship List.js": "public/includes/chunk.aa38189ddb34dd77622f.js",
+        "Ship Details.js": "public/includes/chunk.0af21db08b5153805a7d.js",
+        "Ship List.js": "public/includes/chunk.4ba2bafcbe02b134b037.js",
         "Sorties.js": "public/includes/chunk.f1d1ab8ef29f5fb75b51.js",
         "TP Calculator.js": "public/includes/chunk.327667c001237fc658ca.js",
-        "client.js": "public/includes/entry.745162a61778f830efcf.js",
+        "client.js": "public/includes/entry.310c52438c3786d188c7.js",
         "critical.css": "public/includes/extract.26.a99daaa8e99d3bb45668.css",
         "critical.js": "public/includes/entry.a99daaa8e99d3bb45668.js",
         "polyfill.js": "public/includes/entry.1605588f138b09099511.js",
@@ -83,10 +83,10 @@
         "public/includes/chunk.baac56ae943d135d7f63.js"
     ],
     "Equipment Details": [
-        "public/includes/chunk.85f29dc024e209d93081.js"
+        "public/includes/chunk.234ea01bc521edc4f1e3.js"
     ],
     "Equipments": [
-        "public/includes/chunk.10a17289795b19e1703f.js"
+        "public/includes/chunk.40483edce0d4c88b5f51.js"
     ],
     "Ex-CGs": [
         "public/includes/chunk.d13c00b17d0181a17861.js"
@@ -101,10 +101,10 @@
         "public/includes/chunk.01cb47721184c97a12a8.js"
     ],
     "Fleet Builder Fleet Details": [
-        "public/includes/chunk.747adea4c735003e71f3.js"
+        "public/includes/chunk.a3a23ed5bc7cbd4ede65.js"
     ],
     "Home": [
-        "public/includes/chunk.57bb5562b828ca0f1e37.js"
+        "public/includes/chunk.8875892340cb8545268a.js"
     ],
     "People": [
         "public/includes/chunk.099189a594094bdd1ef5.js"
@@ -113,10 +113,10 @@
         "public/includes/chunk.80aeb57b791491d5905f.js"
     ],
     "Ship Details": [
-        "public/includes/chunk.212aba1bd026391defe0.js"
+        "public/includes/chunk.0af21db08b5153805a7d.js"
     ],
     "Ship List": [
-        "public/includes/chunk.aa38189ddb34dd77622f.js"
+        "public/includes/chunk.4ba2bafcbe02b134b037.js"
     ],
     "Sorties": [
         "public/includes/chunk.f1d1ab8ef29f5fb75b51.js"
@@ -125,7 +125,7 @@
         "public/includes/chunk.327667c001237fc658ca.js"
     ],
     "client": [
-        "public/includes/entry.745162a61778f830efcf.js"
+        "public/includes/entry.310c52438c3786d188c7.js"
     ],
     "critical": [
         "public/includes/extract.26.a99daaa8e99d3bb45668.css",

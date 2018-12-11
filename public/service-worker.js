@@ -9,22 +9,22 @@ const urlsToCache = [
     "/includes/chunk.02e4cf235fdca2927ec3.js",
     "/includes/chunk.081ca388318e94493d1a.js",
     "/includes/chunk.099189a594094bdd1ef5.js",
-    "/includes/chunk.10a17289795b19e1703f.js",
+    "/includes/chunk.0af21db08b5153805a7d.js",
     "/includes/chunk.17012aecbee92070668d.js",
     "/includes/chunk.1a95dd61902ce530de80.js",
     "/includes/chunk.1c1ea0c2058a1b7883d4.js",
     "/includes/chunk.20c5d1441f7f0c3e7a55.js",
-    "/includes/chunk.212aba1bd026391defe0.js",
+    "/includes/chunk.234ea01bc521edc4f1e3.js",
     "/includes/chunk.327667c001237fc658ca.js",
-    "/includes/chunk.57bb5562b828ca0f1e37.js",
+    "/includes/chunk.40483edce0d4c88b5f51.js",
+    "/includes/chunk.4ba2bafcbe02b134b037.js",
     "/includes/chunk.6d86bdb2052e2e423e2f.js",
-    "/includes/chunk.747adea4c735003e71f3.js",
     "/includes/chunk.7a176bcfb9a77a7a6e59.js",
     "/includes/chunk.80aeb57b791491d5905f.js",
-    "/includes/chunk.85f29dc024e209d93081.js",
     "/includes/chunk.86c298ff705bd3d923dd.js",
     "/includes/chunk.870819bbfe83eddb7546.js",
-    "/includes/chunk.aa38189ddb34dd77622f.js",
+    "/includes/chunk.8875892340cb8545268a.js",
+    "/includes/chunk.a3a23ed5bc7cbd4ede65.js",
     "/includes/chunk.ad5869c2d653b2c88d8e.js",
     "/includes/chunk.baac56ae943d135d7f63.js",
     "/includes/chunk.c99a2d43993aeb437a0a.js",
@@ -33,7 +33,7 @@ const urlsToCache = [
     "/includes/chunk.db52420b4ff6e1f252bc.js",
     "/includes/chunk.df23a38a587c8e7dc9e8.js",
     "/includes/chunk.f1d1ab8ef29f5fb75b51.js",
-    "/includes/entry.745162a61778f830efcf.js"
+    "/includes/entry.310c52438c3786d188c7.js"
 ]
 
 function addToCache(request, response) {
