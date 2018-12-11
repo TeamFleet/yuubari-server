@@ -7,24 +7,23 @@ const CACHE_NAME = 'koot-sw-cache'
 const urlsToCache = [
     "/includes/chunk.01cb47721184c97a12a8.js",
     "/includes/chunk.02e4cf235fdca2927ec3.js",
+    "/includes/chunk.047634c6cab38665319b.js",
     "/includes/chunk.081ca388318e94493d1a.js",
     "/includes/chunk.099189a594094bdd1ef5.js",
-    "/includes/chunk.0af21db08b5153805a7d.js",
+    "/includes/chunk.0f7324d9006e26364ca9.js",
     "/includes/chunk.17012aecbee92070668d.js",
     "/includes/chunk.1a95dd61902ce530de80.js",
     "/includes/chunk.1c1ea0c2058a1b7883d4.js",
     "/includes/chunk.20c5d1441f7f0c3e7a55.js",
-    "/includes/chunk.234ea01bc521edc4f1e3.js",
     "/includes/chunk.327667c001237fc658ca.js",
     "/includes/chunk.40483edce0d4c88b5f51.js",
-    "/includes/chunk.4ba2bafcbe02b134b037.js",
-    "/includes/chunk.6d86bdb2052e2e423e2f.js",
+    "/includes/chunk.4305ea656dff25f596cc.js",
+    "/includes/chunk.67c549bf822ff694d1fb.js",
     "/includes/chunk.7a176bcfb9a77a7a6e59.js",
     "/includes/chunk.80aeb57b791491d5905f.js",
     "/includes/chunk.86c298ff705bd3d923dd.js",
     "/includes/chunk.870819bbfe83eddb7546.js",
-    "/includes/chunk.8875892340cb8545268a.js",
-    "/includes/chunk.a3a23ed5bc7cbd4ede65.js",
+    "/includes/chunk.a75a6e1c479034a37631.js",
     "/includes/chunk.ad5869c2d653b2c88d8e.js",
     "/includes/chunk.baac56ae943d135d7f63.js",
     "/includes/chunk.c99a2d43993aeb437a0a.js",
@@ -32,8 +31,9 @@ const urlsToCache = [
     "/includes/chunk.d13c00b17d0181a17861.js",
     "/includes/chunk.db52420b4ff6e1f252bc.js",
     "/includes/chunk.df23a38a587c8e7dc9e8.js",
+    "/includes/chunk.e63d97df30f9cd165009.js",
     "/includes/chunk.f1d1ab8ef29f5fb75b51.js",
-    "/includes/entry.310c52438c3786d188c7.js"
+    "/includes/entry.044a4fe0cdcbe9f4686d.js"
 ]
 
 function addToCache(request, response) {
