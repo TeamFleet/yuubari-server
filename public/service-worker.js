@@ -5,33 +5,33 @@
 
 const CACHE_NAME = 'koot-sw-cache'
 const urlsToCache = [
+    "/includes/chunk.0053c6e280ba959df75a.js",
     "/includes/chunk.013421c6f8780b1578b2.js",
-    "/includes/chunk.0491ab91f1e5db8a4c0b.js",
+    "/includes/chunk.136c601ad7665bf83335.js",
     "/includes/chunk.1678d923e10df8a99017.js",
-    "/includes/chunk.2517e62494692dd13faf.js",
     "/includes/chunk.18b298f90bb11c6899da.js",
+    "/includes/chunk.33757e0a6ced29d222e5.js",
+    "/includes/chunk.3467eb664553ffac438d.js",
+    "/includes/chunk.42a982937e48a896b257.js",
     "/includes/chunk.4c664619a4485643b4b7.js",
-    "/includes/chunk.5ae1cff2766cb4ed625f.js",
     "/includes/chunk.5bb98da609641c550286.js",
-    "/includes/chunk.5e6395730dd92e721354.js",
+    "/includes/chunk.60e4aa4769175046b08a.js",
+    "/includes/chunk.61a6a8db82bb96cf3eb0.js",
     "/includes/chunk.638e743d6913f4a6fbea.js",
     "/includes/chunk.65032b71e28ce8f3cdfb.js",
-    "/includes/chunk.7ba42d9449d08968a37f.js",
-    "/includes/chunk.7bcc3d9dab4201dede26.js",
-    "/includes/chunk.8171e8d1e10026ed703b.js",
+    "/includes/chunk.825390f5e48bf990c7df.js",
+    "/includes/chunk.8fa212b371cd1a03fe14.js",
     "/includes/chunk.a1badc524460fbeab256.js",
-    "/includes/chunk.b9e909517104b303d726.js",
+    "/includes/chunk.afade2e3453bf2712096.js",
+    "/includes/chunk.b4327d3418c243b7ea25.js",
     "/includes/chunk.bca98b11cf7787c03184.js",
     "/includes/chunk.cee4480dc6d1593bda3f.js",
-    "/includes/chunk.cfd8baa9c94f06796bde.js",
-    "/includes/chunk.d0c7c632ad2aff2e0cac.js",
     "/includes/chunk.d1c9ee14d457f4ef5651.js",
-    "/includes/chunk.dca6d4eb1161520ea9e7.js",
     "/includes/chunk.e11e5e92bfa270f8bd15.js",
-    "/includes/chunk.eb2cb7b1a280c3b824c6.js",
+    "/includes/chunk.e563ecb77507ee5f99e2.js",
     "/includes/chunk.ec276fd3da0ae62e3569.js",
-    "/includes/entry.c74f21f902f13903af95.js",
-    "/includes/entry.dced28b9ad41a80eb228.js"
+    "/includes/entry.8041347a21d16cc98da9.js",
+    "/includes/entry.c74f21f902f13903af95.js"
 ]
 
 function addToCache(request, response) {
@@ -85,12 +85,13 @@ function respondFromCacheThenNetwork(event) {
 }
 
 function shouldHandleFetch(event) {
-    return (
-        event.request.method.toLowerCase() === 'get'
-        && (event.request.url.indexOf(location.origin) > -1)
-        && (event.request.url.indexOf('google-analytics.com') === -1)
-        && (event.request.url.indexOf(location.origin + '/api') < 0)
-    )
+    if (event.request.method.toLowerCase() !== 'get') return false
+    if (event.request.url.indexOf(location.origin) < 0) return false
+    if (event.request.url.indexOf('google-analytics.com') !== -1) return false
+    if (event.request.url.indexOf(location.origin + '/api') > -1) return false
+    if (/\/service-worker(\.[a-z-_]+){0,1}\.js/i.test(event.request.url)) return false
+
+    return true
 }
 
 function shouldRespondFromNetworkThenCache(event) {
