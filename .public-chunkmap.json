@@ -1,7 +1,7 @@
 {
     ".entrypoints": {
         "critical": [
-            "public/includes/chunk.55ee69db3770ad98d44d.js",
+            "public/includes/chunk.d0a574e66ab46136a9cc.js",
             "public/includes/extract.25.2796c24499b16074a99c.css",
             "public/includes/entry.2796c24499b16074a99c.js"
         ],
@@ -9,11 +9,11 @@
             "public/includes/entry.8c95edef8ef2ff5bd93f.js"
         ],
         "client": [
-            "public/includes/chunk.55ee69db3770ad98d44d.js",
-            "public/includes/entry.35686f3fc2b0dba3a78a.js"
+            "public/includes/chunk.d0a574e66ab46136a9cc.js",
+            "public/includes/entry.b85e1229abc56a19d057.js"
         ],
         "__KOOT__CLIENT__RUN__FIRST__": [
-            "public/includes/chunk.55ee69db3770ad98d44d.js",
+            "public/includes/chunk.d0a574e66ab46136a9cc.js",
             "public/includes/entry.d605877936f3717b4e22.js"
         ]
     },
@@ -21,29 +21,29 @@
         "Equipment Details~Home~People~People Details~Ship Details~Ship List.js": "public/includes/chunk.b77d008a6ae5ab8dc280.js",
         "Arsenal~Equipments~Fleet Builder (WIP)~TP Calculator.js": "public/includes/chunk.266f4698e5e092d0f584.js",
         "Equipment Details~People Details~Ship Details~Ship List.js": "public/includes/chunk.45da5f14c95027da0352.js",
-        "commons.js": "public/includes/chunk.55ee69db3770ad98d44d.js",
+        "commons.js": "public/includes/chunk.d0a574e66ab46136a9cc.js",
         "Arsenal~Equipment Details.js": "public/includes/chunk.97705b45e2e25a3fe0cd.js",
         "vendors~Home~Ship Details.js": "public/includes/chunk.ce4dd8959b661a8a5393.js",
-        "About.js": "public/includes/chunk.a6589a755de66d2e258b.js",
+        "About.js": "public/includes/chunk.0e655401da51fc70167d.js",
         "Academy.js": "public/includes/chunk.ee936ba90bd16d86ec64.js",
         "Arsenal.js": "public/includes/chunk.ff3cf3a9847d1361a685.js",
-        "Equipment Details.js": "public/includes/chunk.f4bb657d9ee456f07c33.js",
-        "Equipments.js": "public/includes/chunk.ed5e46e3916343c7935c.js",
+        "Equipment Details.js": "public/includes/chunk.99227929aa405dacfa9c.js",
+        "Equipments.js": "public/includes/chunk.448a7ab3994af8e8bb30.js",
         "Ex-CGs.js": "public/includes/chunk.cad21eecfaf7d20c6b37.js",
         "Expeditions.js": "public/includes/chunk.44df99452548fbb18f34.js",
         "Fleet Builder.js": "public/includes/chunk.bc8462e004e52d767302.js",
         "Fleet Builder (WIP).js": "public/includes/chunk.5a126facb7dfdeaac43d.js",
-        "Fleet Builder Fleet Details.js": "public/includes/chunk.6f3e4816f2089edede83.js",
-        "Home.js": "public/includes/chunk.d1dddf090c98ff6f644b.js",
+        "Fleet Builder Fleet Details.js": "public/includes/chunk.bb8d03cc3a53662f6cc1.js",
+        "Home.js": "public/includes/chunk.1666dbc92303fff79c12.js",
         "People.js": "public/includes/chunk.ba02d6c08bb581faf1da.js",
         "People Details.js": "public/includes/chunk.16055b867e4e71f72b89.js",
-        "Ship Details.css": "public/includes/extract.19.848e636cd236ca4f4d49.css",
-        "Ship Details.js": "public/includes/chunk.848e636cd236ca4f4d49.js",
-        "Ship List.js": "public/includes/chunk.49e2ccc27cd05784b1e9.js",
+        "Ship Details.css": "public/includes/extract.19.93d5b5f87b9a5a81206e.css",
+        "Ship Details.js": "public/includes/chunk.93d5b5f87b9a5a81206e.js",
+        "Ship List.js": "public/includes/chunk.7702da9bf7e15c63e6ef.js",
         "Sorties.js": "public/includes/chunk.54fd76ef11a38d8b8ff8.js",
         "TP Calculator.js": "public/includes/chunk.573846ed8e5051013352.js",
         "__KOOT__CLIENT__RUN__FIRST__.js": "public/includes/entry.d605877936f3717b4e22.js",
-        "client.js": "public/includes/entry.35686f3fc2b0dba3a78a.js",
+        "client.js": "public/includes/entry.b85e1229abc56a19d057.js",
         "critical.css": "public/includes/extract.25.2796c24499b16074a99c.css",
         "critical.js": "public/includes/entry.2796c24499b16074a99c.js",
         "polyfill.js": "public/includes/entry.8c95edef8ef2ff5bd93f.js",
