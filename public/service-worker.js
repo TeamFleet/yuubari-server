@@ -5,33 +5,33 @@
 
 const CACHE_NAME = 'koot-sw-cache'
 const urlsToCache = [
-    "/includes/chunk.09454d8c2ec6097faee1.js",
-    "/includes/chunk.057e0285742f11f53d70.js",
+    "/includes/chunk.072c1d9535b7fb2886ce.js",
     "/includes/chunk.0a21f4532ca6fdebdc24.js",
-    "/includes/chunk.1714279831b91308f272.js",
-    "/includes/chunk.19136d0e1204b561772d.js",
-    "/includes/chunk.1e2ee4c39f656c7a18c2.js",
-    "/includes/chunk.1fb9906eda342ba9201c.js",
     "/includes/chunk.0b2ee4c0d38bbc5fa018.js",
+    "/includes/chunk.0e3051d1e89f773b4870.js",
+    "/includes/chunk.1714279831b91308f272.js",
+    "/includes/chunk.1988c34d7d02156588bc.js",
+    "/includes/chunk.1e2ee4c39f656c7a18c2.js",
+    "/includes/chunk.2249f45943a88dcc73cf.js",
     "/includes/chunk.2f4b44952f3792d64f49.js",
+    "/includes/chunk.37cd36d7f6aa84c87234.js",
     "/includes/chunk.389dfd8547a21447a603.js",
-    "/includes/chunk.399ada464231a0ddc220.js",
     "/includes/chunk.3ea1e34bc1e8281126eb.js",
-    "/includes/chunk.4b12ba71bbc6b3713ccf.js",
+    "/includes/chunk.521ed3372ab9ef3a96b1.js",
     "/includes/chunk.6ad159148fc252cd0ed0.js",
-    "/includes/chunk.76b371524f1e40ed5124.js",
+    "/includes/chunk.6c4fa08b7dbcbe4d40a8.js",
     "/includes/chunk.743445d4f3959ab249fd.js",
+    "/includes/chunk.76b371524f1e40ed5124.js",
+    "/includes/chunk.7e99ea42b60dec69dc06.js",
     "/includes/chunk.8924628476ca19ad2ae9.js",
-    "/includes/chunk.915b895837f06d9cc1b0.js",
-    "/includes/chunk.94a97a1a572c3f6b5804.js",
-    "/includes/chunk.9f0dfc594136f6d2c501.js",
-    "/includes/chunk.addcd80b7005936da4a5.js",
+    "/includes/chunk.970de30cf1c54aeef8c3.js",
+    "/includes/chunk.b12631e38c718f49f366.js",
+    "/includes/chunk.c856181585f670756fd1.js",
     "/includes/chunk.cb8ac63e02cc3232c5b0.js",
-    "/includes/chunk.d2d55e295236122eb2d9.js",
     "/includes/chunk.f09c2e106c782f009835.js",
     "/includes/chunk.ff000752232aa478c353.js",
-    "/includes/entry.15feb879db0e135ac19c.js",
     "/includes/entry.26827a4a227e4cb76f27.js",
+    "/includes/entry.7c9a067f29763e6dbd0a.js",
     "/includes/entry.8cd55034406b010e0b2a.js",
     "/includes/entry.e594ac8d88d16d816589.js"
 ]
@@ -44,6 +44,7 @@ function addToCache(request, response) {
         })
     } else {
         console.log('Request fail', response, request)
+        throw new Error(response)
     }
     return response
 }
