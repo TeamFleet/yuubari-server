@@ -7,10 +7,10 @@ const CACHE_NAME = 'koot-sw-cache'
 const urlsToCache = [
     "/includes/chunk.021075485b87cc9ba120.js",
     "/includes/chunk.05cb59898da56d10e277.js",
-    "/includes/chunk.0cf01f2f05d1d1f6da4b.js",
+    "/includes/chunk.252cae23fe43b710ce85.js",
+    "/includes/chunk.352ae20984e2a11c44c5.js",
     "/includes/chunk.3a6a0d769c25d46b74c5.js",
-    "/includes/chunk.434f1a6dfa69799b2626.js",
-    "/includes/chunk.47b349d363b518485d20.js",
+    "/includes/chunk.3fd9f05086d637c3b634.js",
     "/includes/chunk.4d6399200da74b02c2ba.js",
     "/includes/chunk.4fb253260854b150d290.js",
     "/includes/chunk.573a6e06ba7b53c09cfb.js",
@@ -18,7 +18,6 @@ const urlsToCache = [
     "/includes/chunk.5f79f9709c4e8d37c204.js",
     "/includes/chunk.633c6b60222930ebde59.js",
     "/includes/chunk.647637593630e3061f85.js",
-    "/includes/chunk.64987d5e7957f713cc19.js",
     "/includes/chunk.709503e6573ffe5f44da.js",
     "/includes/chunk.8cd6f9a3cf498aaabdb2.js",
     "/includes/chunk.9752ff54871e4b887893.js",
@@ -29,10 +28,11 @@ const urlsToCache = [
     "/includes/chunk.d00f35face4a1352793d.js",
     "/includes/chunk.d262357c766c83b83011.js",
     "/includes/chunk.d5fda92a6ac067f39955.js",
+    "/includes/chunk.ee95c765c9e81a08e583.js",
     "/includes/chunk.fbb28bc99982da3d4077.js",
     "/includes/entry.1491a27bf663b4575494.js",
     "/includes/entry.26827a4a227e4cb76f27.js",
-    "/includes/entry.3e66a0ad4756d6867c65.js",
+    "/includes/entry.a805e057a7b0a77fa082.js",
     "/includes/entry.a8a9897e416105765b51.js"
 ]
 
