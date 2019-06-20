@@ -57,180 +57,180 @@
         "public/service-worker.js"
     ],
     ".zh": {
-        ".public": "public/koot-1561058344876/",
+        ".public": "public/koot-1561060167995/",
         ".entrypoints": {
             "critical": [
-                "public/koot-1561058344876/includes/chunk.601b32a93157f34c552f.js",
-                "public/koot-1561058344876/includes/extract.25.f7b403dd5b4824c6c19b.css",
-                "public/koot-1561058344876/includes/entry.f7b403dd5b4824c6c19b.js"
+                "public/koot-1561060167995/includes/chunk.6dc87eb4ba9507c6b4df.js",
+                "public/koot-1561060167995/includes/extract.25.4c651e65c81cd7a8a3f6.css",
+                "public/koot-1561060167995/includes/entry.4c651e65c81cd7a8a3f6.js"
             ],
             "polyfill": [
-                "public/koot-1561058344876/includes/entry.acff3f0382103c6922d0.js"
+                "public/koot-1561060167995/includes/entry.96792a5ce3d2b8331d59.js"
             ],
             "client": [
-                "public/koot-1561058344876/includes/chunk.601b32a93157f34c552f.js",
-                "public/koot-1561058344876/includes/entry.4f69627d0d40bef1cee2.js"
+                "public/koot-1561060167995/includes/chunk.6dc87eb4ba9507c6b4df.js",
+                "public/koot-1561060167995/includes/entry.1c1af41155c5d8d097b5.js"
             ],
             "__KOOT__CLIENT__RUN__FIRST__": [
-                "public/koot-1561058344876/includes/chunk.601b32a93157f34c552f.js",
-                "public/koot-1561058344876/includes/entry.c7a2c0154167489fb21f.js"
+                "public/koot-1561060167995/includes/chunk.6dc87eb4ba9507c6b4df.js",
+                "public/koot-1561060167995/includes/entry.7475f4c24506773d0c82.js"
             ]
         },
         ".files": {
-            "Equipment Details~Home~People~People Details~Ship Details~Ship List.js": "public/koot-1561058344876/includes/chunk.5e5d275184d55c2d858e.js",
-            "Arsenal~Equipments~Fleet Builder (WIP)~TP Calculator.js": "public/koot-1561058344876/includes/chunk.7640e507322df11bfc58.js",
-            "Equipment Details~People Details~Ship Details~Ship List.js": "public/koot-1561058344876/includes/chunk.b2ad39ff5853654eed77.js",
-            "commons.js": "public/koot-1561058344876/includes/chunk.601b32a93157f34c552f.js",
-            "Arsenal~Equipment Details.js": "public/koot-1561058344876/includes/chunk.b05ce4475eeccba514b7.js",
-            "vendors~Home~Ship Details.js": "public/koot-1561058344876/includes/chunk.647dbdbe8fa04162b38b.js",
-            "About.js": "public/koot-1561058344876/includes/chunk.a3bd7a4315e9177a27fe.js",
-            "Academy.js": "public/koot-1561058344876/includes/chunk.08f538d9ae72d2ff7926.js",
-            "Arsenal.js": "public/koot-1561058344876/includes/chunk.73db749509c8e096330e.js",
-            "Equipment Details.js": "public/koot-1561058344876/includes/chunk.f5f18d59cb31ba940148.js",
-            "Equipments.js": "public/koot-1561058344876/includes/chunk.fdb2f02c4eb2d17ade15.js",
-            "Ex-CGs.js": "public/koot-1561058344876/includes/chunk.701df12cfec1802af728.js",
-            "Expeditions.js": "public/koot-1561058344876/includes/chunk.d9592c03f09f748d36ec.js",
-            "Fleet Builder.js": "public/koot-1561058344876/includes/chunk.4ef155c45499ad368e4a.js",
-            "Fleet Builder (WIP).js": "public/koot-1561058344876/includes/chunk.a660bd3ebcd3ef59670d.js",
-            "Fleet Builder Fleet Details.js": "public/koot-1561058344876/includes/chunk.d7a8a1ff69b4b1bba1d7.js",
-            "Home.js": "public/koot-1561058344876/includes/chunk.ea63592930eb8dc15dd0.js",
-            "People.js": "public/koot-1561058344876/includes/chunk.13dc1f46086b63ca0fb8.js",
-            "People Details.js": "public/koot-1561058344876/includes/chunk.c5c12bc0752594982aaf.js",
-            "Ship Details.css": "public/koot-1561058344876/includes/extract.19.f9b7993adacfc93ab6b9.css",
-            "Ship Details.js": "public/koot-1561058344876/includes/chunk.f9b7993adacfc93ab6b9.js",
-            "Ship List.js": "public/koot-1561058344876/includes/chunk.f42ea297135c2cbe3870.js",
-            "Sorties.js": "public/koot-1561058344876/includes/chunk.d58f49fd6764dd00cd47.js",
-            "TP Calculator.js": "public/koot-1561058344876/includes/chunk.108a2bbd9fd3307a8722.js",
-            "__KOOT__CLIENT__RUN__FIRST__.js": "public/koot-1561058344876/includes/entry.c7a2c0154167489fb21f.js",
-            "client.js": "public/koot-1561058344876/includes/entry.4f69627d0d40bef1cee2.js",
-            "critical.css": "public/koot-1561058344876/includes/extract.25.f7b403dd5b4824c6c19b.css",
-            "critical.js": "public/koot-1561058344876/includes/entry.f7b403dd5b4824c6c19b.js",
-            "polyfill.js": "public/koot-1561058344876/includes/entry.acff3f0382103c6922d0.js",
-            "vendors~Ship Details.css": "public/koot-1561058344876/includes/extract.27.d8a6a7a150bd63a7a757.css",
-            "vendors~Ship Details.js": "public/koot-1561058344876/includes/chunk.d8a6a7a150bd63a7a757.js",
-            "vendors~nedb.js": "public/koot-1561058344876/includes/chunk.d9b9f248fda08cb32272.js",
-            "__KOOT__EXTRACT__CSS__.css": "public/koot-1561058344876/includes/extract.all.7499c4ae23916c222d5af89f944f591c.css"
+            "Equipment Details~Home~People~People Details~Ship Details~Ship List.js": "public/koot-1561060167995/includes/chunk.9af6feccaabe6ae685ce.js",
+            "Arsenal~Equipments~Fleet Builder (WIP)~TP Calculator.js": "public/koot-1561060167995/includes/chunk.93f7f518e0739fd1d85a.js",
+            "Equipment Details~People Details~Ship Details~Ship List.js": "public/koot-1561060167995/includes/chunk.c9fc2b324a827bae4ea4.js",
+            "commons.js": "public/koot-1561060167995/includes/chunk.6dc87eb4ba9507c6b4df.js",
+            "Arsenal~Equipment Details.js": "public/koot-1561060167995/includes/chunk.aa63193e45eb84af961e.js",
+            "vendors~Home~Ship Details.js": "public/koot-1561060167995/includes/chunk.3b2e80fc74b87a546b8f.js",
+            "About.js": "public/koot-1561060167995/includes/chunk.4135772a0e308078be95.js",
+            "Academy.js": "public/koot-1561060167995/includes/chunk.54669e80f20665a2f4f1.js",
+            "Arsenal.js": "public/koot-1561060167995/includes/chunk.b21c5dc1e3905a36422f.js",
+            "Equipment Details.js": "public/koot-1561060167995/includes/chunk.572c5cd3985a9d854128.js",
+            "Equipments.js": "public/koot-1561060167995/includes/chunk.6cebd9bae894b40b7f3f.js",
+            "Ex-CGs.js": "public/koot-1561060167995/includes/chunk.0ef1d97e23eebd61490a.js",
+            "Expeditions.js": "public/koot-1561060167995/includes/chunk.3ebf6fac54b285d42c4f.js",
+            "Fleet Builder.js": "public/koot-1561060167995/includes/chunk.0022d1ea6eb3a612fc34.js",
+            "Fleet Builder (WIP).js": "public/koot-1561060167995/includes/chunk.fce27b97876d71a7dc31.js",
+            "Fleet Builder Fleet Details.js": "public/koot-1561060167995/includes/chunk.c83791598f9e6998363b.js",
+            "Home.js": "public/koot-1561060167995/includes/chunk.6144f6e319caec22a07b.js",
+            "People.js": "public/koot-1561060167995/includes/chunk.4de50985d069dd5291d0.js",
+            "People Details.js": "public/koot-1561060167995/includes/chunk.bc305395b00a2b1e0df7.js",
+            "Ship Details.css": "public/koot-1561060167995/includes/extract.19.fc2fdb135e6df463c29b.css",
+            "Ship Details.js": "public/koot-1561060167995/includes/chunk.fc2fdb135e6df463c29b.js",
+            "Ship List.js": "public/koot-1561060167995/includes/chunk.ba455f89aada6d54c931.js",
+            "Sorties.js": "public/koot-1561060167995/includes/chunk.8029b647182028b4039e.js",
+            "TP Calculator.js": "public/koot-1561060167995/includes/chunk.fcb5c3ce821240edeca3.js",
+            "__KOOT__CLIENT__RUN__FIRST__.js": "public/koot-1561060167995/includes/entry.7475f4c24506773d0c82.js",
+            "client.js": "public/koot-1561060167995/includes/entry.1c1af41155c5d8d097b5.js",
+            "critical.css": "public/koot-1561060167995/includes/extract.25.4c651e65c81cd7a8a3f6.css",
+            "critical.js": "public/koot-1561060167995/includes/entry.4c651e65c81cd7a8a3f6.js",
+            "polyfill.js": "public/koot-1561060167995/includes/entry.96792a5ce3d2b8331d59.js",
+            "vendors~Ship Details.css": "public/koot-1561060167995/includes/extract.27.98bc7205e135a43963df.css",
+            "vendors~Ship Details.js": "public/koot-1561060167995/includes/chunk.98bc7205e135a43963df.js",
+            "vendors~nedb.js": "public/koot-1561060167995/includes/chunk.c4f22f32316468e44e9c.js",
+            "__KOOT__EXTRACT__CSS__.css": "public/koot-1561060167995/includes/extract.all.7499c4ae23916c222d5af89f944f591c.css"
         },
         "service-worker": [
-            "public/koot-1561058344876/service-worker.zh.js"
+            "public/koot-1561060167995/service-worker.zh.js"
         ]
     },
     ".en": {
-        ".public": "public/koot-1561058344876/",
+        ".public": "public/koot-1561060167995/",
         ".entrypoints": {
             "critical": [
-                "public/koot-1561058344876/includes/chunk.2078b7501b1155c7ce9f.js",
-                "public/koot-1561058344876/includes/extract.25.f7b403dd5b4824c6c19b.css",
-                "public/koot-1561058344876/includes/entry.f7b403dd5b4824c6c19b.js"
+                "public/koot-1561060167995/includes/chunk.c1cbbaebb573f1251647.js",
+                "public/koot-1561060167995/includes/extract.25.4c651e65c81cd7a8a3f6.css",
+                "public/koot-1561060167995/includes/entry.4c651e65c81cd7a8a3f6.js"
             ],
             "polyfill": [
-                "public/koot-1561058344876/includes/entry.acff3f0382103c6922d0.js"
+                "public/koot-1561060167995/includes/entry.96792a5ce3d2b8331d59.js"
             ],
             "client": [
-                "public/koot-1561058344876/includes/chunk.2078b7501b1155c7ce9f.js",
-                "public/koot-1561058344876/includes/entry.732243db2dceac265077.js"
+                "public/koot-1561060167995/includes/chunk.c1cbbaebb573f1251647.js",
+                "public/koot-1561060167995/includes/entry.0556ecf1b6dd622e1a81.js"
             ],
             "__KOOT__CLIENT__RUN__FIRST__": [
-                "public/koot-1561058344876/includes/chunk.2078b7501b1155c7ce9f.js",
-                "public/koot-1561058344876/includes/entry.c7a2c0154167489fb21f.js"
+                "public/koot-1561060167995/includes/chunk.c1cbbaebb573f1251647.js",
+                "public/koot-1561060167995/includes/entry.7475f4c24506773d0c82.js"
             ]
         },
         ".files": {
-            "Equipment Details~Home~People~People Details~Ship Details~Ship List.js": "public/koot-1561058344876/includes/chunk.7520b90eb21159fb1415.js",
-            "Arsenal~Equipments~Fleet Builder (WIP)~TP Calculator.js": "public/koot-1561058344876/includes/chunk.2c338f29127191cef3f0.js",
-            "Equipment Details~People Details~Ship Details~Ship List.js": "public/koot-1561058344876/includes/chunk.b2ad39ff5853654eed77.js",
-            "commons.js": "public/koot-1561058344876/includes/chunk.2078b7501b1155c7ce9f.js",
-            "Arsenal~Equipment Details.js": "public/koot-1561058344876/includes/chunk.f0e9ebb63435ee71f443.js",
-            "vendors~Home~Ship Details.js": "public/koot-1561058344876/includes/chunk.647dbdbe8fa04162b38b.js",
-            "About.js": "public/koot-1561058344876/includes/chunk.4b6678063218551c8048.js",
-            "Academy.js": "public/koot-1561058344876/includes/chunk.0b9ce29ea7bc6e97a7a8.js",
-            "Arsenal.js": "public/koot-1561058344876/includes/chunk.f605a982f57b7e4b82af.js",
-            "Equipment Details.js": "public/koot-1561058344876/includes/chunk.30cc8bb9378930897ac5.js",
-            "Equipments.js": "public/koot-1561058344876/includes/chunk.7ec446fddc3ff77f3651.js",
-            "Ex-CGs.js": "public/koot-1561058344876/includes/chunk.867218617d55a663672b.js",
-            "Expeditions.js": "public/koot-1561058344876/includes/chunk.219d52fd328785c1d770.js",
-            "Fleet Builder.js": "public/koot-1561058344876/includes/chunk.5fb4f52107ca22ac1cd8.js",
-            "Fleet Builder (WIP).js": "public/koot-1561058344876/includes/chunk.37a0fa5441acd6a2a2d4.js",
-            "Fleet Builder Fleet Details.js": "public/koot-1561058344876/includes/chunk.dbc9df09747b8da694d4.js",
-            "Home.js": "public/koot-1561058344876/includes/chunk.77a9a6580c1aca17458b.js",
-            "People.js": "public/koot-1561058344876/includes/chunk.c2d42a5e3533aba7b8e1.js",
-            "People Details.js": "public/koot-1561058344876/includes/chunk.24e16cb3594bd23c040d.js",
-            "Ship Details.css": "public/koot-1561058344876/includes/extract.19.588c8c79c5ff51d32427.css",
-            "Ship Details.js": "public/koot-1561058344876/includes/chunk.588c8c79c5ff51d32427.js",
-            "Ship List.js": "public/koot-1561058344876/includes/chunk.0bde5fd4e06ec8c8604e.js",
-            "Sorties.js": "public/koot-1561058344876/includes/chunk.9609d2477b4a3031904f.js",
-            "TP Calculator.js": "public/koot-1561058344876/includes/chunk.e424b16573143b9b452b.js",
-            "__KOOT__CLIENT__RUN__FIRST__.js": "public/koot-1561058344876/includes/entry.c7a2c0154167489fb21f.js",
-            "client.js": "public/koot-1561058344876/includes/entry.732243db2dceac265077.js",
-            "critical.css": "public/koot-1561058344876/includes/extract.25.f7b403dd5b4824c6c19b.css",
-            "critical.js": "public/koot-1561058344876/includes/entry.f7b403dd5b4824c6c19b.js",
-            "polyfill.js": "public/koot-1561058344876/includes/entry.acff3f0382103c6922d0.js",
-            "vendors~Ship Details.css": "public/koot-1561058344876/includes/extract.27.d8a6a7a150bd63a7a757.css",
-            "vendors~Ship Details.js": "public/koot-1561058344876/includes/chunk.d8a6a7a150bd63a7a757.js",
-            "vendors~nedb.js": "public/koot-1561058344876/includes/chunk.d9b9f248fda08cb32272.js",
-            "__KOOT__EXTRACT__CSS__.css": "public/koot-1561058344876/includes/extract.all.7499c4ae23916c222d5af89f944f591c.css"
+            "Equipment Details~Home~People~People Details~Ship Details~Ship List.js": "public/koot-1561060167995/includes/chunk.11038bcc827de5cd963d.js",
+            "Arsenal~Equipments~Fleet Builder (WIP)~TP Calculator.js": "public/koot-1561060167995/includes/chunk.06d5b01ba3d12a57b535.js",
+            "Equipment Details~People Details~Ship Details~Ship List.js": "public/koot-1561060167995/includes/chunk.c9fc2b324a827bae4ea4.js",
+            "commons.js": "public/koot-1561060167995/includes/chunk.c1cbbaebb573f1251647.js",
+            "Arsenal~Equipment Details.js": "public/koot-1561060167995/includes/chunk.7c4f5285837b895ea992.js",
+            "vendors~Home~Ship Details.js": "public/koot-1561060167995/includes/chunk.3b2e80fc74b87a546b8f.js",
+            "About.js": "public/koot-1561060167995/includes/chunk.e6711bd3c0043f6d70c6.js",
+            "Academy.js": "public/koot-1561060167995/includes/chunk.2d8da4893fb902c3e078.js",
+            "Arsenal.js": "public/koot-1561060167995/includes/chunk.b1ada2913545f810087a.js",
+            "Equipment Details.js": "public/koot-1561060167995/includes/chunk.b5a52f1c21ef59a0ba24.js",
+            "Equipments.js": "public/koot-1561060167995/includes/chunk.1f5b92d30e431d95233d.js",
+            "Ex-CGs.js": "public/koot-1561060167995/includes/chunk.1773fafaa9fd1fef00e8.js",
+            "Expeditions.js": "public/koot-1561060167995/includes/chunk.e388d74f391e47e2bcf1.js",
+            "Fleet Builder.js": "public/koot-1561060167995/includes/chunk.869eaa53c5142cae142f.js",
+            "Fleet Builder (WIP).js": "public/koot-1561060167995/includes/chunk.49024b309bc892e088ca.js",
+            "Fleet Builder Fleet Details.js": "public/koot-1561060167995/includes/chunk.12ad5657722f7b99296d.js",
+            "Home.js": "public/koot-1561060167995/includes/chunk.392c39c16ebf75a4fb84.js",
+            "People.js": "public/koot-1561060167995/includes/chunk.b39d524c59781bbeb825.js",
+            "People Details.js": "public/koot-1561060167995/includes/chunk.7275237a22e54024b1a4.js",
+            "Ship Details.css": "public/koot-1561060167995/includes/extract.19.3f1f339f93a3e4df6136.css",
+            "Ship Details.js": "public/koot-1561060167995/includes/chunk.3f1f339f93a3e4df6136.js",
+            "Ship List.js": "public/koot-1561060167995/includes/chunk.8230bb62eef33673ef33.js",
+            "Sorties.js": "public/koot-1561060167995/includes/chunk.98dc1eccb620737fee89.js",
+            "TP Calculator.js": "public/koot-1561060167995/includes/chunk.7429ee59e8e5654be9ac.js",
+            "__KOOT__CLIENT__RUN__FIRST__.js": "public/koot-1561060167995/includes/entry.7475f4c24506773d0c82.js",
+            "client.js": "public/koot-1561060167995/includes/entry.0556ecf1b6dd622e1a81.js",
+            "critical.css": "public/koot-1561060167995/includes/extract.25.4c651e65c81cd7a8a3f6.css",
+            "critical.js": "public/koot-1561060167995/includes/entry.4c651e65c81cd7a8a3f6.js",
+            "polyfill.js": "public/koot-1561060167995/includes/entry.96792a5ce3d2b8331d59.js",
+            "vendors~Ship Details.css": "public/koot-1561060167995/includes/extract.27.98bc7205e135a43963df.css",
+            "vendors~Ship Details.js": "public/koot-1561060167995/includes/chunk.98bc7205e135a43963df.js",
+            "vendors~nedb.js": "public/koot-1561060167995/includes/chunk.c4f22f32316468e44e9c.js",
+            "__KOOT__EXTRACT__CSS__.css": "public/koot-1561060167995/includes/extract.all.7499c4ae23916c222d5af89f944f591c.css"
         },
         "service-worker": [
-            "public/koot-1561058344876/service-worker.en.js"
+            "public/koot-1561060167995/service-worker.en.js"
         ]
     },
     ".ja": {
-        ".public": "public/koot-1561058344876/",
+        ".public": "public/koot-1561060167995/",
         ".entrypoints": {
             "critical": [
-                "public/koot-1561058344876/includes/chunk.2078b7501b1155c7ce9f.js",
-                "public/koot-1561058344876/includes/extract.25.f7b403dd5b4824c6c19b.css",
-                "public/koot-1561058344876/includes/entry.f7b403dd5b4824c6c19b.js"
+                "public/koot-1561060167995/includes/chunk.c1cbbaebb573f1251647.js",
+                "public/koot-1561060167995/includes/extract.25.4c651e65c81cd7a8a3f6.css",
+                "public/koot-1561060167995/includes/entry.4c651e65c81cd7a8a3f6.js"
             ],
             "polyfill": [
-                "public/koot-1561058344876/includes/entry.acff3f0382103c6922d0.js"
+                "public/koot-1561060167995/includes/entry.96792a5ce3d2b8331d59.js"
             ],
             "client": [
-                "public/koot-1561058344876/includes/chunk.2078b7501b1155c7ce9f.js",
-                "public/koot-1561058344876/includes/entry.983230425f0f11474376.js"
+                "public/koot-1561060167995/includes/chunk.c1cbbaebb573f1251647.js",
+                "public/koot-1561060167995/includes/entry.086c0cd748fed059f9a2.js"
             ],
             "__KOOT__CLIENT__RUN__FIRST__": [
-                "public/koot-1561058344876/includes/chunk.2078b7501b1155c7ce9f.js",
-                "public/koot-1561058344876/includes/entry.c7a2c0154167489fb21f.js"
+                "public/koot-1561060167995/includes/chunk.c1cbbaebb573f1251647.js",
+                "public/koot-1561060167995/includes/entry.7475f4c24506773d0c82.js"
             ]
         },
         ".files": {
-            "Equipment Details~Home~People~People Details~Ship Details~Ship List.js": "public/koot-1561058344876/includes/chunk.7520b90eb21159fb1415.js",
-            "Arsenal~Equipments~Fleet Builder (WIP)~TP Calculator.js": "public/koot-1561058344876/includes/chunk.2c338f29127191cef3f0.js",
-            "Equipment Details~People Details~Ship Details~Ship List.js": "public/koot-1561058344876/includes/chunk.b2ad39ff5853654eed77.js",
-            "commons.js": "public/koot-1561058344876/includes/chunk.2078b7501b1155c7ce9f.js",
-            "Arsenal~Equipment Details.js": "public/koot-1561058344876/includes/chunk.7bc07f3e65e679a32963.js",
-            "vendors~Home~Ship Details.js": "public/koot-1561058344876/includes/chunk.647dbdbe8fa04162b38b.js",
-            "About.js": "public/koot-1561058344876/includes/chunk.31c021558e063843488c.js",
-            "Academy.js": "public/koot-1561058344876/includes/chunk.c00895279097aa072657.js",
-            "Arsenal.js": "public/koot-1561058344876/includes/chunk.89f4a9187dbc9cd17eb5.js",
-            "Equipment Details.js": "public/koot-1561058344876/includes/chunk.340048d167deffafa53f.js",
-            "Equipments.js": "public/koot-1561058344876/includes/chunk.c1a17bd9994c2544875c.js",
-            "Ex-CGs.js": "public/koot-1561058344876/includes/chunk.a07582dcbeadaca49781.js",
-            "Expeditions.js": "public/koot-1561058344876/includes/chunk.6b17320872454e206919.js",
-            "Fleet Builder.js": "public/koot-1561058344876/includes/chunk.aa5127f8efd655d8d751.js",
-            "Fleet Builder (WIP).js": "public/koot-1561058344876/includes/chunk.f9d12227574e049a49d7.js",
-            "Fleet Builder Fleet Details.js": "public/koot-1561058344876/includes/chunk.f533e9b8dbf5df2b7b80.js",
-            "Home.js": "public/koot-1561058344876/includes/chunk.6011b9c5a718facf419e.js",
-            "People.js": "public/koot-1561058344876/includes/chunk.64052c2a3adbe37e1b28.js",
-            "People Details.js": "public/koot-1561058344876/includes/chunk.16073363a11f062719c3.js",
-            "Ship Details.css": "public/koot-1561058344876/includes/extract.19.63b6c1143c6b778fe034.css",
-            "Ship Details.js": "public/koot-1561058344876/includes/chunk.63b6c1143c6b778fe034.js",
-            "Ship List.js": "public/koot-1561058344876/includes/chunk.2fc9c49779da6e7dbc9e.js",
-            "Sorties.js": "public/koot-1561058344876/includes/chunk.cba3137a21c4f2a34e3c.js",
-            "TP Calculator.js": "public/koot-1561058344876/includes/chunk.b1c7c83f86aa0384e5ba.js",
-            "__KOOT__CLIENT__RUN__FIRST__.js": "public/koot-1561058344876/includes/entry.c7a2c0154167489fb21f.js",
-            "client.js": "public/koot-1561058344876/includes/entry.983230425f0f11474376.js",
-            "critical.css": "public/koot-1561058344876/includes/extract.25.f7b403dd5b4824c6c19b.css",
-            "critical.js": "public/koot-1561058344876/includes/entry.f7b403dd5b4824c6c19b.js",
-            "polyfill.js": "public/koot-1561058344876/includes/entry.acff3f0382103c6922d0.js",
-            "vendors~Ship Details.css": "public/koot-1561058344876/includes/extract.27.d8a6a7a150bd63a7a757.css",
-            "vendors~Ship Details.js": "public/koot-1561058344876/includes/chunk.d8a6a7a150bd63a7a757.js",
-            "vendors~nedb.js": "public/koot-1561058344876/includes/chunk.d9b9f248fda08cb32272.js",
-            "__KOOT__EXTRACT__CSS__.css": "public/koot-1561058344876/includes/extract.all.7499c4ae23916c222d5af89f944f591c.css"
+            "Equipment Details~Home~People~People Details~Ship Details~Ship List.js": "public/koot-1561060167995/includes/chunk.11038bcc827de5cd963d.js",
+            "Arsenal~Equipments~Fleet Builder (WIP)~TP Calculator.js": "public/koot-1561060167995/includes/chunk.06d5b01ba3d12a57b535.js",
+            "Equipment Details~People Details~Ship Details~Ship List.js": "public/koot-1561060167995/includes/chunk.c9fc2b324a827bae4ea4.js",
+            "commons.js": "public/koot-1561060167995/includes/chunk.c1cbbaebb573f1251647.js",
+            "Arsenal~Equipment Details.js": "public/koot-1561060167995/includes/chunk.c42954da44ad9b74a5c8.js",
+            "vendors~Home~Ship Details.js": "public/koot-1561060167995/includes/chunk.3b2e80fc74b87a546b8f.js",
+            "About.js": "public/koot-1561060167995/includes/chunk.62327e302f24c100973d.js",
+            "Academy.js": "public/koot-1561060167995/includes/chunk.611984cf1ed4c7e07e01.js",
+            "Arsenal.js": "public/koot-1561060167995/includes/chunk.0a07bca2b430a30fdb9b.js",
+            "Equipment Details.js": "public/koot-1561060167995/includes/chunk.9ace1100bed674786380.js",
+            "Equipments.js": "public/koot-1561060167995/includes/chunk.de9044c3c4bceb590f6a.js",
+            "Ex-CGs.js": "public/koot-1561060167995/includes/chunk.134efe3f6985020c20a7.js",
+            "Expeditions.js": "public/koot-1561060167995/includes/chunk.b6dd2ce2c58d7f583910.js",
+            "Fleet Builder.js": "public/koot-1561060167995/includes/chunk.031a0e77132487b64266.js",
+            "Fleet Builder (WIP).js": "public/koot-1561060167995/includes/chunk.38c30572c4bf895078ce.js",
+            "Fleet Builder Fleet Details.js": "public/koot-1561060167995/includes/chunk.ebc2568924b7c2ca1962.js",
+            "Home.js": "public/koot-1561060167995/includes/chunk.392c39c16ebf75a4fb84.js",
+            "People.js": "public/koot-1561060167995/includes/chunk.e1e2bdd7f3d358ebc10d.js",
+            "People Details.js": "public/koot-1561060167995/includes/chunk.473c2c9e324198edef81.js",
+            "Ship Details.css": "public/koot-1561060167995/includes/extract.19.e5bec2eff9028652231b.css",
+            "Ship Details.js": "public/koot-1561060167995/includes/chunk.e5bec2eff9028652231b.js",
+            "Ship List.js": "public/koot-1561060167995/includes/chunk.3643ad385616532939a1.js",
+            "Sorties.js": "public/koot-1561060167995/includes/chunk.6fa1da4b364b63c6dae8.js",
+            "TP Calculator.js": "public/koot-1561060167995/includes/chunk.ab164b27f3b2953e98d0.js",
+            "__KOOT__CLIENT__RUN__FIRST__.js": "public/koot-1561060167995/includes/entry.7475f4c24506773d0c82.js",
+            "client.js": "public/koot-1561060167995/includes/entry.086c0cd748fed059f9a2.js",
+            "critical.css": "public/koot-1561060167995/includes/extract.25.4c651e65c81cd7a8a3f6.css",
+            "critical.js": "public/koot-1561060167995/includes/entry.4c651e65c81cd7a8a3f6.js",
+            "polyfill.js": "public/koot-1561060167995/includes/entry.96792a5ce3d2b8331d59.js",
+            "vendors~Ship Details.css": "public/koot-1561060167995/includes/extract.27.98bc7205e135a43963df.css",
+            "vendors~Ship Details.js": "public/koot-1561060167995/includes/chunk.98bc7205e135a43963df.js",
+            "vendors~nedb.js": "public/koot-1561060167995/includes/chunk.c4f22f32316468e44e9c.js",
+            "__KOOT__EXTRACT__CSS__.css": "public/koot-1561060167995/includes/extract.all.7499c4ae23916c222d5af89f944f591c.css"
         },
         "service-worker": [
-            "public/koot-1561058344876/service-worker.ja.js"
+            "public/koot-1561060167995/service-worker.ja.js"
         ]
     }
 }
