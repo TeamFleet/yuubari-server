@@ -1,9 +1,9 @@
 .git
 .gitignore
+.vscode
+docker-compose*
+Docerfile*
+LICENSE
 node_modules
 node-debug.log
-Docerfile*
-docker-compose*
 README.md
-LICENSE
-.vscode
