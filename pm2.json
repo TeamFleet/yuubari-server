@@ -2,10 +2,9 @@
     "apps": [
         {
             "name": "yuubari-server",
-            "script": "deploy-start-server.js",
+            "script": "start.js",
             "max_memory_restart": "500M",
-            "instances": 1,
-            "exec_mode": "fork",
+            "exec_mode": "cluster_mode",
             "out_file": "logs/server.log",
             "error_file": "logs/server-error.log"
         }
