@@ -4,39 +4,39 @@
         ".out": "public/",
         ".entrypoints": {
             "critical": [
-                "public/includes/chunk.33873f394c93c9a65810.js",
+                "public/includes/chunk.b49692192b8ee84dbb20.js",
                 "public/includes/extract.21.b1d4300bfa79eb4499d6.css",
                 "public/includes/entry.b1d4300bfa79eb4499d6.js"
             ],
             "polyfill": [
-                "public/includes/chunk.33873f394c93c9a65810.js",
+                "public/includes/chunk.b49692192b8ee84dbb20.js",
                 "public/includes/entry.8b56e3735283c09322d0.js"
             ],
             "client": [
                 "public/includes/chunk.db4f5e5f878b6e1870bd.js",
-                "public/includes/chunk.33873f394c93c9a65810.js",
-                "public/includes/entry.8989280f9f79d3e1e2dc.js"
+                "public/includes/chunk.b49692192b8ee84dbb20.js",
+                "public/includes/entry.160b0c8d61910b002140.js"
             ],
             "__KOOT__CLIENT__RUN__FIRST__": [
                 "public/includes/chunk.db4f5e5f878b6e1870bd.js",
-                "public/includes/chunk.33873f394c93c9a65810.js",
+                "public/includes/chunk.b49692192b8ee84dbb20.js",
                 "public/includes/entry.5c0f4805bde63a35d687.js"
             ]
         },
         ".files": {
-            "libs-others.js": "public/includes/chunk.33873f394c93c9a65810.js",
+            "libs-others.js": "public/includes/chunk.b49692192b8ee84dbb20.js",
             "libs.js": "public/includes/chunk.db4f5e5f878b6e1870bd.js",
-            "About_Page.js": "public/includes/chunk.cd2fbbcec0ecd6b4fab7.js",
+            "About_Page.js": "public/includes/chunk.428e22891d1a7810a2a3.js",
             "Academy_Entry_Page.js": "public/includes/chunk.63b0e2dfc4f41d9022fa.js",
             "Arsenal_Page.js": "public/includes/chunk.0fd7967fca49a4e2ca49.js",
-            "Equipment_Details_Page.js": "public/includes/chunk.c1e66950fefd556be987.js",
-            "Equipment_List_Page.js": "public/includes/chunk.3693ccab1baa731048e9.js",
+            "Equipment_Details_Page.js": "public/includes/chunk.bb901658ac39cfcf5f44.js",
+            "Equipment_List_Page.js": "public/includes/chunk.a4875e636792836e1b7c.js",
             "Expeditions_List_Page.js": "public/includes/chunk.b8ba9e2d90c229c76be5.js",
             "Extra_CGs_Page.js": "public/includes/chunk.f59945581c26759ebe85.js",
             "Fleet_Builder_Entry_Page.js": "public/includes/chunk.6b776de182c1af4f139e.js",
-            "Fleet_Builder_Fleet_Details_Page.js": "public/includes/chunk.877d79a09dcf69c80475.js",
+            "Fleet_Builder_Fleet_Details_Page.js": "public/includes/chunk.e2ede7a40b2088e255ba.js",
             "Fleet_Builder_WIP_Blank_Page.js": "public/includes/chunk.2ef241ecb3f0c1cc647b.js",
-            "Home_Page.js": "public/includes/chunk.98336dc028ae79238981.js",
+            "Home_Page.js": "public/includes/chunk.3bef6e5fc66e1bdfb2b8.js",
             "People_Details_Page.js": "public/includes/chunk.b0b33dd51d0fc1ca91dc.js",
             "People_List_Page.js": "public/includes/chunk.5338212abd0b0e5a4327.js",
             "Ship_Details_Page.css": "public/includes/extract.15.381555c5f58d6754b11b.css",
@@ -45,7 +45,7 @@
             "Sorties_List_Page.js": "public/includes/chunk.3fc917ff1f9f3b42d7da.js",
             "TP_Calculator_Single-Page-Tool.js": "public/includes/chunk.c55bb9580545fdfa4f6a.js",
             "__KOOT__CLIENT__RUN__FIRST__.js": "public/includes/entry.5c0f4805bde63a35d687.js",
-            "client.js": "public/includes/entry.8989280f9f79d3e1e2dc.js",
+            "client.js": "public/includes/entry.160b0c8d61910b002140.js",
             "critical.css": "public/includes/extract.21.b1d4300bfa79eb4499d6.css",
             "critical.js": "public/includes/entry.b1d4300bfa79eb4499d6.js",
             "polyfill.js": "public/includes/entry.8b56e3735283c09322d0.js",
@@ -63,39 +63,39 @@
         ".out": "public/",
         ".entrypoints": {
             "critical": [
-                "public/includes/chunk.8351a0518974f9438142.js",
+                "public/includes/chunk.d3ac5213b4dfa4dbd82e.js",
                 "public/includes/extract.21.b1d4300bfa79eb4499d6.css",
                 "public/includes/entry.b1d4300bfa79eb4499d6.js"
             ],
             "polyfill": [
-                "public/includes/chunk.8351a0518974f9438142.js",
+                "public/includes/chunk.d3ac5213b4dfa4dbd82e.js",
                 "public/includes/entry.8b56e3735283c09322d0.js"
             ],
             "client": [
                 "public/includes/chunk.db4f5e5f878b6e1870bd.js",
-                "public/includes/chunk.8351a0518974f9438142.js",
-                "public/includes/entry.01509f968db921dd4dda.js"
+                "public/includes/chunk.d3ac5213b4dfa4dbd82e.js",
+                "public/includes/entry.8932b73d6b690c9fabfe.js"
             ],
             "__KOOT__CLIENT__RUN__FIRST__": [
                 "public/includes/chunk.db4f5e5f878b6e1870bd.js",
-                "public/includes/chunk.8351a0518974f9438142.js",
+                "public/includes/chunk.d3ac5213b4dfa4dbd82e.js",
                 "public/includes/entry.41b940702576c9491b46.js"
             ]
         },
         ".files": {
-            "libs-others.js": "public/includes/chunk.8351a0518974f9438142.js",
+            "libs-others.js": "public/includes/chunk.d3ac5213b4dfa4dbd82e.js",
             "libs.js": "public/includes/chunk.db4f5e5f878b6e1870bd.js",
-            "About_Page.js": "public/includes/chunk.b1b8cc483f0b7a18e083.js",
+            "About_Page.js": "public/includes/chunk.a24b242adb99f05c35fd.js",
             "Academy_Entry_Page.js": "public/includes/chunk.71228a15b5c76487c8c5.js",
             "Arsenal_Page.js": "public/includes/chunk.10827b8effbc33f7a35b.js",
-            "Equipment_Details_Page.js": "public/includes/chunk.00aeb5fa764762b37395.js",
+            "Equipment_Details_Page.js": "public/includes/chunk.42207108d5a1b4702885.js",
             "Equipment_List_Page.js": "public/includes/chunk.e5a6b67e10a49bc323ef.js",
             "Expeditions_List_Page.js": "public/includes/chunk.29e5726e758fe1c03b31.js",
             "Extra_CGs_Page.js": "public/includes/chunk.f6cc636f689ef4572312.js",
             "Fleet_Builder_Entry_Page.js": "public/includes/chunk.4085a7a5fe4233cf0f39.js",
-            "Fleet_Builder_Fleet_Details_Page.js": "public/includes/chunk.df771afd354633a9b251.js",
+            "Fleet_Builder_Fleet_Details_Page.js": "public/includes/chunk.c2171eb1950f5b5650bb.js",
             "Fleet_Builder_WIP_Blank_Page.js": "public/includes/chunk.b3a030640a584bfd1258.js",
-            "Home_Page.js": "public/includes/chunk.fbf2c1f98c59048affb8.js",
+            "Home_Page.js": "public/includes/chunk.2d357259001712c42f65.js",
             "People_Details_Page.js": "public/includes/chunk.d631ac5c88122eb34233.js",
             "People_List_Page.js": "public/includes/chunk.214a71ce05c706f5288f.js",
             "Ship_Details_Page.css": "public/includes/extract.15.ce60c2454352e247561a.css",
@@ -104,7 +104,7 @@
             "Sorties_List_Page.js": "public/includes/chunk.c0bd9e54b568f4c3de83.js",
             "TP_Calculator_Single-Page-Tool.js": "public/includes/chunk.b629d2ab62d1e05a0eb4.js",
             "__KOOT__CLIENT__RUN__FIRST__.js": "public/includes/entry.41b940702576c9491b46.js",
-            "client.js": "public/includes/entry.01509f968db921dd4dda.js",
+            "client.js": "public/includes/entry.8932b73d6b690c9fabfe.js",
             "critical.css": "public/includes/extract.21.b1d4300bfa79eb4499d6.css",
             "critical.js": "public/includes/entry.b1d4300bfa79eb4499d6.js",
             "polyfill.js": "public/includes/entry.8b56e3735283c09322d0.js",
@@ -122,48 +122,48 @@
         ".out": "public/",
         ".entrypoints": {
             "critical": [
-                "public/includes/chunk.24a8997bd9d8b6277a70.js",
+                "public/includes/chunk.3dcc7f7a92a55c7b8490.js",
                 "public/includes/extract.21.b1d4300bfa79eb4499d6.css",
                 "public/includes/entry.b1d4300bfa79eb4499d6.js"
             ],
             "polyfill": [
-                "public/includes/chunk.24a8997bd9d8b6277a70.js",
+                "public/includes/chunk.3dcc7f7a92a55c7b8490.js",
                 "public/includes/entry.8b56e3735283c09322d0.js"
             ],
             "client": [
                 "public/includes/chunk.db4f5e5f878b6e1870bd.js",
-                "public/includes/chunk.24a8997bd9d8b6277a70.js",
-                "public/includes/entry.b2da0f9fb2e9075043c1.js"
+                "public/includes/chunk.3dcc7f7a92a55c7b8490.js",
+                "public/includes/entry.a42ebd4d86da61c7aae3.js"
             ],
             "__KOOT__CLIENT__RUN__FIRST__": [
                 "public/includes/chunk.db4f5e5f878b6e1870bd.js",
-                "public/includes/chunk.24a8997bd9d8b6277a70.js",
+                "public/includes/chunk.3dcc7f7a92a55c7b8490.js",
                 "public/includes/entry.41b940702576c9491b46.js"
             ]
         },
         ".files": {
-            "libs-others.js": "public/includes/chunk.24a8997bd9d8b6277a70.js",
+            "libs-others.js": "public/includes/chunk.3dcc7f7a92a55c7b8490.js",
             "libs.js": "public/includes/chunk.db4f5e5f878b6e1870bd.js",
-            "About_Page.js": "public/includes/chunk.05fa1f9f31628461d2f0.js",
+            "About_Page.js": "public/includes/chunk.a1a58219689d1f7fc48d.js",
             "Academy_Entry_Page.js": "public/includes/chunk.8c73b3840000d95919a6.js",
             "Arsenal_Page.js": "public/includes/chunk.68fdc612c2447c24be2a.js",
-            "Equipment_Details_Page.js": "public/includes/chunk.03616ca356ef4dbe3fa4.js",
-            "Equipment_List_Page.js": "public/includes/chunk.ceed884603e2f6d72d14.js",
+            "Equipment_Details_Page.js": "public/includes/chunk.6de28707c2d204fa4540.js",
+            "Equipment_List_Page.js": "public/includes/chunk.c7da5220c4ff1c10a910.js",
             "Expeditions_List_Page.js": "public/includes/chunk.aa42d51d4d4228fd013d.js",
             "Extra_CGs_Page.js": "public/includes/chunk.3369df6c95e13b15ebf9.js",
             "Fleet_Builder_Entry_Page.js": "public/includes/chunk.5fd25e99b0d933e31c61.js",
-            "Fleet_Builder_Fleet_Details_Page.js": "public/includes/chunk.2af6e67c76b64545b118.js",
+            "Fleet_Builder_Fleet_Details_Page.js": "public/includes/chunk.fecad383b1cf6f016a46.js",
             "Fleet_Builder_WIP_Blank_Page.js": "public/includes/chunk.0fc1648c6aeab04d484a.js",
             "Home_Page.js": "public/includes/chunk.2d357259001712c42f65.js",
             "People_Details_Page.js": "public/includes/chunk.b38d9bb3ea573519b4d9.js",
             "People_List_Page.js": "public/includes/chunk.da405b90275bbd39de15.js",
             "Ship_Details_Page.css": "public/includes/extract.15.98ddb9081aec33a00ab3.css",
             "Ship_Details_Page.js": "public/includes/chunk.98ddb9081aec33a00ab3.js",
-            "Ship_List_Page.js": "public/includes/chunk.36e4fe473d9c7cdfb17e.js",
+            "Ship_List_Page.js": "public/includes/chunk.2dc96f087a27a0b1cf9a.js",
             "Sorties_List_Page.js": "public/includes/chunk.505143bef7646ff9377b.js",
             "TP_Calculator_Single-Page-Tool.js": "public/includes/chunk.8a02279a74e508c17258.js",
             "__KOOT__CLIENT__RUN__FIRST__.js": "public/includes/entry.41b940702576c9491b46.js",
-            "client.js": "public/includes/entry.b2da0f9fb2e9075043c1.js",
+            "client.js": "public/includes/entry.a42ebd4d86da61c7aae3.js",
             "critical.css": "public/includes/extract.21.b1d4300bfa79eb4499d6.css",
             "critical.js": "public/includes/entry.b1d4300bfa79eb4499d6.js",
             "polyfill.js": "public/includes/entry.8b56e3735283c09322d0.js",
