@@ -91,9 +91,9 @@ if (typeof global.KOOT_DIST_DIR === "undefined") {
 /************************************************************************/
 /******/ ({
 
-/***/ "./logs/tmp/config/portion.server.1584647861670.js":
+/***/ "./logs/tmp/config/portion.server.1584740121041.js":
 /*!*********************************************************!*\
-  !*** ./logs/tmp/config/portion.server.1584647861670.js ***!
+  !*** ./logs/tmp/config/portion.server.1584740121041.js ***!
   \*********************************************************/
 /*! exports provided: template, server */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -1254,7 +1254,7 @@ const doPageinfo = (store, props, pageinfo) => {
  */
 
 
-/* harmony default export */ __webpack_exports__["default"] = ((options = {}) => WrappedComponent => {
+const extend = (options = {}) => WrappedComponent => {
   // console.log((typeof store === 'undefined' ? `\x1b[31m×\x1b[0m` : `\x1b[32m√\x1b[0m`) + ' store in [HOC] extend run')
   const {
     connect: _connect = false,
@@ -1445,6 +1445,11 @@ const doPageinfo = (store, props, pageinfo) => {
       //     console.log(props.forwardedRef);
       // }
 
+      if (typeof props.kootForwardedRef !== 'undefined') {
+        props.forwardedRef = props.kootForwardedRef;
+        delete props.kootForwardedRef;
+      }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(WrappedComponent, props);
     }
 
@@ -1478,31 +1483,51 @@ const doPageinfo = (store, props, pageinfo) => {
   //     setConfig({ logLevel: 'debug' })
   //     KootComponent = hot(module)(KootComponent)
   // }
-  // console.log(WrappedComponent);
-
-
-  let KootComponent = hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_2___default()(KootReactComponent, WrappedComponent); // if (typeof styles === 'object' &&
+  // if (typeof styles === 'object' &&
   //     typeof styles.wrapper === 'string'
   // ) {
   //     KootComponent = ImportStyle(styles)(KootComponent)
   // }
 
+
+  const KootComponent = hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_2___default()(KootReactComponent, WrappedComponent); // return KootComponent;
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.forwardRef((props, ref) => createKootComponent(KootComponent, _connect, props, ref));
+};
+
+const createKootComponent = (_component, _connect, props, ref) => {
+  let Component = _component;
+
   if (_connect === true) {
-    KootComponent = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(() => ({}))(KootComponent);
+    Component = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(() => ({}), undefined, undefined, {
+      forwardRef: !!ref || !!props.forwardedRef
+    })(Component);
   } else if (typeof _connect === 'function') {
-    KootComponent = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(_connect)(KootComponent);
+    Component = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(_connect, undefined, undefined, {
+      forwardRef: !!ref || !!props.forwardedRef
+    })(Component);
   } else if (Array.isArray(_connect)) {
-    KootComponent = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(..._connect)(KootComponent);
-  } // return KootComponent;
+    if (typeof _connect[3] !== 'object') _connect[3] = {};
+    _connect[3].forwardRef = !!ref || !!props.forwardedRef;
+    Component = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(..._connect)(Component);
+  }
 
-
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.forwardRef((props, ref) => {
-    if (ref) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(KootComponent, _extends({}, props, {
-      forwardedRef: ref
+  if (props.forwardedRef) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, _extends({}, props, {
+      kootForwardedRef: props.forwardedRef
     }));
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(KootComponent, props);
-  });
-});
+  }
+
+  if (ref) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, _extends({}, props, {
+      kootForwardedRef: ref
+    }));
+  }
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, props);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (extend);
 
 /***/ }),
 
@@ -2525,7 +2550,7 @@ const ssr = async __KOOT_SSR__ => new Promise(async resolve => {
 __webpack_require__.r(__webpack_exports__);
 const fs = __webpack_require__(/*! fs-extra */ "fs-extra");
 
-const router = new __webpack_require__(/*! koa-router */ "koa-router")();
+const router = new __webpack_require__(/*! koa-router */ "koa-router")(); // const { pathnameSockjs } = require('../../../defaults/before-build');
 
 const {
   publicPathPrefix,
@@ -2535,7 +2560,8 @@ const {
 const {
   dll,
   serviceWorker
-} = __webpack_require__(/*! ../../../defaults/dev-request-uri */ "./node_modules/koot/defaults/dev-request-uri.js");
+} = __webpack_require__(/*! ../../../defaults/dev-request-uri */ "./node_modules/koot/defaults/dev-request-uri.js"); // const getWDSport = require('../../../utils/get-webpack-dev-server-port');
+
 
 const {
   KOOT_DEV_DLL_FILE_CLIENT: fileDllClient
@@ -2553,7 +2579,13 @@ router.get(serviceWorker, async ctx => {
   const res = await fetch(new Request(uri));
   ctx.body = await res.text();
   ctx.type = 'application/javascript';
-});
+}); // router.get(`/${pathnameSockjs}/*`, async ctx => {
+//     const portWebpackDevServer = getWDSport();
+//     ctx.redirect(
+//         `${ctx.protocol}://${ctx.hostname}:${portWebpackDevServer}${ctx.path}?${ctx.querystring}`
+//     );
+// });
+
 /* harmony default export */ __webpack_exports__["default"] = (router.routes());
 
 /***/ }),
@@ -2781,7 +2813,7 @@ module.exports = KootReactRenderCache;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _KOOT_PROJECT_CONFIG_PORTION_SERVER_PATHNAME___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! __KOOT_PROJECT_CONFIG_PORTION_SERVER_PATHNAME__ */ "./logs/tmp/config/portion.server.1584647861670.js");
+/* harmony import */ var _KOOT_PROJECT_CONFIG_PORTION_SERVER_PATHNAME___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! __KOOT_PROJECT_CONFIG_PORTION_SERVER_PATHNAME__ */ "./logs/tmp/config/portion.server.1584740121041.js");
 /* harmony import */ var _utils_get_pathname_dev_server_start__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/get-pathname-dev-server-start */ "./node_modules/koot/utils/get-pathname-dev-server-start.js");
 /* harmony import */ var _utils_get_pathname_dev_server_start__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_utils_get_pathname_dev_server_start__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _libs_create_koa_app__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../libs/create-koa-app */ "./node_modules/koot/libs/create-koa-app.js");
@@ -3073,7 +3105,7 @@ __webpack_require__.r(__webpack_exports__);
 const validateTemplate = template => {
   if (false) {}
 
-  if (true) template = "<!DOCTYPE html>\r\n<html <%- inject.htmlLang -%>>\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n\r\n    <title><%= inject.title -%></title>\r\n\r\n    <base target=\"_self\">\r\n\r\n    <meta name=\"viewport\" content=\"width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no\">\r\n    <meta name=\"format-detection\" content=\"telephone=no,email=no,address=no\">\r\n    <meta name=\"format-detection\" content=\"email=no\">\r\n    <meta name=\"format-detection\" content=\"address=no\">\r\n    <meta name=\"format-detection\" content=\"telephone=no\">\r\n    <meta name=\"HandheldFriendly\" content=\"true\">\r\n    <meta name=\"mobile-web-app-capable\" content=\"yes\">\r\n\r\n    <link rel=\"shortcut icon\" href=\"/favicon.ico\" type=\"image/x-icon\">\r\n    <link rel=\"icon\" href=\"/icon-256.png\" type=\"image/png\" sizes=\"256x256\">\r\n    <link rel=\"icon\" href=\"/icon-128.png\" type=\"image/png\" sizes=\"128x128\">\r\n    <%- inject.manifest -%>\r\n\r\n    <meta name=\"theme-color\" content=\"#263238\" />\r\n\r\n    <!-- IE/Edge -->\r\n    <meta name=\"renderer\" content=\"webkit\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">\r\n\r\n    <!-- iOS -->\r\n    <meta name=\"apple-mobile-web-app-capable\" content=\"yes\">\r\n    <meta name=\"apple-mobile-web-app-status-bar-style\" content=\"black-translucent\">\r\n\r\n    <meta name=\"copyright\" content=\"Copyright (c) 2020 fleet.moe\">\r\n\r\n    <!-- Polyfill for legacy browsers -->\r\n    <script nomodule type=\"text/javascript\" src=\"<%- pathname('polyfill.js') %>\"></script>\r\n\r\n    <%- inject.metas -%>\r\n    <%- inject.styles -%>\r\n    <%- inject.definePath -%>\r\n</head>\r\n<body>\r\n    <div id=\"boat-loader\">LOADING...</div>\r\n    <div id=\"root\"><%- inject.react %></div>\r\n\r\n    <%- inject.svgIcons %>\r\n\r\n    <script type=\"text/javascript\"><%- content('critical.js') %></script>\r\n    <%- inject.scripts %>\r\n\r\n    <script>\r\n        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){\r\n        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),\r\n        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)\r\n        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');\r\n\r\n        ga('create', 'UA-63582858-4', 'auto');\r\n        ga('send', 'pageview');\r\n    </script>\r\n</body>\r\n</html>\r\n\n<!-- rendered by using koot.js 0.13.8 -->";
+  if (true) template = "<!DOCTYPE html>\r\n<html <%- inject.htmlLang -%>>\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n\r\n    <title><%= inject.title -%></title>\r\n\r\n    <base target=\"_self\">\r\n\r\n    <meta name=\"viewport\" content=\"width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no\">\r\n    <meta name=\"format-detection\" content=\"telephone=no,email=no,address=no\">\r\n    <meta name=\"format-detection\" content=\"email=no\">\r\n    <meta name=\"format-detection\" content=\"address=no\">\r\n    <meta name=\"format-detection\" content=\"telephone=no\">\r\n    <meta name=\"HandheldFriendly\" content=\"true\">\r\n    <meta name=\"mobile-web-app-capable\" content=\"yes\">\r\n\r\n    <link rel=\"shortcut icon\" href=\"/favicon.ico\" type=\"image/x-icon\">\r\n    <link rel=\"icon\" href=\"/icon-256.png\" type=\"image/png\" sizes=\"256x256\">\r\n    <link rel=\"icon\" href=\"/icon-128.png\" type=\"image/png\" sizes=\"128x128\">\r\n    <%- inject.manifest -%>\r\n\r\n    <meta name=\"theme-color\" content=\"#263238\" />\r\n\r\n    <!-- IE/Edge -->\r\n    <meta name=\"renderer\" content=\"webkit\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">\r\n\r\n    <!-- iOS -->\r\n    <meta name=\"apple-mobile-web-app-capable\" content=\"yes\">\r\n    <meta name=\"apple-mobile-web-app-status-bar-style\" content=\"black-translucent\">\r\n\r\n    <meta name=\"copyright\" content=\"Copyright (c) 2020 fleet.moe\">\r\n\r\n    <!-- Polyfill for legacy browsers -->\r\n    <script nomodule type=\"text/javascript\" src=\"<%- pathname('polyfill.js') %>\"></script>\r\n\r\n    <%- inject.metas -%>\r\n    <%- inject.styles -%>\r\n    <%- inject.definePath -%>\r\n</head>\r\n<body>\r\n    <div id=\"boat-loader\">LOADING...</div>\r\n    <div id=\"root\"><%- inject.react %></div>\r\n\r\n    <%- inject.svgIcons %>\r\n\r\n    <script type=\"text/javascript\"><%- content('critical.js') %></script>\r\n    <%- inject.scripts %>\r\n\r\n    <script>\r\n        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){\r\n        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),\r\n        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)\r\n        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');\r\n\r\n        ga('create', 'UA-63582858-4', 'auto');\r\n        ga('send', 'pageview');\r\n    </script>\r\n</body>\r\n</html>\r\n\n<!-- rendered by using koot.js 0.14.0-alpha.0 -->";
   if (typeof template !== 'string') throw new Error(_libs_error_msg__WEBPACK_IMPORTED_MODULE_0___default()('VALIDATE_TEMPLATE', '`config.template` should be Pathname or EJS String')); // if (template.substr(0, 2) === './') {
   //     // template = require(`raw-loader?` + path.resolve(
   //     //     getCwd(), template
@@ -3171,7 +3203,10 @@ module.exports = {
   buildManifestFilename: '.koot-public-manifest.json',
 
   /** @type {string} 打包结果目录中输出文件总集文件名 */
-  buildOutputsFilename: '.koot-public-outputs.json'
+  buildOutputsFilename: '.koot-public-outputs.json',
+
+  /** @type {string} Webpack Dev Server 热更新 Web Socket 地址 */
+  pathnameSockjs: `sockjs-node`
 };
 
 /***/ }),
@@ -4557,7 +4592,7 @@ const getChunkmap = (localeId, getFullResult = false, ignoreCache = false) => {
     if (typeof global.chunkmap === 'object') chunkmap = global.chunkmap;
 
     try {
-      chunkmap = JSON.parse("{\".zh\":{\".public\":\"public/\",\".out\":\"public/\",\".entrypoints\":{\"critical\":[\"public/includes/chunk.6ff74655b7db0a91013c.js\",\"public/includes/extract.21.b1d4300bfa79eb4499d6.css\",\"public/includes/entry.b1d4300bfa79eb4499d6.js\"],\"polyfill\":[\"public/includes/chunk.6ff74655b7db0a91013c.js\",\"public/includes/entry.8b56e3735283c09322d0.js\"],\"client\":[\"public/includes/chunk.db4f5e5f878b6e1870bd.js\",\"public/includes/chunk.6ff74655b7db0a91013c.js\",\"public/includes/entry.06ea33f858b126b13d20.js\"],\"__KOOT__CLIENT__RUN__FIRST__\":[\"public/includes/chunk.db4f5e5f878b6e1870bd.js\",\"public/includes/chunk.6ff74655b7db0a91013c.js\",\"public/includes/entry.5c0f4805bde63a35d687.js\"]},\".files\":{\"libs-others.js\":\"public/includes/chunk.6ff74655b7db0a91013c.js\",\"libs.js\":\"public/includes/chunk.db4f5e5f878b6e1870bd.js\",\"About_Page.js\":\"public/includes/chunk.b428d4e4a4d6b92b36ad.js\",\"Academy_Entry_Page.js\":\"public/includes/chunk.63b0e2dfc4f41d9022fa.js\",\"Arsenal_Page.js\":\"public/includes/chunk.1acdcc779d0840e050db.js\",\"Equipment_Details_Page.js\":\"public/includes/chunk.b59c7493c22f04b9ae40.js\",\"Equipment_List_Page.js\":\"public/includes/chunk.150e3db5a6cb3e0e7091.js\",\"Expeditions_List_Page.js\":\"public/includes/chunk.b8ba9e2d90c229c76be5.js\",\"Extra_CGs_Page.js\":\"public/includes/chunk.f59945581c26759ebe85.js\",\"Fleet_Builder_Entry_Page.js\":\"public/includes/chunk.6b776de182c1af4f139e.js\",\"Fleet_Builder_Fleet_Details_Page.js\":\"public/includes/chunk.2644780b82a943e9df63.js\",\"Fleet_Builder_WIP_Blank_Page.js\":\"public/includes/chunk.2ef241ecb3f0c1cc647b.js\",\"Home_Page.js\":\"public/includes/chunk.ba0703bb8da93a5daa5d.js\",\"People_Details_Page.js\":\"public/includes/chunk.b0b33dd51d0fc1ca91dc.js\",\"People_List_Page.js\":\"public/includes/chunk.5338212abd0b0e5a4327.js\",\"Ship_Details_Page.css\":\"public/includes/extract.15.67aa803387c45f53574b.css\",\"Ship_Details_Page.js\":\"public/includes/chunk.67aa803387c45f53574b.js\",\"Ship_List_Page.js\":\"public/includes/chunk.400612f343d663f7caae.js\",\"Sorties_List_Page.js\":\"public/includes/chunk.3fc917ff1f9f3b42d7da.js\",\"TP_Calculator_Single-Page-Tool.js\":\"public/includes/chunk.c55bb9580545fdfa4f6a.js\",\"__KOOT__CLIENT__RUN__FIRST__.js\":\"public/includes/entry.5c0f4805bde63a35d687.js\",\"client.js\":\"public/includes/entry.06ea33f858b126b13d20.js\",\"critical.css\":\"public/includes/extract.21.b1d4300bfa79eb4499d6.css\",\"critical.js\":\"public/includes/entry.b1d4300bfa79eb4499d6.js\",\"polyfill.js\":\"public/includes/entry.8b56e3735283c09322d0.js\",\"vendors~Ship_Details_Page.css\":\"public/includes/extract.23.089b5c47ca720fd39a5c.css\",\"vendors~Ship_Details_Page.js\":\"public/includes/chunk.089b5c47ca720fd39a5c.js\",\"vendors~nedb.js\":\"public/includes/chunk.f798989d8c89fb591b93.js\",\"__KOOT__EXTRACT__CSS__.css\":\"public/includes/extract.all.086a9c1589efe7a7a1a2b2a8d685aa36.small.css\"},\"service-worker\":[\"public/service-worker.zh.js\"]},\".en\":{\".public\":\"public/\",\".out\":\"public/\",\".entrypoints\":{\"critical\":[\"public/includes/chunk.268b23e071f7156d36a5.js\",\"public/includes/extract.21.b1d4300bfa79eb4499d6.css\",\"public/includes/entry.b1d4300bfa79eb4499d6.js\"],\"polyfill\":[\"public/includes/chunk.268b23e071f7156d36a5.js\",\"public/includes/entry.8b56e3735283c09322d0.js\"],\"client\":[\"public/includes/chunk.db4f5e5f878b6e1870bd.js\",\"public/includes/chunk.268b23e071f7156d36a5.js\",\"public/includes/entry.72cfd928154d6fa0a2f0.js\"],\"__KOOT__CLIENT__RUN__FIRST__\":[\"public/includes/chunk.db4f5e5f878b6e1870bd.js\",\"public/includes/chunk.268b23e071f7156d36a5.js\",\"public/includes/entry.41b940702576c9491b46.js\"]},\".files\":{\"libs-others.js\":\"public/includes/chunk.268b23e071f7156d36a5.js\",\"libs.js\":\"public/includes/chunk.db4f5e5f878b6e1870bd.js\",\"About_Page.js\":\"public/includes/chunk.1521e02d6d2b23febaa4.js\",\"Academy_Entry_Page.js\":\"public/includes/chunk.71228a15b5c76487c8c5.js\",\"Arsenal_Page.js\":\"public/includes/chunk.d671a91d956b5e2f8f8d.js\",\"Equipment_Details_Page.js\":\"public/includes/chunk.42207108d5a1b4702885.js\",\"Equipment_List_Page.js\":\"public/includes/chunk.ae269f05ff95538bc753.js\",\"Expeditions_List_Page.js\":\"public/includes/chunk.29e5726e758fe1c03b31.js\",\"Extra_CGs_Page.js\":\"public/includes/chunk.f6cc636f689ef4572312.js\",\"Fleet_Builder_Entry_Page.js\":\"public/includes/chunk.4085a7a5fe4233cf0f39.js\",\"Fleet_Builder_Fleet_Details_Page.js\":\"public/includes/chunk.9124c6a151900b8f3514.js\",\"Fleet_Builder_WIP_Blank_Page.js\":\"public/includes/chunk.b3a030640a584bfd1258.js\",\"Home_Page.js\":\"public/includes/chunk.3bef6e5fc66e1bdfb2b8.js\",\"People_Details_Page.js\":\"public/includes/chunk.d631ac5c88122eb34233.js\",\"People_List_Page.js\":\"public/includes/chunk.214a71ce05c706f5288f.js\",\"Ship_Details_Page.css\":\"public/includes/extract.15.a19c5daa66c69580fc00.css\",\"Ship_Details_Page.js\":\"public/includes/chunk.a19c5daa66c69580fc00.js\",\"Ship_List_Page.js\":\"public/includes/chunk.ff692565e689633206d6.js\",\"Sorties_List_Page.js\":\"public/includes/chunk.c0bd9e54b568f4c3de83.js\",\"TP_Calculator_Single-Page-Tool.js\":\"public/includes/chunk.b629d2ab62d1e05a0eb4.js\",\"__KOOT__CLIENT__RUN__FIRST__.js\":\"public/includes/entry.41b940702576c9491b46.js\",\"client.js\":\"public/includes/entry.72cfd928154d6fa0a2f0.js\",\"critical.css\":\"public/includes/extract.21.b1d4300bfa79eb4499d6.css\",\"critical.js\":\"public/includes/entry.b1d4300bfa79eb4499d6.js\",\"polyfill.js\":\"public/includes/entry.8b56e3735283c09322d0.js\",\"vendors~Ship_Details_Page.css\":\"public/includes/extract.23.089b5c47ca720fd39a5c.css\",\"vendors~Ship_Details_Page.js\":\"public/includes/chunk.089b5c47ca720fd39a5c.js\",\"vendors~nedb.js\":\"public/includes/chunk.f798989d8c89fb591b93.js\",\"__KOOT__EXTRACT__CSS__.css\":\"public/includes/extract.all.086a9c1589efe7a7a1a2b2a8d685aa36.small.css\"},\"service-worker\":[\"public/service-worker.en.js\"]},\".ja\":{\".public\":\"public/\",\".out\":\"public/\",\".entrypoints\":{\"critical\":[\"public/includes/chunk.1db4e92727d2456b045b.js\",\"public/includes/extract.21.b1d4300bfa79eb4499d6.css\",\"public/includes/entry.b1d4300bfa79eb4499d6.js\"],\"polyfill\":[\"public/includes/chunk.1db4e92727d2456b045b.js\",\"public/includes/entry.8b56e3735283c09322d0.js\"],\"client\":[\"public/includes/chunk.db4f5e5f878b6e1870bd.js\",\"public/includes/chunk.1db4e92727d2456b045b.js\",\"public/includes/entry.d549e06d11d04abe09fc.js\"],\"__KOOT__CLIENT__RUN__FIRST__\":[\"public/includes/chunk.db4f5e5f878b6e1870bd.js\",\"public/includes/chunk.1db4e92727d2456b045b.js\",\"public/includes/entry.41b940702576c9491b46.js\"]},\".files\":{\"libs-others.js\":\"public/includes/chunk.1db4e92727d2456b045b.js\",\"libs.js\":\"public/includes/chunk.db4f5e5f878b6e1870bd.js\",\"About_Page.js\":\"public/includes/chunk.3746db98f85b215776e6.js\",\"Academy_Entry_Page.js\":\"public/includes/chunk.8c73b3840000d95919a6.js\",\"Arsenal_Page.js\":\"public/includes/chunk.9e488f5eb330c819a4dd.js\",\"Equipment_Details_Page.js\":\"public/includes/chunk.03616ca356ef4dbe3fa4.js\",\"Equipment_List_Page.js\":\"public/includes/chunk.3c391c85fa7eddfa5af4.js\",\"Expeditions_List_Page.js\":\"public/includes/chunk.aa42d51d4d4228fd013d.js\",\"Extra_CGs_Page.js\":\"public/includes/chunk.3369df6c95e13b15ebf9.js\",\"Fleet_Builder_Entry_Page.js\":\"public/includes/chunk.5fd25e99b0d933e31c61.js\",\"Fleet_Builder_Fleet_Details_Page.js\":\"public/includes/chunk.eb7137f2ca8cb94ca405.js\",\"Fleet_Builder_WIP_Blank_Page.js\":\"public/includes/chunk.0fc1648c6aeab04d484a.js\",\"Home_Page.js\":\"public/includes/chunk.2d357259001712c42f65.js\",\"People_Details_Page.js\":\"public/includes/chunk.b38d9bb3ea573519b4d9.js\",\"People_List_Page.js\":\"public/includes/chunk.da405b90275bbd39de15.js\",\"Ship_Details_Page.css\":\"public/includes/extract.15.d4b2b9a93e2e00a69fe5.css\",\"Ship_Details_Page.js\":\"public/includes/chunk.d4b2b9a93e2e00a69fe5.js\",\"Ship_List_Page.js\":\"public/includes/chunk.36e4fe473d9c7cdfb17e.js\",\"Sorties_List_Page.js\":\"public/includes/chunk.505143bef7646ff9377b.js\",\"TP_Calculator_Single-Page-Tool.js\":\"public/includes/chunk.8a02279a74e508c17258.js\",\"__KOOT__CLIENT__RUN__FIRST__.js\":\"public/includes/entry.41b940702576c9491b46.js\",\"client.js\":\"public/includes/entry.d549e06d11d04abe09fc.js\",\"critical.css\":\"public/includes/extract.21.b1d4300bfa79eb4499d6.css\",\"critical.js\":\"public/includes/entry.b1d4300bfa79eb4499d6.js\",\"polyfill.js\":\"public/includes/entry.8b56e3735283c09322d0.js\",\"vendors~Ship_Details_Page.css\":\"public/includes/extract.23.089b5c47ca720fd39a5c.css\",\"vendors~Ship_Details_Page.js\":\"public/includes/chunk.089b5c47ca720fd39a5c.js\",\"vendors~nedb.js\":\"public/includes/chunk.f798989d8c89fb591b93.js\",\"__KOOT__EXTRACT__CSS__.css\":\"public/includes/extract.all.086a9c1589efe7a7a1a2b2a8d685aa36.small.css\"},\"service-worker\":[\"public/service-worker.ja.js\"]}}");
+      chunkmap = JSON.parse("{\".zh\":{\".public\":\"public/\",\".out\":\"public/\",\".entrypoints\":{\"critical\":[\"public/includes/chunk.38c7527e89d916321034.js\",\"public/includes/extract.21.54a521e21b55f272bf19.css\",\"public/includes/entry.54a521e21b55f272bf19.js\"],\"polyfill\":[\"public/includes/chunk.38c7527e89d916321034.js\",\"public/includes/entry.39bebd9e01274b85a1cf.js\"],\"client\":[\"public/includes/chunk.b7e441ee9d2e01d456e0.js\",\"public/includes/chunk.38c7527e89d916321034.js\",\"public/includes/entry.9b4c90ed595985d18072.js\"],\"__KOOT__CLIENT__RUN__FIRST__\":[\"public/includes/chunk.b7e441ee9d2e01d456e0.js\",\"public/includes/chunk.38c7527e89d916321034.js\",\"public/includes/entry.ee9b83f2dd65b3775e01.js\"]},\".files\":{\"libs-others.js\":\"public/includes/chunk.38c7527e89d916321034.js\",\"libs.js\":\"public/includes/chunk.b7e441ee9d2e01d456e0.js\",\"About_Page.js\":\"public/includes/chunk.26237282d341e79a764c.js\",\"Academy_Entry_Page.js\":\"public/includes/chunk.8d8cbbb932e5c1f3ed7f.js\",\"Arsenal_Page.js\":\"public/includes/chunk.eb99579da9dcb82559e1.js\",\"Equipment_Details_Page.js\":\"public/includes/chunk.2145b8bbddc4437915cd.js\",\"Equipment_List_Page.js\":\"public/includes/chunk.f3f7e6e2f8f9787378fd.js\",\"Expeditions_List_Page.js\":\"public/includes/chunk.7210bd65a3d67cfc6df3.js\",\"Extra_CGs_Page.js\":\"public/includes/chunk.10bdc6628ac3642de10c.js\",\"Fleet_Builder_Entry_Page.js\":\"public/includes/chunk.db9fedd3c688919dc8d9.js\",\"Fleet_Builder_Fleet_Details_Page.js\":\"public/includes/chunk.fc56183a1e6838038186.js\",\"Fleet_Builder_WIP_Blank_Page.js\":\"public/includes/chunk.9ea494729dcc29baacf8.js\",\"Home_Page.js\":\"public/includes/chunk.8bebd63da88ccee1f8bd.js\",\"People_Details_Page.js\":\"public/includes/chunk.ed56e6f47d8e2eb59ef0.js\",\"People_List_Page.js\":\"public/includes/chunk.bd98a0249281c988b1da.js\",\"Ship_Details_Page.css\":\"public/includes/extract.15.db149d07596403ccc29d.css\",\"Ship_Details_Page.js\":\"public/includes/chunk.db149d07596403ccc29d.js\",\"Ship_List_Page.js\":\"public/includes/chunk.8d21a04d06b55326a907.js\",\"Sorties_List_Page.js\":\"public/includes/chunk.3a7d3964ffadbc529f91.js\",\"TP_Calculator_Single-Page-Tool.js\":\"public/includes/chunk.37517726e14e4547772c.js\",\"__KOOT__CLIENT__RUN__FIRST__.js\":\"public/includes/entry.ee9b83f2dd65b3775e01.js\",\"client.js\":\"public/includes/entry.9b4c90ed595985d18072.js\",\"critical.css\":\"public/includes/extract.21.54a521e21b55f272bf19.css\",\"critical.js\":\"public/includes/entry.54a521e21b55f272bf19.js\",\"polyfill.js\":\"public/includes/entry.39bebd9e01274b85a1cf.js\",\"vendors~Ship_Details_Page.css\":\"public/includes/extract.23.324d312465b44e8275f8.css\",\"vendors~Ship_Details_Page.js\":\"public/includes/chunk.324d312465b44e8275f8.js\",\"vendors~nedb.js\":\"public/includes/chunk.c7e6a04bdf235c762135.js\",\"__KOOT__EXTRACT__CSS__.css\":\"public/includes/extract.all.086a9c1589efe7a7a1a2b2a8d685aa36.small.css\"},\"service-worker\":[\"public/service-worker.zh.js\"]},\".en\":{\".public\":\"public/\",\".out\":\"public/\",\".entrypoints\":{\"critical\":[\"public/includes/chunk.5865f94837fe60a77bb5.js\",\"public/includes/extract.21.54a521e21b55f272bf19.css\",\"public/includes/entry.54a521e21b55f272bf19.js\"],\"polyfill\":[\"public/includes/chunk.5865f94837fe60a77bb5.js\",\"public/includes/entry.39bebd9e01274b85a1cf.js\"],\"client\":[\"public/includes/chunk.b7e441ee9d2e01d456e0.js\",\"public/includes/chunk.5865f94837fe60a77bb5.js\",\"public/includes/entry.98b211b1932c2b568a1a.js\"],\"__KOOT__CLIENT__RUN__FIRST__\":[\"public/includes/chunk.b7e441ee9d2e01d456e0.js\",\"public/includes/chunk.5865f94837fe60a77bb5.js\",\"public/includes/entry.2ebd86780e94d6f553b9.js\"]},\".files\":{\"libs-others.js\":\"public/includes/chunk.5865f94837fe60a77bb5.js\",\"libs.js\":\"public/includes/chunk.b7e441ee9d2e01d456e0.js\",\"About_Page.js\":\"public/includes/chunk.61841aaa202d9d1aefe6.js\",\"Academy_Entry_Page.js\":\"public/includes/chunk.37ac00ebf408a1f8095f.js\",\"Arsenal_Page.js\":\"public/includes/chunk.03383c7ff68a38978dfb.js\",\"Equipment_Details_Page.js\":\"public/includes/chunk.aee032e3ba29d740ae1b.js\",\"Equipment_List_Page.js\":\"public/includes/chunk.86e68ef60a889ae7a525.js\",\"Expeditions_List_Page.js\":\"public/includes/chunk.d01544e9b979f9e202c0.js\",\"Extra_CGs_Page.js\":\"public/includes/chunk.48bbd62935d25666eb1d.js\",\"Fleet_Builder_Entry_Page.js\":\"public/includes/chunk.1fc9452852e84a9e6807.js\",\"Fleet_Builder_Fleet_Details_Page.js\":\"public/includes/chunk.a2859a7b83608438fc66.js\",\"Fleet_Builder_WIP_Blank_Page.js\":\"public/includes/chunk.e1972b0d37f5561350ea.js\",\"Home_Page.js\":\"public/includes/chunk.8bebd63da88ccee1f8bd.js\",\"People_Details_Page.js\":\"public/includes/chunk.35795ffebb686c46c9ec.js\",\"People_List_Page.js\":\"public/includes/chunk.66ecbeb92c75d9bf16c2.js\",\"Ship_Details_Page.css\":\"public/includes/extract.15.2e215d88c9a8c6af0186.css\",\"Ship_Details_Page.js\":\"public/includes/chunk.2e215d88c9a8c6af0186.js\",\"Ship_List_Page.js\":\"public/includes/chunk.1f97362506ead31ce060.js\",\"Sorties_List_Page.js\":\"public/includes/chunk.7497ebdd0ec0b375b223.js\",\"TP_Calculator_Single-Page-Tool.js\":\"public/includes/chunk.36763b6da9a9b6d85d02.js\",\"__KOOT__CLIENT__RUN__FIRST__.js\":\"public/includes/entry.2ebd86780e94d6f553b9.js\",\"client.js\":\"public/includes/entry.98b211b1932c2b568a1a.js\",\"critical.css\":\"public/includes/extract.21.54a521e21b55f272bf19.css\",\"critical.js\":\"public/includes/entry.54a521e21b55f272bf19.js\",\"polyfill.js\":\"public/includes/entry.39bebd9e01274b85a1cf.js\",\"vendors~Ship_Details_Page.css\":\"public/includes/extract.23.324d312465b44e8275f8.css\",\"vendors~Ship_Details_Page.js\":\"public/includes/chunk.324d312465b44e8275f8.js\",\"vendors~nedb.js\":\"public/includes/chunk.c7e6a04bdf235c762135.js\",\"__KOOT__EXTRACT__CSS__.css\":\"public/includes/extract.all.086a9c1589efe7a7a1a2b2a8d685aa36.small.css\"},\"service-worker\":[\"public/service-worker.en.js\"]},\".ja\":{\".public\":\"public/\",\".out\":\"public/\",\".entrypoints\":{\"critical\":[\"public/includes/chunk.64397e776b4599e698d3.js\",\"public/includes/extract.21.54a521e21b55f272bf19.css\",\"public/includes/entry.54a521e21b55f272bf19.js\"],\"polyfill\":[\"public/includes/chunk.64397e776b4599e698d3.js\",\"public/includes/entry.39bebd9e01274b85a1cf.js\"],\"client\":[\"public/includes/chunk.b7e441ee9d2e01d456e0.js\",\"public/includes/chunk.64397e776b4599e698d3.js\",\"public/includes/entry.4a269285dc9b4b542eb6.js\"],\"__KOOT__CLIENT__RUN__FIRST__\":[\"public/includes/chunk.b7e441ee9d2e01d456e0.js\",\"public/includes/chunk.64397e776b4599e698d3.js\",\"public/includes/entry.2ebd86780e94d6f553b9.js\"]},\".files\":{\"libs-others.js\":\"public/includes/chunk.64397e776b4599e698d3.js\",\"libs.js\":\"public/includes/chunk.b7e441ee9d2e01d456e0.js\",\"About_Page.js\":\"public/includes/chunk.a4ff3abab8b0a8ae90c8.js\",\"Academy_Entry_Page.js\":\"public/includes/chunk.aa2634baad56a22cac2f.js\",\"Arsenal_Page.js\":\"public/includes/chunk.2ee6936ed591bd20ead6.js\",\"Equipment_Details_Page.js\":\"public/includes/chunk.b19365968995de90f305.js\",\"Equipment_List_Page.js\":\"public/includes/chunk.85a77d3707d83dee28fe.js\",\"Expeditions_List_Page.js\":\"public/includes/chunk.ed0c541e4a79da237827.js\",\"Extra_CGs_Page.js\":\"public/includes/chunk.72ffb3c63eb2e0103d7f.js\",\"Fleet_Builder_Entry_Page.js\":\"public/includes/chunk.48f22b7d6a4d99bd9705.js\",\"Fleet_Builder_Fleet_Details_Page.js\":\"public/includes/chunk.90bbc9c5a00257fbd4d5.js\",\"Fleet_Builder_WIP_Blank_Page.js\":\"public/includes/chunk.bf2437543d1af39729fd.js\",\"Home_Page.js\":\"public/includes/chunk.8877de844197063ba209.js\",\"People_Details_Page.js\":\"public/includes/chunk.013e69e29a7a94d54de2.js\",\"People_List_Page.js\":\"public/includes/chunk.711a81b3b6bec2cdc4d4.js\",\"Ship_Details_Page.css\":\"public/includes/extract.15.49f7020ad9854c6e3a1e.css\",\"Ship_Details_Page.js\":\"public/includes/chunk.49f7020ad9854c6e3a1e.js\",\"Ship_List_Page.js\":\"public/includes/chunk.a271074e64d17d5106df.js\",\"Sorties_List_Page.js\":\"public/includes/chunk.23969c5a759b43b67a30.js\",\"TP_Calculator_Single-Page-Tool.js\":\"public/includes/chunk.dbafbfe387f4cbf971a8.js\",\"__KOOT__CLIENT__RUN__FIRST__.js\":\"public/includes/entry.2ebd86780e94d6f553b9.js\",\"client.js\":\"public/includes/entry.4a269285dc9b4b542eb6.js\",\"critical.css\":\"public/includes/extract.21.54a521e21b55f272bf19.css\",\"critical.js\":\"public/includes/entry.54a521e21b55f272bf19.js\",\"polyfill.js\":\"public/includes/entry.39bebd9e01274b85a1cf.js\",\"vendors~Ship_Details_Page.css\":\"public/includes/extract.23.324d312465b44e8275f8.css\",\"vendors~Ship_Details_Page.js\":\"public/includes/chunk.324d312465b44e8275f8.js\",\"vendors~nedb.js\":\"public/includes/chunk.c7e6a04bdf235c762135.js\",\"__KOOT__EXTRACT__CSS__.css\":\"public/includes/extract.all.086a9c1589efe7a7a1a2b2a8d685aa36.small.css\"},\"service-worker\":[\"public/service-worker.ja.js\"]}}");
     } catch (e) {
       chunkmap = false;
     }
