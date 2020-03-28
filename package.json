@@ -12,7 +12,7 @@
         "check-css-prop": "^1.0.1",
         "classnames": "^2.2.6",
         "hotkeys-js": "^3.7.6",
-        "kckit": "^1.36.1",
+        "kckit": "^1.37.0",
         "localforage": "^1.7.3",
         "lz-string": "^1.4.4",
         "metas": "^1.0.1",
