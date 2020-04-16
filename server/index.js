@@ -105,9 +105,9 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./logs/tmp/config/portion.server.1586114752067.js":
+/***/ "./logs/tmp/config/portion.server.1587052433610.js":
 /*!*********************************************************!*\
-  !*** ./logs/tmp/config/portion.server.1586114752067.js ***!
+  !*** ./logs/tmp/config/portion.server.1587052433610.js ***!
   \*********************************************************/
 /*! exports provided: template, server */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -1123,11 +1123,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _redux__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./redux */ "./node_modules/koot/React/redux.js");
 /* harmony import */ var _is_render_safe__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./is-render-safe */ "./node_modules/koot/React/is-render-safe.js");
 /* harmony import */ var _is_render_safe__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_is_render_safe__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _libs_ssr_context__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../libs/ssr/context */ "./node_modules/koot/libs/ssr/context.js");
+/* harmony import */ var _libs_ssr_context__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_libs_ssr_context__WEBPACK_IMPORTED_MODULE_10__);
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-/* global __KOOT_SSR__:false */
 
  // import { hot } from 'react-hot-loader'
 // import PropTypes from 'prop-types'
@@ -1135,6 +1136,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
  //
+
 
 
 
@@ -1189,9 +1191,10 @@ let devSSRConnectIndex = 0;
  * @returns {Promise}
  */
 
-const doFetchData = (store, renderProps, dataFetch) => {
-  if (!_is_render_safe__WEBPACK_IMPORTED_MODULE_9___default()()) return new Promise(resolve => resolve(result));
-  const result = dataFetch(store.getState(), renderProps, store.dispatch); // if (result === true) {
+const doFetchData = (store, renderProps, funcFetch) => {
+  // return new Promise((resolve) => resolve());
+  if (!_is_render_safe__WEBPACK_IMPORTED_MODULE_9___default()()) return  false ? undefined : undefined;
+  const result = funcFetch(store.getState(), renderProps, store.dispatch); // if (result === true) {
   //     isDataPreloaded = true
   //     return new Promise(resolve => resolve())
   // }
@@ -1266,7 +1269,7 @@ const doPageinfo = (store, props, pageinfo) => {
  */
 
 
-const extend = (options = {}) => WrappedComponent => {
+/* harmony default export */ __webpack_exports__["default"] = ((options = {}) => WrappedComponent => {
   // console.log((typeof store === 'undefined' ? `\x1b[31m×\x1b[0m` : `\x1b[32m√\x1b[0m`) + ' store in [HOC] extend run')
   const {
     connect: _connect = false,
@@ -1338,16 +1341,15 @@ const extend = (options = {}) => WrappedComponent => {
       _defineProperty(this, "kootClassNames", []);
 
       if (true) {
-        const SSR =  false ? undefined : __KOOT_SSR__;
+        let SSR = Object(_libs_ssr_context__WEBPACK_IMPORTED_MODULE_10__["get"])();
 
         if (SSR[_defaults_defines_server__WEBPACK_IMPORTED_MODULE_4__["needConnectComponents"]]) {
           if (false) {}
 
-          const {
-            connectedComponents = []
-          } = SSR;
-          connectedComponents.unshift(KootComponent);
+          if (Array.isArray(SSR.connectedComponents)) SSR.connectedComponents.unshift(KootComponent);
         }
+
+        SSR = undefined;
       }
 
       if (!_is_render_safe__WEBPACK_IMPORTED_MODULE_9___default()()) return;
@@ -1372,11 +1374,7 @@ const extend = (options = {}) => WrappedComponent => {
     /*context*/
     {
       // console.log('extend', { LocaleId })
-      if (true) {
-        if (false) {}
-        if (typeof __KOOT_SSR__ === 'object') return __KOOT_SSR__.styleMap;
-      }
-
+      if (true) return Object(_libs_ssr_context__WEBPACK_IMPORTED_MODULE_10__["get"])().styleMap;
       return styleMap; // return context
     } //
 
@@ -1485,11 +1483,7 @@ const extend = (options = {}) => WrappedComponent => {
     KootReactComponent.onServerRenderStoreExtend = ({
       store,
       renderProps
-    }) => {
-      if (typeof dataFetch === 'undefined') return new Promise(resolve => resolve()); // console.log('onServerRenderStoreExtend')
-
-      return doFetchData(store, Object(_get_render_props__WEBPACK_IMPORTED_MODULE_5__["fromServerProps"])(renderProps), dataFetch);
-    };
+    }) => doFetchData(store, Object(_get_render_props__WEBPACK_IMPORTED_MODULE_5__["fromServerProps"])(renderProps), dataFetch);
   } // if (_hot && __DEV__ && __CLIENT__) {
   //     const { hot, setConfig } = require('react-hot-loader')
   //     setConfig({ logLevel: 'debug' })
@@ -1532,9 +1526,7 @@ const extend = (options = {}) => WrappedComponent => {
     }));
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(KootComponent, props);
   });
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (extend);
+});
 
 /***/ }),
 
@@ -1710,7 +1702,10 @@ module.exports = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* global __KOOT_SSR__:false */
+const {
+  get: getSSRContext
+} = __webpack_require__(/*! ../libs/ssr/context */ "./node_modules/koot/libs/ssr/context.js");
+
 const {
   needConnectComponents
 } = __webpack_require__(/*! ../defaults/defines-server */ "./node_modules/koot/defaults/defines-server.js");
@@ -1722,15 +1717,7 @@ const {
  */
 
 
-module.exports = () => {
-  if (true) {
-    const SSR =  false ? undefined : __KOOT_SSR__;
-    if (SSR[needConnectComponents]) return false;
-    return true;
-  }
-
-  return true;
-};
+module.exports = () => !Boolean( true && getSSRContext()[needConnectComponents]);
 
 /***/ }),
 
@@ -2223,24 +2210,32 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _defaults_dev_request_uri__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../defaults/dev-request-uri */ "./node_modules/koot/defaults/dev-request-uri.js");
-/* harmony import */ var _defaults_dev_request_uri__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_defaults_dev_request_uri__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _React_inject_cache_keys__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../React/inject/_cache-keys */ "./node_modules/koot/React/inject/_cache-keys.js");
-/* harmony import */ var _React_inject_cache_keys__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_React_inject_cache_keys__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _utils_get_chunkmap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../utils/get-chunkmap */ "./node_modules/koot/utils/get-chunkmap.js");
-/* harmony import */ var _utils_get_chunkmap__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_utils_get_chunkmap__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _utils_get_sw_pathname__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../utils/get-sw-pathname */ "./node_modules/koot/utils/get-sw-pathname.js");
-/* harmony import */ var _utils_get_sw_pathname__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_utils_get_sw_pathname__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _i18n_server_get_lang_from_ctx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../i18n/server/get-lang-from-ctx */ "./node_modules/koot/i18n/server/get-lang-from-ctx.js");
-/* harmony import */ var _i18n_get_type__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../i18n/get-type */ "./node_modules/koot/i18n/get-type.js");
-/* harmony import */ var _i18n_get_type__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_i18n_get_type__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _i18n_locale_ids__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../i18n/locale-ids */ "./node_modules/koot/i18n/locale-ids.js");
-/* harmony import */ var _i18n_locale_ids__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_i18n_locale_ids__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _validate_i18n__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../validate/i18n */ "./node_modules/koot/ReactApp/server/validate/i18n.js");
-/* harmony import */ var _ssr__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./ssr */ "./node_modules/koot/ReactApp/server/middlewares/isomorphic/ssr.js");
+/* harmony import */ var _defaults_defines_server__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../defaults/defines-server */ "./node_modules/koot/defaults/defines-server.js");
+/* harmony import */ var _defaults_defines_server__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_defaults_defines_server__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _defaults_dev_request_uri__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../defaults/dev-request-uri */ "./node_modules/koot/defaults/dev-request-uri.js");
+/* harmony import */ var _defaults_dev_request_uri__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_defaults_dev_request_uri__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _React_inject_cache_keys__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../React/inject/_cache-keys */ "./node_modules/koot/React/inject/_cache-keys.js");
+/* harmony import */ var _React_inject_cache_keys__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_React_inject_cache_keys__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _utils_get_chunkmap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../utils/get-chunkmap */ "./node_modules/koot/utils/get-chunkmap.js");
+/* harmony import */ var _utils_get_chunkmap__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_utils_get_chunkmap__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _utils_get_sw_pathname__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../utils/get-sw-pathname */ "./node_modules/koot/utils/get-sw-pathname.js");
+/* harmony import */ var _utils_get_sw_pathname__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_utils_get_sw_pathname__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _libs_log__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../libs/log */ "./node_modules/koot/libs/log.js");
+/* harmony import */ var _libs_log__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_libs_log__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _i18n_server_get_lang_from_ctx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../i18n/server/get-lang-from-ctx */ "./node_modules/koot/i18n/server/get-lang-from-ctx.js");
+/* harmony import */ var _i18n_get_type__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../i18n/get-type */ "./node_modules/koot/i18n/get-type.js");
+/* harmony import */ var _i18n_get_type__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_i18n_get_type__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _i18n_locale_ids__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../i18n/locale-ids */ "./node_modules/koot/i18n/locale-ids.js");
+/* harmony import */ var _i18n_locale_ids__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_i18n_locale_ids__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _i18n_locales__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../i18n/locales */ "./node_modules/koot/i18n/locales.js");
+/* harmony import */ var _validate_i18n__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../validate/i18n */ "./node_modules/koot/ReactApp/server/validate/i18n.js");
+/* harmony import */ var _ssr__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./ssr */ "./node_modules/koot/ReactApp/server/middlewares/isomorphic/ssr.js");
 // import useRouterHistory from 'react-router/lib/useRouterHistory'
 // import createMemoryHistory from 'history/lib/createMemoryHistory'
 // import { syncHistoryWithStore } from 'react-router-redux'
+
+
+
 
 
 
@@ -2290,7 +2285,7 @@ const middlewareIsomorphic = (options = {}) => {
   const templateInjectCache = new Map();
   /** @type {Object} chunkmap */
 
-  const chunkmap = _utils_get_chunkmap__WEBPACK_IMPORTED_MODULE_2___default()(true);
+  const chunkmap = _utils_get_chunkmap__WEBPACK_IMPORTED_MODULE_3___default()(true);
   /** @type {Map} webpack 的入口，从 chunkmap 中抽取 */
 
   const entrypoints = new Map();
@@ -2306,7 +2301,7 @@ const middlewareIsomorphic = (options = {}) => {
   globalCache.set('__', {});
   /** @type {String} i18n 类型 */
 
-  const i18nType = _i18n_get_type__WEBPACK_IMPORTED_MODULE_5___default()(); // 针对 i18n 分包形式的项目，静态注入按语言缓存
+  const i18nType = _i18n_get_type__WEBPACK_IMPORTED_MODULE_7___default()(); // 针对 i18n 分包形式的项目，静态注入按语言缓存
 
   if (i18nType === 'default') {
     for (const l in chunkmap) {
@@ -2333,8 +2328,8 @@ const middlewareIsomorphic = (options = {}) => {
     templateInjectCache.set('', cache); // styleMap.set('', {})
   }
 
-  if (Array.isArray(_i18n_locale_ids__WEBPACK_IMPORTED_MODULE_6___default.a)) {
-    _i18n_locale_ids__WEBPACK_IMPORTED_MODULE_6___default.a.forEach(localeId => {
+  if (Array.isArray(_i18n_locale_ids__WEBPACK_IMPORTED_MODULE_8___default.a)) {
+    _i18n_locale_ids__WEBPACK_IMPORTED_MODULE_8___default.a.forEach(localeId => {
       globalCache.set(localeId, {}); // Object.defineProperty(globalCache, localeId, {
       //     value: {},
       //     enumerable: false,
@@ -2346,14 +2341,23 @@ const middlewareIsomorphic = (options = {}) => {
 
   return async (ctx, next) => {
     /** @type {String} 本次请求的 URL */
-    const url = ctx.path + ctx.search;
+    const url = ctx.path + ctx.search; // console.log(' ');
+    // console.log({
+    //     href: ctx.href,
+    //     [SSRContext]: ctx[SSRContext],
+    // });
+
+    function renderComplete() {
+      if (false) {} // log('success', 'server', `render success ${ctx.href}\n`);
+
+    }
 
     try {
       // console.log('request url', url)
       // console.log('\nSSR middleware start')
 
       /** @type {String} 本次请求的语种ID */
-      const LocaleId = Object(_i18n_server_get_lang_from_ctx__WEBPACK_IMPORTED_MODULE_4__["default"])(ctx) || ''; // setLocaleId(LocaleId)
+      const LocaleId = Object(_i18n_server_get_lang_from_ctx__WEBPACK_IMPORTED_MODULE_6__["default"])(ctx) || ''; // setLocaleId(LocaleId)
       // console.log(`LocaleId -> ${LocaleId}`)
       // 如果存在缓存匹配，直接返回缓存结果
 
@@ -2362,6 +2366,7 @@ const middlewareIsomorphic = (options = {}) => {
 
       if ( true && cached !== false) {
         ctx.body = cached;
+        renderComplete();
         return;
       }
       /** @type {Object} 本次请求的 (当前语言的) 注入内容缓存 */
@@ -2377,6 +2382,8 @@ const middlewareIsomorphic = (options = {}) => {
       /** @type {Object} 本次请求的 (当前语言的) CSS 对照表 */
 
       const styleMap = {}; // const thisStyleMap = styleMap.get(i18nType === 'default' ? LocaleId : '')
+
+      const thisLocales =  false ? undefined : locales;
 
       if (false) {} // 生成/清理 Store
       // console.log('\x1b[36m⚑\x1b[0m' + ' Store created')
@@ -2395,29 +2402,34 @@ const middlewareIsomorphic = (options = {}) => {
       // [开发环境] 每次请求都重新验证一次语言包，以确保语言包的更新
 
 
-      const SSRoptions = {
-        ctx,
-        // Store, History,
-        // memoryHistory,
-        LocaleId,
-        locales:  false ? undefined : locales,
-        // ssrConfig,
-        // syncCookie: reduxConfig.syncCookie,
-        proxyRequestOrigin,
-        templateInject,
-        template,
-        thisTemplateInjectCache,
-        thisEntrypoints,
-        thisFilemap,
-        //thisStyleMap,
-        styleMap,
-        globalCache,
-        connectedComponents:  false ? undefined : []
-      };
+      Object.defineProperty(ctx, _defaults_defines_server__WEBPACK_IMPORTED_MODULE_0__["ssrContext"], {
+        configurable: true,
+        enumerable: false,
+        writable: true,
+        value: {
+          // ctx,
+          // Store, History,
+          // memoryHistory,
+          LocaleId,
+          locales: thisLocales,
+          // ssrConfig,
+          // syncCookie: reduxConfig.syncCookie,
+          proxyRequestOrigin,
+          templateInject,
+          template,
+          thisTemplateInjectCache,
+          thisEntrypoints,
+          thisFilemap,
+          //thisStyleMap,
+          styleMap,
+          globalCache,
+          connectedComponents:  false ? undefined : []
+        }
+      });
 
       if (false) {}
 
-      const result = await Object(_ssr__WEBPACK_IMPORTED_MODULE_8__["default"])(SSRoptions); // console.log('eval finished', {
+      const result = await Object(_ssr__WEBPACK_IMPORTED_MODULE_11__["default"])(ctx); // console.log('eval finished', {
       //     'localeId in store': Store.getState().localeId
       // })
       // console.log('\n\n\n')
@@ -2426,19 +2438,34 @@ const middlewareIsomorphic = (options = {}) => {
         // HTML 结果暂存入缓存
         if (thisRenderCache) thisRenderCache.set(url, result.body);
         ctx.body = result.body;
+        renderComplete();
         return;
       }
 
-      if (result.error) throw result.error;
-      if (result.redirect) return ctx.redirect(result.redirect);
-      if (result.next) return await next();
+      if (result.error) {
+        // renderComplete();
+        throw result.error;
+      }
+
+      if (result.redirect) {
+        // renderComplete();
+        return ctx.redirect(result.redirect);
+      }
+
+      if (result.next) {
+        // renderComplete();
+        return await next();
+      }
     } catch (err) {
       __webpack_require__(/*! debug */ "debug")('SYSTEM:isomorphic:error')('Server-Render Error Occures: %O', err.stack);
 
-      console.error(err);
+      const thisError = err instanceof Error ? err : new Error(err);
+      console.error(thisError);
       ctx.status = 500;
-      ctx.body = err.message;
-      ctx.app.emit('error', err, ctx);
+      ctx.body = thisError.message;
+      ctx.app.emit('error', thisError, ctx); // renderComplete();
+
+      return;
     }
   };
 };
@@ -2446,10 +2473,10 @@ const middlewareIsomorphic = (options = {}) => {
 /* harmony default export */ __webpack_exports__["default"] = (middlewareIsomorphic); // ============================================================================
 
 const extendCacheObject = (cache, chunkmap, localeId) => {
-  const serviceWorker = _utils_get_sw_pathname__WEBPACK_IMPORTED_MODULE_3___default()(localeId ? chunkmap[localeId] : chunkmap);
+  const serviceWorker = _utils_get_sw_pathname__WEBPACK_IMPORTED_MODULE_4___default()(localeId ? chunkmap[localeId] : chunkmap);
 
   if (serviceWorker) {
-    cache[_React_inject_cache_keys__WEBPACK_IMPORTED_MODULE_1__["uriServiceWorker"]] =  false ? undefined : serviceWorker;
+    cache[_React_inject_cache_keys__WEBPACK_IMPORTED_MODULE_2__["uriServiceWorker"]] =  false ? undefined : serviceWorker;
   }
 };
 
@@ -2464,85 +2491,215 @@ const extendCacheObject = (cache, chunkmap, localeId) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _utils_get_dist_path__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../utils/get-dist-path */ "./node_modules/koot/utils/get-dist-path.js");
+/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var _utils_get_dist_path__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../utils/get-dist-path */ "./node_modules/koot/utils/get-dist-path.js");
 /* harmony import */ var _utils_get_dist_path__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_utils_get_dist_path__WEBPACK_IMPORTED_MODULE_0__);
-/* eslint-disable no-unused-vars */
+/* harmony import */ var _defaults_defines_server__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../defaults/defines-server */ "./node_modules/koot/defaults/defines-server.js");
+/* harmony import */ var _defaults_defines_server__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_defaults_defines_server__WEBPACK_IMPORTED_MODULE_1__);
 
 
-const fs = __webpack_require__(/*! fs-extra */ "fs-extra");
 
-const path = __webpack_require__(/*! path */ "path"); // const vm = require('vm')
-// const chalk = require('chalk')
+const fs = __webpack_require__(/*! fs */ "fs");
 
+const path = __webpack_require__(/*! path */ "path");
+
+const vm = __webpack_require__(/*! vm */ "vm");
 /** @type {String} ssr.js 文件内容 */
+// let __KOOT_SSR_FILE_CONTENT__;
 
 
-let __KOOT_SSR_FILE_CONTENT__;
+let __KOOT_SSR_SCRIPT__;
+
+const context = {
+  version: parseInt(process.versions.node.split('.')[0]),
+  // eslint-disable-next-line no-eval
+  require: eval('require'),
+  // eslint-disable-next-line no-eval
+  // module: eval('module'),
+  module,
+  process,
+  console,
+  // global,
+  setTimeout,
+  setInterval,
+  setImmediate,
+  clearTimeout,
+  clearInterval,
+  clearImmediate,
+  // String,
+  // Number,
+  Buffer // Boolean,
+  // Array,
+  // Date,
+  // Error,
+  // EvalError,
+  // RangeError,
+  // ReferenceError,
+  // SyntaxError,
+  // TypeError,
+  // URIError,
+  // RegExp,
+  // Function,
+  // Object,
+  // Proxy,
+  // Reflect,
+  // Map,
+  // WeakMap,
+  // Set,
+  // WeakSet,
+  // Promise,
+  // Symbol,
+
+};
 /**
  * 执行服务器端渲染 (Server-Side Rendering)
  */
 
+const ssr = ctx => new Promise(async resolve => {
+  const ssrComplete = result => {
+    // return resolve('hello');
+    // setTimeout(function () {
+    //     __KOOT_SSR__ = false;
+    // });
+    if (false) {} // setTimeout(function () {
 
-const ssr = async __KOOT_SSR__ => new Promise(async resolve => {
-  __KOOT_SSR__.ssrComplete = result => resolve(result);
+    if (thisContext && typeof thisContext === 'object') {
+      for (const key of Object.keys(thisContext).filter(key => key !== 'global' && key !== _defaults_defines_server__WEBPACK_IMPORTED_MODULE_1__["koaContext"])) delete thisContext[key];
 
-  if (false) {}
+      purgeObject(thisContext.global);
+      delete thisContext.global; // delete thisContext[KOAContext]
+    }
 
-  if (!__KOOT_SSR_FILE_CONTENT__) {
+    thisContext = undefined;
+    purgeSSRContext(ctx);
+    resolve(result); // });
+  };
+
+  ctx[_defaults_defines_server__WEBPACK_IMPORTED_MODULE_1__["ssrContext"]].ssrComplete = ssrComplete;
+
+  if (false) {} // if (!__KOOT_SSR_FILE_CONTENT__) {
+  //     const fileSSR = path.resolve(
+  //         __KOOT_GET_DIST_PATH__(),
+  //         'server/ssr.js'
+  //     );
+  //     if (fs.existsSync(fileSSR)) {
+  //         __KOOT_SSR_FILE_CONTENT__ = fs.readFileSync(fileSSR, 'utf-8');
+  //     } else {
+  //         throw new Error(
+  //             "No `/server/ssr.js` found. Maybe there's an error while building. Please retry `koot-build`"
+  //         );
+  //     }
+  // }
+
+
+  if (!__KOOT_SSR_SCRIPT__) {
     const fileSSR = path.resolve(_utils_get_dist_path__WEBPACK_IMPORTED_MODULE_0___default()(), 'server/ssr.js');
 
     if (fs.existsSync(fileSSR)) {
-      __KOOT_SSR_FILE_CONTENT__ = fs.readFileSync(fileSSR, 'utf-8');
+      __KOOT_SSR_SCRIPT__ = new vm.Script(fs.readFileSync(fileSSR, 'utf-8'), {
+        filename: fileSSR
+      });
     } else {
       throw new Error("No `/server/ssr.js` found. Maybe there's an error while building. Please retry `koot-build`");
     }
-  } // __KOOT_SSR__.result = false
-  // const {
-  //     Store,
-  //     History,
-  //     LocaleId,
-  // } = __KOOT_SSR__
-  // console.log('before eval', {
-  //     LocaleId, logged: __KOOT_SSR__.logged,
-  //     'in __KOOT_SSR__': __KOOT_SSR__.LocaleId
-  // })
-  // console.log('\n' + chalk.cyanBright('eval SSR'))
-  // await eval(__KOOT_SSR_FILE_CONTENT__)
+  } // let __KOOT_SSR__ = ctx[SSRContext];
 
 
-  let Store, History, __KOOT_STORE__, __KOOT_HISTORY__, __KOOT_CTX__;
+  let thisContext = { ...context,
+    global: {},
+    [_defaults_defines_server__WEBPACK_IMPORTED_MODULE_1__["koaContext"]]: ctx
+  }; // Object.defineProperties(thisContext, {
+  //     [SSRContext]: {
+  //         configurable: false,
+  //         enumerable: false,
+  //         writable: false,
+  //         value: ctx[SSRContext],
+  //     },
+  //     Store: {
+  //         configurable: false,
+  //         enumerable: false,
+  //         get: function () {
+  //             return ctx[SSRContext].Store;
+  //         },
+  //     },
+  //     History: {
+  //         configurable: false,
+  //         enumerable: false,
+  //         get: function () {
+  //             return ctx[SSRContext].History;
+  //         },
+  //     },
+  // });
 
-  const {
-    // Store: __KOOT_STORE__,
-    // History: __KOOT_HISTORY__,
-    LocaleId: __KOOT_LOCALEID__
-  } = __KOOT_SSR__;
-
-  const __KOOT_SSR_SET_STORE__ = value => {
-    Store = value;
-    __KOOT_STORE__ = value;
-  };
-
-  const __KOOT_SSR_SET_HISTORY__ = value => {
-    History = value;
-    __KOOT_HISTORY__ = value;
-  };
-
-  const __KOOT_SSR_SET_CTX__ = value => {
-    __KOOT_CTX__ = value;
-  };
+  vm.createContext(thisContext);
 
   try {
+    // console.log(`const ${KOAContext} = ctx`);
+    // // eslint-disable-next-line no-eval
+    // eval(`const ${KOAContext} = ctx`);
+    // console.log(`console.log({${KOAContext}})`);
+    // const __KOOT_CTX__ = ctx;
     // eslint-disable-next-line no-eval
-    eval(__KOOT_SSR_FILE_CONTENT__);
+    // eval(`const ${KOAContext} = ctx;\n${__KOOT_SSR_FILE_CONTENT__}`);
+    // eslint-disable-next-line no-eval
+    // eval(__KOOT_SSR_FILE_CONTENT__);
+    // (function () {
+    //     // eslint-disable-next-line no-eval
+    //     eval(__KOOT_SSR_FILE_CONTENT__);
+    // })();
+    __KOOT_SSR_SCRIPT__.runInContext(thisContext); // __KOOT_SSR_SCRIPT__.runInThisContext();
+
   } catch (err) {
-    resolve({
+    ssrComplete({
       error: err
     });
   }
 });
 
-/* harmony default export */ __webpack_exports__["default"] = (ssr);
+/* harmony default export */ __webpack_exports__["default"] = (ssr); // ============================================================================
+
+/**
+ * 清理 SSR Context 对象。清楚内容
+ * - 所有第一级的对象
+ * - store
+ * - ctx 上的 Context 对象
+ * @param {*} ctx
+ */
+
+const purgeSSRContext = ctx => {
+  if (false) {} // console.log('purging...', ctx[SSRContext]);
+
+  if (typeof ctx[_defaults_defines_server__WEBPACK_IMPORTED_MODULE_1__["ssrContext"]] === 'object') {
+    purgeObject(ctx[_defaults_defines_server__WEBPACK_IMPORTED_MODULE_1__["ssrContext"]].connectedComponents);
+    purgeObject(ctx[_defaults_defines_server__WEBPACK_IMPORTED_MODULE_1__["ssrContext"]].History); // purgeObject(ctx[SSRContext].Store);
+
+    purgeObject(ctx[_defaults_defines_server__WEBPACK_IMPORTED_MODULE_1__["ssrContext"]].styleMap);
+    purgeObject(ctx[_defaults_defines_server__WEBPACK_IMPORTED_MODULE_1__["ssrContext"]].template); // store
+
+    if (typeof ctx[_defaults_defines_server__WEBPACK_IMPORTED_MODULE_1__["ssrContext"]].Store === 'object') {
+      // delete ctx[SSRContext].Store['Symbol(observable)'];
+      let state = ctx[_defaults_defines_server__WEBPACK_IMPORTED_MODULE_1__["ssrContext"]].Store.getState();
+      purgeObject(state);
+      state = undefined;
+
+      for (const key of Object.keys(ctx[_defaults_defines_server__WEBPACK_IMPORTED_MODULE_1__["ssrContext"]].Store)) delete ctx[_defaults_defines_server__WEBPACK_IMPORTED_MODULE_1__["ssrContext"]].Store[key];
+    }
+
+    for (const key of Object.keys(ctx[_defaults_defines_server__WEBPACK_IMPORTED_MODULE_1__["ssrContext"]])) delete ctx[_defaults_defines_server__WEBPACK_IMPORTED_MODULE_1__["ssrContext"]][key];
+  }
+
+  delete ctx[_defaults_defines_server__WEBPACK_IMPORTED_MODULE_1__["ssrContext"]]; // console.log('purged...', ctx[SSRContext]);
+  // console.log(' \n\n\n\n\n ');
+};
+
+const purgeObject = obj => {
+  if (!obj || typeof obj !== 'object') return;
+
+  for (const key of Object.keys(obj)) {
+    if (typeof obj[key] === 'object') purgeObject(obj[key]);
+    delete obj[key];
+  }
+};
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../webpack/buildin/harmony-module.js */ "./node_modules/webpack/buildin/harmony-module.js")(module)))
 
 /***/ }),
 
@@ -2831,7 +2988,7 @@ module.exports = KootReactRenderCache;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _KOOT_PROJECT_CONFIG_PORTION_SERVER_PATHNAME___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! __KOOT_PROJECT_CONFIG_PORTION_SERVER_PATHNAME__ */ "./logs/tmp/config/portion.server.1586114752067.js");
+/* harmony import */ var _KOOT_PROJECT_CONFIG_PORTION_SERVER_PATHNAME___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! __KOOT_PROJECT_CONFIG_PORTION_SERVER_PATHNAME__ */ "./logs/tmp/config/portion.server.1587052433610.js");
 /* harmony import */ var _utils_get_pathname_dev_server_start__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/get-pathname-dev-server-start */ "./node_modules/koot/utils/get-pathname-dev-server-start.js");
 /* harmony import */ var _utils_get_pathname_dev_server_start__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_utils_get_pathname_dev_server_start__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _libs_create_koa_app__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../libs/create-koa-app */ "./node_modules/koot/libs/create-koa-app.js");
@@ -2941,10 +3098,7 @@ const startKootIsomorphicServer = async () => {
   })); // 生命周期: 服务器即将启动
 
   if (false) {}
-  if (typeof serverAfter === 'function') await serverAfter(app); // [开发环境] 中间件: 请求完成后，触发 server/index.js 保存，让 PM2 重启服务器
-
-  if (false) {} // 初始化完成，准备启动服务器
-
+  if (typeof serverAfter === 'function') await serverAfter(app); // 初始化完成，准备启动服务器
 
   _libs_log__WEBPACK_IMPORTED_MODULE_4___default()(' ', 'server', `init \x1b[32m${'OK'}\x1b[0m!`); // 启动服务器
 
@@ -3036,7 +3190,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const fs = __webpack_require__(/*! fs-extra */ "fs-extra");
+const fs = __webpack_require__(/*! fs */ "fs");
 
 const path = __webpack_require__(/*! path */ "path");
 /**
@@ -3123,7 +3277,7 @@ __webpack_require__.r(__webpack_exports__);
 const validateTemplate = template => {
   if (false) {}
 
-  if (true) template = "<!DOCTYPE html>\r\n<html <%- inject.htmlLang -%>>\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n\r\n    <title><%= inject.title -%></title>\r\n\r\n    <base target=\"_self\">\r\n\r\n    <meta name=\"viewport\" content=\"width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no\">\r\n    <meta name=\"format-detection\" content=\"telephone=no,email=no,address=no\">\r\n    <meta name=\"format-detection\" content=\"email=no\">\r\n    <meta name=\"format-detection\" content=\"address=no\">\r\n    <meta name=\"format-detection\" content=\"telephone=no\">\r\n    <meta name=\"HandheldFriendly\" content=\"true\">\r\n    <meta name=\"mobile-web-app-capable\" content=\"yes\">\r\n\r\n    <link rel=\"shortcut icon\" href=\"/favicon.ico\" type=\"image/x-icon\">\r\n    <link rel=\"icon\" href=\"/icon-256.png\" type=\"image/png\" sizes=\"256x256\">\r\n    <link rel=\"icon\" href=\"/icon-128.png\" type=\"image/png\" sizes=\"128x128\">\r\n    <%- inject.manifest -%>\r\n\r\n    <meta name=\"theme-color\" content=\"#263238\" />\r\n\r\n    <!-- IE/Edge -->\r\n    <meta name=\"renderer\" content=\"webkit\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">\r\n\r\n    <!-- iOS -->\r\n    <meta name=\"apple-mobile-web-app-capable\" content=\"yes\">\r\n    <meta name=\"apple-mobile-web-app-status-bar-style\" content=\"black-translucent\">\r\n\r\n    <meta name=\"copyright\" content=\"Copyright (c) 2020 fleet.moe\">\r\n\r\n    <!-- Polyfill for legacy browsers -->\r\n    <script nomodule type=\"text/javascript\" src=\"<%- pathname('polyfill.js') %>\"></script>\r\n\r\n    <%- inject.metas -%>\r\n    <%- inject.styles -%>\r\n    <%- inject.definePath -%>\r\n</head>\r\n<body>\r\n    <div id=\"boat-loader\">LOADING...</div>\r\n    <div id=\"root\"><%- inject.react %></div>\r\n\r\n    <%- inject.svgIcons %>\r\n\r\n    <script type=\"text/javascript\"><%- content('critical.js') %></script>\r\n    <%- inject.scripts %>\r\n\r\n    <script>\r\n        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){\r\n        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),\r\n        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)\r\n        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');\r\n\r\n        ga('create', 'UA-63582858-4', 'auto');\r\n        ga('send', 'pageview');\r\n    </script>\r\n</body>\r\n</html>\r\n\n<!-- rendered by using koot.js 0.14.0-alpha.7 -->";
+  if (true) template = "<!DOCTYPE html>\r\n<html <%- inject.htmlLang -%>>\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n\r\n    <title><%= inject.title -%></title>\r\n\r\n    <base target=\"_self\">\r\n\r\n    <meta name=\"viewport\" content=\"width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no\">\r\n    <meta name=\"format-detection\" content=\"telephone=no,email=no,address=no\">\r\n    <meta name=\"format-detection\" content=\"email=no\">\r\n    <meta name=\"format-detection\" content=\"address=no\">\r\n    <meta name=\"format-detection\" content=\"telephone=no\">\r\n    <meta name=\"HandheldFriendly\" content=\"true\">\r\n    <meta name=\"mobile-web-app-capable\" content=\"yes\">\r\n\r\n    <link rel=\"shortcut icon\" href=\"/favicon.ico\" type=\"image/x-icon\">\r\n    <link rel=\"icon\" href=\"/icon-256.png\" type=\"image/png\" sizes=\"256x256\">\r\n    <link rel=\"icon\" href=\"/icon-128.png\" type=\"image/png\" sizes=\"128x128\">\r\n    <%- inject.manifest -%>\r\n\r\n    <meta name=\"theme-color\" content=\"#263238\" />\r\n\r\n    <!-- IE/Edge -->\r\n    <meta name=\"renderer\" content=\"webkit\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">\r\n\r\n    <!-- iOS -->\r\n    <meta name=\"apple-mobile-web-app-capable\" content=\"yes\">\r\n    <meta name=\"apple-mobile-web-app-status-bar-style\" content=\"black-translucent\">\r\n\r\n    <meta name=\"copyright\" content=\"Copyright (c) 2020 fleet.moe\">\r\n\r\n    <!-- Polyfill for legacy browsers -->\r\n    <script nomodule type=\"text/javascript\" src=\"<%- pathname('polyfill.js') %>\"></script>\r\n\r\n    <%- inject.metas -%>\r\n    <%- inject.styles -%>\r\n    <%- inject.definePath -%>\r\n</head>\r\n<body>\r\n    <div id=\"boat-loader\">LOADING...</div>\r\n    <div id=\"root\"><%- inject.react %></div>\r\n\r\n    <%- inject.svgIcons %>\r\n\r\n    <script type=\"text/javascript\"><%- content('critical.js') %></script>\r\n    <%- inject.scripts %>\r\n\r\n    <script>\r\n        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){\r\n        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),\r\n        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)\r\n        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');\r\n\r\n        ga('create', 'UA-63582858-4', 'auto');\r\n        ga('send', 'pageview');\r\n    </script>\r\n</body>\r\n</html>\r\n\n<!-- rendered by using koot.js 0.14.0-alpha.12 -->";
   if (typeof template !== 'string') throw new Error(_libs_error_msg__WEBPACK_IMPORTED_MODULE_0___default()('VALIDATE_TEMPLATE', '`config.template` should be Pathname or EJS String')); // if (template.substr(0, 2) === './') {
   //     // template = require(`raw-loader?` + path.resolve(
   //     //     getCwd(), template
@@ -3236,9 +3390,11 @@ module.exports = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports =  false ? undefined : {
-  needConnectComponents: '__NEED_CONNECT_COMPONENTS__'
-};
+module.exports =  true ? {
+  needConnectComponents: '__NEED_CONNECT_COMPONENTS__',
+  ssrContext: '__KOOT_SSR__',
+  koaContext: '__KOOT_CTX__'
+} : undefined;
 
 /***/ }),
 
@@ -3341,37 +3497,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "I18N_SET_LOCALES", function() { return I18N_SET_LOCALES; });
 const I18N_INIT = '@@KOOT@@I18N_INIT';
 const I18N_SET_LOCALES = '@@KOOT@@I18N_SET_LOCALES';
-
-/***/ }),
-
-/***/ "./node_modules/koot/i18n/get-language-list-from-state.js":
-/*!****************************************************************!*\
-  !*** ./node_modules/koot/i18n/get-language-list-from-state.js ***!
-  \****************************************************************/
-/*! exports provided: getLanguagelistFromState, default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getLanguagelistFromState", function() { return getLanguagelistFromState; });
-/**
- * 从当前的 Redux state 中获取语言列表字符串
- * 如果 uri search 中存在 fb_locale，将该值放在第一位
- * 
- * @param {object} state 当前的 Redux state
- * 
- * @returns {string} 语言列表，使用分号(;)分割
- */
-const getLanguagelistFromState = ({
-  server = {},
-  routing
-}) => {
-  const fb_locale = routing && routing.locationBeforeTransitions && routing.locationBeforeTransitions.query ? routing.locationBeforeTransitions.query.fb_locale : null;
-  let lang = server.lang;
-  if (fb_locale) lang = fb_locale + ';' + lang;
-  return lang || '';
-};
-/* harmony default export */ __webpack_exports__["default"] = (getLanguagelistFromState);
 
 /***/ }),
 
@@ -3480,7 +3605,13 @@ module.exports = (() => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "locales", function() { return locales; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setLocales", function() { return setLocales; });
-/* global __KOOT_SSR__:false, __KOOT_SSR_STATE__:false */
+/* global
+    __KOOT_SSR_STATE__:false
+*/
+const {
+  get: getSSRContext
+} = __webpack_require__(/*! ../libs/ssr/context */ "./node_modules/koot/libs/ssr/context.js");
+
 const __devLocales = {};
 /**
  * 根据当前环境，返回语言包对象的引用
@@ -3491,7 +3622,7 @@ const __devLocales = {};
 
 const getLocalesObject = () => {
   if (true) {
-    if (false) {} else if (typeof __KOOT_SSR__ === 'object') return __KOOT_SSR__.locales;
+    if (false) {} else return getSSRContext().locales || false;
   }
 
   if (false) {}
@@ -3653,7 +3784,8 @@ const checkItem = (input, localeIds = availableLocaleIds) => {
 /***/ (function(module, exports, __webpack_require__) {
 
 /* eslint-disable no-eval */
-const fs = __webpack_require__(/*! fs-extra */ "fs-extra");
+// const fs = require('fs-extra');
+const fs = __webpack_require__(/*! fs */ "fs");
 
 const path = __webpack_require__(/*! path */ "path");
 
@@ -3668,7 +3800,8 @@ module.exports = pathname => {
   //     exists: fs.existsSync(file)
   // });
 
-  return path.extname(file) === '.json' ? fs.readJsonSync(file) : eval(`require("${file.replace(/\\/g, '\\\\')}")`);
+  return path.extname(file) === '.json' ? // ? fs.readJsonSync(file)
+  JSON.parse(fs.readFileSync(file, 'utf-8')) : eval(`require("${file.replace(/\\/g, '\\\\')}")`);
 };
 
 /***/ }),
@@ -3684,39 +3817,34 @@ module.exports = pathname => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "reducerLocaleId", function() { return reducerLocaleId; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "actionInit", function() { return actionInit; });
-/* harmony import */ var _parse_language_list__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../parse-language-list */ "./node_modules/koot/i18n/parse-language-list.js");
-/* harmony import */ var _parse_language_list__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_parse_language_list__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _get_language_list_from_state__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../get-language-list-from-state */ "./node_modules/koot/i18n/get-language-list-from-state.js");
-/* harmony import */ var _parse_locale_id__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../parse-locale-id */ "./node_modules/koot/i18n/parse-locale-id.js");
-/* harmony import */ var _parse_locale_id__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_parse_locale_id__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _action_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../action-types */ "./node_modules/koot/i18n/action-types.js");
-
-
- // import locales from '../locales'
-
+/* harmony import */ var _action_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../action-types */ "./node_modules/koot/i18n/action-types.js");
+// import parseLanguageList from '../parse-language-list';
+// import getLanguagelistFromState from '../get-language-list-from-state';
+// import parseLocaleId from '../parse-locale-id';
+// import locales from '../locales'
 
 /**
  * Redux reducer: 初始化 localeId
- * 
- * @param {*} state 
+ *
+ * @param {*} state
  * @param {*} action
- * 
+ *
  * @returns {*} state
  */
 
 const reducerLocaleId = (state = null, action) => {
   switch (action.type) {
-    case _action_types__WEBPACK_IMPORTED_MODULE_3__["I18N_INIT"]:
+    case _action_types__WEBPACK_IMPORTED_MODULE_0__["I18N_INIT"]:
       return action.localeId;
   }
 
   return state;
 }; // /**
 //  * Redux reducer: 初始化 locales
-//  * 
-//  * @param {*} state 
+//  *
+//  * @param {*} state
 //  * @param {*} action
-//  * 
+//  *
 //  * @returns {*} state
 //  */
 // export const reducerLocales = (state = {}, action) => {
@@ -3729,22 +3857,26 @@ const reducerLocaleId = (state = null, action) => {
 
 /**
  * Redux action: 初始化
- * 
- * @param {Object} state 
+ *
+ * @param {Object} state
  * @returns {Object}
  */
 
-const actionInit = state => {
+const actionInit = localeId => {
   // setLocaleId(localeId)
-  const localeId =  true ? init(_parse_language_list__WEBPACK_IMPORTED_MODULE_0___default()(typeof state === 'object' ? Object(_get_language_list_from_state__WEBPACK_IMPORTED_MODULE_1__["default"])(state) : state), state.localeId) : undefined; // setLocaleId(localeId)
-
+  // const localeId = __SERVER__
+  //     ? init(parseLanguageList(
+  //         (typeof state === 'object') ? getLanguagelistFromState(state) : state
+  //     ), state.localeId)
+  //     : state.localeId
+  // setLocaleId(localeId)
   return {
-    type: _action_types__WEBPACK_IMPORTED_MODULE_3__["I18N_INIT"],
+    type: _action_types__WEBPACK_IMPORTED_MODULE_0__["I18N_INIT"],
     localeId: '' + localeId
   };
 }; // /**
 //  * Redux action: 设置语言包内容对象
-//  * 
+//  *
 //  * @returns {Object}
 //  */
 // export const actionLocales = (state) => {
@@ -3756,23 +3888,26 @@ const actionInit = state => {
 
 /**
  * 服务器环境：根据语言列表，初始化i18n，获得并赋值 localeId
- * 
+ *
  * @param {array|string} langList 语言列表
- * 
+ *
  * @returns (如果已初始化)locales[localeId]
  */
-
-const init = (langList = [], localeId) => {
-  if (true) {
-    // console.log(locales[localeId])
-    if (typeof langList === 'string') if (langList.indexOf(';') > -1) langList = _parse_language_list__WEBPACK_IMPORTED_MODULE_0___default()(langList);else return init([langList], localeId);
-    const parsed = _parse_locale_id__WEBPACK_IMPORTED_MODULE_2___default()(langList); // if (parsed) setLocaleId(parsed)
-    // else setLocaleId(localeId)
-
-    if (parsed) return parsed;
-    return localeId; // if (locales[localeId]) return locales[localeId]
-  }
-};
+// const init = (langList = [], localeId) => {
+//     if (__SERVER__) {
+//         // console.log(locales[localeId])
+//         if (typeof langList === 'string')
+//             if (langList.indexOf(';') > -1)
+//                 langList = parseLanguageList(langList);
+//             else return init([langList], localeId);
+//         const parsed = parseLocaleId(langList);
+//         // if (parsed) setLocaleId(parsed)
+//         // else setLocaleId(localeId)
+//         if (parsed) return parsed;
+//         return localeId;
+//         // if (locales[localeId]) return locales[localeId]
+//     }
+// };
 
 /***/ }),
 
@@ -3899,37 +4034,46 @@ module.exports = (localeId, ctx) => {
 /*!************************************!*\
   !*** ./node_modules/koot/index.js ***!
   \************************************/
-/*! exports provided: createStore, reduxForCreateStore, extend, getLocaleId, resetLocaleId, localeId, getStore, resetStore, store, getHistory, resetHistory, history, getCache, getCtx */
+/*! exports provided: createStore, reduxForCreateStore, extend, localeId, store, getStore, history, getHistory, getLocaleId, resetLocaleId, resetStore, resetHistory, getCache, getCtx */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createStore", function() { return createStore; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "reduxForCreateStore", function() { return reduxForCreateStore; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getLocaleId", function() { return getLocaleId; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resetLocaleId", function() { return resetLocaleId; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "localeId", function() { return localeId; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getStore", function() { return getStore; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resetStore", function() { return resetStore; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "store", function() { return store; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getHistory", function() { return getHistory; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resetHistory", function() { return resetHistory; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "history", function() { return history; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getCache", function() { return getCache; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getCtx", function() { return getCtx; });
-/* harmony import */ var _React_is_render_safe__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./React/is-render-safe */ "./node_modules/koot/React/is-render-safe.js");
-/* harmony import */ var _React_is_render_safe__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_React_is_render_safe__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _React_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./React/redux */ "./node_modules/koot/React/redux.js");
-/* harmony import */ var _KOOT_HOC_EXTEND___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! __KOOT_HOC_EXTEND__ */ "./node_modules/koot/React/component-extender.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "extend", function() { return _KOOT_HOC_EXTEND___WEBPACK_IMPORTED_MODULE_2__["default"]; });
+/* harmony import */ var _defaults_defines_server__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./defaults/defines-server */ "./node_modules/koot/defaults/defines-server.js");
+/* harmony import */ var _defaults_defines_server__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_defaults_defines_server__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _React_is_render_safe__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./React/is-render-safe */ "./node_modules/koot/React/is-render-safe.js");
+/* harmony import */ var _React_is_render_safe__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_React_is_render_safe__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _libs_ssr_context__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./libs/ssr/context */ "./node_modules/koot/libs/ssr/context.js");
+/* harmony import */ var _libs_ssr_context__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_libs_ssr_context__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getLocaleId", function() { return _libs_ssr_context__WEBPACK_IMPORTED_MODULE_2__["getLocaleId"]; });
 
-/* global
-    __KOOT_SSR__: false,
-    __KOOT_STORE__: false,
-    __KOOT_HISTORY__: false,
-    __KOOT_LOCALEID__: false,
-    __KOOT_CTX__: false,
-*/
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "resetLocaleId", function() { return _libs_ssr_context__WEBPACK_IMPORTED_MODULE_2__["resetLocaleId"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "resetStore", function() { return _libs_ssr_context__WEBPACK_IMPORTED_MODULE_2__["resetStore"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "resetHistory", function() { return _libs_ssr_context__WEBPACK_IMPORTED_MODULE_2__["resetHistory"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getCtx", function() { return _libs_ssr_context__WEBPACK_IMPORTED_MODULE_2__["getKoaCtx"]; });
+
+/* harmony import */ var _React_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./React/redux */ "./node_modules/koot/React/redux.js");
+/* harmony import */ var _KOOT_HOC_EXTEND___WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! __KOOT_HOC_EXTEND__ */ "./node_modules/koot/React/component-extender.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "extend", function() { return _KOOT_HOC_EXTEND___WEBPACK_IMPORTED_MODULE_4__["default"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "localeId", function() { return _libs_ssr_context__WEBPACK_IMPORTED_MODULE_2__["localeId"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "store", function() { return _libs_ssr_context__WEBPACK_IMPORTED_MODULE_2__["store"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getStore", function() { return _libs_ssr_context__WEBPACK_IMPORTED_MODULE_2__["getStore"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "history", function() { return _libs_ssr_context__WEBPACK_IMPORTED_MODULE_2__["history"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getHistory", function() { return _libs_ssr_context__WEBPACK_IMPORTED_MODULE_2__["getHistory"]; });
+
+
+
  // ============================================================================
 
 /**
@@ -3941,7 +4085,7 @@ __webpack_require__.r(__webpack_exports__);
 const {
   createStore,
   ...reduxForCreateStore
-} = _React_redux__WEBPACK_IMPORTED_MODULE_1__;
+} = _React_redux__WEBPACK_IMPORTED_MODULE_3__;
 
 /**
  * 通用的高阶组件/方法的装饰器
@@ -3950,63 +4094,24 @@ const {
 
  // ============================================================================
 
-const getLocaleId = () => {
-  if (false) {}
 
-  if (true) {
-    if (false) {}
-    if (typeof __KOOT_LOCALEID__ === 'undefined') return '';
-    return __KOOT_LOCALEID__ || '';
-  }
-};
-const resetLocaleId = () => localeId = getLocaleId();
-let localeId = (() => getLocaleId())(); // ============================================================================
-
-const getStore = () => {
-  if (false) {}
-
-  if (true) {
-    if (false) {}
-    if (typeof __KOOT_STORE__ === 'undefined') return '';
-    return __KOOT_STORE__;
-  }
-};
-const resetStore = () => store = getStore();
-let store = (() => getStore())(); // ============================================================================
-
-const getHistory = () => {
-  if (false) {}
-
-  if (true) {
-    if (false) {}
-    if (typeof __KOOT_HISTORY__ === 'undefined') return '';
-    return __KOOT_HISTORY__;
-  }
-};
-const resetHistory = () => history = getHistory();
-let history = (() => getHistory())(); // ============================================================================
+ // ============================================================================
 
 const getCache = localeId => {
-  if (!_React_is_render_safe__WEBPACK_IMPORTED_MODULE_0___default()()) return {};
+  if (!_React_is_render_safe__WEBPACK_IMPORTED_MODULE_1___default()()) return {};
 
   if (false) {}
 
   if (true) {
-    const SSR =  false ? undefined : __KOOT_SSR__;
-    const cache = SSR.globalCache;
+    const cache = Object(_libs_ssr_context__WEBPACK_IMPORTED_MODULE_2__["get"])().globalCache;
     if (!cache) return {};
-    if (localeId === true) return cache.get(getLocaleId());
+    if (localeId === true) return cache.get(Object(_libs_ssr_context__WEBPACK_IMPORTED_MODULE_2__["getLocaleId"])());
     if (localeId) return cache.get(localeId) || {};
     return cache.get('__');
   }
 }; // ============================================================================
 
-const getCtx = () => {
-  if (false) {}
-  if (false) {}
-  if (typeof __KOOT_CTX__ === 'undefined') return undefined;
-  return __KOOT_CTX__;
-}; // ============================================================================
+ // ============================================================================
 
 if (false) {}
 
@@ -4461,6 +4566,194 @@ module.exports = (...args) => {
 
 /***/ }),
 
+/***/ "./node_modules/koot/libs/ssr/context.js":
+/*!***********************************************!*\
+  !*** ./node_modules/koot/libs/ssr/context.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* global
+    __KOOT_SSR__:false
+    __KOOT_CTX__:false
+*/
+
+/**
+ * 当前 SSR context 对象
+ * @typedef {Object} KootSSRContext
+ * @property {Object} Store - 数据存储空间
+ * @property {History} History - 历史纪录对象
+ * @property {string} [LocaleId] - 当前语种ID
+ * @property {Object} [locales] - 语言包对象，包含所有语种
+ * @property {Map} globalCache - 公共缓存空间
+ * @property {Object} [proxyRequestOrigin={}] - 配置项 `proxyRequestOrigin`
+ * @property {string} template - EJS 模板
+ * @property {Object} [templateInject={}] - EJS 自定义注入对象
+ *
+                    thisTemplateInjectCache,
+                    thisEntrypoints,
+                    thisFilemap, //thisStyleMap,
+                    styleMap,
+                    connectedComponents: __DEV__
+                        ? (global[SSRContext]
+                              ? global[SSRContext].connectedComponents
+                              : []) || []
+                        : [],
+ */
+// ============================================================================
+const {
+  ssrContext: SSRContext,
+  koaContext: KOAContext
+} = __webpack_require__(/*! ../../defaults/defines-server */ "./node_modules/koot/defaults/defines-server.js"); // ============================================================================
+
+/** @type {KootSSRContext} */
+
+
+let kootSSRContext;
+let koaCtx;
+
+if (false) {} // ============================================================================
+
+/**
+ * 获取 SSR context 对象
+ * @returns {KootSSRContext}
+ */
+
+
+function get() {
+  if (false) {}
+  if (false) {}
+  if (typeof kootSSRContext === 'object') return kootSSRContext;
+  if (typeof __KOOT_SSR__ === 'object') return __KOOT_SSR__;
+  return {};
+}
+/**
+ * 获取 Koa ctx 对象
+ */
+
+
+function getKoaCtx() {
+  if (false) {}
+  if (false) {}
+  if (typeof koaCtx === 'object') return koaCtx;
+  if (typeof __KOOT_CTX__ === 'object') return __KOOT_CTX__;
+  return {};
+}
+/**
+ * 设置当前 Koa ctx 和 Koot SSR context 对象
+ * @param {*} ctx
+ */
+
+
+function set(ctx) {
+  if (false) {} // console.log('set', ctx, 'locales', ctx[SSRContext].locales);
+
+  if (false) {}
+  kootSSRContext = ctx[SSRContext];
+  koaCtx = ctx;
+  resetLocaleId();
+  resetStore();
+  resetHistory();
+} // ============================================================================
+
+
+const getLocaleId = () => {
+  if (false) {}
+
+  if (true) {
+    if (false) {}
+    return get().LocaleId;
+  }
+};
+
+let localeId = (() => getLocaleId())();
+
+const resetLocaleId = newValue => {
+  if ( true && newValue === false) {
+    localeId = undefined;
+    delete get().LocaleId;
+    return;
+  }
+
+  if (newValue) get().LocaleId = newValue;
+  localeId = newValue || getLocaleId();
+}; // ============================================================================
+
+
+const getStore = () => {
+  if (false) {}
+
+  if (true) {
+    if (false) {}
+    return get().Store;
+  }
+};
+
+let store = (() => getStore())();
+
+const resetStore = newValue => {
+  if (newValue) get().Store = newValue;
+  store = newValue || getStore();
+}; // ============================================================================
+
+
+const getHistory = () => {
+  if (false) {}
+
+  if (true) {
+    if (false) {}
+    return get().History;
+  }
+};
+
+let history = (() => getHistory())();
+
+const resetHistory = newValue => {
+  if (newValue) get().History = newValue;
+  history = newValue || getHistory();
+}; // ============================================================================
+
+
+function reset() {
+  resetLocaleId(false); // purgeObj(kootSSRContext);
+
+  kootSSRContext = undefined;
+  koaCtx = undefined;
+} // const purgeObj = (obj) => {
+//     if (typeof obj === 'object') {
+//         for (const [key, value] of Object.entries(obj)) {
+//             if (typeof value === 'object') {
+//                 purgeObj(value);
+//             }
+//             // console.log(key);
+//             try {
+//                 obj[key] = undefined;
+//             } catch (e) {}
+//             delete obj[key];
+//         }
+//     }
+// };
+// ============================================================================
+
+
+module.exports = {
+  set,
+  get,
+  getKoaCtx,
+  localeId,
+  getLocaleId,
+  resetLocaleId,
+  store,
+  getStore,
+  resetStore,
+  history,
+  getHistory,
+  resetHistory,
+  reset
+};
+
+/***/ }),
+
 /***/ "./node_modules/koot/libs/validate-port.js":
 /*!*************************************************!*\
   !*** ./node_modules/koot/libs/validate-port.js ***!
@@ -4634,7 +4927,7 @@ module.exports = (dist = getDistPath()) => {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-const fs = __webpack_require__(/*! fs-extra */ "fs-extra");
+const fs = __webpack_require__(/*! fs */ "fs");
 
 const getIsI18nEnabled = __webpack_require__(/*! ../i18n/is-enabled */ "./node_modules/koot/i18n/is-enabled.js");
 
@@ -4655,7 +4948,10 @@ let cachedChunkmap;
  */
 
 const getChunkmap = (localeId, getFullResult = false, ignoreCache = false) => {
-  if (localeId === true) return getChunkmap(getFullResult || undefined, true);
+  if (localeId === true) {
+    return getChunkmap(getFullResult || undefined, true);
+  }
+
   const isI18nEnabled = getIsI18nEnabled();
 
   if (isI18nEnabled && typeof localeId === 'undefined') {
@@ -4673,13 +4969,13 @@ const getChunkmap = (localeId, getFullResult = false, ignoreCache = false) => {
     if (typeof global.chunkmap === 'object') chunkmap = global.chunkmap;
 
     try {
-      chunkmap = JSON.parse("{\".zh\":{\".public\":\"public/\",\".out\":\"public/\",\".entrypoints\":{\"critical\":[\"public/includes/chunk.78615998fca61b51a806.js\",\"public/includes/extract.21.91f0ff70740fe458a98e.css\",\"public/includes/entry.91f0ff70740fe458a98e.js\"],\"polyfill\":[\"public/includes/chunk.78615998fca61b51a806.js\",\"public/includes/entry.e99748f9a75b3c722320.js\"],\"client\":[\"public/includes/chunk.48fa0f1e49a72b027d7e.js\",\"public/includes/chunk.78615998fca61b51a806.js\",\"public/includes/entry.5d6ed33a2c3935286862.js\"],\"__KOOT__CLIENT__RUN__FIRST__\":[\"public/includes/chunk.48fa0f1e49a72b027d7e.js\",\"public/includes/chunk.78615998fca61b51a806.js\",\"public/includes/entry.59549a6a50bfd5dec4e1.js\"]},\".files\":{\"libs-others.js\":\"public/includes/chunk.78615998fca61b51a806.js\",\"libs.js\":\"public/includes/chunk.48fa0f1e49a72b027d7e.js\",\"About_Page.js\":\"public/includes/chunk.baf36e9272fc05e99b87.js\",\"Academy_Entry_Page.js\":\"public/includes/chunk.8a5fca6d98f1ca38dcf4.js\",\"Arsenal_Page.js\":\"public/includes/chunk.402fa3e302b4b2daf872.js\",\"Equipment_Details_Page.js\":\"public/includes/chunk.757b4447f377bf25cfb6.js\",\"Equipment_List_Page.js\":\"public/includes/chunk.a56fa8faf9b19c3e76c7.js\",\"Expeditions_List_Page.js\":\"public/includes/chunk.f506aa4d7a31678e7c55.js\",\"Extra_CGs_Page.js\":\"public/includes/chunk.3f917d95ab4906597139.js\",\"Fleet_Builder_Entry_Page.js\":\"public/includes/chunk.461dfb9bcb529cc12d39.js\",\"Fleet_Builder_Fleet_Details_Page.js\":\"public/includes/chunk.9342449a2272ab69cae0.js\",\"Fleet_Builder_WIP_Blank_Page.js\":\"public/includes/chunk.116ca64ca40e57cdd2a4.js\",\"Home_Page.js\":\"public/includes/chunk.b4afc559bf566a889608.js\",\"People_Details_Page.js\":\"public/includes/chunk.0215ceed969f1165e2e3.js\",\"People_List_Page.js\":\"public/includes/chunk.e9b91fd3602ae2a771a8.js\",\"Ship_Details_Page.css\":\"public/includes/extract.15.c38e26344772a890eb49.css\",\"Ship_Details_Page.js\":\"public/includes/chunk.c38e26344772a890eb49.js\",\"Ship_List_Page.js\":\"public/includes/chunk.89d57285d61ea863cc35.js\",\"Sorties_List_Page.js\":\"public/includes/chunk.bac4aae5de985312fe43.js\",\"TP_Calculator_Single-Page-Tool.js\":\"public/includes/chunk.0b3f6497c5830496728e.js\",\"__KOOT__CLIENT__RUN__FIRST__.js\":\"public/includes/entry.59549a6a50bfd5dec4e1.js\",\"client.js\":\"public/includes/entry.5d6ed33a2c3935286862.js\",\"critical.css\":\"public/includes/extract.21.91f0ff70740fe458a98e.css\",\"critical.js\":\"public/includes/entry.91f0ff70740fe458a98e.js\",\"polyfill.js\":\"public/includes/entry.e99748f9a75b3c722320.js\",\"vendors~Ship_Details_Page.css\":\"public/includes/extract.23.56d41584e260185aa989.css\",\"vendors~Ship_Details_Page.js\":\"public/includes/chunk.56d41584e260185aa989.js\",\"vendors~nedb.js\":\"public/includes/chunk.de05df69c5f6e3c9e19b.js\",\"__KOOT__EXTRACT__CSS__.css\":\"public/includes/extract.all.086a9c1589efe7a7a1a2b2a8d685aa36.small.css\"},\"service-worker\":[\"public/service-worker.zh.js\"]},\".en\":{\".public\":\"public/\",\".out\":\"public/\",\".entrypoints\":{\"critical\":[\"public/includes/chunk.fd53066a2ad1b1e356a3.js\",\"public/includes/extract.21.91f0ff70740fe458a98e.css\",\"public/includes/entry.91f0ff70740fe458a98e.js\"],\"polyfill\":[\"public/includes/chunk.fd53066a2ad1b1e356a3.js\",\"public/includes/entry.e99748f9a75b3c722320.js\"],\"client\":[\"public/includes/chunk.48fa0f1e49a72b027d7e.js\",\"public/includes/chunk.fd53066a2ad1b1e356a3.js\",\"public/includes/entry.857132db08e14bc0086d.js\"],\"__KOOT__CLIENT__RUN__FIRST__\":[\"public/includes/chunk.48fa0f1e49a72b027d7e.js\",\"public/includes/chunk.fd53066a2ad1b1e356a3.js\",\"public/includes/entry.7a38678b81d0a70e1e7f.js\"]},\".files\":{\"libs-others.js\":\"public/includes/chunk.fd53066a2ad1b1e356a3.js\",\"libs.js\":\"public/includes/chunk.48fa0f1e49a72b027d7e.js\",\"About_Page.js\":\"public/includes/chunk.2a9891285e5c75bf6bea.js\",\"Academy_Entry_Page.js\":\"public/includes/chunk.9f7e8ac4fd8df09ee56a.js\",\"Arsenal_Page.js\":\"public/includes/chunk.898cb0092a35e462edde.js\",\"Equipment_Details_Page.js\":\"public/includes/chunk.45700b066ca3e5cd19e7.js\",\"Equipment_List_Page.js\":\"public/includes/chunk.de77bd8939fe5e369e0b.js\",\"Expeditions_List_Page.js\":\"public/includes/chunk.e97955a09e0a9c676bb1.js\",\"Extra_CGs_Page.js\":\"public/includes/chunk.77c759db2e39082c458a.js\",\"Fleet_Builder_Entry_Page.js\":\"public/includes/chunk.762fd5889740ecfed45a.js\",\"Fleet_Builder_Fleet_Details_Page.js\":\"public/includes/chunk.67663df1818b34fb1460.js\",\"Fleet_Builder_WIP_Blank_Page.js\":\"public/includes/chunk.93c85a5cfb5f8f475142.js\",\"Home_Page.js\":\"public/includes/chunk.b4afc559bf566a889608.js\",\"People_Details_Page.js\":\"public/includes/chunk.a8816b1439daee4108e7.js\",\"People_List_Page.js\":\"public/includes/chunk.12e9bd805aa1b469667e.js\",\"Ship_Details_Page.css\":\"public/includes/extract.15.6cf9b28ee08ad09800b6.css\",\"Ship_Details_Page.js\":\"public/includes/chunk.6cf9b28ee08ad09800b6.js\",\"Ship_List_Page.js\":\"public/includes/chunk.d3c8e04dacf7d811cee6.js\",\"Sorties_List_Page.js\":\"public/includes/chunk.4c902fe423bbb6914984.js\",\"TP_Calculator_Single-Page-Tool.js\":\"public/includes/chunk.1c3a333570dca3857c33.js\",\"__KOOT__CLIENT__RUN__FIRST__.js\":\"public/includes/entry.7a38678b81d0a70e1e7f.js\",\"client.js\":\"public/includes/entry.857132db08e14bc0086d.js\",\"critical.css\":\"public/includes/extract.21.91f0ff70740fe458a98e.css\",\"critical.js\":\"public/includes/entry.91f0ff70740fe458a98e.js\",\"polyfill.js\":\"public/includes/entry.e99748f9a75b3c722320.js\",\"vendors~Ship_Details_Page.css\":\"public/includes/extract.23.56d41584e260185aa989.css\",\"vendors~Ship_Details_Page.js\":\"public/includes/chunk.56d41584e260185aa989.js\",\"vendors~nedb.js\":\"public/includes/chunk.de05df69c5f6e3c9e19b.js\",\"__KOOT__EXTRACT__CSS__.css\":\"public/includes/extract.all.086a9c1589efe7a7a1a2b2a8d685aa36.small.css\"},\"service-worker\":[\"public/service-worker.en.js\"]},\".ja\":{\".public\":\"public/\",\".out\":\"public/\",\".entrypoints\":{\"critical\":[\"public/includes/chunk.6d6a42eb43b19cb6f41f.js\",\"public/includes/extract.21.91f0ff70740fe458a98e.css\",\"public/includes/entry.91f0ff70740fe458a98e.js\"],\"polyfill\":[\"public/includes/chunk.6d6a42eb43b19cb6f41f.js\",\"public/includes/entry.e99748f9a75b3c722320.js\"],\"client\":[\"public/includes/chunk.48fa0f1e49a72b027d7e.js\",\"public/includes/chunk.6d6a42eb43b19cb6f41f.js\",\"public/includes/entry.4cb45d1d5804c0fcceb1.js\"],\"__KOOT__CLIENT__RUN__FIRST__\":[\"public/includes/chunk.48fa0f1e49a72b027d7e.js\",\"public/includes/chunk.6d6a42eb43b19cb6f41f.js\",\"public/includes/entry.7a38678b81d0a70e1e7f.js\"]},\".files\":{\"libs-others.js\":\"public/includes/chunk.6d6a42eb43b19cb6f41f.js\",\"libs.js\":\"public/includes/chunk.48fa0f1e49a72b027d7e.js\",\"About_Page.js\":\"public/includes/chunk.247acb9851d4df03dbf9.js\",\"Academy_Entry_Page.js\":\"public/includes/chunk.1f9f895c368fcb982ba6.js\",\"Arsenal_Page.js\":\"public/includes/chunk.de850d5dcb808057202d.js\",\"Equipment_Details_Page.js\":\"public/includes/chunk.7ed8b6721cd892a0b293.js\",\"Equipment_List_Page.js\":\"public/includes/chunk.8e91710f5d6c6151e633.js\",\"Expeditions_List_Page.js\":\"public/includes/chunk.43afa38974aafe080075.js\",\"Extra_CGs_Page.js\":\"public/includes/chunk.7af4e7f601c2c2c28eef.js\",\"Fleet_Builder_Entry_Page.js\":\"public/includes/chunk.11f6913f09ae83a17a57.js\",\"Fleet_Builder_Fleet_Details_Page.js\":\"public/includes/chunk.66f8ab932f825c6b2345.js\",\"Fleet_Builder_WIP_Blank_Page.js\":\"public/includes/chunk.174ce98567b39b435437.js\",\"Home_Page.js\":\"public/includes/chunk.a44135c18b4eb3bfcd0b.js\",\"People_Details_Page.js\":\"public/includes/chunk.6ae30a8bda72d06ffb66.js\",\"People_List_Page.js\":\"public/includes/chunk.194f7868b454cc93d7db.js\",\"Ship_Details_Page.css\":\"public/includes/extract.15.5031bc734b5dd02d7bce.css\",\"Ship_Details_Page.js\":\"public/includes/chunk.5031bc734b5dd02d7bce.js\",\"Ship_List_Page.js\":\"public/includes/chunk.eeb373680501430cb767.js\",\"Sorties_List_Page.js\":\"public/includes/chunk.481b3d6cb39c2d68d62b.js\",\"TP_Calculator_Single-Page-Tool.js\":\"public/includes/chunk.ab8795bbcd54b38e5dfd.js\",\"__KOOT__CLIENT__RUN__FIRST__.js\":\"public/includes/entry.7a38678b81d0a70e1e7f.js\",\"client.js\":\"public/includes/entry.4cb45d1d5804c0fcceb1.js\",\"critical.css\":\"public/includes/extract.21.91f0ff70740fe458a98e.css\",\"critical.js\":\"public/includes/entry.91f0ff70740fe458a98e.js\",\"polyfill.js\":\"public/includes/entry.e99748f9a75b3c722320.js\",\"vendors~Ship_Details_Page.css\":\"public/includes/extract.23.56d41584e260185aa989.css\",\"vendors~Ship_Details_Page.js\":\"public/includes/chunk.56d41584e260185aa989.js\",\"vendors~nedb.js\":\"public/includes/chunk.de05df69c5f6e3c9e19b.js\",\"__KOOT__EXTRACT__CSS__.css\":\"public/includes/extract.all.086a9c1589efe7a7a1a2b2a8d685aa36.small.css\"},\"service-worker\":[\"public/service-worker.ja.js\"]}}");
+      chunkmap = JSON.parse("{\".zh\":{\".public\":\"public/\",\".out\":\"public/\",\".entrypoints\":{\"critical\":[\"public/includes/chunk.031988c269f32fe65c02.js\",\"public/includes/extract.21.b7d0f34235137d932fd3.css\",\"public/includes/entry.b7d0f34235137d932fd3.js\"],\"polyfill\":[\"public/includes/chunk.031988c269f32fe65c02.js\",\"public/includes/entry.d96a56263786a4f483c6.js\"],\"client\":[\"public/includes/chunk.2385bcaf9b8d34344115.js\",\"public/includes/chunk.031988c269f32fe65c02.js\",\"public/includes/entry.40716e42dff21ff31402.js\"],\"__KOOT__CLIENT__RUN__FIRST__\":[\"public/includes/chunk.2385bcaf9b8d34344115.js\",\"public/includes/chunk.031988c269f32fe65c02.js\",\"public/includes/entry.6a864c145adbea3ec926.js\"]},\".files\":{\"libs-others.js\":\"public/includes/chunk.031988c269f32fe65c02.js\",\"libs.js\":\"public/includes/chunk.2385bcaf9b8d34344115.js\",\"About_Page.js\":\"public/includes/chunk.283b327c8bb19057b804.js\",\"Academy_Entry_Page.js\":\"public/includes/chunk.a3e3c7869a0ccad0c79f.js\",\"Arsenal_Page.js\":\"public/includes/chunk.e99ba5da2109e21ca784.js\",\"Equipment_Details_Page.js\":\"public/includes/chunk.7d8acd21d6b02c72c23b.js\",\"Equipment_List_Page.js\":\"public/includes/chunk.23b50397d09c7d472e5c.js\",\"Expeditions_List_Page.js\":\"public/includes/chunk.7711214f9a2fcfc2ad8e.js\",\"Extra_CGs_Page.js\":\"public/includes/chunk.9d0ef13878a61bc110e1.js\",\"Fleet_Builder_Entry_Page.js\":\"public/includes/chunk.6a5eb62c0a3c4a3c408a.js\",\"Fleet_Builder_Fleet_Details_Page.js\":\"public/includes/chunk.3776602bdd64f440dfca.js\",\"Fleet_Builder_WIP_Blank_Page.js\":\"public/includes/chunk.3496e24536d1280f8d1d.js\",\"Home_Page.js\":\"public/includes/chunk.df46244b223d24315ed5.js\",\"People_Details_Page.js\":\"public/includes/chunk.0cbdb4e2d8b827914c99.js\",\"People_List_Page.js\":\"public/includes/chunk.f22073f9d34df88338d4.js\",\"Ship_Details_Page.css\":\"public/includes/extract.15.3b47c7855771290c4ea3.css\",\"Ship_Details_Page.js\":\"public/includes/chunk.3b47c7855771290c4ea3.js\",\"Ship_List_Page.js\":\"public/includes/chunk.6470f026528e1663eebd.js\",\"Sorties_List_Page.js\":\"public/includes/chunk.56ff8c032449a2bfec97.js\",\"TP_Calculator_Single-Page-Tool.js\":\"public/includes/chunk.cba9367a82fe8eace265.js\",\"__KOOT__CLIENT__RUN__FIRST__.js\":\"public/includes/entry.6a864c145adbea3ec926.js\",\"client.js\":\"public/includes/entry.40716e42dff21ff31402.js\",\"critical.css\":\"public/includes/extract.21.b7d0f34235137d932fd3.css\",\"critical.js\":\"public/includes/entry.b7d0f34235137d932fd3.js\",\"polyfill.js\":\"public/includes/entry.d96a56263786a4f483c6.js\",\"vendors~Ship_Details_Page.css\":\"public/includes/extract.23.f5eda07a01f0a3788830.css\",\"vendors~Ship_Details_Page.js\":\"public/includes/chunk.f5eda07a01f0a3788830.js\",\"vendors~nedb.js\":\"public/includes/chunk.9e79fbdc484295f6a4f8.js\",\"__KOOT__EXTRACT__CSS__.css\":\"public/includes/extract.all.cba8fc6e5c43af052fdb3393009c4bb8.small.css\"},\"service-worker\":[\"public/service-worker.zh.js\"]},\".en\":{\".public\":\"public/\",\".out\":\"public/\",\".entrypoints\":{\"critical\":[\"public/includes/chunk.6a2370b476fa0c423fcb.js\",\"public/includes/extract.21.b7d0f34235137d932fd3.css\",\"public/includes/entry.b7d0f34235137d932fd3.js\"],\"polyfill\":[\"public/includes/chunk.6a2370b476fa0c423fcb.js\",\"public/includes/entry.d96a56263786a4f483c6.js\"],\"client\":[\"public/includes/chunk.2385bcaf9b8d34344115.js\",\"public/includes/chunk.6a2370b476fa0c423fcb.js\",\"public/includes/entry.96e2bb61427e9268f74f.js\"],\"__KOOT__CLIENT__RUN__FIRST__\":[\"public/includes/chunk.2385bcaf9b8d34344115.js\",\"public/includes/chunk.6a2370b476fa0c423fcb.js\",\"public/includes/entry.bf89cfb473368a14fbfd.js\"]},\".files\":{\"libs-others.js\":\"public/includes/chunk.6a2370b476fa0c423fcb.js\",\"libs.js\":\"public/includes/chunk.2385bcaf9b8d34344115.js\",\"About_Page.js\":\"public/includes/chunk.b905ad36381db68fb8fc.js\",\"Academy_Entry_Page.js\":\"public/includes/chunk.c266eb387ba2a01be7b5.js\",\"Arsenal_Page.js\":\"public/includes/chunk.9ba4273c8290b14bb38f.js\",\"Equipment_Details_Page.js\":\"public/includes/chunk.1c1ac2b99a1cd683567a.js\",\"Equipment_List_Page.js\":\"public/includes/chunk.39c014901cd25f27b5a3.js\",\"Expeditions_List_Page.js\":\"public/includes/chunk.65f38bf41e499a4a9788.js\",\"Extra_CGs_Page.js\":\"public/includes/chunk.fb4dc94d76c498f4610e.js\",\"Fleet_Builder_Entry_Page.js\":\"public/includes/chunk.6d35d16a7c2774c9da65.js\",\"Fleet_Builder_Fleet_Details_Page.js\":\"public/includes/chunk.e6bdc04b9430c84c044d.js\",\"Fleet_Builder_WIP_Blank_Page.js\":\"public/includes/chunk.6b90479a01dc208734af.js\",\"Home_Page.js\":\"public/includes/chunk.df46244b223d24315ed5.js\",\"People_Details_Page.js\":\"public/includes/chunk.6669bfa10f049004be3c.js\",\"People_List_Page.js\":\"public/includes/chunk.18bcbffd328cb41e8eec.js\",\"Ship_Details_Page.css\":\"public/includes/extract.15.a139ccdafd86b5fb65f9.css\",\"Ship_Details_Page.js\":\"public/includes/chunk.a139ccdafd86b5fb65f9.js\",\"Ship_List_Page.js\":\"public/includes/chunk.5fef1082341bfc01289e.js\",\"Sorties_List_Page.js\":\"public/includes/chunk.e6cbbda1a60a10af6299.js\",\"TP_Calculator_Single-Page-Tool.js\":\"public/includes/chunk.2b56976f0d7254be4725.js\",\"__KOOT__CLIENT__RUN__FIRST__.js\":\"public/includes/entry.bf89cfb473368a14fbfd.js\",\"client.js\":\"public/includes/entry.96e2bb61427e9268f74f.js\",\"critical.css\":\"public/includes/extract.21.b7d0f34235137d932fd3.css\",\"critical.js\":\"public/includes/entry.b7d0f34235137d932fd3.js\",\"polyfill.js\":\"public/includes/entry.d96a56263786a4f483c6.js\",\"vendors~Ship_Details_Page.css\":\"public/includes/extract.23.f5eda07a01f0a3788830.css\",\"vendors~Ship_Details_Page.js\":\"public/includes/chunk.f5eda07a01f0a3788830.js\",\"vendors~nedb.js\":\"public/includes/chunk.9e79fbdc484295f6a4f8.js\",\"__KOOT__EXTRACT__CSS__.css\":\"public/includes/extract.all.cba8fc6e5c43af052fdb3393009c4bb8.small.css\"},\"service-worker\":[\"public/service-worker.en.js\"]},\".ja\":{\".public\":\"public/\",\".out\":\"public/\",\".entrypoints\":{\"critical\":[\"public/includes/chunk.1c674fc56bee264a6d83.js\",\"public/includes/extract.21.b7d0f34235137d932fd3.css\",\"public/includes/entry.b7d0f34235137d932fd3.js\"],\"polyfill\":[\"public/includes/chunk.1c674fc56bee264a6d83.js\",\"public/includes/entry.d96a56263786a4f483c6.js\"],\"client\":[\"public/includes/chunk.2385bcaf9b8d34344115.js\",\"public/includes/chunk.1c674fc56bee264a6d83.js\",\"public/includes/entry.b1531aed4222ae802c21.js\"],\"__KOOT__CLIENT__RUN__FIRST__\":[\"public/includes/chunk.2385bcaf9b8d34344115.js\",\"public/includes/chunk.1c674fc56bee264a6d83.js\",\"public/includes/entry.bf89cfb473368a14fbfd.js\"]},\".files\":{\"libs-others.js\":\"public/includes/chunk.1c674fc56bee264a6d83.js\",\"libs.js\":\"public/includes/chunk.2385bcaf9b8d34344115.js\",\"About_Page.js\":\"public/includes/chunk.ac419657692b544d2d56.js\",\"Academy_Entry_Page.js\":\"public/includes/chunk.7bfdece6406723e6db95.js\",\"Arsenal_Page.js\":\"public/includes/chunk.415e4f067fe917a50609.js\",\"Equipment_Details_Page.js\":\"public/includes/chunk.141bf9e9346bca7e9796.js\",\"Equipment_List_Page.js\":\"public/includes/chunk.4f303bee190a4afd4f46.js\",\"Expeditions_List_Page.js\":\"public/includes/chunk.613752f0694a534fb99f.js\",\"Extra_CGs_Page.js\":\"public/includes/chunk.e8775d10f144ad1b16d2.js\",\"Fleet_Builder_Entry_Page.js\":\"public/includes/chunk.1b48b4b46d09db179618.js\",\"Fleet_Builder_Fleet_Details_Page.js\":\"public/includes/chunk.ff86866b7ede9ec09d74.js\",\"Fleet_Builder_WIP_Blank_Page.js\":\"public/includes/chunk.59fa8aa721946ad938f7.js\",\"Home_Page.js\":\"public/includes/chunk.df46244b223d24315ed5.js\",\"People_Details_Page.js\":\"public/includes/chunk.01a562333ecfb5086213.js\",\"People_List_Page.js\":\"public/includes/chunk.7d9607c1767ff196a7f3.js\",\"Ship_Details_Page.css\":\"public/includes/extract.15.303ff831db21d2528f27.css\",\"Ship_Details_Page.js\":\"public/includes/chunk.303ff831db21d2528f27.js\",\"Ship_List_Page.js\":\"public/includes/chunk.c80ee66928ab4f685ce0.js\",\"Sorties_List_Page.js\":\"public/includes/chunk.e8b295bded636bebb208.js\",\"TP_Calculator_Single-Page-Tool.js\":\"public/includes/chunk.ae1e3f887de935a4c35a.js\",\"__KOOT__CLIENT__RUN__FIRST__.js\":\"public/includes/entry.bf89cfb473368a14fbfd.js\",\"client.js\":\"public/includes/entry.b1531aed4222ae802c21.js\",\"critical.css\":\"public/includes/extract.21.b7d0f34235137d932fd3.css\",\"critical.js\":\"public/includes/entry.b7d0f34235137d932fd3.js\",\"polyfill.js\":\"public/includes/entry.d96a56263786a4f483c6.js\",\"vendors~Ship_Details_Page.css\":\"public/includes/extract.23.f5eda07a01f0a3788830.css\",\"vendors~Ship_Details_Page.js\":\"public/includes/chunk.f5eda07a01f0a3788830.js\",\"vendors~nedb.js\":\"public/includes/chunk.9e79fbdc484295f6a4f8.js\",\"__KOOT__EXTRACT__CSS__.css\":\"public/includes/extract.all.cba8fc6e5c43af052fdb3393009c4bb8.small.css\"},\"service-worker\":[\"public/service-worker.ja.js\"]}}");
     } catch (e) {
       chunkmap = false;
     }
 
     if (typeof chunkmap !== 'object' && typeof getDistPath() === 'string') {
-      chunkmap = fs.readJsonSync(getChunkmapPath());
+      chunkmap = JSON.parse(fs.readFileSync(getChunkmapPath(), 'utf-8'));
       if (process.env.WEBPACK_BUILD_STAGE === 'server') global.chunkmap = chunkmap;
     }
 
@@ -4708,9 +5004,9 @@ module.exports = getChunkmap;
 /***/ (function(module, exports, __webpack_require__) {
 
 /* global
-    __KOOT_LOCALEID__: false,
+    __KOOT_LOCALEID__:false
 */
-const fs = __webpack_require__(/*! fs-extra */ "fs-extra");
+const fs = __webpack_require__(/*! fs */ "fs");
 
 const path = __webpack_require__(/*! path */ "path");
 
@@ -4895,7 +5191,7 @@ module.exports = () => {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-const fs = __webpack_require__(/*! fs-extra */ "fs-extra");
+const fs = __webpack_require__(/*! fs */ "fs");
 
 const path = __webpack_require__(/*! path */ "path");
 
@@ -9090,6 +9386,41 @@ module.exports = toString;
 
 /***/ }),
 
+/***/ "./node_modules/webpack/buildin/harmony-module.js":
+/*!*******************************************!*\
+  !*** (webpack)/buildin/harmony-module.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function (originalModule) {
+  if (!originalModule.webpackPolyfill) {
+    var module = Object.create(originalModule); // module.parent = undefined by default
+
+    if (!module.children) module.children = [];
+    Object.defineProperty(module, "loaded", {
+      enumerable: true,
+      get: function () {
+        return module.l;
+      }
+    });
+    Object.defineProperty(module, "id", {
+      enumerable: true,
+      get: function () {
+        return module.i;
+      }
+    });
+    Object.defineProperty(module, "exports", {
+      enumerable: true
+    });
+    module.webpackPolyfill = 1;
+  }
+
+  return module;
+};
+
+/***/ }),
+
 /***/ "./node_modules/webpack/buildin/module.js":
 /*!***********************************!*\
   !*** (webpack)/buildin/module.js ***!
@@ -9161,7 +9492,7 @@ const manifestLastModified = new Map();
     if (!manifestLastModified.has(localeId)) manifestLastModified.set(localeId, fs_extra__WEBPACK_IMPORTED_MODULE_0___default.a.statSync(path__WEBPACK_IMPORTED_MODULE_1___default.a.join(pathDist, publicPath, filename)).mtime.valueOf());
     return `<link rel="manifest" href="/${filename}?${manifestLastModified.get(localeId) || ''}">`;
   },
-  svgIcons: `<div class="hide">${"<svg aria-hidden=\"true\" style=\"position: absolute; width: 0; height: 0; overflow: hidden;\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><defs><symbol id=\"icon-image-compare\" viewBox=\"0 0 64 64\"><path d=\"M52 22c0 3.314-2.686 6-6 6s-6-2.686-6-6c0-3.314 2.686-6 6-6s6 2.686 6 6z\"></path><path d=\"M0 12v40c0 2.2 1.8 4 4 4h24v-4h-23.993c-0.003-0.002-0.005-0.005-0.007-0.007v-39.986c0.002-0.002 0.005-0.005 0.007-0.007h23.993v-4h-24c-2.2 0-4 1.8-4 4z\"></path><path d=\"M60 8h-24v-8h-4v64h4v-8h24c2.2 0 4-1.8 4-4v-40c0-2.2-1.8-4-4-4zM60 51.993c-0.002 0.002-0.005 0.005-0.007 0.007h-23.993v-4h20v-20l-14 12h-4l-2-2.5v-25.5h23.993c0.003 0.002 0.005 0.005 0.007 0.007v39.986z\"></path><path d=\"M8 44v4h20v-20.5l-6-7.5z\"></path></symbol><symbol id=\"icon-book3\" viewBox=\"0 0 64 64\"><path d=\"M56 8v52h-42c-3.314 0-6-2.686-6-6s2.686-6 6-6h38v-48h-40c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h48v-56h-4z\"></path><path d=\"M14.004 52v0c-0.001 0-0.002 0-0.004 0-1.104 0-2 0.895-2 2s0.896 2 2 2c0.001 0 0.002-0 0.004-0v0h37.993v-4h-37.993z\"></path></symbol><symbol id=\"icon-lifebuoy\" viewBox=\"0 0 64 64\"><path d=\"M32 0c-17.673 0-32 14.327-32 32s14.327 32 32 32 32-14.327 32-32-14.327-32-32-32zM20 32c0-6.628 5.372-12 12-12s12 5.372 12 12-5.373 12-12 12-12-5.373-12-12zM57.874 42.717v0l-11.089-4.593c0.782-1.886 1.215-3.955 1.215-6.124s-0.433-4.238-1.215-6.124l11.089-4.593c1.369 3.301 2.126 6.921 2.126 10.717s-0.757 7.416-2.126 10.717v0zM42.717 6.126v0 0l-4.593 11.089c-1.886-0.782-3.955-1.215-6.124-1.215s-4.238 0.433-6.124 1.215l-4.593-11.089c3.301-1.369 6.921-2.126 10.717-2.126s7.416 0.757 10.717 2.126zM6.126 21.283l11.089 4.593c-0.782 1.887-1.215 3.955-1.215 6.124s0.433 4.238 1.215 6.124l-11.089 4.593c-1.369-3.301-2.126-6.921-2.126-10.717s0.757-7.416 2.126-10.717zM21.283 57.874l4.593-11.089c1.887 0.782 3.955 1.215 6.124 1.215s4.238-0.433 6.124-1.215l4.593 11.089c-3.301 1.369-6.921 2.126-10.717 2.126s-7.416-0.757-10.717-2.126z\"></path></symbol><symbol id=\"icon-at-sign\" viewBox=\"0 0 64 64\"><path d=\"M54.627 9.373c-6.044-6.044-14.080-9.373-22.628-9.373s-16.583 3.329-22.628 9.373c-6.044 6.044-9.373 14.080-9.373 22.627s3.329 16.583 9.373 22.627c6.044 6.044 14.080 9.373 22.628 9.373 4.798 0 9.412-1.037 13.717-3.082 1.995-0.948 2.844-3.334 1.897-5.33s-3.334-2.844-5.33-1.897c-3.223 1.531-6.683 2.308-10.284 2.308-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24v4c0 2.206-1.794 4-4 4s-4-1.794-4-4v-16c0-2.209-1.791-4-4-4-1.624 0-3.021 0.968-3.648 2.358-2.433-1.495-5.294-2.358-8.352-2.358-8.822 0-16 7.178-16 16s7.178 16 16 16c4.182 0 7.993-1.613 10.847-4.249 2.203 2.598 5.489 4.249 9.153 4.249 6.617 0 12-5.383 12-12v-4c0-8.547-3.329-16.583-9.373-22.628zM32 40c-4.411 0-8-3.589-8-8s3.589-8 8-8c4.411 0 8 3.589 8 8s-3.589 8-8 8z\"></path></symbol><symbol id=\"icon-hammer-wrench\" viewBox=\"0 0 80 64\"><path d=\"M30.785 44.035l9.181 9.181-7.292 9.364c-1.336 1.748-3.703 1.905-5.258 0.349l-6.343-6.343c-1.556-1.556-1.398-3.922 0.349-5.258l9.364-7.292zM79.594 16.406l-9.594 9.594-12-12 9.594-9.594c-1.156-0.265-2.359-0.406-3.594-0.406-8.837 0-16 7.163-16 16 0 3.187 0.932 6.157 2.539 8.651l-8.932 6.956-13.607-13.607 18-18h-20l-8.879 8.879-0.879-0.879h-4.243v4.243l0.879 0.879-12.879 12.879 10 10 12-12 36 36 6-6-15.607-15.607 6.956-8.932c2.494 1.606 5.464 2.539 8.651 2.539 8.837 0 16-7.163 16-16 0-1.236-0.14-2.439-0.406-3.594z\"></path></symbol><symbol id=\"icon-download5\" viewBox=\"0 0 64 64\"><path d=\"M8 48h48v12h-48v-12z\"></path><path d=\"M40 24v-20h-16v20h-14l22 22 22-22z\"></path></symbol><symbol id=\"icon-anchor\" viewBox=\"0 0 64 64\"><path d=\"M56 36v8.262c-5.033 5.14-12.065 10.103-20 11.407v-23.669h12v-4l-12-4.684c4.66-1.648 8-6.091 8-11.316 0-6.628-5.373-12-12-12s-12 5.372-12 12c0 5.225 3.339 9.669 8 11.316v0.001l-12 4.683v4h12v23.669c-7.936-1.304-14.968-6.266-20-11.407v-8.262h-8v4c0 8 16 24 32 24s32-16 32-24v-4h-8zM36 12c0 2.209-1.791 4-4 4s-4-1.791-4-4 1.791-4 4-4c2.209 0 4 1.791 4 4z\"></path></symbol><symbol id=\"icon-stack-check\" viewBox=\"0 0 64 64\"><path d=\"M20 4v4.619l-10.476 1.472 0.681 4.842-10.204 2.926 13.231 46.141 40.754-11.686 2.234-0.314h7.781v-48h-44zM15.716 59.516l-11.232-39.171 6.23-1.787 5.49 39.065 11.987-1.685-12.476 3.578zM19.29 53.529l-5.671-40.353 6.382-0.897v39.721h10.172l-10.882 1.529zM24 48v-40h36v10l-2.828-2.828-17.172 15.171-9.172-7.172-3.657 3.657 12.828 14.828 20-21.921v28.264h-36z\"></path></symbol><symbol id=\"icon-plus3\" viewBox=\"0 0 64 64\"><path d=\"M60 28h-24v-24h-8v24h-24v8h24v24h8v-24h24z\"></path></symbol><symbol id=\"icon-checkmark4\" viewBox=\"0 0 64 64\"><path d=\"M61.441 4c-20.906 15.823-40.956 36.987-40.956 36.987l-14.449-12.988-6.036 6.149c5.939 5.581 19.698 20.325 24.352 25.851 13.099-21.886 26.717-38.209 39.648-53.135l-2.559-2.865z\"></path></symbol><symbol id=\"icon-loop\" viewBox=\"0 0 64 64\"><path d=\"M56 32v4c0 2.204-1.796 4-4 4h-28.008l0.008-8-16 12 16 12-0.008-8h28.008c6.618 0 12-5.39 12-12v-4h-8zM8 28c0-2.21 1.796-4 4-4h28v8l15.984-12-15.984-12v8h-28c-6.618 0-12 5.376-12 12v4h8v-4z\"></path></symbol><symbol id=\"icon-hanger\" viewBox=\"0 0 64 64\"><path d=\"M59.082 54.318l-27.082-17.41v-1.978c2.44-1.41 4-4.042 4-6.93 0-4.411-3.589-8-8-8-3.385 0-6.416 2.143-7.544 5.333-0.368 1.041 0.177 2.184 1.219 2.552s2.184-0.178 2.552-1.219c0.564-1.595 2.080-2.666 3.773-2.666 2.206 0 4 1.794 4 4 0 1.693-1.072 3.209-2.666 3.773-0.799 0.282-1.333 1.038-1.333 1.886l-0 3.249-27.081 17.41c-0.573 0.368-0.918 1.002-0.918 1.682v2c0 3.309 2.692 6 6 6h48c3.309 0 6-2.691 6-6v-2c0-0.681-0.346-1.314-0.918-1.682zM56 58c0 1.103-0.897 2-2 2h-48c-1.103 0-2-0.897-2-2v-0.908l26-16.714 26 16.714v0.908z\"></path></symbol><symbol id=\"icon-search\" viewBox=\"0 0 64 64\"><path d=\"M62.016 54.462l-15.16-12.893c-1.567-1.41-3.243-2.058-4.597-1.995 3.578-4.192 5.74-9.63 5.74-15.573 0-13.255-10.745-24-24-24s-24 10.745-24 24 10.745 24 24 24c5.944 0 11.382-2.162 15.574-5.74-0.063 1.354 0.585 3.030 1.995 4.597l12.893 15.16c2.208 2.453 5.814 2.66 8.014 0.46s1.993-5.806-0.46-8.014zM24 40c-8.836 0-16-7.163-16-16s7.163-16 16-16 16 7.163 16 16-7.163 16-16 16z\"></path></symbol><symbol id=\"icon-cog\" viewBox=\"0 0 64 64\"><path d=\"M58.362 38.141c-3.358-5.816-1.339-13.269 4.51-16.655l-6.289-10.893c-1.797 1.053-3.886 1.657-6.115 1.657-6.721 0-12.169-5.484-12.169-12.249h-12.579c0.017 2.088-0.505 4.205-1.622 6.141-3.358 5.816-10.822 7.794-16.679 4.422l-6.289 10.893c1.811 1.029 3.378 2.537 4.493 4.467 3.352 5.807 1.345 13.245-4.482 16.639l6.289 10.893c1.791-1.044 3.87-1.641 6.088-1.641 6.7 0 12.134 5.45 12.169 12.185h12.578c-0.005-2.067 0.517-4.161 1.623-6.076 3.352-5.807 10.798-7.787 16.651-4.438l6.289-10.893c-1.799-1.029-3.356-2.531-4.465-4.452zM32 44.958c-7.157 0-12.959-5.801-12.959-12.958s5.802-12.958 12.959-12.958c7.157 0 12.958 5.802 12.958 12.958s-5.801 12.958-12.958 12.958z\"></path></symbol><symbol id=\"icon-menu\" viewBox=\"0 0 64 64\"><path d=\"M4 12h56v8h-56v-8z\"></path><path d=\"M4 28h56v8h-56v-8z\"></path><path d=\"M4 44h56v8h-56v-8z\"></path></symbol><symbol id=\"icon-warning2\" viewBox=\"0 0 64 64\"><path d=\"M63.122 57.235v0l-27.317-54.444c-1.046-1.86-2.426-2.791-3.805-2.791s-2.759 0.93-3.805 2.791l-27.317 54.444c-2.093 3.721-0.313 6.765 3.957 6.765h54.332c4.269 0 6.050-3.044 3.956-6.765zM32 56c-2.209 0-4-1.791-4-4s1.791-4 4-4c2.209 0 4 1.791 4 4s-1.791 4-4 4zM36 40c0 2.209-1.791 4-4 4s-4-1.791-4-4v-12c0-2.209 1.791-4 4-4s4 1.791 4 4v12z\"></path></symbol><symbol id=\"icon-question6\" viewBox=\"0 0 64 64\"><path d=\"M32 52c-2.209 0-4-1.791-4-4v-4.11c0-5.639 4.498-9.907 8.847-14.035 3.516-3.337 7.153-6.788 7.153-9.856 0-5.973-4.329-12-14-12-7.148 0-13.13 5.348-13.914 12.44-0.243 2.196-2.218 3.779-4.415 3.536-2.196-0.243-3.779-2.22-3.536-4.415 0.591-5.35 3.128-10.289 7.142-13.907 4.045-3.646 9.274-5.654 14.724-5.654 5.898 0 11.336 1.853 15.312 5.219 4.313 3.651 6.688 8.9 6.688 14.781 0 6.505-5.124 11.368-9.646 15.659-2.978 2.826-6.354 6.030-6.354 8.232l0 4.11c0 2.209-1.791 4-4 4z\"></path><path d=\"M36 60c0 2.209-1.791 4-4 4s-4-1.791-4-4c0-2.209 1.791-4 4-4s4 1.791 4 4z\"></path></symbol><symbol id=\"icon-cross\" viewBox=\"0 0 64 64\"><path d=\"M55.828 13.828l-5.657-5.657-18.172 18.172-18.172-18.172-5.657 5.657 18.172 18.172-18.172 18.172 5.657 5.657 18.172-18.172 18.172 18.172 5.657-5.657-18.172-18.172z\"></path></symbol><symbol id=\"icon-arrow-up3\" viewBox=\"0 0 64 64\"><path d=\"M0 42l6 6 26-26 26 26 6-6-32-32-32 32z\"></path></symbol><symbol id=\"icon-arrow-right3\" viewBox=\"0 0 64 64\"><path d=\"M22 0l-6 6 26 26-26 26 6 6 32-32-32-32z\"></path></symbol><symbol id=\"icon-arrow-down3\" viewBox=\"0 0 64 64\"><path d=\"M64 22l-6-6-26 26-26-26-6 6 32 32 32-32z\"></path></symbol><symbol id=\"icon-arrow-left3\" viewBox=\"0 0 64 64\"><path d=\"M42 64l6-6-26-26 26-26-6-6-32 32 32 32z\"></path></symbol><symbol id=\"icon-sort-amount-desc\" viewBox=\"0 0 64 64\"><path d=\"M20 48v-48h-8v48h-10l14 14 14-14h-10z\"></path><path d=\"M28 0h36v8h-36v-8z\"></path><path d=\"M28 12h28v8h-28v-8z\"></path><path d=\"M28 24h20v8h-20v-8z\"></path><path d=\"M28 36h12v8h-12v-8z\"></path></symbol><symbol id=\"icon-checkbox-checked\" viewBox=\"0 0 64 64\"><path d=\"M56 0h-48c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8zM28 49.657l-14.828-14.828 5.657-5.657 9.171 9.171 19.172-19.172 5.657 5.657-24.828 24.828z\"></path></symbol><symbol id=\"icon-paragraph-left\" viewBox=\"0 0 64 64\"><path d=\"M0 4h64v8h-64zM0 20h40v8h-40zM0 52h40v8h-40zM0 36h64v8h-64z\"></path></symbol><symbol id=\"icon-share3\" viewBox=\"0 0 64 64\"><path d=\"M54 44c-2.822 0-5.37 1.171-7.188 3.052l-26.938-13.469c0.082-0.516 0.126-1.044 0.126-1.583s-0.044-1.067-0.126-1.583l26.938-13.469c1.818 1.881 4.366 3.052 7.188 3.052 5.523 0 10-4.477 10-10s-4.477-10-10-10-10 4.477-10 10c0 0.539 0.044 1.067 0.126 1.583l-26.938 13.469c-1.818-1.881-4.366-3.052-7.188-3.052-5.523 0-10 4.477-10 10s4.477 10 10 10c2.822 0 5.37-1.171 7.188-3.052l26.938 13.469c-0.082 0.516-0.126 1.044-0.126 1.583 0 5.523 4.477 10 10 10s10-4.477 10-10c0-5.523-4.477-10-10-10z\"></path></symbol></defs></svg>"}</div>`,
+  svgIcons: `<div class="hide">${"<svg aria-hidden=\"true\" style=\"position: absolute; width: 0; height: 0; overflow: hidden;\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\r<defs>\r<symbol id=\"icon-image-compare\" viewBox=\"0 0 64 64\">\r\r<path d=\"M52 22c0 3.314-2.686 6-6 6s-6-2.686-6-6c0-3.314 2.686-6 6-6s6 2.686 6 6z\"></path>\r<path d=\"M0 12v40c0 2.2 1.8 4 4 4h24v-4h-23.993c-0.003-0.002-0.005-0.005-0.007-0.007v-39.986c0.002-0.002 0.005-0.005 0.007-0.007h23.993v-4h-24c-2.2 0-4 1.8-4 4z\"></path>\r<path d=\"M60 8h-24v-8h-4v64h4v-8h24c2.2 0 4-1.8 4-4v-40c0-2.2-1.8-4-4-4zM60 51.993c-0.002 0.002-0.005 0.005-0.007 0.007h-23.993v-4h20v-20l-14 12h-4l-2-2.5v-25.5h23.993c0.003 0.002 0.005 0.005 0.007 0.007v39.986z\"></path>\r<path d=\"M8 44v4h20v-20.5l-6-7.5z\"></path>\r</symbol>\r<symbol id=\"icon-book3\" viewBox=\"0 0 64 64\">\r\r<path d=\"M56 8v52h-42c-3.314 0-6-2.686-6-6s2.686-6 6-6h38v-48h-40c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h48v-56h-4z\"></path>\r<path d=\"M14.004 52v0c-0.001 0-0.002 0-0.004 0-1.104 0-2 0.895-2 2s0.896 2 2 2c0.001 0 0.002-0 0.004-0v0h37.993v-4h-37.993z\"></path>\r</symbol>\r<symbol id=\"icon-lifebuoy\" viewBox=\"0 0 64 64\">\r\r<path d=\"M32 0c-17.673 0-32 14.327-32 32s14.327 32 32 32 32-14.327 32-32-14.327-32-32-32zM20 32c0-6.628 5.372-12 12-12s12 5.372 12 12-5.373 12-12 12-12-5.373-12-12zM57.874 42.717v0l-11.089-4.593c0.782-1.886 1.215-3.955 1.215-6.124s-0.433-4.238-1.215-6.124l11.089-4.593c1.369 3.301 2.126 6.921 2.126 10.717s-0.757 7.416-2.126 10.717v0zM42.717 6.126v0 0l-4.593 11.089c-1.886-0.782-3.955-1.215-6.124-1.215s-4.238 0.433-6.124 1.215l-4.593-11.089c3.301-1.369 6.921-2.126 10.717-2.126s7.416 0.757 10.717 2.126zM6.126 21.283l11.089 4.593c-0.782 1.887-1.215 3.955-1.215 6.124s0.433 4.238 1.215 6.124l-11.089 4.593c-1.369-3.301-2.126-6.921-2.126-10.717s0.757-7.416 2.126-10.717zM21.283 57.874l4.593-11.089c1.887 0.782 3.955 1.215 6.124 1.215s4.238-0.433 6.124-1.215l4.593 11.089c-3.301 1.369-6.921 2.126-10.717 2.126s-7.416-0.757-10.717-2.126z\"></path>\r</symbol>\r<symbol id=\"icon-at-sign\" viewBox=\"0 0 64 64\">\r\r<path d=\"M54.627 9.373c-6.044-6.044-14.080-9.373-22.628-9.373s-16.583 3.329-22.628 9.373c-6.044 6.044-9.373 14.080-9.373 22.627s3.329 16.583 9.373 22.627c6.044 6.044 14.080 9.373 22.628 9.373 4.798 0 9.412-1.037 13.717-3.082 1.995-0.948 2.844-3.334 1.897-5.33s-3.334-2.844-5.33-1.897c-3.223 1.531-6.683 2.308-10.284 2.308-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24v4c0 2.206-1.794 4-4 4s-4-1.794-4-4v-16c0-2.209-1.791-4-4-4-1.624 0-3.021 0.968-3.648 2.358-2.433-1.495-5.294-2.358-8.352-2.358-8.822 0-16 7.178-16 16s7.178 16 16 16c4.182 0 7.993-1.613 10.847-4.249 2.203 2.598 5.489 4.249 9.153 4.249 6.617 0 12-5.383 12-12v-4c0-8.547-3.329-16.583-9.373-22.628zM32 40c-4.411 0-8-3.589-8-8s3.589-8 8-8c4.411 0 8 3.589 8 8s-3.589 8-8 8z\"></path>\r</symbol>\r<symbol id=\"icon-hammer-wrench\" viewBox=\"0 0 80 64\">\r\r<path d=\"M30.785 44.035l9.181 9.181-7.292 9.364c-1.336 1.748-3.703 1.905-5.258 0.349l-6.343-6.343c-1.556-1.556-1.398-3.922 0.349-5.258l9.364-7.292zM79.594 16.406l-9.594 9.594-12-12 9.594-9.594c-1.156-0.265-2.359-0.406-3.594-0.406-8.837 0-16 7.163-16 16 0 3.187 0.932 6.157 2.539 8.651l-8.932 6.956-13.607-13.607 18-18h-20l-8.879 8.879-0.879-0.879h-4.243v4.243l0.879 0.879-12.879 12.879 10 10 12-12 36 36 6-6-15.607-15.607 6.956-8.932c2.494 1.606 5.464 2.539 8.651 2.539 8.837 0 16-7.163 16-16 0-1.236-0.14-2.439-0.406-3.594z\"></path>\r</symbol>\r<symbol id=\"icon-download5\" viewBox=\"0 0 64 64\">\r\r<path d=\"M8 48h48v12h-48v-12z\"></path>\r<path d=\"M40 24v-20h-16v20h-14l22 22 22-22z\"></path>\r</symbol>\r<symbol id=\"icon-anchor\" viewBox=\"0 0 64 64\">\r\r<path d=\"M56 36v8.262c-5.033 5.14-12.065 10.103-20 11.407v-23.669h12v-4l-12-4.684c4.66-1.648 8-6.091 8-11.316 0-6.628-5.373-12-12-12s-12 5.372-12 12c0 5.225 3.339 9.669 8 11.316v0.001l-12 4.683v4h12v23.669c-7.936-1.304-14.968-6.266-20-11.407v-8.262h-8v4c0 8 16 24 32 24s32-16 32-24v-4h-8zM36 12c0 2.209-1.791 4-4 4s-4-1.791-4-4 1.791-4 4-4c2.209 0 4 1.791 4 4z\"></path>\r</symbol>\r<symbol id=\"icon-stack-check\" viewBox=\"0 0 64 64\">\r\r<path d=\"M20 4v4.619l-10.476 1.472 0.681 4.842-10.204 2.926 13.231 46.141 40.754-11.686 2.234-0.314h7.781v-48h-44zM15.716 59.516l-11.232-39.171 6.23-1.787 5.49 39.065 11.987-1.685-12.476 3.578zM19.29 53.529l-5.671-40.353 6.382-0.897v39.721h10.172l-10.882 1.529zM24 48v-40h36v10l-2.828-2.828-17.172 15.171-9.172-7.172-3.657 3.657 12.828 14.828 20-21.921v28.264h-36z\"></path>\r</symbol>\r<symbol id=\"icon-plus3\" viewBox=\"0 0 64 64\">\r\r<path d=\"M60 28h-24v-24h-8v24h-24v8h24v24h8v-24h24z\"></path>\r</symbol>\r<symbol id=\"icon-checkmark4\" viewBox=\"0 0 64 64\">\r\r<path d=\"M61.441 4c-20.906 15.823-40.956 36.987-40.956 36.987l-14.449-12.988-6.036 6.149c5.939 5.581 19.698 20.325 24.352 25.851 13.099-21.886 26.717-38.209 39.648-53.135l-2.559-2.865z\"></path>\r</symbol>\r<symbol id=\"icon-loop\" viewBox=\"0 0 64 64\">\r\r<path d=\"M56 32v4c0 2.204-1.796 4-4 4h-28.008l0.008-8-16 12 16 12-0.008-8h28.008c6.618 0 12-5.39 12-12v-4h-8zM8 28c0-2.21 1.796-4 4-4h28v8l15.984-12-15.984-12v8h-28c-6.618 0-12 5.376-12 12v4h8v-4z\"></path>\r</symbol>\r<symbol id=\"icon-hanger\" viewBox=\"0 0 64 64\">\r\r<path d=\"M59.082 54.318l-27.082-17.41v-1.978c2.44-1.41 4-4.042 4-6.93 0-4.411-3.589-8-8-8-3.385 0-6.416 2.143-7.544 5.333-0.368 1.041 0.177 2.184 1.219 2.552s2.184-0.178 2.552-1.219c0.564-1.595 2.080-2.666 3.773-2.666 2.206 0 4 1.794 4 4 0 1.693-1.072 3.209-2.666 3.773-0.799 0.282-1.333 1.038-1.333 1.886l-0 3.249-27.081 17.41c-0.573 0.368-0.918 1.002-0.918 1.682v2c0 3.309 2.692 6 6 6h48c3.309 0 6-2.691 6-6v-2c0-0.681-0.346-1.314-0.918-1.682zM56 58c0 1.103-0.897 2-2 2h-48c-1.103 0-2-0.897-2-2v-0.908l26-16.714 26 16.714v0.908z\"></path>\r</symbol>\r<symbol id=\"icon-search\" viewBox=\"0 0 64 64\">\r\r<path d=\"M62.016 54.462l-15.16-12.893c-1.567-1.41-3.243-2.058-4.597-1.995 3.578-4.192 5.74-9.63 5.74-15.573 0-13.255-10.745-24-24-24s-24 10.745-24 24 10.745 24 24 24c5.944 0 11.382-2.162 15.574-5.74-0.063 1.354 0.585 3.030 1.995 4.597l12.893 15.16c2.208 2.453 5.814 2.66 8.014 0.46s1.993-5.806-0.46-8.014zM24 40c-8.836 0-16-7.163-16-16s7.163-16 16-16 16 7.163 16 16-7.163 16-16 16z\"></path>\r</symbol>\r<symbol id=\"icon-cog\" viewBox=\"0 0 64 64\">\r\r<path d=\"M58.362 38.141c-3.358-5.816-1.339-13.269 4.51-16.655l-6.289-10.893c-1.797 1.053-3.886 1.657-6.115 1.657-6.721 0-12.169-5.484-12.169-12.249h-12.579c0.017 2.088-0.505 4.205-1.622 6.141-3.358 5.816-10.822 7.794-16.679 4.422l-6.289 10.893c1.811 1.029 3.378 2.537 4.493 4.467 3.352 5.807 1.345 13.245-4.482 16.639l6.289 10.893c1.791-1.044 3.87-1.641 6.088-1.641 6.7 0 12.134 5.45 12.169 12.185h12.578c-0.005-2.067 0.517-4.161 1.623-6.076 3.352-5.807 10.798-7.787 16.651-4.438l6.289-10.893c-1.799-1.029-3.356-2.531-4.465-4.452zM32 44.958c-7.157 0-12.959-5.801-12.959-12.958s5.802-12.958 12.959-12.958c7.157 0 12.958 5.802 12.958 12.958s-5.801 12.958-12.958 12.958z\"></path>\r</symbol>\r<symbol id=\"icon-menu\" viewBox=\"0 0 64 64\">\r\r<path d=\"M4 12h56v8h-56v-8z\"></path>\r<path d=\"M4 28h56v8h-56v-8z\"></path>\r<path d=\"M4 44h56v8h-56v-8z\"></path>\r</symbol>\r<symbol id=\"icon-warning2\" viewBox=\"0 0 64 64\">\r\r<path d=\"M63.122 57.235v0l-27.317-54.444c-1.046-1.86-2.426-2.791-3.805-2.791s-2.759 0.93-3.805 2.791l-27.317 54.444c-2.093 3.721-0.313 6.765 3.957 6.765h54.332c4.269 0 6.050-3.044 3.956-6.765zM32 56c-2.209 0-4-1.791-4-4s1.791-4 4-4c2.209 0 4 1.791 4 4s-1.791 4-4 4zM36 40c0 2.209-1.791 4-4 4s-4-1.791-4-4v-12c0-2.209 1.791-4 4-4s4 1.791 4 4v12z\"></path>\r</symbol>\r<symbol id=\"icon-question6\" viewBox=\"0 0 64 64\">\r\r<path d=\"M32 52c-2.209 0-4-1.791-4-4v-4.11c0-5.639 4.498-9.907 8.847-14.035 3.516-3.337 7.153-6.788 7.153-9.856 0-5.973-4.329-12-14-12-7.148 0-13.13 5.348-13.914 12.44-0.243 2.196-2.218 3.779-4.415 3.536-2.196-0.243-3.779-2.22-3.536-4.415 0.591-5.35 3.128-10.289 7.142-13.907 4.045-3.646 9.274-5.654 14.724-5.654 5.898 0 11.336 1.853 15.312 5.219 4.313 3.651 6.688 8.9 6.688 14.781 0 6.505-5.124 11.368-9.646 15.659-2.978 2.826-6.354 6.030-6.354 8.232l0 4.11c0 2.209-1.791 4-4 4z\"></path>\r<path d=\"M36 60c0 2.209-1.791 4-4 4s-4-1.791-4-4c0-2.209 1.791-4 4-4s4 1.791 4 4z\"></path>\r</symbol>\r<symbol id=\"icon-cross\" viewBox=\"0 0 64 64\">\r\r<path d=\"M55.828 13.828l-5.657-5.657-18.172 18.172-18.172-18.172-5.657 5.657 18.172 18.172-18.172 18.172 5.657 5.657 18.172-18.172 18.172 18.172 5.657-5.657-18.172-18.172z\"></path>\r</symbol>\r<symbol id=\"icon-arrow-up3\" viewBox=\"0 0 64 64\">\r\r<path d=\"M0 42l6 6 26-26 26 26 6-6-32-32-32 32z\"></path>\r</symbol>\r<symbol id=\"icon-arrow-right3\" viewBox=\"0 0 64 64\">\r\r<path d=\"M22 0l-6 6 26 26-26 26 6 6 32-32-32-32z\"></path>\r</symbol>\r<symbol id=\"icon-arrow-down3\" viewBox=\"0 0 64 64\">\r\r<path d=\"M64 22l-6-6-26 26-26-26-6 6 32 32 32-32z\"></path>\r</symbol>\r<symbol id=\"icon-arrow-left3\" viewBox=\"0 0 64 64\">\r\r<path d=\"M42 64l6-6-26-26 26-26-6-6-32 32 32 32z\"></path>\r</symbol>\r<symbol id=\"icon-sort-amount-desc\" viewBox=\"0 0 64 64\">\r\r<path d=\"M20 48v-48h-8v48h-10l14 14 14-14h-10z\"></path>\r<path d=\"M28 0h36v8h-36v-8z\"></path>\r<path d=\"M28 12h28v8h-28v-8z\"></path>\r<path d=\"M28 24h20v8h-20v-8z\"></path>\r<path d=\"M28 36h12v8h-12v-8z\"></path>\r</symbol>\r<symbol id=\"icon-checkbox-checked\" viewBox=\"0 0 64 64\">\r\r<path d=\"M56 0h-48c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8zM28 49.657l-14.828-14.828 5.657-5.657 9.171 9.171 19.172-19.172 5.657 5.657-24.828 24.828z\"></path>\r</symbol>\r<symbol id=\"icon-paragraph-left\" viewBox=\"0 0 64 64\">\r\r<path d=\"M0 4h64v8h-64zM0 20h40v8h-40zM0 52h40v8h-40zM0 36h64v8h-64z\"></path>\r</symbol>\r<symbol id=\"icon-share3\" viewBox=\"0 0 64 64\">\r\r<path d=\"M54 44c-2.822 0-5.37 1.171-7.188 3.052l-26.938-13.469c0.082-0.516 0.126-1.044 0.126-1.583s-0.044-1.067-0.126-1.583l26.938-13.469c1.818 1.881 4.366 3.052 7.188 3.052 5.523 0 10-4.477 10-10s-4.477-10-10-10-10 4.477-10 10c0 0.539 0.044 1.067 0.126 1.583l-26.938 13.469c-1.818-1.881-4.366-3.052-7.188-3.052-5.523 0-10 4.477-10 10s4.477 10 10 10c2.822 0 5.37-1.171 7.188-3.052l26.938 13.469c-0.082 0.516-0.126 1.044-0.126 1.583 0 5.523 4.477 10 10 10s10-4.477 10-10c0-5.523-4.477-10-10-10z\"></path>\r</symbol>\r</defs>\r</svg>\r"}</div>`,
   definePath: (template, state) => `<script>` + // `window.__CRITICAL_EXTRA_OLD_IE_FILENAME__ = "${getClientFilePath(
   //     'polyfill.js',
   //     state.localeId
@@ -9218,7 +9549,7 @@ const {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! L:\Projects\WhoCallsTheFleet\yuubari\node_modules\koot\ReactApp\server */"./node_modules/koot/ReactApp/server/index.js");
+module.exports = __webpack_require__(/*! D:\Projects\@fleet\Yuubari\node_modules\koot\ReactApp\server */"./node_modules/koot/ReactApp/server/index.js");
 
 
 /***/ }),
@@ -9242,6 +9573,17 @@ module.exports = require("chalk");
 /***/ (function(module, exports) {
 
 module.exports = require("debug");
+
+/***/ }),
+
+/***/ "fs":
+/*!*********************!*\
+  !*** external "fs" ***!
+  \*********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("fs");
 
 /***/ }),
 
@@ -9462,6 +9804,17 @@ module.exports = require("redux");
 /***/ (function(module, exports) {
 
 module.exports = require("redux-thunk");
+
+/***/ }),
+
+/***/ "vm":
+/*!*********************!*\
+  !*** external "vm" ***!
+  \*********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("vm");
 
 /***/ }),
 
