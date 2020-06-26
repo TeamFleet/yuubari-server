@@ -21,7 +21,7 @@
         "react-transition-group": "^4.4.1",
         "swiper": "^5.4.5",
         "whocallsthefleet-backgrounds": "^1.3.2",
-        "whocallsthefleet-database": "^20200626.0.0",
+        "whocallsthefleet-database": "^20200627.0.0",
         "chalk": "^4.1.0",
         "classlist-polyfill": "^1.2.0",
         "cli-spinners": "^2.3.0",
