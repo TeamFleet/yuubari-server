@@ -3,16 +3,16 @@
         "short": "日",
         "full": "日本語"
     },
-
     "title": "Who Calls the Fleet",
-    "translators": ["taurus911", "Diablohu"],
-
+    "translators": [
+        "taurus911",
+        "Diablohu"
+    ],
     "under_construction": "工事中",
     "no_javascript_warning": "This app requires JavaScript enabled.",
     "cancel": "キャンセル",
     "ok": "OK",
     "none": "None",
-
     "ship_type": "Ship Type",
     "equipment_type": "Equipment Type",
     "shiptypeclass": "${class}型${type}",
@@ -24,18 +24,15 @@
     "equipment_series": "${equipment}-series",
     "tp": "TP",
     "land_bases": "基地航空隊",
-
     "seiyuu": "CV",
     "seiyuus": "CV",
     "artist": "イラストレーター",
     "artists": "イラストレーター",
-
     "activation_chance_tobe": "発動成功率：${chance}",
     "chance": {
         "normal": "Normal",
         "high": "高い"
     },
-
     "day_full": {
         "Sunday": "日曜日",
         "Monday": "月曜日",
@@ -45,7 +42,6 @@
         "Friday": "金曜日",
         "Saturday": "土曜日"
     },
-
     "day_abbr": {
         "Sunday": "日",
         "Monday": "月",
@@ -55,7 +51,6 @@
         "Friday": "金",
         "Saturday": "土"
     },
-
     "require": {
         "level": "Require level: ${level}",
         "min_possible_level": "Minimum possible level: ${level}",
@@ -69,7 +64,6 @@
         "ship_stat_with_equipments": "Require stat ${stat}: ${value} (w/ equip.)",
         "has_stat": "${stat} at least ${value}"
     },
-
     "stat": {
         "fire": "火力",
         "torpedo": "雷装",
@@ -100,21 +94,46 @@
             "improvable": "改修"
         }
     },
-
-    "equipment_types": {
-        "aircraft": "Aircraft",
-        "jet": "噴式機",
-        "surface_radar": "水上電探",
-        "aa_radar": "対空電探",
-        "ha_mount": "高角砲"
+    "nav": {
+        "sub": {
+            "base": "海軍基地",
+            "archive": "アーカイブ",
+            "dev": "開発センター"
+        },
+        "home": "ホーム",
+        "fleets": "艦隊ビルダー",
+        "academy": "海軍兵学校",
+        "calctp": "TPカルキュレーター",
+        "ships": "艦娘",
+        "equipments": "装備",
+        "arsenal": "明石の改修工廠",
+        "entities": "CV・イラストレーター",
+        "excgs": "期間限定図鑑",
+        "sorties": "出击",
+        "expeditions": "遠征",
+        "about": "アバウト",
+        "languageSwitch": "Change Language",
+        "backgroundSwitch": "Change Background",
+        "install": "インストール"
     },
-
-    "improvement": {
-        "any_2nd_ship": "任意二番艦",
-        "resources": "必要資材",
-        "upgrading": "更新"
+    "bonuses": {
+        "single": "単体ボーナス",
+        "sets": "相互シナジーボーナス",
+        "info_prefix_when_equipped": "When equipped, ",
+        "range_increase": "Range increased by 1",
+        "stat_donot_stack": "Donot stack",
+        "based_on_number": "Based on number of this equipment, provide...",
+        "based_on_star": "Based on star level, Each of this equipment provide...",
+        "based_on_area": "Based on area battle at, each of this equipment provide...",
+        "based_on_nothing": "Each of this equipment provide...",
+        "based_set": "加算ボーナス...",
+        "based_set_accumulate": "Accumulated set bonus...",
+        "note_hybrid_radar": "Equipment(s) below treated as both Surface and AA Radar(s)",
+        "note_hybrid_radar_this_equipment": "This equipment is treated as both Surface and AA Radar"
     },
-
+    "area": {
+        "north": "北方"
+    },
     "combat_phases": {
         "preemptive": "開幕",
         "detection": "索敵",
@@ -147,14 +166,79 @@
         },
         "night_air_assault": "夜間航空攻撃"
     },
-
     "aaci": {
         "title": "対空カットイン射撃",
         "fixed_shoot_down_bonus": "固定撃墜数ボーナス",
         "fixed": "固定",
         "modifier": "補正"
     },
-
+    "equipment_types": {
+        "aircraft": "Aircraft",
+        "jet": "噴式機",
+        "surface_radar": "水上電探",
+        "aa_radar": "対空電探",
+        "ha_mount": "高角砲"
+    },
+    "improvement": {
+        "any_2nd_ship": "任意二番艦",
+        "resources": "必要資材",
+        "upgrading": "更新"
+    },
+    "equipment_details": {
+        "infos": "情報",
+        "refittable": "装備可能艦...",
+        "availability": "入手情報",
+        "bonuses": "ボーナス",
+        "facts": {
+            "craftable": "開発可能",
+            "uncraftable": "開発不可",
+            "improvable": "改修可能",
+            "unimprovable": "改修不可",
+            "upgradable": "更新可能",
+            "unupgradable": "更新不可",
+            "rankupgradable": "熟練度が上が可能",
+            "unrankupgradable": "熟練度が上がらない"
+        },
+        "bonus_stat": "ボーナス",
+        "bonus_note_max_value": "If a ship meets multiple requirements, use the highest value",
+        "scrap": "廢棄",
+        "improvements": "Improvement Options",
+        "required_for_improvements": "Required for other Improvements",
+        "upgrade_to": "Upgrade to",
+        "upgrade_from": "Can be upgraded from...",
+        "stocked": "初期装備の艦娘...",
+        "stocked_list_empty": "There's no ship that stock-equip this equipment...",
+        "refittable_legend_no": "Not refittable",
+        "refittable_legend_yes": "Refittable",
+        "can_equip_in_ex_slot": "Can be equipped in ex-slot",
+        "cannot_equip_in_ex_slot_but_ex_ships": "Cannot be equipped in ex-slot for most ships but following ships...",
+        "cannot_equip_in_ex_slot": "Cannot be equipped in ex-slot"
+    },
+    "speed_calculator": {
+        "title": "速力カルキュレーター",
+        "equipment_33_note_1": "At least equip one.",
+        "equipment_33_note_2": "Can equipped in ex-slot.",
+        "base_speed": "Base speed: ",
+        "result": "Result: "
+    },
+    "oasw_calculator": {
+        "title": "先制対潜攻撃レベル―カルキュレーター",
+        "unable": "実行することができません",
+        "unknown": "ASW stat growth unknown",
+        "always": "Can always perform",
+        "no_result": "Required equipment(s)",
+        "result": "Required level: "
+    },
+    "entity_details": {
+        "casts": "Casts",
+        "illustrates": "Illustrates",
+        "links": "Links"
+    },
+    "arsenal": {
+        "filter_by_day": "曜日別",
+        "all": "一覧",
+        "resources_toggle": "資材表示..."
+    },
     "special_attack": {
         "Nelson Touch": {
             "requirement": [
@@ -239,7 +323,6 @@
             ]
         }
     },
-
     "ship_specials": {
         "transportation": {
             "title": "Transportation Specialized"
@@ -253,67 +336,6 @@
             "description": "Has high ASW stat. Can be deployed into Transportation Combined Fleet."
         }
     },
-
-    "nav": {
-        "sub": {
-            "base": "海軍基地",
-            "archive": "アーカイブ",
-            "dev": "開発センター"
-        },
-        "home": "ホーム",
-        "fleets": "艦隊ビルダー",
-        "academy": "海軍兵学校",
-        "calctp": "TPカルキュレーター",
-        "ships": "艦娘",
-        "equipments": "装備",
-        "arsenal": "明石の改修工廠",
-        "entities": "CV・イラストレーター",
-        "excgs": "期間限定図鑑",
-        "sorties": "出击",
-        "expeditions": "遠征",
-        "about": "アバウト",
-        "languageSwitch": "Change Language",
-        "backgroundSwitch": "Change Background",
-        "install": "インストール"
-    },
-
-    "speed_calculator": {
-        "title": "速力カルキュレーター",
-        "equipment_33_note_1": "At least equip one.",
-        "equipment_33_note_2": "Can equipped in ex-slot.",
-        "base_speed": "Base speed: ",
-        "result": "Result: "
-    },
-
-    "oasw_calculator": {
-        "title": "先制対潜攻撃レベル―カルキュレーター",
-        "unable": "実行することができません",
-        "unknown": "ASW stat growth unknown",
-        "always": "Can always perform",
-        "no_result": "Required equipment(s)",
-        "result": "Required level: "
-    },
-
-    "bonuses": {
-        "single": "単体ボーナス",
-        "sets": "相互シナジーボーナス",
-        "info_prefix_when_equipped": "When equipped, ",
-        "range_increase": "Range increased by 1",
-        "stat_donot_stack": "Donot stack",
-        "based_on_number": "Based on number of this equipment, provide...",
-        "based_on_star": "Based on star level, Each of this equipment provide...",
-        "based_on_area": "Based on area battle at, each of this equipment provide...",
-        "based_on_nothing": "Each of this equipment provide...",
-        "based_set": "加算ボーナス...",
-        "based_set_accumulate": "Accumulated set bonus...",
-        "note_hybrid_radar": "Equipment(s) below treated as both Surface and AA Radar(s)",
-        "note_hybrid_radar_this_equipment": "This equipment is treated as both Surface and AA Radar"
-    },
-
-    "area": {
-        "north": "北方"
-    },
-
     "ship_list": {
         "filter": {
             "placeholder": "艦娘検索...",
@@ -330,7 +352,6 @@
             "add_remove": "追加/削除"
         }
     },
-
     "ship_details": {
         "infos": "情報・図鑑",
         "equipable": "装備可能...",
@@ -338,23 +359,16 @@
         "availability": "入手情報",
         "capabilities": "機能・特徴",
         "bonuses": "装備ボーナス",
-
         "remodels": "改造チャート",
         "remodel_initial": "初期",
-
         "quickfacts": "ヒント",
         "navy": "海軍",
-
         "stats": "ステータス",
-
         "slot_equipments": "搭載・初期装備",
         "emptyslot": "未装備",
         "noslot": "装備不可",
-
         "modernization": "近代化改修強化値",
-
         "dismantle": "解体",
-
         "aaci": "対空カットイン射撃",
         "aaci_req": {
             "ship": "本艦",
@@ -362,7 +376,6 @@
             "type": "本艦種"
         },
         "aaci_unable": "実行することができません",
-
         "combat_capabilities": "Combat Capabilities",
         "unable_to_perform": "Unable to perform",
         "can_perform_when_meet_requirements": "Can perform when meet requirements",
@@ -375,74 +388,21 @@
         "range_different_note": "Most other ${type} have range: ${range}",
         "carrier_default_night_battle": "Can still participate in night battle even if not meet the require for night air assault. But the damage maybe low.",
         "carrier_swordfish_night_battle": "If has Swordfish-series torpedo bomber equipped, can still participate in night battle even if not meet the require for night air assault. But the damage maybe low.",
-
         "other_special": "Other Special Capabilities",
         "tp_bonus": "Transport phase TP bonus: +${bonus}",
         "expedition_bonus": "Expedition income bonus: +${bonus}",
         "expedition_bonus_daihatsu_description": "Count as a ${daihatsu}.",
         "expedition_bonus_daihatsu_description2": "Therefor equip 3 ${daihatsu}s will cap max bonus.",
-
         "equipable_additional": "Other equipables",
         "equipable_exslot": "Equipable in Ex-Slot",
         "equipable_exslot_and": "And...",
         "equipable_legend_no": "Not equipable",
         "equipable_legend_yes": "Equipable",
         "equipable_legend_yes_extra": "No for other ${type}",
-
         "special_attack": {
             "requirements": "Requirements",
             "effects": "Effects"
         }
     },
-
-    "equipment_details": {
-        "infos": "情報",
-        "refittable": "装備可能艦...",
-        "availability": "入手情報",
-        "bonuses": "ボーナス",
-
-        "facts": {
-            "craftable": "開発可能",
-            "uncraftable": "開発不可",
-            "improvable": "改修可能",
-            "unimprovable": "改修不可",
-            "upgradable": "更新可能",
-            "unupgradable": "更新不可",
-            "rankupgradable": "熟練度が上が可能",
-            "unrankupgradable": "熟練度が上がらない"
-        },
-
-        "bonus_stat": "ボーナス",
-        "bonus_note_max_value": "If a ship meets multiple requirements, use the highest value",
-
-        "scrap": "廢棄",
-
-        "improvements": "Improvement Options",
-
-        "required_for_improvements": "Required for other Improvements",
-
-        "upgrade_to": "Upgrade to",
-        "upgrade_from": "Can be upgraded from...",
-
-        "stocked": "初期装備の艦娘...",
-        "stocked_list_empty": "There's no ship that stock-equip this equipment...",
-
-        "refittable_legend_no": "Not refittable",
-        "refittable_legend_yes": "Refittable",
-        "can_equip_in_ex_slot": "Can be equipped in ex-slot",
-        "cannot_equip_in_ex_slot_but_ex_ships": "Cannot be equipped in ex-slot for most ships but following ships...",
-        "cannot_equip_in_ex_slot": "Cannot be equipped in ex-slot"
-    },
-
-    "entity_details": {
-        "casts": "Casts",
-        "illustrates": "Illustrates",
-        "links": "Links"
-    },
-
-    "arsenal": {
-        "filter_by_day": "曜日別",
-        "all": "一覧",
-        "resources_toggle": "資材表示..."
-    }
+    "home_page_markdown": "## Help us for Japanese language support!\r\n\r\nIf you want help us for Japanese translation, you can submit your changes [HERE](https://github.com/TeamFleet/WhoCallsTheFleet-Yuubari/blob/master/src/locales/ja.json)\r\n\r\n## New Features & Major Changes\r\n\r\n**General**\r\n\r\n* UI redesigned. Navigation now moved to left side.\r\n* New: Multi-Language.\r\n\r\n**Ship List**\r\n\r\n* New: Category tab for ship types that placed on top.\r\n* Optimized ship types order.\r\n* DDs will now be sorted by ship class.\r\n* Stat-table view removed.\r\n* New: Button for compare view that placed on top-right.\r\n* All stats are now viewable in compare view on mobile devices.\r\n* New: Navy flag for non-IJN ships.\r\n\r\n**Ship Details**\r\n\r\n* New design\r\n* New: Navy, Resources for dismantle.\r\n* New: Level slider for stats.\r\n* New: Notes for special illustrations.\r\n* New: Tab for capabilities, which includes:\r\n  * Special Capabilities\r\n  * AACI\r\n  * Speed-Up Calculator\r\n  * OASW Calculator\r\n* New: Tab for equipable types.\r\n\r\n**Equipment Details**\r\n\r\n* New design\r\n* New stat: TP (When available)\r\n\r\n**Akashi's Arsenal**\r\n\r\n* New design\r\n\r\n## TODOs\r\n\r\n**In Development**\r\n\r\n* Pages\r\n  * Home\r\n  * Fleet Builder\r\n  * TP Calculator\r\n  * About\r\n* Frame\r\n  * Navigation\r\n    * Language Switch\r\n    * Button for Background view\r\n  * Background View\r\n    * UI optimization\r\n    * Download for original image\r\n    * Upload custom image\r\n  * For small screens eg. phones\r\n    * Indicator: Page loading\r\n\r\n**Planned Changes**\r\n\r\n* Fleet Builder\r\n  * UI overhaul\r\n    * Make ex-slot more readable\r\n    * Add more stat / calculation (eg. AACI, ASW)\r\n    * Add quick check for equipment set (eg. AACI, Night battle)\r\n  * Folder for List view\r\n  * API for importing build and full documents support\r\n\r\n## On the Horizon\r\n\r\n* Data stores on the cloud\r\n* Ship Details\r\n  * New tab: Voicelines\r\n  * New tab: Availability\r\n* Equipment Details\r\n  * New data (or tab?): Availability\r\n* Akashi's Arsenal\r\n  * New: Filter for screw number in weekday view.\r\n* New category: Expeditions\r\n* New category: Sorties\r\n* New category: Juckbox\r\n"
 }

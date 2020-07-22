@@ -3,16 +3,15 @@
         "short": "简",
         "full": "简体中文"
     },
-
     "title": "是谁呼叫舰队",
-    "translators": ["Diablohu"],
-
+    "translators": [
+        "Diablohu"
+    ],
     "under_construction": "建设中",
     "no_javascript_warning": "本应用需要开启 JavaScript 功能。",
     "cancel": "取消",
     "ok": "确认",
     "none": "无",
-
     "ship_type": "舰种",
     "equipment_type": "装备类型",
     "shiptypeclass": "${class}级${type}",
@@ -24,18 +23,15 @@
     "equipment_series": "${equipment}系列",
     "tp": "TP",
     "land_bases": "基地航空队",
-
     "seiyuu": "声优",
     "seiyuus": "声优",
     "artist": "画师",
     "artists": "画师",
-
     "activation_chance_tobe": "触发几率：${chance}",
     "chance": {
         "normal": "标准",
         "high": "高"
     },
-
     "day_full": {
         "Sunday": "星期日",
         "Monday": "星期一",
@@ -45,7 +41,6 @@
         "Friday": "星期五",
         "Saturday": "星期六"
     },
-
     "day_abbr": {
         "Sunday": "日",
         "Monday": "一",
@@ -55,7 +50,6 @@
         "Friday": "五",
         "Saturday": "六"
     },
-
     "require": {
         "level": "需要等级：${level}",
         "min_possible_level": "可能的最低等级：${level}",
@@ -69,7 +63,6 @@
         "ship_stat_with_equipments": "需要${stat}属性：${value} (计算装备)",
         "has_stat": "${stat}至少为${value}"
     },
-
     "stat": {
         "fire": "火力",
         "torpedo": "雷装",
@@ -100,21 +93,46 @@
             "improvable": "改修"
         }
     },
-
-    "equipment_types": {
-        "aircraft": "飞行器",
-        "jet": "喷气机",
-        "surface_radar": "对水面电探/雷达",
-        "aa_radar": "对空电探/雷达",
-        "ha_mount": "高角炮"
+    "nav": {
+        "sub": {
+            "base": "海军基地",
+            "archive": "档案馆",
+            "dev": "研发中心"
+        },
+        "home": "首页",
+        "fleets": "舰队模拟",
+        "academy": "海军兵学校",
+        "calctp": "TP计算",
+        "sorties": "出击海域",
+        "expeditions": "远征",
+        "ships": "舰娘",
+        "equipments": "装备",
+        "arsenal": "改修工厂",
+        "entities": "声优 & 画师",
+        "excgs": "限定图鉴",
+        "about": "关于",
+        "languageSwitch": "切换语言",
+        "backgroundSwitch": "切换背景图",
+        "install": "安装 App"
     },
-
-    "improvement": {
-        "any_2nd_ship": "任意秘书舰",
-        "resources": "资材消耗",
-        "upgrading": "升级"
+    "bonuses": {
+        "single": "装备属性加成",
+        "sets": "套装加成",
+        "info_prefix_when_equipped": "装备于以上舰娘时，",
+        "range_increase": "射程提高一档",
+        "stat_donot_stack": "该属性不叠加",
+        "based_on_number": "根据该装备的装备数量提供... (超额部分不提供加成)",
+        "based_on_star": "每个该装备根据改修星级提供...",
+        "based_on_area": "根据所处作战海域，每个该装备提供...",
+        "based_on_nothing": "每个该装备提供...",
+        "based_set": "额外加成...",
+        "based_set_accumulate": "累计套装加成...",
+        "note_hybrid_radar": "以下装备同时算作对水面和对空电探/雷达",
+        "note_hybrid_radar_this_equipment": "本装备同时算作对水面和对空电探/雷达"
     },
-
+    "area": {
+        "north": "北方"
+    },
     "combat_phases": {
         "preemptive": "开幕",
         "detection": "索敌",
@@ -147,14 +165,54 @@
         },
         "night_air_assault": "夜间航空打击"
     },
-
     "aaci": {
         "title": "特殊对空迎击 (AACI)",
         "fixed_shoot_down_bonus": "固定额外击坠数",
         "fixed": "固定",
         "modifier": "系数"
     },
-
+    "equipment_types": {
+        "aircraft": "飞行器",
+        "jet": "喷气机",
+        "surface_radar": "对水面电探/雷达",
+        "aa_radar": "对空电探/雷达",
+        "ha_mount": "高角炮"
+    },
+    "improvement": {
+        "any_2nd_ship": "任意秘书舰",
+        "resources": "资材消耗",
+        "upgrading": "升级"
+    },
+    "equipment_details": {
+        "infos": "信息",
+        "refittable": "可装备于...",
+        "availability": "获取方式",
+        "bonuses": "属性加成",
+        "facts": {
+            "craftable": "可开发",
+            "uncraftable": "不可开发",
+            "improvable": "可改修",
+            "unimprovable": "不可改修",
+            "upgradable": "可升级",
+            "unupgradable": "不可升级",
+            "rankupgradable": "可提升熟练度",
+            "unrankupgradable": "不可提升熟练度"
+        },
+        "bonus_stat": "额外收益",
+        "bonus_note_max_value": "如果舰娘满足了多个需求，额外收益取最大值",
+        "scrap": "废弃获得资源",
+        "improvements": "改修选项",
+        "required_for_improvements": "可用于改修其他装备",
+        "upgrade_to": "可升级为",
+        "upgrade_from": "可由以下装备升级获得",
+        "stocked": "初始装备于以下舰娘",
+        "stocked_list_empty": "暂无初始配置该装备的舰娘...",
+        "refittable_legend_no": "不可装备",
+        "refittable_legend_yes": "可装备",
+        "can_equip_in_ex_slot": "可装备于补强增设栏位",
+        "cannot_equip_in_ex_slot_but_ex_ships": "不可装备于大多数舰娘的补强增设栏位，但以下舰娘例外……",
+        "cannot_equip_in_ex_slot": "不可装备于补强增设栏位"
+    },
     "special_attack": {
         "Nelson Touch": {
             "requirement": [
@@ -243,7 +301,6 @@
             ]
         }
     },
-
     "ship_specials": {
         "transportation": {
             "title": "强化运输"
@@ -257,67 +314,6 @@
             "description": "拥有较高的对潜属性。可编入运输联合舰队。"
         }
     },
-
-    "nav": {
-        "sub": {
-            "base": "海军基地",
-            "archive": "档案馆",
-            "dev": "研发中心"
-        },
-        "home": "首页",
-        "fleets": "舰队模拟",
-        "academy": "海军兵学校",
-        "calctp": "TP计算",
-        "sorties": "出击海域",
-        "expeditions": "远征",
-        "ships": "舰娘",
-        "equipments": "装备",
-        "arsenal": "改修工厂",
-        "entities": "声优 & 画师",
-        "excgs": "限定图鉴",
-        "about": "关于",
-        "languageSwitch": "切换语言",
-        "backgroundSwitch": "切换背景图",
-        "install": "安装 App"
-    },
-
-    "speed_calculator": {
-        "title": "航速提升计算器",
-        "equipment_33_note_1": "需要至少装备 1 个",
-        "equipment_33_note_2": "可放入补强增设栏位中",
-        "base_speed": "基础航速：",
-        "result": "计算结果："
-    },
-
-    "oasw_calculator": {
-        "title": "先制对潜攻击等级计算器",
-        "unable": "无法施展该能力",
-        "unknown": "对潜属性成长未知",
-        "always": "可无条件施展",
-        "no_result": "必要装备",
-        "result": "需要等级："
-    },
-
-    "bonuses": {
-        "single": "装备属性加成",
-        "sets": "套装加成",
-        "info_prefix_when_equipped": "装备于以上舰娘时，",
-        "range_increase": "射程提高一档",
-        "stat_donot_stack": "该属性不叠加",
-        "based_on_number": "根据该装备的装备数量提供... (超额部分不提供加成)",
-        "based_on_star": "每个该装备根据改修星级提供...",
-        "based_on_area": "根据所处作战海域，每个该装备提供...",
-        "based_on_nothing": "每个该装备提供...",
-        "based_set": "额外加成...",
-        "based_set_accumulate": "累计套装加成...",
-        "note_hybrid_radar": "以下装备同时算作对水面和对空电探/雷达",
-        "note_hybrid_radar_this_equipment": "本装备同时算作对水面和对空电探/雷达"
-    },
-
-    "area": {
-        "north": "北方"
-    },
-
     "ship_list": {
         "filter": {
             "placeholder": "搜索舰名...",
@@ -334,7 +330,6 @@
             "add_remove": "修改选择"
         }
     },
-
     "ship_details": {
         "infos": "信息 & 图鉴",
         "equipable": "可装备...",
@@ -342,23 +337,16 @@
         "availability": "获取方式",
         "capabilities": "功能 & 作战能力",
         "bonuses": "装备属性加成",
-
         "remodels": "改造系谱",
         "remodel_initial": "初始",
-
         "quickfacts": "小知识",
         "navy": "海军",
-
         "stats": "基础属性",
-
         "slot_equipments": "搭载量 & 初始装备",
         "emptyslot": "未装备",
         "noslot": "不可装备",
-
         "modernization": "合成提供属性",
-
         "dismantle": "解体获得资源",
-
         "aaci": "特殊对空迎击 (AACI)",
         "aaci_req": {
             "ship": "该舰娘",
@@ -366,7 +354,6 @@
             "type": "该舰种"
         },
         "aaci_unable": "无法施展该能力",
-
         "combat_capabilities": "作战能力",
         "unable_to_perform": "无法施展",
         "can_perform_when_meet_requirements": "满足条件后可施展",
@@ -379,74 +366,46 @@
         "range_different_note": "其他大多数${type}的射程：${range}",
         "carrier_default_night_battle": "即使没有达到夜间航空打击的装备需求，也可以参与夜战，但伤害偏低。",
         "carrier_swordfish_night_battle": "即使没有达到夜间航空打击的装备需求，只要装备有剑鱼系列鱼雷机，也可以参与夜战，但伤害偏低。",
-
         "other_special": "其他特殊能力",
         "tp_bonus": "运输作战TP加成：+${bonus}",
         "expedition_bonus": "远征收益加成：+${bonus}",
         "expedition_bonus_daihatsu_description": "算作${daihatsu}。",
         "expedition_bonus_daihatsu_description2": "因此携带3栏${daihatsu}即可达到额外收益上限。",
-
         "equipable_additional": "可配置的特定装备",
         "equipable_exslot": "可配置于补强增设栏位",
         "equipable_exslot_and": "以及……",
         "equipable_legend_no": "不可装备",
         "equipable_legend_yes": "可装备",
         "equipable_legend_yes_extra": "其他${type}不可",
-
         "special_attack": {
             "requirements": "触发条件",
             "effects": "攻击效果"
         }
     },
-
-    "equipment_details": {
-        "infos": "信息",
-        "refittable": "可装备于...",
-        "availability": "获取方式",
-        "bonuses": "属性加成",
-
-        "facts": {
-            "craftable": "可开发",
-            "uncraftable": "不可开发",
-            "improvable": "可改修",
-            "unimprovable": "不可改修",
-            "upgradable": "可升级",
-            "unupgradable": "不可升级",
-            "rankupgradable": "可提升熟练度",
-            "unrankupgradable": "不可提升熟练度"
-        },
-
-        "bonus_stat": "额外收益",
-        "bonus_note_max_value": "如果舰娘满足了多个需求，额外收益取最大值",
-
-        "scrap": "废弃获得资源",
-
-        "improvements": "改修选项",
-
-        "required_for_improvements": "可用于改修其他装备",
-
-        "upgrade_to": "可升级为",
-        "upgrade_from": "可由以下装备升级获得",
-
-        "stocked": "初始装备于以下舰娘",
-        "stocked_list_empty": "暂无初始配置该装备的舰娘...",
-
-        "refittable_legend_no": "不可装备",
-        "refittable_legend_yes": "可装备",
-        "can_equip_in_ex_slot": "可装备于补强增设栏位",
-        "cannot_equip_in_ex_slot_but_ex_ships": "不可装备于大多数舰娘的补强增设栏位，但以下舰娘例外……",
-        "cannot_equip_in_ex_slot": "不可装备于补强增设栏位"
+    "speed_calculator": {
+        "title": "航速提升计算器",
+        "equipment_33_note_1": "需要至少装备 1 个",
+        "equipment_33_note_2": "可放入补强增设栏位中",
+        "base_speed": "基础航速：",
+        "result": "计算结果："
     },
-
+    "oasw_calculator": {
+        "title": "先制对潜攻击等级计算器",
+        "unable": "无法施展该能力",
+        "unknown": "对潜属性成长未知",
+        "always": "可无条件施展",
+        "no_result": "必要装备",
+        "result": "需要等级："
+    },
     "entity_details": {
         "casts": "配音",
         "illustrates": "绘制",
         "links": "相关链接"
     },
-
     "arsenal": {
         "filter_by_day": "每日改修",
         "all": "全部改修",
         "resources_toggle": "查看改修消耗..."
-    }
+    },
+    "home_page_markdown": "## 新功能与重大调整\r\n\r\n**综合**\r\n\r\n* UI重新设计，导航现已移动到左侧\r\n* 新增英语、日语版本，可在左侧导航（手机设备为左侧菜单）中进行切换\r\n\r\n**舰娘列表**\r\n\r\n* 现可按分类进行标签页切换\r\n* 优化舰种分类和顺序\r\n* 驱逐舰现在会按舰级分类\r\n* 移除属性表格视图\r\n* 属性对比现需要通过右上角的按钮开启\r\n* 手机等小屏幕设备现在可以在属性对比中看到所有属性了\r\n* 非日本帝国海军的舰娘现在会在头像上显示所属军籍的旗帜\r\n\r\n**舰娘详情**\r\n\r\n* 新的设计\r\n* 新的信息：所属军籍、解体获得资源\r\n* 可通过设置等级查询任意等级的属性\r\n* 特殊图鉴现在会提供标题说明\r\n* 新增标签页：作战能力，内容包括：\r\n  * 特殊能力\r\n  * AACI组合\r\n  * 航速提升计算器\r\n  * 先制对潜攻击计算器\r\n* 新增标签页：可装备\r\n  * 可查询该舰娘可配置的装备类型信息\r\n\r\n**装备详情**\r\n\r\n* 新的设计\r\n* 新的属性：TP (当存在时)\r\n\r\n**改修工厂**\r\n\r\n* 新的设计\r\n\r\n## TODOs\r\n\r\n**以下模块仍在开发中**\r\n\r\n* 页面\r\n  * 首页\r\n  * 舰队模拟\r\n  * TP计算\r\n  * 关于\r\n* 框架\r\n  * 导航\r\n    * 语言切换\r\n    * 背景图视图入口\r\n  * 背景图视图\r\n    * UI优化\r\n    * 原图下载\r\n    * 上传自定义图片\r\n  * 手机等小屏幕\r\n    * 视觉提示：页面读取中\r\n\r\n**对原有版本计划的改动**\r\n\r\n* 舰队模拟\r\n  * UI重做\r\n    * 补强增设栏位更易读\r\n    * 加入更多数据计算（AACI、对潜等）\r\n    * 配装快捷查询（AACI、夜战等）\r\n  * 列表支持文件夹\r\n  * 开放配置导入接口，提供完整支持文档\r\n\r\n## 长远计划\r\n\r\n* 云端存储数据\r\n* 舰娘详情\r\n  * 新增标签页：台词 & 语音\r\n  * 新增标签页：获取方式\r\n* 装备详情\r\n  * 新增数据（或标签页？）：获取方式\r\n* 改修工厂\r\n  * 每日改修页新增按改修资财数量过滤\r\n* 新增页面：远征\r\n* 新增页面：出击海域\r\n* 新增页面：点唱机\r\n"
 }

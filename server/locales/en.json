@@ -3,16 +3,15 @@
         "short": "EN",
         "full": "English"
     },
-
     "title": "Who Calls the Fleet",
-    "translators": ["Diablohu"],
-
+    "translators": [
+        "Diablohu"
+    ],
     "under_construction": "Under Construction",
     "no_javascript_warning": "This app requires JavaScript enabled.",
     "cancel": "Cancel",
     "ok": "OK",
     "none": "None",
-
     "ship_type": "Ship Type",
     "equipment_type": "Equipment Type",
     "shiptypeclass": "${class} Class ${type}",
@@ -24,18 +23,15 @@
     "equipment_series": "${equipment}-series",
     "tp": "TP",
     "land_bases": "Land Bases",
-
     "seiyuu": "Seiyuu",
     "seiyuus": "Seiyuus",
     "artist": "Artist",
     "artists": "Artists",
-
     "activation_chance_tobe": "Activation chance: ${chance}",
     "chance": {
         "normal": "Normal",
         "high": "High"
     },
-
     "day_full": {
         "Sunday": "Sunday",
         "Monday": "Monday",
@@ -45,7 +41,6 @@
         "Friday": "Friday",
         "Saturday": "Saturday"
     },
-
     "day_abbr": {
         "Sunday": "S",
         "Monday": "M",
@@ -55,7 +50,6 @@
         "Friday": "F",
         "Saturday": "S"
     },
-
     "require": {
         "level": "Require level: ${level}",
         "min_possible_level": "Minimum possible level: ${level}",
@@ -69,7 +63,6 @@
         "ship_stat_with_equipments": "Require stat ${stat}: ${value} (w/ equip.)",
         "has_stat": "${stat} at least ${value}"
     },
-
     "stat": {
         "fire": "FP",
         "torpedo": "TPD",
@@ -100,21 +93,47 @@
             "improvable": "Improve"
         }
     },
-
-    "equipment_types": {
-        "aircraft": "Aircraft",
-        "jet": "Jets",
-        "surface_radar": "Surface Radar",
-        "aa_radar": "AA Radar",
-        "ha_mount": "High-Angle Gun"
+    "nav": {
+        "sub": {
+            "base": "Naval Base",
+            "archive": "Archive",
+            "dev": "Dev. Center"
+        },
+        "home": "Home",
+        "tools": "Tools",
+        "fleets": "Fleet Builder",
+        "academy": "Naval Academy",
+        "calctp": "TP Calculator",
+        "ships": "Ships",
+        "equipments": "Equipments",
+        "arsenal": "Akashi's Arsenal",
+        "entities": "CV & Illustrators",
+        "excgs": "Limited CGs",
+        "sorties": "Sories",
+        "expeditions": "Expeditions",
+        "about": "About",
+        "languageSwitch": "Change Language",
+        "backgroundSwitch": "Change Background",
+        "install": "Install App"
     },
-
-    "improvement": {
-        "any_2nd_ship": "Any 2nd Ship",
-        "resources": "Resources",
-        "upgrading": "Upgrading"
+    "bonuses": {
+        "single": "Equipment Stat Bonus",
+        "sets": "Set Bonus",
+        "info_prefix_when_equipped": "When equipped, ",
+        "range_increase": "Range increased by 1",
+        "stat_donot_stack": "Donot stack",
+        "based_on_number": "Based on number of this equipment, provide...",
+        "based_on_star": "Based on star level, each of this equipment provide...",
+        "based_on_area": "Based on area battle at, each of this equipment provide...",
+        "based_on_nothing": "Each of this equipment provide...",
+        "based_set": "Additional bonus...",
+        "based_set_accumulate": "Accumulated set bonus...",
+        "note_hybrid_radar": "Equipment(s) below treated as both Surface and AA Radar(s)",
+        "note_hybrid_radar_this_equipment": "This equipment is treated as both Surface and AA Radar"
     },
-
+    "area": {
+        "north": "North"
+    },
     "combat_phases": {
         "preemptive": "Preemptive",
         "detection": "Detection",
@@ -147,14 +166,79 @@
         },
         "night_air_assault": "Night Air Assault"
     },
-
     "aaci": {
         "title": "Anti-Air Cut-In (AACI)",
         "fixed_shoot_down_bonus": "Fixed shoot down bonus",
         "fixed": "Fixed",
         "modifier": "Modifier"
     },
-
+    "speed_calculator": {
+        "title": "Speed-Up Calculator",
+        "equipment_33_note_1": "Req. at least one.",
+        "equipment_33_note_2": "Can equipped in ex-slot.",
+        "base_speed": "Base Speed: ",
+        "result": "Result: "
+    },
+    "oasw_calculator": {
+        "title": "OASW Level Calculator",
+        "unable": "Unable to perform",
+        "unknown": "ASW stat growth unknown",
+        "always": "Can always perform",
+        "no_result": "Required equipment(s)",
+        "result": "Required level: "
+    },
+    "entity_details": {
+        "casts": "Casts",
+        "illustrates": "Illustrates",
+        "links": "Links"
+    },
+    "arsenal": {
+        "filter_by_day": "Filter by day",
+        "all": "All",
+        "resources_toggle": "Show cost details..."
+    },
+    "equipment_types": {
+        "aircraft": "Aircraft",
+        "jet": "Jets",
+        "surface_radar": "Surface Radar",
+        "aa_radar": "AA Radar",
+        "ha_mount": "High-Angle Gun"
+    },
+    "improvement": {
+        "any_2nd_ship": "Any 2nd Ship",
+        "resources": "Resources",
+        "upgrading": "Upgrading"
+    },
+    "equipment_details": {
+        "infos": "Infos",
+        "refittable": "Refittable...",
+        "availability": "Availability",
+        "bonuses": "Stat Bonuses",
+        "facts": {
+            "craftable": "Craftable",
+            "uncraftable": "Uncraftable",
+            "improvable": "Improvable",
+            "unimprovable": "Unimprovable",
+            "upgradable": "Upgradable",
+            "unupgradable": "Unupgradable",
+            "rankupgradable": "Rank-upgradable",
+            "unrankupgradable": "Un-rank-upgradable"
+        },
+        "bonus_stat": "Bonus",
+        "bonus_note_max_value": "If a ship meets multiple requirements, use the highest value",
+        "scrap": "Scrap Value",
+        "improvements": "Improvement Options",
+        "required_for_improvements": "Required for other Improvements",
+        "upgrade_to": "Upgrade to",
+        "upgrade_from": "Can be upgraded from...",
+        "stocked": "Stock-equipped on...",
+        "stocked_list_empty": "There's no ship that stock-equip this equipment...",
+        "refittable_legend_no": "Not refittable",
+        "refittable_legend_yes": "Refittable",
+        "can_equip_in_ex_slot": "Can be equipped in ex-slot",
+        "cannot_equip_in_ex_slot_but_ex_ships": "Cannot be equipped in ex-slot for most ships but following ships...",
+        "cannot_equip_in_ex_slot": "Cannot be equipped in ex-slot"
+    },
     "special_attack": {
         "Nelson Touch": {
             "requirement": [
@@ -239,7 +323,6 @@
             ]
         }
     },
-
     "ship_specials": {
         "transportation": {
             "title": "Transportation Specialized"
@@ -253,68 +336,6 @@
             "description": "Has high ASW stat. Can be deployed into Transportation Combined Fleet."
         }
     },
-
-    "nav": {
-        "sub": {
-            "base": "Naval Base",
-            "archive": "Archive",
-            "dev": "Dev. Center"
-        },
-        "home": "Home",
-        "tools": "Tools",
-        "fleets": "Fleet Builder",
-        "academy": "Naval Academy",
-        "calctp": "TP Calculator",
-        "ships": "Ships",
-        "equipments": "Equipments",
-        "arsenal": "Akashi's Arsenal",
-        "entities": "CV & Illustrators",
-        "excgs": "Limited CGs",
-        "sorties": "Sories",
-        "expeditions": "Expeditions",
-        "about": "About",
-        "languageSwitch": "Change Language",
-        "backgroundSwitch": "Change Background",
-        "install": "Install App"
-    },
-
-    "speed_calculator": {
-        "title": "Speed-Up Calculator",
-        "equipment_33_note_1": "Req. at least one.",
-        "equipment_33_note_2": "Can equipped in ex-slot.",
-        "base_speed": "Base Speed: ",
-        "result": "Result: "
-    },
-
-    "oasw_calculator": {
-        "title": "OASW Level Calculator",
-        "unable": "Unable to perform",
-        "unknown": "ASW stat growth unknown",
-        "always": "Can always perform",
-        "no_result": "Required equipment(s)",
-        "result": "Required level: "
-    },
-
-    "bonuses": {
-        "single": "Equipment Stat Bonus",
-        "sets": "Set Bonus",
-        "info_prefix_when_equipped": "When equipped, ",
-        "range_increase": "Range increased by 1",
-        "stat_donot_stack": "Donot stack",
-        "based_on_number": "Based on number of this equipment, provide...",
-        "based_on_star": "Based on star level, each of this equipment provide...",
-        "based_on_area": "Based on area battle at, each of this equipment provide...",
-        "based_on_nothing": "Each of this equipment provide...",
-        "based_set": "Additional bonus...",
-        "based_set_accumulate": "Accumulated set bonus...",
-        "note_hybrid_radar": "Equipment(s) below treated as both Surface and AA Radar(s)",
-        "note_hybrid_radar_this_equipment": "This equipment is treated as both Surface and AA Radar"
-    },
-
-    "area": {
-        "north": "North"
-    },
-
     "ship_list": {
         "filter": {
             "placeholder": "Filter by name...",
@@ -331,7 +352,6 @@
             "add_remove": "Add/Remove"
         }
     },
-
     "ship_details": {
         "infos": "Infos & CGs",
         "equipable": "Equipable...",
@@ -339,23 +359,16 @@
         "availability": "Availability",
         "capabilities": "Capabilities",
         "bonuses": "Equipment Bonuses",
-
         "remodels": "Remodels",
         "remodel_initial": "Initial",
-
         "quickfacts": "Quick Facts",
         "navy": "Navy",
-
         "stats": "Statistics",
-
         "slot_equipments": "Slot & Stock Equip.",
         "emptyslot": "Empty slot",
         "noslot": "Locked",
-
         "modernization": "Modernization",
-
         "dismantle": "Dismantle",
-
         "aaci": "Anti-Air Cut-In (AACI)",
         "aaci_req": {
             "ship": "This Ship",
@@ -363,7 +376,6 @@
             "type": "This Ship Type"
         },
         "aaci_unable": "Unable to perform",
-
         "combat_capabilities": "Combat Capabilities",
         "unable_to_perform": "Unable to perform",
         "can_perform_when_meet_requirements": "Can perform when meet requirements",
@@ -376,74 +388,21 @@
         "range_different_note": "Most other ${type} have range: ${range}",
         "carrier_default_night_battle": "Can still participate in night battle even if not meet the require for night air assault. But the damage maybe low.",
         "carrier_swordfish_night_battle": "If has Swordfish-series torpedo bomber equipped, can still participate in night battle even if not meet the require for night air assault. But the damage maybe low.",
-
         "other_special": "Other Special Capabilities",
         "tp_bonus": "Transport phase TP bonus: +${bonus}",
         "expedition_bonus": "Expedition income bonus: +${bonus}",
         "expedition_bonus_daihatsu_description": "Count as a ${daihatsu}.",
         "expedition_bonus_daihatsu_description2": "Therefor equip 3 ${daihatsu}s will cap max bonus.",
-
         "equipable_additional": "Other equipables",
         "equipable_exslot": "Equipable in Ex-Slot",
         "equipable_exslot_and": "And...",
         "equipable_legend_no": "Not equipable",
         "equipable_legend_yes": "Equipable",
         "equipable_legend_yes_extra": "No for other ${type}",
-
         "special_attack": {
             "requirements": "Requirements",
             "effects": "Effects"
         }
     },
-
-    "equipment_details": {
-        "infos": "Infos",
-        "refittable": "Refittable...",
-        "availability": "Availability",
-        "bonuses": "Stat Bonuses",
-
-        "facts": {
-            "craftable": "Craftable",
-            "uncraftable": "Uncraftable",
-            "improvable": "Improvable",
-            "unimprovable": "Unimprovable",
-            "upgradable": "Upgradable",
-            "unupgradable": "Unupgradable",
-            "rankupgradable": "Rank-upgradable",
-            "unrankupgradable": "Un-rank-upgradable"
-        },
-
-        "bonus_stat": "Bonus",
-        "bonus_note_max_value": "If a ship meets multiple requirements, use the highest value",
-
-        "scrap": "Scrap Value",
-
-        "improvements": "Improvement Options",
-
-        "required_for_improvements": "Required for other Improvements",
-
-        "upgrade_to": "Upgrade to",
-        "upgrade_from": "Can be upgraded from...",
-
-        "stocked": "Stock-equipped on...",
-        "stocked_list_empty": "There's no ship that stock-equip this equipment...",
-
-        "refittable_legend_no": "Not refittable",
-        "refittable_legend_yes": "Refittable",
-        "can_equip_in_ex_slot": "Can be equipped in ex-slot",
-        "cannot_equip_in_ex_slot_but_ex_ships": "Cannot be equipped in ex-slot for most ships but following ships...",
-        "cannot_equip_in_ex_slot": "Cannot be equipped in ex-slot"
-    },
-
-    "entity_details": {
-        "casts": "Casts",
-        "illustrates": "Illustrates",
-        "links": "Links"
-    },
-
-    "arsenal": {
-        "filter_by_day": "Filter by day",
-        "all": "All",
-        "resources_toggle": "Show cost details..."
-    }
+    "home_page_markdown": "## Help us for English language support!\r\n\r\nIf you want help us for English translation, you can submit your changes [HERE](https://github.com/TeamFleet/WhoCallsTheFleet-Yuubari/blob/master/src/locales/en.json)\r\n\r\n## New Features & Major Changes\r\n\r\n**General**\r\n\r\n* UI redesigned. Navigation now moved to left side.\r\n* New: Multi-Language.\r\n\r\n**Ship List**\r\n\r\n* New: Category tab for ship types that placed on top.\r\n* Optimized ship types order.\r\n* DDs will now be sorted by ship class.\r\n* Stat-table view removed.\r\n* New: Button for compare view that placed on top-right.\r\n* All stats are now viewable in compare view on mobile devices.\r\n* New: Navy flag for non-IJN ships.\r\n\r\n**Ship Details**\r\n\r\n* New design\r\n* New: Navy, Resources for dismantle.\r\n* New: Level slider for stats.\r\n* New: Notes for special illustrations.\r\n* New: Tab for capabilities, which includes:\r\n  * Special Capabilities\r\n  * AACI\r\n  * Speed-Up Calculator\r\n  * OASW Calculator\r\n* New: Tab for equipable types.\r\n\r\n**Equipment Details**\r\n\r\n* New design\r\n* New stat: TP (When available)\r\n\r\n**Akashi's Arsenal**\r\n\r\n* New design\r\n\r\n## TODOs\r\n\r\n**In Development**\r\n\r\n* Pages\r\n  * Home\r\n  * Fleet Builder\r\n  * TP Calculator\r\n  * About\r\n* Frame\r\n  * Navigation\r\n    * Language Switch\r\n    * Button for Background view\r\n  * Background View\r\n    * UI optimization\r\n    * Download for original image\r\n    * Upload custom image\r\n  * For small screens eg. phones\r\n    * Indicator: Page loading\r\n\r\n**Planned Changes**\r\n\r\n* Fleet Builder\r\n  * UI overhaul\r\n    * Make ex-slot more readable\r\n    * Add more stat / calculation (eg. AACI, ASW)\r\n    * Add quick check for equipment set (eg. AACI, Night battle)\r\n  * Folder for List view\r\n  * API for importing build and full documents support\r\n\r\n## On the Horizon\r\n\r\n* Data stores on the cloud\r\n* Ship Details\r\n  * New tab: Voicelines\r\n  * New tab: Availability\r\n* Equipment Details\r\n  * New data (or tab?): Availability\r\n* Akashi's Arsenal\r\n  * New: Filter for screw number in weekday view.\r\n* New category: Expeditions\r\n* New category: Sorties\r\n* New category: Juckbox\r\n"
 }
