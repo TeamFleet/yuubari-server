@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[16],{1175:function(n,t,e){"use strict";e.r(t),function(n){var a=e(0),i=e.n(a),c=e(974);t.default=function(){return i.a.createElement(c.a,{title:"Sories"})}}.call(this,e(40).default)}}]);
