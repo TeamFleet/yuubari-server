@@ -224,6 +224,12 @@
         "cannot_equip_in_ex_slot_but_ex_ships": "不可装备于大多数舰娘的补强增设栏位，但以下舰娘例外……",
         "cannot_equip_in_ex_slot": "不可装备于补强增设栏位"
     },
+    "ship_sub_types": {
+        "NightCarrier": "夜间作战航空母舰",
+        "ModernizedCarrier": "近代化航空母舰",
+        "EscortCarrier": "护航航母",
+        "AssultCarrier": "攻击型轻航母"
+    },
     "special_attack": {
         "Nelson Touch": {
             "requirement": [

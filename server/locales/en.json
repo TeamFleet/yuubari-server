@@ -250,6 +250,12 @@
         "cannot_equip_in_ex_slot_but_ex_ships": "Cannot be equipped in ex-slot for most ships but following ships...",
         "cannot_equip_in_ex_slot": "Cannot be equipped in ex-slot"
     },
+    "ship_sub_types": {
+        "NightCarrier": "Night Operation Aircraft Carrier",
+        "ModernizedCarrier": "Modernized Aircraft Carrier",
+        "EscortCarrier": "Escort Carrier",
+        "AssultCarrier": "Assult Light Aircraft Carrier"
+    },
     "special_attack": {
         "Nelson Touch": {
             "requirement": [
