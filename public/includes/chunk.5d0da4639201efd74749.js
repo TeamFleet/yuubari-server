@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[6],{1189:function(n,t,e){"use strict";e.r(t),function(n){var a=e(0),c=e.n(a),i=e(987);t.default=function(){return c.a.createElement(i.a,{title:"遠征"})}}.call(this,e(33).default)}}]);
