@@ -4,6 +4,7 @@
         "full": "日本語"
     },
     "title": "Who Calls the Fleet",
+    "description": "A KanColle Toolkit",
     "translators": [
         "taurus911",
         "Diablohu"
@@ -224,6 +225,13 @@
         "can_equip_in_ex_slot": "Can be equipped in ex-slot",
         "cannot_equip_in_ex_slot_but_ex_ships": "Cannot be equipped in ex-slot for most ships but following ships...",
         "cannot_equip_in_ex_slot": "Cannot be equipped in ex-slot"
+    },
+    "homepage": {
+        "update": "Latest Update",
+        "versions": "Versions",
+        "support": "Support",
+        "contact": "Contact",
+        "donate": "Donate"
     },
     "speed_calculator": {
         "title": "速力カルキュレーター",

@@ -4,6 +4,7 @@
         "full": "简体中文"
     },
     "title": "是谁呼叫舰队",
+    "description": "《舰队收藏》工具箱",
     "translators": [
         "Diablohu"
     ],
@@ -223,6 +224,13 @@
         "can_equip_in_ex_slot": "可装备于补强增设栏位",
         "cannot_equip_in_ex_slot_but_ex_ships": "不可装备于大多数舰娘的补强增设栏位，但以下舰娘例外……",
         "cannot_equip_in_ex_slot": "不可装备于补强增设栏位"
+    },
+    "homepage": {
+        "update": "新内容",
+        "versions": "版本更新",
+        "support": "支持",
+        "contact": "联系",
+        "donate": "捐助"
     },
     "ship_sub_types": {
         "NightCarrier": "夜间作战航空母舰",
