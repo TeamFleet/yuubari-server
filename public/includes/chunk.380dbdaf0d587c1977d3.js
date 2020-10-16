@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[6],{1193:function(n,t,e){"use strict";e.r(t),function(n){var i=e(0),a=e.n(i),c=e(990);t.default=function(){return a.a.createElement(c.a,{title:"Expeditions"})}}.call(this,e(33).default)}}]);
