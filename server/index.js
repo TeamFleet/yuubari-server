@@ -1140,6 +1140,8 @@ const context = {
   // Promise,
   // Symbol,
   // eslint-disable-next-line no-eval
+  __filename: eval('__filename'),
+  // eslint-disable-next-line no-eval
   __dirname: eval('__dirname')
 };
 /**
@@ -1803,7 +1805,7 @@ __webpack_require__.r(__webpack_exports__);
 const validateTemplate = template => {
   if (false) {}
 
-  if (true) template = "<!DOCTYPE html>\r\n<html <%- inject.htmlLang -%>>\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n\r\n    <title><%= inject.title -%></title>\r\n\r\n    <base target=\"_self\">\r\n\r\n    <meta name=\"viewport\" content=\"width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no\">\r\n    <meta name=\"format-detection\" content=\"telephone=no,email=no,address=no\">\r\n    <meta name=\"format-detection\" content=\"email=no\">\r\n    <meta name=\"format-detection\" content=\"address=no\">\r\n    <meta name=\"format-detection\" content=\"telephone=no\">\r\n    <meta name=\"HandheldFriendly\" content=\"true\">\r\n    <meta name=\"mobile-web-app-capable\" content=\"yes\">\r\n\r\n    <link rel=\"shortcut icon\" href=\"/favicon.ico\" type=\"image/x-icon\">\r\n    <link rel=\"icon\" href=\"/icon-256.png\" type=\"image/png\" sizes=\"256x256\">\r\n    <link rel=\"icon\" href=\"/icon-128.png\" type=\"image/png\" sizes=\"128x128\">\r\n    <%- inject.manifest -%>\r\n\r\n    <meta name=\"theme-color\" content=\"#263238\" />\r\n\r\n    <!-- IE/Edge -->\r\n    <meta name=\"renderer\" content=\"webkit\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">\r\n\r\n    <!-- iOS -->\r\n    <meta name=\"apple-mobile-web-app-capable\" content=\"yes\">\r\n    <meta name=\"apple-mobile-web-app-status-bar-style\" content=\"black-translucent\">\r\n\r\n    <meta name=\"copyright\" content=\"Copyright (c) 2021 fleet.moe\">\r\n\r\n    <!-- Polyfill for legacy browsers -->\r\n    <script nomodule type=\"text/javascript\" src=\"<%- pathname('polyfill.js') %>\"></script>\r\n\r\n    <%- inject.metas -%>\r\n    <%- inject.styles -%>\r\n    <%- inject.definePath -%>\r\n</head>\r\n\r\n<body>\r\n\r\n    <div id=\"boat-loader\">LOADING...</div>\r\n    <noscript><%- inject.noScriptWarningText %></noscript>\r\n\r\n    <div id=\"root\"><%- inject.react %></div>\r\n\r\n    <%- inject.svgIcons %>\r\n\r\n    <script type=\"text/javascript\"><%- content('critical.js') %></script>\r\n\r\n    <%- inject.scripts %>\r\n\r\n    <script>\r\n        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){\r\n        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),\r\n        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)\r\n        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');\r\n\r\n        ga('create', 'UA-63582858-4', 'auto');\r\n        ga('send', 'pageview');\r\n    </script>\r\n</body>\r\n\r\n</html>\r\n\n<!-- rendered by using koot.js 0.15.0-beta.25 -->";
+  if (true) template = "<!DOCTYPE html>\r\n<html <%- inject.htmlLang -%>>\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n\r\n    <title><%= inject.title -%></title>\r\n\r\n    <base target=\"_self\">\r\n\r\n    <meta name=\"viewport\" content=\"width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no\">\r\n    <meta name=\"format-detection\" content=\"telephone=no,email=no,address=no\">\r\n    <meta name=\"format-detection\" content=\"email=no\">\r\n    <meta name=\"format-detection\" content=\"address=no\">\r\n    <meta name=\"format-detection\" content=\"telephone=no\">\r\n    <meta name=\"HandheldFriendly\" content=\"true\">\r\n    <meta name=\"mobile-web-app-capable\" content=\"yes\">\r\n\r\n    <link rel=\"shortcut icon\" href=\"/favicon.ico\" type=\"image/x-icon\">\r\n    <link rel=\"icon\" href=\"/icon-256.png\" type=\"image/png\" sizes=\"256x256\">\r\n    <link rel=\"icon\" href=\"/icon-128.png\" type=\"image/png\" sizes=\"128x128\">\r\n    <%- inject.manifest -%>\r\n\r\n    <meta name=\"theme-color\" content=\"#263238\" />\r\n\r\n    <!-- IE/Edge -->\r\n    <meta name=\"renderer\" content=\"webkit\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">\r\n\r\n    <!-- iOS -->\r\n    <meta name=\"apple-mobile-web-app-capable\" content=\"yes\">\r\n    <meta name=\"apple-mobile-web-app-status-bar-style\" content=\"black-translucent\">\r\n\r\n    <meta name=\"copyright\" content=\"Copyright (c) 2021 fleet.moe\">\r\n\r\n    <!-- Polyfill for legacy browsers -->\r\n    <script nomodule type=\"text/javascript\" src=\"<%- pathname('polyfill.js') %>\"></script>\r\n\r\n    <%- inject.metas -%>\r\n    <%- inject.styles -%>\r\n    <%- inject.definePath -%>\r\n</head>\r\n\r\n<body>\r\n\r\n    <div id=\"boat-loader\">LOADING...</div>\r\n    <noscript><%- inject.noScriptWarningText %></noscript>\r\n\r\n    <div id=\"root\"><%- inject.react %></div>\r\n\r\n    <%- inject.svgIcons %>\r\n\r\n    <script type=\"text/javascript\"><%- content('critical.js') %></script>\r\n\r\n    <%- inject.scripts %>\r\n\r\n    <script>\r\n        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){\r\n        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),\r\n        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)\r\n        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');\r\n\r\n        ga('create', 'UA-63582858-4', 'auto');\r\n        ga('send', 'pageview');\r\n    </script>\r\n</body>\r\n\r\n</html>\r\n\n<!-- rendered by using koot.js 0.15.0-beta.27 -->";
   if (typeof template !== 'string') throw new Error(_libs_error_msg__WEBPACK_IMPORTED_MODULE_0___default()('VALIDATE_TEMPLATE', '`config.template` should be Pathname or EJS String')); // process.env.KOOT_HTML_TEMPLATE = template
 
   return template;
@@ -3649,9 +3651,7 @@ const getFreePort = async (start, end) => portfinder.getPortPromise({
   // in this scope.
   //
   return port;
-}).catch(() =>
-/*err*/
-{//
+}).catch(() => {//
   // Could not get a free port, `err` contains the reason.
   //
 });
@@ -4229,7 +4229,7 @@ const getChunkmap = (localeId, getFullResult = false, ignoreCache = false) => {
     if (typeof global.chunkmap === 'object') chunkmap = global.chunkmap;
 
     try {
-      chunkmap = JSON.parse("{\".zh\":{\".public\":\"public/\",\".out\":\"public/\",\".entrypoints\":{\"critical\":[\"public/includes/extract.122.f96964755fa47aeaf8ff.css\",\"public/includes/entry.f96964755fa47aeaf8ff.js\"],\"polyfill\":[\"public/includes/entry.d42cc98b945211ecd0af.js\",\"public/includes/entry.bfb60fc6f2f099b1c8dd.js\"],\"__KOOT__CLIENT__RUN__FIRST__\":[\"public/includes/entry.993fdee74b67ef7e62c7.js\"],\"client\":[\"public/includes/entry.1ddad74dbafe4940527d.js\",\"public/includes/entry.7d2cd0d2a0dc5efc36bc.js\",\"public/includes/entry.16fe78731859b3caca65.js\"]},\".files\":{\"critical.css\":\"public/includes/extract.122.f96964755fa47aeaf8ff.css\",\"critical.js\":\"public/includes/entry.f96964755fa47aeaf8ff.js\",\"polyfill.js\":\"public/includes/entry.bfb60fc6f2f099b1c8dd.js\",\"__KOOT__CLIENT__RUN__FIRST__.js\":\"public/includes/entry.993fdee74b67ef7e62c7.js\",\"client.js\":\"public/includes/entry.16fe78731859b3caca65.js\",\"Home_Page.js\":\"public/includes/chunk.1a226526c590b1dc6fda.js\",\"About_Page.js\":\"public/includes/chunk.d42a0fdfa3653d1a6560.js\",\"Fleet_Builder_Entry_Page.js\":\"public/includes/chunk.cbbf9cca062eb4daec0e.js\",\"Fleet_Builder_Fleet_Details_Page.js\":\"public/includes/chunk.8dee1236923b0a53900f.js\",\"Fleet_Builder_WIP_Blank_Page.js\":\"public/includes/chunk.7c1eb04d9b887ba2edf1.js\",\"TP_Calculator_Single-Page-Tool.js\":\"public/includes/chunk.e8185014bb06701fa627.js\",\"Academy_Entry_Page.js\":\"public/includes/chunk.4288306646ca11da71fc.js\",\"Sorties_List_Page.js\":\"public/includes/chunk.d7aac7a0587d694981d5.js\",\"Expeditions_List_Page.js\":\"public/includes/chunk.da2a57b81c431a9792ef.js\",\"Ship_List_Page.js\":\"public/includes/chunk.69bc8d7b26524b9ce43d.js\",\"Ship_Details_Page.css\":\"public/includes/extract.605.17e0f218774b1515e0e3.css\",\"Ship_Details_Page.js\":\"public/includes/chunk.17e0f218774b1515e0e3.js\",\"Equipment_List_Page.js\":\"public/includes/chunk.541f774dcf065f200775.js\",\"Equipment_Details_Page.js\":\"public/includes/chunk.881b383e8a36cc631073.js\",\"Arsenal_Page.js\":\"public/includes/chunk.8c13acf407ca6ababd38.js\",\"People_List_Page.js\":\"public/includes/chunk.b0ab41f9c61aa791405f.js\",\"People_Details_Page.js\":\"public/includes/chunk.d382ff25577e10d835e1.js\",\"Extra_CGs_Page.js\":\"public/includes/chunk.bec664893bd4d21002c8.js\",\"nedb.js\":\"public/includes/chunk.1372cb0f74a7eae5909e.js\",\"libs.js\":\"public/includes/entry.1ddad74dbafe4940527d.js\",\"libs-others.js\":\"public/includes/chunk.82ce3165e71fcfdade7a.js\",\"vendors.js\":\"public/includes/entry.7d2cd0d2a0dc5efc36bc.js\",\"__KOOT__EXTRACT__CSS__.css\":\"public/includes/extract.all.5f8f6febbdf3e901fdaa35f54a68bdbc.small.css\"},\"service-worker\":[\"public/service-worker.zh.js\"]},\".en\":{\".public\":\"public/\",\".out\":\"public/\",\".entrypoints\":{\"critical\":[\"public/includes/extract.122.800f1df58e51ee68a28a.css\",\"public/includes/entry.800f1df58e51ee68a28a.js\"],\"polyfill\":[\"public/includes/entry.d42cc98b945211ecd0af.js\",\"public/includes/entry.bfb60fc6f2f099b1c8dd.js\"],\"__KOOT__CLIENT__RUN__FIRST__\":[\"public/includes/entry.396af0991990b649355b.js\"],\"client\":[\"public/includes/entry.1ddad74dbafe4940527d.js\",\"public/includes/entry.7d2cd0d2a0dc5efc36bc.js\",\"public/includes/entry.22465b57b513f84f780a.js\"]},\".files\":{\"critical.css\":\"public/includes/extract.122.800f1df58e51ee68a28a.css\",\"critical.js\":\"public/includes/entry.800f1df58e51ee68a28a.js\",\"polyfill.js\":\"public/includes/entry.bfb60fc6f2f099b1c8dd.js\",\"__KOOT__CLIENT__RUN__FIRST__.js\":\"public/includes/entry.396af0991990b649355b.js\",\"client.js\":\"public/includes/entry.22465b57b513f84f780a.js\",\"Home_Page_17.js\":\"public/includes/chunk.62f71dbd43ea8fcd5147.js\",\"About_Page_18.js\":\"public/includes/chunk.adaef8fc9ea2f20b5ee5.js\",\"Fleet_Builder_Entry_Page_19.js\":\"public/includes/chunk.d33e5a11203d544e180f.js\",\"Fleet_Builder_Fleet_Details_Page_20.js\":\"public/includes/chunk.3abfe528ae24861b3677.js\",\"Fleet_Builder_WIP_Blank_Page_21.js\":\"public/includes/chunk.5d8a7220ab3d00aa2847.js\",\"TP_Calculator_Single-Page-Tool_22.js\":\"public/includes/chunk.23341d31c351f35c7e17.js\",\"Academy_Entry_Page_23.js\":\"public/includes/chunk.441038f62c0d72d3023b.js\",\"Sorties_List_Page_32.js\":\"public/includes/chunk.803f7ea7e7c3f5c245ff.js\",\"Expeditions_List_Page_33.js\":\"public/includes/chunk.ac395f29f19bca421e71.js\",\"Ship_List_Page_24.js\":\"public/includes/chunk.9954a8333f5b19f45cc7.js\",\"Ship_Details_Page_25.css\":\"public/includes/extract.410.d28781875031628c46e4.css\",\"Ship_Details_Page_25.js\":\"public/includes/chunk.d28781875031628c46e4.js\",\"Equipment_List_Page_26.js\":\"public/includes/chunk.578c91fbb83d0ecfdedf.js\",\"Equipment_Details_Page_27.js\":\"public/includes/chunk.3795c41a2a20854f37fa.js\",\"Arsenal_Page_28.js\":\"public/includes/chunk.5ccad50268f257d529f7.js\",\"People_List_Page_29.js\":\"public/includes/chunk.21fa20533ace4dd4d284.js\",\"People_Details_Page_30.js\":\"public/includes/chunk.3a1096e577ceb2ba2097.js\",\"Extra_CGs_Page_31.js\":\"public/includes/chunk.4625f43792887acacbfc.js\",\"nedb.js\":\"public/includes/chunk.1372cb0f74a7eae5909e.js\",\"libs.js\":\"public/includes/entry.1ddad74dbafe4940527d.js\",\"libs-others.js\":\"public/includes/chunk.b93014957d39fd0e9f09.js\",\"vendors.js\":\"public/includes/entry.7d2cd0d2a0dc5efc36bc.js\",\"__KOOT__EXTRACT__CSS__.css\":\"public/includes/extract.all.5f8f6febbdf3e901fdaa35f54a68bdbc.small.css\"},\"service-worker\":[\"public/service-worker.en.js\"]},\".ja\":{\".public\":\"public/\",\".out\":\"public/\",\".entrypoints\":{\"critical\":[\"public/includes/extract.122.800f1df58e51ee68a28a.css\",\"public/includes/entry.800f1df58e51ee68a28a.js\"],\"polyfill\":[\"public/includes/entry.d42cc98b945211ecd0af.js\",\"public/includes/entry.bfb60fc6f2f099b1c8dd.js\"],\"__KOOT__CLIENT__RUN__FIRST__\":[\"public/includes/entry.396af0991990b649355b.js\"],\"client\":[\"public/includes/entry.1ddad74dbafe4940527d.js\",\"public/includes/entry.7d2cd0d2a0dc5efc36bc.js\",\"public/includes/entry.cc561d94bdc86dc0c868.js\"]},\".files\":{\"critical.css\":\"public/includes/extract.122.800f1df58e51ee68a28a.css\",\"critical.js\":\"public/includes/entry.800f1df58e51ee68a28a.js\",\"polyfill.js\":\"public/includes/entry.bfb60fc6f2f099b1c8dd.js\",\"__KOOT__CLIENT__RUN__FIRST__.js\":\"public/includes/entry.396af0991990b649355b.js\",\"client.js\":\"public/includes/entry.cc561d94bdc86dc0c868.js\",\"Home_Page_34.js\":\"public/includes/chunk.080c9b102b04a7a4c7ec.js\",\"About_Page_35.js\":\"public/includes/chunk.224ee3e54f95c36f8bbf.js\",\"Fleet_Builder_Entry_Page_44.js\":\"public/includes/chunk.ca5c9ec2d7a8dea65b1b.js\",\"Fleet_Builder_Fleet_Details_Page_45.js\":\"public/includes/chunk.5a5f74086a46bc536f1e.js\",\"Fleet_Builder_WIP_Blank_Page_46.js\":\"public/includes/chunk.f7de7a74c44eb793f877.js\",\"TP_Calculator_Single-Page-Tool_47.js\":\"public/includes/chunk.04d1981216d7b4a366ef.js\",\"Academy_Entry_Page_48.js\":\"public/includes/chunk.0527e79c0865b6c7a0fa.js\",\"Sorties_List_Page_49.js\":\"public/includes/chunk.05f17bf6a0edcfae0d22.js\",\"Expeditions_List_Page_50.js\":\"public/includes/chunk.d79467a6d101609f5663.js\",\"Ship_List_Page_36.js\":\"public/includes/chunk.b9d1c2bc8ba4bbd72f47.js\",\"Ship_Details_Page_37.css\":\"public/includes/extract.951.2d7f30aaf8c703ef50d3.css\",\"Ship_Details_Page_37.js\":\"public/includes/chunk.2d7f30aaf8c703ef50d3.js\",\"Equipment_List_Page_38.js\":\"public/includes/chunk.b58806b6eb602647d823.js\",\"Equipment_Details_Page_39.js\":\"public/includes/chunk.a1f354a31c93d43deca9.js\",\"Arsenal_Page_40.js\":\"public/includes/chunk.f6fb40eba3fa31fa0dd1.js\",\"People_List_Page_41.js\":\"public/includes/chunk.4a3145639001a3493d67.js\",\"People_Details_Page_42.js\":\"public/includes/chunk.4953ea33766dad39d2e7.js\",\"Extra_CGs_Page_43.js\":\"public/includes/chunk.572d3f93da3d2f620f28.js\",\"nedb.js\":\"public/includes/chunk.1372cb0f74a7eae5909e.js\",\"libs.js\":\"public/includes/entry.1ddad74dbafe4940527d.js\",\"libs-others.js\":\"public/includes/chunk.b93014957d39fd0e9f09.js\",\"vendors.js\":\"public/includes/entry.7d2cd0d2a0dc5efc36bc.js\",\"__KOOT__EXTRACT__CSS__.css\":\"public/includes/extract.all.5f8f6febbdf3e901fdaa35f54a68bdbc.small.css\"},\"service-worker\":[\"public/service-worker.ja.js\"]}}");
+      chunkmap = JSON.parse("{\".zh\":{\".public\":\"public/\",\".out\":\"public/\",\".entrypoints\":{\"critical\":[\"public/includes/extract.122.f9fd83051bb1baca6ad1.css\",\"public/includes/entry.f9fd83051bb1baca6ad1.js\"],\"polyfill\":[\"public/includes/entry.ad7b36cb03b56cea3e29.js\",\"public/includes/entry.b0f03c12d68d3e67e6d1.js\"],\"__KOOT__CLIENT__RUN__FIRST__\":[\"public/includes/entry.78701381ae49db061712.js\"],\"client\":[\"public/includes/entry.e75814eb4d8ce1893a58.js\",\"public/includes/entry.f05646d6429940a4f82f.js\",\"public/includes/entry.363b77eb8b2968ca7284.js\"]},\".files\":{\"critical.css\":\"public/includes/extract.122.f9fd83051bb1baca6ad1.css\",\"critical.js\":\"public/includes/entry.f9fd83051bb1baca6ad1.js\",\"polyfill.js\":\"public/includes/entry.b0f03c12d68d3e67e6d1.js\",\"__KOOT__CLIENT__RUN__FIRST__.js\":\"public/includes/entry.78701381ae49db061712.js\",\"client.js\":\"public/includes/entry.363b77eb8b2968ca7284.js\",\"Home_Page.js\":\"public/includes/chunk.7950ceb2defe8ca1f828.js\",\"About_Page.js\":\"public/includes/chunk.cbfa7729c0e7b7db5161.js\",\"Fleet_Builder_Entry_Page.js\":\"public/includes/chunk.907899777e141f782497.js\",\"Fleet_Builder_Fleet_Details_Page.js\":\"public/includes/chunk.df594cdc5f8f7e3b2914.js\",\"Fleet_Builder_WIP_Blank_Page.js\":\"public/includes/chunk.3e43293bb3452592b5fd.js\",\"TP_Calculator_Single-Page-Tool.js\":\"public/includes/chunk.d6384c88d249613063ba.js\",\"Academy_Entry_Page.js\":\"public/includes/chunk.44c9a901d9a42561bc96.js\",\"Sorties_List_Page.js\":\"public/includes/chunk.46d743eabbb79694dcfd.js\",\"Expeditions_List_Page.js\":\"public/includes/chunk.9697560964ab6fabff03.js\",\"Ship_List_Page.js\":\"public/includes/chunk.2c31cb17e3b3bf7d8dca.js\",\"Ship_Details_Page.css\":\"public/includes/extract.605.f1e12ddc179519e30bd8.css\",\"Ship_Details_Page.js\":\"public/includes/chunk.f1e12ddc179519e30bd8.js\",\"Equipment_List_Page.js\":\"public/includes/chunk.cdde1c29f7ce8174361d.js\",\"Equipment_Details_Page.js\":\"public/includes/chunk.4fd2852945018db0b3a8.js\",\"Arsenal_Page.js\":\"public/includes/chunk.bf01bcc41c018f2de4c4.js\",\"People_List_Page.js\":\"public/includes/chunk.15687c79ef648733141b.js\",\"People_Details_Page.js\":\"public/includes/chunk.f722d69f2af4c9285367.js\",\"Extra_CGs_Page.js\":\"public/includes/chunk.e5269d386a7900ce05d1.js\",\"nedb.js\":\"public/includes/chunk.43f29ceb20f0fa9a8ea3.js\",\"libs.js\":\"public/includes/entry.e75814eb4d8ce1893a58.js\",\"libs-others.js\":\"public/includes/chunk.ae22f38084ca51b90764.js\",\"vendors.js\":\"public/includes/entry.f05646d6429940a4f82f.js\",\"__KOOT__EXTRACT__CSS__.css\":\"public/includes/extract.all.75149d8301700e1824d79599b9601505.small.css\"},\"service-worker\":[\"public/service-worker.zh.js\"]},\".en\":{\".public\":\"public/\",\".out\":\"public/\",\".entrypoints\":{\"critical\":[\"public/includes/extract.122.f03985c53f5e054f3878.css\",\"public/includes/entry.f03985c53f5e054f3878.js\"],\"polyfill\":[\"public/includes/entry.ad7b36cb03b56cea3e29.js\",\"public/includes/entry.b0f03c12d68d3e67e6d1.js\"],\"__KOOT__CLIENT__RUN__FIRST__\":[\"public/includes/entry.5922098d8f143784dd59.js\"],\"client\":[\"public/includes/entry.e75814eb4d8ce1893a58.js\",\"public/includes/entry.88f780a8110c1003fbe2.js\",\"public/includes/entry.2aa167a93fdd32c6dbc2.js\"]},\".files\":{\"critical.css\":\"public/includes/extract.122.f03985c53f5e054f3878.css\",\"critical.js\":\"public/includes/entry.f03985c53f5e054f3878.js\",\"polyfill.js\":\"public/includes/entry.b0f03c12d68d3e67e6d1.js\",\"__KOOT__CLIENT__RUN__FIRST__.js\":\"public/includes/entry.5922098d8f143784dd59.js\",\"client.js\":\"public/includes/entry.2aa167a93fdd32c6dbc2.js\",\"Home_Page_17.js\":\"public/includes/chunk.794898ca59088c2dae11.js\",\"About_Page_18.js\":\"public/includes/chunk.a3d04ae9be42b36f55cc.js\",\"Fleet_Builder_Entry_Page_19.js\":\"public/includes/chunk.5b19961e9ae4daa0f4a2.js\",\"Fleet_Builder_Fleet_Details_Page_20.js\":\"public/includes/chunk.e69047d524a21109e634.js\",\"Fleet_Builder_WIP_Blank_Page_21.js\":\"public/includes/chunk.b9943f9f6de0cb5d0fd1.js\",\"TP_Calculator_Single-Page-Tool_22.js\":\"public/includes/chunk.423e54e6fbc23592ff10.js\",\"Academy_Entry_Page_23.js\":\"public/includes/chunk.9483d011831564465f69.js\",\"Sorties_List_Page_24.js\":\"public/includes/chunk.5425397fc74805325376.js\",\"Expeditions_List_Page_25.js\":\"public/includes/chunk.396c14df64114a8c0f17.js\",\"Ship_List_Page_26.js\":\"public/includes/chunk.da8ad16cfe76684e37f0.js\",\"Ship_Details_Page_27.css\":\"public/includes/extract.688.49a88e6fdb826594923a.css\",\"Ship_Details_Page_27.js\":\"public/includes/chunk.49a88e6fdb826594923a.js\",\"Equipment_List_Page_28.js\":\"public/includes/chunk.74452b5ad4e0cc02b29d.js\",\"Equipment_Details_Page_29.js\":\"public/includes/chunk.4c0b5025dc5c4666fd2a.js\",\"Arsenal_Page_30.js\":\"public/includes/chunk.451e49c1b45a08b6645b.js\",\"People_List_Page_31.js\":\"public/includes/chunk.9da43b1642619ee0d2cb.js\",\"People_Details_Page_32.js\":\"public/includes/chunk.4caa7a228dd703c523d1.js\",\"Extra_CGs_Page_33.js\":\"public/includes/chunk.97a50f8933ad0dff6a56.js\",\"nedb.js\":\"public/includes/chunk.43f29ceb20f0fa9a8ea3.js\",\"libs.js\":\"public/includes/entry.e75814eb4d8ce1893a58.js\",\"libs-others.js\":\"public/includes/chunk.f5650d8779f357881541.js\",\"vendors.js\":\"public/includes/entry.88f780a8110c1003fbe2.js\",\"__KOOT__EXTRACT__CSS__.css\":\"public/includes/extract.all.75149d8301700e1824d79599b9601505.small.css\"},\"service-worker\":[\"public/service-worker.en.js\"]},\".ja\":{\".public\":\"public/\",\".out\":\"public/\",\".entrypoints\":{\"critical\":[\"public/includes/extract.122.f03985c53f5e054f3878.css\",\"public/includes/entry.f03985c53f5e054f3878.js\"],\"polyfill\":[\"public/includes/entry.ad7b36cb03b56cea3e29.js\",\"public/includes/entry.b0f03c12d68d3e67e6d1.js\"],\"__KOOT__CLIENT__RUN__FIRST__\":[\"public/includes/entry.5922098d8f143784dd59.js\"],\"client\":[\"public/includes/entry.e75814eb4d8ce1893a58.js\",\"public/includes/entry.88f780a8110c1003fbe2.js\",\"public/includes/entry.bb5cb3e2303ce4c6a3a8.js\"]},\".files\":{\"critical.css\":\"public/includes/extract.122.f03985c53f5e054f3878.css\",\"critical.js\":\"public/includes/entry.f03985c53f5e054f3878.js\",\"polyfill.js\":\"public/includes/entry.b0f03c12d68d3e67e6d1.js\",\"__KOOT__CLIENT__RUN__FIRST__.js\":\"public/includes/entry.5922098d8f143784dd59.js\",\"client.js\":\"public/includes/entry.bb5cb3e2303ce4c6a3a8.js\",\"Home_Page_34.js\":\"public/includes/chunk.cb522c19c74d30826871.js\",\"About_Page_35.js\":\"public/includes/chunk.b43e3b876a027f537aba.js\",\"Fleet_Builder_Entry_Page_36.js\":\"public/includes/chunk.331350ee200e2f1ec193.js\",\"Fleet_Builder_Fleet_Details_Page_37.js\":\"public/includes/chunk.6391f101a16c9f25b28d.js\",\"Fleet_Builder_WIP_Blank_Page_38.js\":\"public/includes/chunk.d73f5ac8e64051bb6c1b.js\",\"TP_Calculator_Single-Page-Tool_39.js\":\"public/includes/chunk.f2fc2daee9c40e0c6f33.js\",\"Academy_Entry_Page_40.js\":\"public/includes/chunk.0fc657aa98412d13ff36.js\",\"Sorties_List_Page_41.js\":\"public/includes/chunk.7231d9946a77b1493492.js\",\"Expeditions_List_Page_42.js\":\"public/includes/chunk.b1f10f5b9f47062fae1b.js\",\"Ship_List_Page_43.js\":\"public/includes/chunk.24e5152053694f848102.js\",\"Ship_Details_Page_44.css\":\"public/includes/extract.717.6ad2f2ae177506d01837.css\",\"Ship_Details_Page_44.js\":\"public/includes/chunk.6ad2f2ae177506d01837.js\",\"Equipment_List_Page_45.js\":\"public/includes/chunk.6c00ca009a21b2b47f61.js\",\"Equipment_Details_Page_46.js\":\"public/includes/chunk.34b8cfbf8fdb36d4c585.js\",\"Arsenal_Page_47.js\":\"public/includes/chunk.ef04c2816745c447dc26.js\",\"People_List_Page_48.js\":\"public/includes/chunk.df86a0df2079ecd2ed99.js\",\"People_Details_Page_49.js\":\"public/includes/chunk.c41b5524dab32c751927.js\",\"Extra_CGs_Page_50.js\":\"public/includes/chunk.e6717ae3b3eb3d377902.js\",\"nedb.js\":\"public/includes/chunk.43f29ceb20f0fa9a8ea3.js\",\"libs.js\":\"public/includes/entry.e75814eb4d8ce1893a58.js\",\"libs-others.js\":\"public/includes/chunk.f5650d8779f357881541.js\",\"vendors.js\":\"public/includes/entry.88f780a8110c1003fbe2.js\",\"__KOOT__EXTRACT__CSS__.css\":\"public/includes/extract.all.75149d8301700e1824d79599b9601505.small.css\"},\"service-worker\":[\"public/service-worker.ja.js\"]}}");
     } catch (e) {
       chunkmap = false;
     }
@@ -4924,9 +4924,7 @@ function arrayLikeKeys(value, inherited) {
 
   for (var key in value) {
     if ((inherited || hasOwnProperty.call(value, key)) && !(skipIndexes && ( // Safari 9 has enumerable `arguments.length` in strict mode.
-    key == 'length' || // Node.js 0.10 has enumerable non-index properties on buffers.
-    isBuff && (key == 'offset' || key == 'parent') || // PhantomJS 2 has enumerable non-index properties on typed arrays.
-    isType && (key == 'buffer' || key == 'byteLength' || key == 'byteOffset') || // Skip index properties.
+    key == 'length' || isBuff && (key == 'offset' || key == 'parent') || isType && (key == 'buffer' || key == 'byteLength' || key == 'byteOffset') || // Skip index properties.
     isIndex(key, length)))) {
       result.push(key);
     }
@@ -9588,9 +9586,7 @@ const doPageinfo = (store, props, pageinfo) => {
      */
 
 
-    getStyleMap()
-    /*context*/
-    {
+    getStyleMap() {
       if (true) return this.context.styles;
       return KootReactComponent.styles;
     } //
@@ -9747,6 +9743,259 @@ const doPageinfo = (store, props, pageinfo) => {
 
 /***/ }),
 
+/***/ "chalk":
+/*!************************!*\
+  !*** external "chalk" ***!
+  \************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("chalk");
+
+/***/ }),
+
+/***/ "debug":
+/*!************************!*\
+  !*** external "debug" ***!
+  \************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("debug");
+
+/***/ }),
+
+/***/ "fs":
+/*!*********************!*\
+  !*** external "fs" ***!
+  \*********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("fs");
+
+/***/ }),
+
+/***/ "fs-extra":
+/*!***************************!*\
+  !*** external "fs-extra" ***!
+  \***************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("fs-extra");
+
+/***/ }),
+
+/***/ "hoist-non-react-statics":
+/*!******************************************!*\
+  !*** external "hoist-non-react-statics" ***!
+  \******************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("hoist-non-react-statics");
+
+/***/ }),
+
+/***/ "inquirer":
+/*!***************************!*\
+  !*** external "inquirer" ***!
+  \***************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("inquirer");
+
+/***/ }),
+
+/***/ "invariant":
+/*!****************************!*\
+  !*** external "invariant" ***!
+  \****************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("invariant");
+
+/***/ }),
+
+/***/ "is-port-reachable":
+/*!************************************!*\
+  !*** external "is-port-reachable" ***!
+  \************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("is-port-reachable");
+
+/***/ }),
+
+/***/ "koa":
+/*!**********************!*\
+  !*** external "koa" ***!
+  \**********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("koa");
+
+/***/ }),
+
+/***/ "koa-convert":
+/*!******************************!*\
+  !*** external "koa-convert" ***!
+  \******************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("koa-convert");
+
+/***/ }),
+
+/***/ "koa-helmet":
+/*!*****************************!*\
+  !*** external "koa-helmet" ***!
+  \*****************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("koa-helmet");
+
+/***/ }),
+
+/***/ "koa-proxies":
+/*!******************************!*\
+  !*** external "koa-proxies" ***!
+  \******************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("koa-proxies");
+
+/***/ }),
+
+/***/ "koa-static":
+/*!*****************************!*\
+  !*** external "koa-static" ***!
+  \*****************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("koa-static");
+
+/***/ }),
+
+/***/ "object-assign":
+/*!********************************!*\
+  !*** external "object-assign" ***!
+  \********************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("object-assign");
+
+/***/ }),
+
+/***/ "path":
+/*!***********************!*\
+  !*** external "path" ***!
+  \***********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("path");
+
+/***/ }),
+
+/***/ "portfinder":
+/*!*****************************!*\
+  !*** external "portfinder" ***!
+  \*****************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("portfinder");
+
+/***/ }),
+
+/***/ "react":
+/*!************************!*\
+  !*** external "react" ***!
+  \************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("react");
+
+/***/ }),
+
+/***/ "react-redux":
+/*!******************************!*\
+  !*** external "react-redux" ***!
+  \******************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("react-redux");
+
+/***/ }),
+
+/***/ "react-router-redux":
+/*!*************************************!*\
+  !*** external "react-router-redux" ***!
+  \*************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("react-router-redux");
+
+/***/ }),
+
+/***/ "redux":
+/*!************************!*\
+  !*** external "redux" ***!
+  \************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("redux");
+
+/***/ }),
+
+/***/ "redux-thunk":
+/*!******************************!*\
+  !*** external "redux-thunk" ***!
+  \******************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("redux-thunk");
+
+/***/ }),
+
+/***/ "vm":
+/*!*********************!*\
+  !*** external "vm" ***!
+  \*********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("vm");
+
+/***/ }),
+
+/***/ "warning":
+/*!**************************!*\
+  !*** external "warning" ***!
+  \**************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("warning");
+
+/***/ }),
+
 /***/ "./src/locales/base/en.json":
 /*!**********************************!*\
   !*** ./src/locales/base/en.json ***!
@@ -9777,259 +10026,6 @@ module.exports = JSON.parse('{"name":{"short":"日","full":"日本語"},"title":
 
 "use strict";
 module.exports = JSON.parse('{"name":{"short":"简","full":"简体中文"},"title":"是谁呼叫舰队","description":"《舰队收藏》工具箱","translators":["Diablohu"],"under_construction":"建设中","no_javascript_warning":"本应用需要开启 JavaScript 功能。","not_compatible":["您的浏览器过于陈旧","我们已不再支持您的浏览器环境。","为了更优的浏览体验和线上安全，请更新您的浏览器，或者安装一款全新的现代浏览器。","推荐："],"cancel":"取消","ok":"确认","none":"无","browsers":{"chrome":"谷歌 Chrome","firefox":"火狐","edge":"微软 Edge"},"ship_type":"舰种","equipment_type":"装备类型","shiptypeclass":"${class}级${type}","shipclass":"${class}级","shipclass_number":"${class}级 ${number} 号舰","other_ships_of_type":"其他${type}","shipname_dash_none":"","exslot":"补强增设栏位","equipment_series":"${equipment}系列","tp":"TP","land_bases":"基地航空队","seiyuu":"声优","seiyuus":"声优","artist":"画师","artists":"画师","activation_chance_tobe":"触发几率：${chance}","chance":{"normal":"标准","high":"高"},"day_full":{"Sunday":"星期日","Monday":"星期一","Tuesday":"星期二","Wednesday":"星期三","Thurday":"星期四","Friday":"星期五","Saturday":"星期六"},"day_abbr":{"Sunday":"日","Monday":"一","Tuesday":"二","Wednesday":"三","Thurday":"四","Friday":"五","Saturday":"六"},"require":{"level":"需要等级：${level}","min_possible_level":"可能的最低等级：${level}","equipment":"需要装备：${type}","equipment_all":"需要装备（全部）：${type}","equipment_at_least_one":"需要装备（至少一个）：${type}","equipment_no_need":"无需装备：${type}","equipment_type":"需要装备类型：${type}","equipment_type_no_need":"无需装备类型：${type}","equipment_has_stat":"需要装备：${type} (${stat}至少为${value})","ship_stat_with_equipments":"需要${stat}属性：${value} (计算装备)","has_stat":"${stat}至少为${value}"},"stat":{"fire":"火力","torpedo":"雷装","night":"夜战","aa":"对空","aa_interceptor_sortie":"出击","aa_interceptor_defense":"防空","asw":"对潜","hp":"耐久","armor":"装甲","evasion":"回避","carry":"搭载","speed":"航速","range":"射程","los":"索敌","luck":"运","bomb":"爆装","hit":"命中","distance":"航程","antibomber":"对爆","interception":"迎击","consum":{"fuel":"燃耗","ammo":"弹耗"},"equipment":{"craftable":"开发","improvable":"改修"}},"nav":{"sub":{"base":"海军基地","archive":"档案馆","dev":"研发中心"},"home":"首页","fleets":"舰队模拟","academy":"海军兵学校","calctp":"TP计算","sorties":"出击海域","expeditions":"远征","ships":"舰娘","equipments":"装备","arsenal":"改修工厂","entities":"声优 & 画师","excgs":"限定图鉴","about":"关于","languageSwitch":"切换语言","backgroundSwitch":"切换背景图","install":"安装 App"},"bonuses":{"single":"装备属性加成","sets":"套装加成","info_prefix_when_equipped":"装备于以上舰娘时，","range_increase":"射程提高一档","stat_donot_stack":"该属性不叠加","based_on_number":"根据该装备的装备数量提供... (超额部分不提供加成)","based_on_star":"每个该装备根据改修星级提供...","based_on_area":"根据所处作战海域，每个该装备提供...","based_on_nothing":"每个该装备提供...","based_set":"额外加成...","based_set_one_of":"当拥有以上任意装备时，提供额外加成...","based_set_one_of_only":"仅限","based_set_accumulate":"累计套装加成...","note_hybrid_radar":"以下装备同时算作对水面和对空电探/雷达","note_hybrid_radar_this_equipment":"本装备同时算作对水面和对空电探/雷达"},"area":{"north":"北方"}}');
-
-/***/ }),
-
-/***/ "chalk":
-/*!************************!*\
-  !*** external "chalk" ***!
-  \************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("chalk");;
-
-/***/ }),
-
-/***/ "debug":
-/*!************************!*\
-  !*** external "debug" ***!
-  \************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("debug");;
-
-/***/ }),
-
-/***/ "fs":
-/*!*********************!*\
-  !*** external "fs" ***!
-  \*********************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("fs");;
-
-/***/ }),
-
-/***/ "fs-extra":
-/*!***************************!*\
-  !*** external "fs-extra" ***!
-  \***************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("fs-extra");;
-
-/***/ }),
-
-/***/ "hoist-non-react-statics":
-/*!******************************************!*\
-  !*** external "hoist-non-react-statics" ***!
-  \******************************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("hoist-non-react-statics");;
-
-/***/ }),
-
-/***/ "inquirer":
-/*!***************************!*\
-  !*** external "inquirer" ***!
-  \***************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("inquirer");;
-
-/***/ }),
-
-/***/ "invariant":
-/*!****************************!*\
-  !*** external "invariant" ***!
-  \****************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("invariant");;
-
-/***/ }),
-
-/***/ "is-port-reachable":
-/*!************************************!*\
-  !*** external "is-port-reachable" ***!
-  \************************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("is-port-reachable");;
-
-/***/ }),
-
-/***/ "koa":
-/*!**********************!*\
-  !*** external "koa" ***!
-  \**********************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("koa");;
-
-/***/ }),
-
-/***/ "koa-convert":
-/*!******************************!*\
-  !*** external "koa-convert" ***!
-  \******************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("koa-convert");;
-
-/***/ }),
-
-/***/ "koa-helmet":
-/*!*****************************!*\
-  !*** external "koa-helmet" ***!
-  \*****************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("koa-helmet");;
-
-/***/ }),
-
-/***/ "koa-proxies":
-/*!******************************!*\
-  !*** external "koa-proxies" ***!
-  \******************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("koa-proxies");;
-
-/***/ }),
-
-/***/ "koa-static":
-/*!*****************************!*\
-  !*** external "koa-static" ***!
-  \*****************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("koa-static");;
-
-/***/ }),
-
-/***/ "object-assign":
-/*!********************************!*\
-  !*** external "object-assign" ***!
-  \********************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("object-assign");;
-
-/***/ }),
-
-/***/ "path":
-/*!***********************!*\
-  !*** external "path" ***!
-  \***********************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("path");;
-
-/***/ }),
-
-/***/ "portfinder":
-/*!*****************************!*\
-  !*** external "portfinder" ***!
-  \*****************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("portfinder");;
-
-/***/ }),
-
-/***/ "react":
-/*!************************!*\
-  !*** external "react" ***!
-  \************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("react");;
-
-/***/ }),
-
-/***/ "react-redux":
-/*!******************************!*\
-  !*** external "react-redux" ***!
-  \******************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("react-redux");;
-
-/***/ }),
-
-/***/ "react-router-redux":
-/*!*************************************!*\
-  !*** external "react-router-redux" ***!
-  \*************************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("react-router-redux");;
-
-/***/ }),
-
-/***/ "redux":
-/*!************************!*\
-  !*** external "redux" ***!
-  \************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("redux");;
-
-/***/ }),
-
-/***/ "redux-thunk":
-/*!******************************!*\
-  !*** external "redux-thunk" ***!
-  \******************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("redux-thunk");;
-
-/***/ }),
-
-/***/ "vm":
-/*!*********************!*\
-  !*** external "vm" ***!
-  \*********************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("vm");;
-
-/***/ }),
-
-/***/ "warning":
-/*!**************************!*\
-  !*** external "warning" ***!
-  \**************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("warning");;
 
 /***/ })
 
