@@ -13564,44 +13564,6 @@ module.exports = function (det, rec, confidence, name, lang) {
 
 /***/ }),
 
-/***/ "./node_modules/charenc/charenc.js":
-/*!*****************************************!*\
-  !*** ./node_modules/charenc/charenc.js ***!
-  \*****************************************/
-/***/ ((module) => {
-
-var charenc = {
-  // UTF-8 encoding
-  utf8: {
-    // Convert a string to a byte array
-    stringToBytes: function (str) {
-      return charenc.bin.stringToBytes(unescape(encodeURIComponent(str)));
-    },
-    // Convert a byte array to a string
-    bytesToString: function (bytes) {
-      return decodeURIComponent(escape(charenc.bin.bytesToString(bytes)));
-    }
-  },
-  // Binary encoding
-  bin: {
-    // Convert a string to a byte array
-    stringToBytes: function (str) {
-      for (var bytes = [], i = 0; i < str.length; i++) bytes.push(str.charCodeAt(i) & 0xFF);
-
-      return bytes;
-    },
-    // Convert a byte array to a string
-    bytesToString: function (bytes) {
-      for (var str = [], i = 0; i < bytes.length; i++) str.push(String.fromCharCode(bytes[i]));
-
-      return str.join('');
-    }
-  }
-};
-module.exports = charenc;
-
-/***/ }),
-
 /***/ "./node_modules/cli-cursor/index.js":
 /*!******************************************!*\
   !*** ./node_modules/cli-cursor/index.js ***!
@@ -15747,96 +15709,6 @@ function DeprecationError(namespace, message, stack) {
   });
   return error;
 }
-
-/***/ }),
-
-/***/ "./node_modules/crypt/crypt.js":
-/*!*************************************!*\
-  !*** ./node_modules/crypt/crypt.js ***!
-  \*************************************/
-/***/ ((module) => {
-
-(function () {
-  var base64map = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/',
-      crypt = {
-    // Bit-wise rotation left
-    rotl: function (n, b) {
-      return n << b | n >>> 32 - b;
-    },
-    // Bit-wise rotation right
-    rotr: function (n, b) {
-      return n << 32 - b | n >>> b;
-    },
-    // Swap big-endian to little-endian and vice versa
-    endian: function (n) {
-      // If number given, swap endian
-      if (n.constructor == Number) {
-        return crypt.rotl(n, 8) & 0x00FF00FF | crypt.rotl(n, 24) & 0xFF00FF00;
-      } // Else, assume array and swap all items
-
-
-      for (var i = 0; i < n.length; i++) n[i] = crypt.endian(n[i]);
-
-      return n;
-    },
-    // Generate an array of any length of random bytes
-    randomBytes: function (n) {
-      for (var bytes = []; n > 0; n--) bytes.push(Math.floor(Math.random() * 256));
-
-      return bytes;
-    },
-    // Convert a byte array to big-endian 32-bit words
-    bytesToWords: function (bytes) {
-      for (var words = [], i = 0, b = 0; i < bytes.length; i++, b += 8) words[b >>> 5] |= bytes[i] << 24 - b % 32;
-
-      return words;
-    },
-    // Convert big-endian 32-bit words to a byte array
-    wordsToBytes: function (words) {
-      for (var bytes = [], b = 0; b < words.length * 32; b += 8) bytes.push(words[b >>> 5] >>> 24 - b % 32 & 0xFF);
-
-      return bytes;
-    },
-    // Convert a byte array to a hex string
-    bytesToHex: function (bytes) {
-      for (var hex = [], i = 0; i < bytes.length; i++) {
-        hex.push((bytes[i] >>> 4).toString(16));
-        hex.push((bytes[i] & 0xF).toString(16));
-      }
-
-      return hex.join('');
-    },
-    // Convert a hex string to a byte array
-    hexToBytes: function (hex) {
-      for (var bytes = [], c = 0; c < hex.length; c += 2) bytes.push(parseInt(hex.substr(c, 2), 16));
-
-      return bytes;
-    },
-    // Convert a byte array to a base-64 string
-    bytesToBase64: function (bytes) {
-      for (var base64 = [], i = 0; i < bytes.length; i += 3) {
-        var triplet = bytes[i] << 16 | bytes[i + 1] << 8 | bytes[i + 2];
-
-        for (var j = 0; j < 4; j++) if (i * 8 + j * 6 <= bytes.length * 8) base64.push(base64map.charAt(triplet >>> 6 * (3 - j) & 0x3F));else base64.push('=');
-      }
-
-      return base64.join('');
-    },
-    // Convert a base-64 string to a byte array
-    base64ToBytes: function (base64) {
-      // Remove non-base-64 characters
-      base64 = base64.replace(/[^A-Z0-9+\/]/ig, '');
-
-      for (var bytes = [], i = 0, imod4 = 0; i < base64.length; imod4 = ++i % 4) {
-        if (imod4 == 0) continue;
-        bytes.push((base64map.indexOf(base64.charAt(i - 1)) & Math.pow(2, -2 * imod4 + 8) - 1) << imod4 * 2 | base64map.indexOf(base64.charAt(i)) >>> 6 - imod4 * 2);
-      }
-
-      return bytes;
-    }
-  };
-  module.exports = crypt;
-})();
 
 /***/ }),
 
@@ -42301,7 +42173,7 @@ const getChunkmap = (localeId, getFullResult = false, ignoreCache = false) => {
     if (typeof global.chunkmap === 'object') chunkmap = global.chunkmap;
 
     try {
-      chunkmap = JSON.parse("{\".zh\":{\".public\":\"public/\",\".out\":\"public/\",\".entrypoints\":{\"critical\":[\"public/includes/extract.122.5502aecd5e27c1031cfe.css\",\"public/includes/entry.5502aecd5e27c1031cfe.js\"],\"polyfill\":[\"public/includes/entry.a39799b03358247f81e8.js\",\"public/includes/entry.226a9f431fc23ac5e9ba.js\"],\"__KOOT__CLIENT__RUN__FIRST__\":[\"public/includes/entry.174f1ba602024d65cb6c.js\"],\"client\":[\"public/includes/entry.d0b90f0c1ebaf7568ae3.js\",\"public/includes/entry.6a7dba9c2272c564d71f.js\",\"public/includes/entry.d36d4377e363f4c3b617.js\"]},\".files\":{\"critical.css\":\"public/includes/extract.122.5502aecd5e27c1031cfe.css\",\"critical.js\":\"public/includes/entry.5502aecd5e27c1031cfe.js\",\"polyfill.js\":\"public/includes/entry.226a9f431fc23ac5e9ba.js\",\"__KOOT__CLIENT__RUN__FIRST__.js\":\"public/includes/entry.174f1ba602024d65cb6c.js\",\"client.js\":\"public/includes/entry.d36d4377e363f4c3b617.js\",\"Home_Page.js\":\"public/includes/chunk.7d2af8acacbe16475dc2.js\",\"About_Page.js\":\"public/includes/chunk.e90c477db2f1d63f0557.js\",\"Fleet_Builder_Entry_Page.js\":\"public/includes/chunk.d454db246a63922745de.js\",\"Fleet_Builder_Fleet_Details_Page.js\":\"public/includes/chunk.1e2ee72e37c7a97c04fc.js\",\"Fleet_Builder_WIP_Blank_Page.js\":\"public/includes/chunk.8e40328e09cf7eaca2b9.js\",\"TP_Calculator_Single-Page-Tool.js\":\"public/includes/chunk.113e563b6d44d5db592e.js\",\"Academy_Entry_Page.js\":\"public/includes/chunk.557cbbf43f8b90cb7028.js\",\"Sorties_List_Page.js\":\"public/includes/chunk.07b784e006ad1be24ed8.js\",\"Expeditions_List_Page.js\":\"public/includes/chunk.a88e76c5223f101c26f9.js\",\"Ship_List_Page.js\":\"public/includes/chunk.70fe994b88d813da6d87.js\",\"Ship_Details_Page.css\":\"public/includes/extract.605.2890104175f61c288936.css\",\"Ship_Details_Page.js\":\"public/includes/chunk.2890104175f61c288936.js\",\"Equipment_List_Page.js\":\"public/includes/chunk.a9a41bcb15862fcb681f.js\",\"Equipment_Details_Page.js\":\"public/includes/chunk.0ff8a5b53e796b1ea194.js\",\"Arsenal_Page.js\":\"public/includes/chunk.7f8ba3d738289235e621.js\",\"People_List_Page.js\":\"public/includes/chunk.710b9e46233929e40c84.js\",\"People_Details_Page.js\":\"public/includes/chunk.7e201bd5264a710f0713.js\",\"Extra_CGs_Page.js\":\"public/includes/chunk.c6725b6410a1944873ed.js\",\"nedb.js\":\"public/includes/chunk.01eb66bdcf5eda24b090.js\",\"libs.js\":\"public/includes/entry.d0b90f0c1ebaf7568ae3.js\",\"libs-others.js\":\"public/includes/chunk.f799f241edbc67014430.js\",\"vendors.js\":\"public/includes/entry.6a7dba9c2272c564d71f.js\",\"__KOOT__EXTRACT__CSS__.css\":\"public/includes/extract.all.475fa639fac44942690b5a2ff47f2017.small.css\"},\"service-worker\":[\"public/service-worker.zh.js\"]},\".en\":{\".public\":\"public/\",\".out\":\"public/\",\".entrypoints\":{\"critical\":[\"public/includes/extract.122.7e1d8c52a791312298f9.css\",\"public/includes/entry.7e1d8c52a791312298f9.js\"],\"polyfill\":[\"public/includes/entry.a39799b03358247f81e8.js\",\"public/includes/entry.226a9f431fc23ac5e9ba.js\"],\"__KOOT__CLIENT__RUN__FIRST__\":[\"public/includes/entry.1c35c70cadfecfc620a3.js\"],\"client\":[\"public/includes/entry.d0b90f0c1ebaf7568ae3.js\",\"public/includes/entry.6a7dba9c2272c564d71f.js\",\"public/includes/entry.8ed9dda1058000e1cd23.js\"]},\".files\":{\"critical.css\":\"public/includes/extract.122.7e1d8c52a791312298f9.css\",\"critical.js\":\"public/includes/entry.7e1d8c52a791312298f9.js\",\"polyfill.js\":\"public/includes/entry.226a9f431fc23ac5e9ba.js\",\"__KOOT__CLIENT__RUN__FIRST__.js\":\"public/includes/entry.1c35c70cadfecfc620a3.js\",\"client.js\":\"public/includes/entry.8ed9dda1058000e1cd23.js\",\"Home_Page_17.js\":\"public/includes/chunk.96c0baa2d2a68a9f6250.js\",\"About_Page_18.js\":\"public/includes/chunk.4f24861be5d287dd404c.js\",\"Fleet_Builder_Entry_Page_19.js\":\"public/includes/chunk.e03ca2e615ba0b23c486.js\",\"Fleet_Builder_Fleet_Details_Page_20.js\":\"public/includes/chunk.4c3fde767a27abbffa3f.js\",\"Fleet_Builder_WIP_Blank_Page_21.js\":\"public/includes/chunk.d55defe817235f0b7843.js\",\"TP_Calculator_Single-Page-Tool_22.js\":\"public/includes/chunk.9301027263e378f376f9.js\",\"Academy_Entry_Page_23.js\":\"public/includes/chunk.c86e204a9b3bbc97484e.js\",\"Sorties_List_Page_24.js\":\"public/includes/chunk.1eec19ff5d00ca575cf0.js\",\"Expeditions_List_Page_25.js\":\"public/includes/chunk.9d052848e104602bc871.js\",\"Ship_List_Page_26.js\":\"public/includes/chunk.806c529a6f757ac1d596.js\",\"Ship_Details_Page_27.css\":\"public/includes/extract.688.e5f930d9431d184a7cd3.css\",\"Ship_Details_Page_27.js\":\"public/includes/chunk.e5f930d9431d184a7cd3.js\",\"Equipment_List_Page_28.js\":\"public/includes/chunk.fc21db8e3f855bd61495.js\",\"Equipment_Details_Page_29.js\":\"public/includes/chunk.8df7b306f2a93a065801.js\",\"Arsenal_Page_30.js\":\"public/includes/chunk.a26beada14fcdf389e65.js\",\"People_List_Page_31.js\":\"public/includes/chunk.66ac5ebd29c809944a51.js\",\"People_Details_Page_32.js\":\"public/includes/chunk.08b208943ed2faed832c.js\",\"Extra_CGs_Page_33.js\":\"public/includes/chunk.c5159aa66e8bd7624622.js\",\"nedb.js\":\"public/includes/chunk.01eb66bdcf5eda24b090.js\",\"libs.js\":\"public/includes/entry.d0b90f0c1ebaf7568ae3.js\",\"libs-others.js\":\"public/includes/chunk.c932184cf664d6cbc2b8.js\",\"vendors.js\":\"public/includes/entry.6a7dba9c2272c564d71f.js\",\"__KOOT__EXTRACT__CSS__.css\":\"public/includes/extract.all.475fa639fac44942690b5a2ff47f2017.small.css\"},\"service-worker\":[\"public/service-worker.en.js\"]},\".ja\":{\".public\":\"public/\",\".out\":\"public/\",\".entrypoints\":{\"critical\":[\"public/includes/extract.122.7e1d8c52a791312298f9.css\",\"public/includes/entry.7e1d8c52a791312298f9.js\"],\"polyfill\":[\"public/includes/entry.a39799b03358247f81e8.js\",\"public/includes/entry.226a9f431fc23ac5e9ba.js\"],\"__KOOT__CLIENT__RUN__FIRST__\":[\"public/includes/entry.1c35c70cadfecfc620a3.js\"],\"client\":[\"public/includes/entry.d0b90f0c1ebaf7568ae3.js\",\"public/includes/entry.6a7dba9c2272c564d71f.js\",\"public/includes/entry.281dde3caf3f91fd5894.js\"]},\".files\":{\"critical.css\":\"public/includes/extract.122.7e1d8c52a791312298f9.css\",\"critical.js\":\"public/includes/entry.7e1d8c52a791312298f9.js\",\"polyfill.js\":\"public/includes/entry.226a9f431fc23ac5e9ba.js\",\"__KOOT__CLIENT__RUN__FIRST__.js\":\"public/includes/entry.1c35c70cadfecfc620a3.js\",\"client.js\":\"public/includes/entry.281dde3caf3f91fd5894.js\",\"Home_Page_34.js\":\"public/includes/chunk.44fcd5d61b8abbf55dca.js\",\"About_Page_35.js\":\"public/includes/chunk.595087374b1b1d911c6f.js\",\"Fleet_Builder_Entry_Page_46.js\":\"public/includes/chunk.9c76bf97ff7faf58e50e.js\",\"Fleet_Builder_Fleet_Details_Page_47.js\":\"public/includes/chunk.63d908e1eb6df0d11107.js\",\"Fleet_Builder_WIP_Blank_Page_48.js\":\"public/includes/chunk.093a5f6dfe6f7a15c86f.js\",\"TP_Calculator_Single-Page-Tool_49.js\":\"public/includes/chunk.1d8dc023431d770e48fa.js\",\"Academy_Entry_Page_50.js\":\"public/includes/chunk.afbe4695fa63bdb00ca8.js\",\"Sorties_List_Page_36.js\":\"public/includes/chunk.5e4c4150f5bc68617a50.js\",\"Expeditions_List_Page_37.js\":\"public/includes/chunk.ab2ac26e9dbe34ac1dfd.js\",\"Ship_List_Page_38.js\":\"public/includes/chunk.3a141f7db73cf08c7e4a.js\",\"Ship_Details_Page_39.css\":\"public/includes/extract.399.354734c414a2b5408d5c.css\",\"Ship_Details_Page_39.js\":\"public/includes/chunk.354734c414a2b5408d5c.js\",\"Equipment_List_Page_40.js\":\"public/includes/chunk.149675fd3ae33d61e11f.js\",\"Equipment_Details_Page_41.js\":\"public/includes/chunk.965b4bb3860fe5574129.js\",\"Arsenal_Page_42.js\":\"public/includes/chunk.26b8b85a94ccccd24034.js\",\"People_List_Page_43.js\":\"public/includes/chunk.51b3436aafe96ae467f1.js\",\"People_Details_Page_44.js\":\"public/includes/chunk.ff6b4918abbd47d0bdfb.js\",\"Extra_CGs_Page_45.js\":\"public/includes/chunk.d109bfe6b013f46325b5.js\",\"nedb.js\":\"public/includes/chunk.01eb66bdcf5eda24b090.js\",\"libs.js\":\"public/includes/entry.d0b90f0c1ebaf7568ae3.js\",\"libs-others.js\":\"public/includes/chunk.c932184cf664d6cbc2b8.js\",\"vendors.js\":\"public/includes/entry.6a7dba9c2272c564d71f.js\",\"__KOOT__EXTRACT__CSS__.css\":\"public/includes/extract.all.475fa639fac44942690b5a2ff47f2017.small.css\"},\"service-worker\":[\"public/service-worker.ja.js\"]}}");
+      chunkmap = JSON.parse("{\".zh\":{\".public\":\"public/\",\".out\":\"public/\",\".entrypoints\":{\"critical\":[\"public/includes/extract.122.5502aecd5e27c1031cfe.css\",\"public/includes/entry.5502aecd5e27c1031cfe.js\"],\"polyfill\":[\"public/includes/entry.a39799b03358247f81e8.js\",\"public/includes/entry.226a9f431fc23ac5e9ba.js\"],\"__KOOT__CLIENT__RUN__FIRST__\":[\"public/includes/entry.174f1ba602024d65cb6c.js\"],\"client\":[\"public/includes/entry.d0b90f0c1ebaf7568ae3.js\",\"public/includes/entry.5fb85d089990385e97d8.js\",\"public/includes/entry.0ac547f132bbdc903c7e.js\"]},\".files\":{\"critical.css\":\"public/includes/extract.122.5502aecd5e27c1031cfe.css\",\"critical.js\":\"public/includes/entry.5502aecd5e27c1031cfe.js\",\"polyfill.js\":\"public/includes/entry.226a9f431fc23ac5e9ba.js\",\"__KOOT__CLIENT__RUN__FIRST__.js\":\"public/includes/entry.174f1ba602024d65cb6c.js\",\"client.js\":\"public/includes/entry.0ac547f132bbdc903c7e.js\",\"Home_Page.js\":\"public/includes/chunk.d23f94b9e521538cded0.js\",\"About_Page.js\":\"public/includes/chunk.e90c477db2f1d63f0557.js\",\"Fleet_Builder_Entry_Page.js\":\"public/includes/chunk.d454db246a63922745de.js\",\"Fleet_Builder_Fleet_Details_Page.js\":\"public/includes/chunk.be950e16e79977a37bb7.js\",\"Fleet_Builder_WIP_Blank_Page.js\":\"public/includes/chunk.8e40328e09cf7eaca2b9.js\",\"TP_Calculator_Single-Page-Tool.js\":\"public/includes/chunk.113e563b6d44d5db592e.js\",\"Academy_Entry_Page.js\":\"public/includes/chunk.557cbbf43f8b90cb7028.js\",\"Sorties_List_Page.js\":\"public/includes/chunk.07b784e006ad1be24ed8.js\",\"Expeditions_List_Page.js\":\"public/includes/chunk.a88e76c5223f101c26f9.js\",\"Ship_List_Page.js\":\"public/includes/chunk.70fe994b88d813da6d87.js\",\"Ship_Details_Page.css\":\"public/includes/extract.605.2890104175f61c288936.css\",\"Ship_Details_Page.js\":\"public/includes/chunk.2890104175f61c288936.js\",\"Equipment_List_Page.js\":\"public/includes/chunk.a9a41bcb15862fcb681f.js\",\"Equipment_Details_Page.js\":\"public/includes/chunk.0ff8a5b53e796b1ea194.js\",\"Arsenal_Page.js\":\"public/includes/chunk.7f8ba3d738289235e621.js\",\"People_List_Page.js\":\"public/includes/chunk.710b9e46233929e40c84.js\",\"People_Details_Page.js\":\"public/includes/chunk.7e201bd5264a710f0713.js\",\"Extra_CGs_Page.js\":\"public/includes/chunk.c6725b6410a1944873ed.js\",\"nedb.js\":\"public/includes/chunk.01eb66bdcf5eda24b090.js\",\"libs.js\":\"public/includes/entry.d0b90f0c1ebaf7568ae3.js\",\"libs-others.js\":\"public/includes/chunk.f799f241edbc67014430.js\",\"vendors.js\":\"public/includes/entry.5fb85d089990385e97d8.js\",\"__KOOT__EXTRACT__CSS__.css\":\"public/includes/extract.all.475fa639fac44942690b5a2ff47f2017.small.css\"},\"service-worker\":[\"public/service-worker.zh.js\"]},\".en\":{\".public\":\"public/\",\".out\":\"public/\",\".entrypoints\":{\"critical\":[\"public/includes/extract.122.7e1d8c52a791312298f9.css\",\"public/includes/entry.7e1d8c52a791312298f9.js\"],\"polyfill\":[\"public/includes/entry.a39799b03358247f81e8.js\",\"public/includes/entry.226a9f431fc23ac5e9ba.js\"],\"__KOOT__CLIENT__RUN__FIRST__\":[\"public/includes/entry.1c35c70cadfecfc620a3.js\"],\"client\":[\"public/includes/entry.d0b90f0c1ebaf7568ae3.js\",\"public/includes/entry.5fb85d089990385e97d8.js\",\"public/includes/entry.4170c7d0dce331408a2d.js\"]},\".files\":{\"critical.css\":\"public/includes/extract.122.7e1d8c52a791312298f9.css\",\"critical.js\":\"public/includes/entry.7e1d8c52a791312298f9.js\",\"polyfill.js\":\"public/includes/entry.226a9f431fc23ac5e9ba.js\",\"__KOOT__CLIENT__RUN__FIRST__.js\":\"public/includes/entry.1c35c70cadfecfc620a3.js\",\"client.js\":\"public/includes/entry.4170c7d0dce331408a2d.js\",\"Home_Page_17.js\":\"public/includes/chunk.2782fae556b35e3e2b42.js\",\"About_Page_18.js\":\"public/includes/chunk.4f24861be5d287dd404c.js\",\"Fleet_Builder_Entry_Page_19.js\":\"public/includes/chunk.e03ca2e615ba0b23c486.js\",\"Fleet_Builder_Fleet_Details_Page_20.js\":\"public/includes/chunk.e4cb2e798430686809c4.js\",\"Fleet_Builder_WIP_Blank_Page_21.js\":\"public/includes/chunk.d55defe817235f0b7843.js\",\"TP_Calculator_Single-Page-Tool_22.js\":\"public/includes/chunk.9301027263e378f376f9.js\",\"Academy_Entry_Page_23.js\":\"public/includes/chunk.c86e204a9b3bbc97484e.js\",\"Sorties_List_Page_24.js\":\"public/includes/chunk.1eec19ff5d00ca575cf0.js\",\"Expeditions_List_Page_25.js\":\"public/includes/chunk.9d052848e104602bc871.js\",\"Ship_List_Page_26.js\":\"public/includes/chunk.806c529a6f757ac1d596.js\",\"Ship_Details_Page_27.css\":\"public/includes/extract.688.e5f930d9431d184a7cd3.css\",\"Ship_Details_Page_27.js\":\"public/includes/chunk.e5f930d9431d184a7cd3.js\",\"Equipment_List_Page_28.js\":\"public/includes/chunk.fc21db8e3f855bd61495.js\",\"Equipment_Details_Page_29.js\":\"public/includes/chunk.8df7b306f2a93a065801.js\",\"Arsenal_Page_30.js\":\"public/includes/chunk.a26beada14fcdf389e65.js\",\"People_List_Page_31.js\":\"public/includes/chunk.66ac5ebd29c809944a51.js\",\"People_Details_Page_32.js\":\"public/includes/chunk.08b208943ed2faed832c.js\",\"Extra_CGs_Page_33.js\":\"public/includes/chunk.c5159aa66e8bd7624622.js\",\"nedb.js\":\"public/includes/chunk.01eb66bdcf5eda24b090.js\",\"libs.js\":\"public/includes/entry.d0b90f0c1ebaf7568ae3.js\",\"libs-others.js\":\"public/includes/chunk.c932184cf664d6cbc2b8.js\",\"vendors.js\":\"public/includes/entry.5fb85d089990385e97d8.js\",\"__KOOT__EXTRACT__CSS__.css\":\"public/includes/extract.all.475fa639fac44942690b5a2ff47f2017.small.css\"},\"service-worker\":[\"public/service-worker.en.js\"]},\".ja\":{\".public\":\"public/\",\".out\":\"public/\",\".entrypoints\":{\"critical\":[\"public/includes/extract.122.7e1d8c52a791312298f9.css\",\"public/includes/entry.7e1d8c52a791312298f9.js\"],\"polyfill\":[\"public/includes/entry.a39799b03358247f81e8.js\",\"public/includes/entry.226a9f431fc23ac5e9ba.js\"],\"__KOOT__CLIENT__RUN__FIRST__\":[\"public/includes/entry.1c35c70cadfecfc620a3.js\"],\"client\":[\"public/includes/entry.d0b90f0c1ebaf7568ae3.js\",\"public/includes/entry.5fb85d089990385e97d8.js\",\"public/includes/entry.a6cd0379065a18427677.js\"]},\".files\":{\"critical.css\":\"public/includes/extract.122.7e1d8c52a791312298f9.css\",\"critical.js\":\"public/includes/entry.7e1d8c52a791312298f9.js\",\"polyfill.js\":\"public/includes/entry.226a9f431fc23ac5e9ba.js\",\"__KOOT__CLIENT__RUN__FIRST__.js\":\"public/includes/entry.1c35c70cadfecfc620a3.js\",\"client.js\":\"public/includes/entry.a6cd0379065a18427677.js\",\"Home_Page_34.js\":\"public/includes/chunk.a0d0bf64ea9cd94cca10.js\",\"About_Page_35.js\":\"public/includes/chunk.595087374b1b1d911c6f.js\",\"Fleet_Builder_Entry_Page_46.js\":\"public/includes/chunk.9c76bf97ff7faf58e50e.js\",\"Fleet_Builder_Fleet_Details_Page_47.js\":\"public/includes/chunk.52941ed963cf8a105a37.js\",\"Fleet_Builder_WIP_Blank_Page_48.js\":\"public/includes/chunk.093a5f6dfe6f7a15c86f.js\",\"TP_Calculator_Single-Page-Tool_49.js\":\"public/includes/chunk.1d8dc023431d770e48fa.js\",\"Academy_Entry_Page_50.js\":\"public/includes/chunk.afbe4695fa63bdb00ca8.js\",\"Sorties_List_Page_36.js\":\"public/includes/chunk.5e4c4150f5bc68617a50.js\",\"Expeditions_List_Page_37.js\":\"public/includes/chunk.ab2ac26e9dbe34ac1dfd.js\",\"Ship_List_Page_38.js\":\"public/includes/chunk.3a141f7db73cf08c7e4a.js\",\"Ship_Details_Page_39.css\":\"public/includes/extract.399.354734c414a2b5408d5c.css\",\"Ship_Details_Page_39.js\":\"public/includes/chunk.354734c414a2b5408d5c.js\",\"Equipment_List_Page_40.js\":\"public/includes/chunk.149675fd3ae33d61e11f.js\",\"Equipment_Details_Page_41.js\":\"public/includes/chunk.965b4bb3860fe5574129.js\",\"Arsenal_Page_42.js\":\"public/includes/chunk.26b8b85a94ccccd24034.js\",\"People_List_Page_43.js\":\"public/includes/chunk.51b3436aafe96ae467f1.js\",\"People_Details_Page_44.js\":\"public/includes/chunk.ff6b4918abbd47d0bdfb.js\",\"Extra_CGs_Page_45.js\":\"public/includes/chunk.d109bfe6b013f46325b5.js\",\"nedb.js\":\"public/includes/chunk.01eb66bdcf5eda24b090.js\",\"libs.js\":\"public/includes/entry.d0b90f0c1ebaf7568ae3.js\",\"libs-others.js\":\"public/includes/chunk.c932184cf664d6cbc2b8.js\",\"vendors.js\":\"public/includes/entry.5fb85d089990385e97d8.js\",\"__KOOT__EXTRACT__CSS__.css\":\"public/includes/extract.all.475fa639fac44942690b5a2ff47f2017.small.css\"},\"service-worker\":[\"public/service-worker.ja.js\"]}}");
     } catch (e) {
       chunkmap = false;
     }
@@ -50769,185 +50641,6 @@ const fallback = {
   error: chalk.red('×')
 };
 module.exports = isUnicodeSupported() ? main : fallback;
-
-/***/ }),
-
-/***/ "./node_modules/md5/md5.js":
-/*!*********************************!*\
-  !*** ./node_modules/md5/md5.js ***!
-  \*********************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-(function () {
-  var crypt = __webpack_require__(/*! crypt */ "./node_modules/crypt/crypt.js"),
-      utf8 = __webpack_require__(/*! charenc */ "./node_modules/charenc/charenc.js").utf8,
-      isBuffer = __webpack_require__(/*! is-buffer */ "./node_modules/md5/node_modules/is-buffer/index.js"),
-      bin = __webpack_require__(/*! charenc */ "./node_modules/charenc/charenc.js").bin,
-      // The core
-  md5 = function (message, options) {
-    // Convert to byte array
-    if (message.constructor == String) {
-      if (options && options.encoding === 'binary') message = bin.stringToBytes(message);else message = utf8.stringToBytes(message);
-    } else if (isBuffer(message)) message = Array.prototype.slice.call(message, 0);else if (!Array.isArray(message) && message.constructor !== Uint8Array) message = message.toString(); // else, assume byte array already
-
-    var m = crypt.bytesToWords(message),
-        l = message.length * 8,
-        a = 1732584193,
-        b = -271733879,
-        c = -1732584194,
-        d = 271733878; // Swap endian
-
-    for (var i = 0; i < m.length; i++) {
-      m[i] = (m[i] << 8 | m[i] >>> 24) & 0x00FF00FF | (m[i] << 24 | m[i] >>> 8) & 0xFF00FF00;
-    } // Padding
-
-
-    m[l >>> 5] |= 0x80 << l % 32;
-    m[(l + 64 >>> 9 << 4) + 14] = l; // Method shortcuts
-
-    var FF = md5._ff,
-        GG = md5._gg,
-        HH = md5._hh,
-        II = md5._ii;
-
-    for (var i = 0; i < m.length; i += 16) {
-      var aa = a,
-          bb = b,
-          cc = c,
-          dd = d;
-      a = FF(a, b, c, d, m[i + 0], 7, -680876936);
-      d = FF(d, a, b, c, m[i + 1], 12, -389564586);
-      c = FF(c, d, a, b, m[i + 2], 17, 606105819);
-      b = FF(b, c, d, a, m[i + 3], 22, -1044525330);
-      a = FF(a, b, c, d, m[i + 4], 7, -176418897);
-      d = FF(d, a, b, c, m[i + 5], 12, 1200080426);
-      c = FF(c, d, a, b, m[i + 6], 17, -1473231341);
-      b = FF(b, c, d, a, m[i + 7], 22, -45705983);
-      a = FF(a, b, c, d, m[i + 8], 7, 1770035416);
-      d = FF(d, a, b, c, m[i + 9], 12, -1958414417);
-      c = FF(c, d, a, b, m[i + 10], 17, -42063);
-      b = FF(b, c, d, a, m[i + 11], 22, -1990404162);
-      a = FF(a, b, c, d, m[i + 12], 7, 1804603682);
-      d = FF(d, a, b, c, m[i + 13], 12, -40341101);
-      c = FF(c, d, a, b, m[i + 14], 17, -1502002290);
-      b = FF(b, c, d, a, m[i + 15], 22, 1236535329);
-      a = GG(a, b, c, d, m[i + 1], 5, -165796510);
-      d = GG(d, a, b, c, m[i + 6], 9, -1069501632);
-      c = GG(c, d, a, b, m[i + 11], 14, 643717713);
-      b = GG(b, c, d, a, m[i + 0], 20, -373897302);
-      a = GG(a, b, c, d, m[i + 5], 5, -701558691);
-      d = GG(d, a, b, c, m[i + 10], 9, 38016083);
-      c = GG(c, d, a, b, m[i + 15], 14, -660478335);
-      b = GG(b, c, d, a, m[i + 4], 20, -405537848);
-      a = GG(a, b, c, d, m[i + 9], 5, 568446438);
-      d = GG(d, a, b, c, m[i + 14], 9, -1019803690);
-      c = GG(c, d, a, b, m[i + 3], 14, -187363961);
-      b = GG(b, c, d, a, m[i + 8], 20, 1163531501);
-      a = GG(a, b, c, d, m[i + 13], 5, -1444681467);
-      d = GG(d, a, b, c, m[i + 2], 9, -51403784);
-      c = GG(c, d, a, b, m[i + 7], 14, 1735328473);
-      b = GG(b, c, d, a, m[i + 12], 20, -1926607734);
-      a = HH(a, b, c, d, m[i + 5], 4, -378558);
-      d = HH(d, a, b, c, m[i + 8], 11, -2022574463);
-      c = HH(c, d, a, b, m[i + 11], 16, 1839030562);
-      b = HH(b, c, d, a, m[i + 14], 23, -35309556);
-      a = HH(a, b, c, d, m[i + 1], 4, -1530992060);
-      d = HH(d, a, b, c, m[i + 4], 11, 1272893353);
-      c = HH(c, d, a, b, m[i + 7], 16, -155497632);
-      b = HH(b, c, d, a, m[i + 10], 23, -1094730640);
-      a = HH(a, b, c, d, m[i + 13], 4, 681279174);
-      d = HH(d, a, b, c, m[i + 0], 11, -358537222);
-      c = HH(c, d, a, b, m[i + 3], 16, -722521979);
-      b = HH(b, c, d, a, m[i + 6], 23, 76029189);
-      a = HH(a, b, c, d, m[i + 9], 4, -640364487);
-      d = HH(d, a, b, c, m[i + 12], 11, -421815835);
-      c = HH(c, d, a, b, m[i + 15], 16, 530742520);
-      b = HH(b, c, d, a, m[i + 2], 23, -995338651);
-      a = II(a, b, c, d, m[i + 0], 6, -198630844);
-      d = II(d, a, b, c, m[i + 7], 10, 1126891415);
-      c = II(c, d, a, b, m[i + 14], 15, -1416354905);
-      b = II(b, c, d, a, m[i + 5], 21, -57434055);
-      a = II(a, b, c, d, m[i + 12], 6, 1700485571);
-      d = II(d, a, b, c, m[i + 3], 10, -1894986606);
-      c = II(c, d, a, b, m[i + 10], 15, -1051523);
-      b = II(b, c, d, a, m[i + 1], 21, -2054922799);
-      a = II(a, b, c, d, m[i + 8], 6, 1873313359);
-      d = II(d, a, b, c, m[i + 15], 10, -30611744);
-      c = II(c, d, a, b, m[i + 6], 15, -1560198380);
-      b = II(b, c, d, a, m[i + 13], 21, 1309151649);
-      a = II(a, b, c, d, m[i + 4], 6, -145523070);
-      d = II(d, a, b, c, m[i + 11], 10, -1120210379);
-      c = II(c, d, a, b, m[i + 2], 15, 718787259);
-      b = II(b, c, d, a, m[i + 9], 21, -343485551);
-      a = a + aa >>> 0;
-      b = b + bb >>> 0;
-      c = c + cc >>> 0;
-      d = d + dd >>> 0;
-    }
-
-    return crypt.endian([a, b, c, d]);
-  }; // Auxiliary functions
-
-
-  md5._ff = function (a, b, c, d, x, s, t) {
-    var n = a + (b & c | ~b & d) + (x >>> 0) + t;
-    return (n << s | n >>> 32 - s) + b;
-  };
-
-  md5._gg = function (a, b, c, d, x, s, t) {
-    var n = a + (b & d | c & ~d) + (x >>> 0) + t;
-    return (n << s | n >>> 32 - s) + b;
-  };
-
-  md5._hh = function (a, b, c, d, x, s, t) {
-    var n = a + (b ^ c ^ d) + (x >>> 0) + t;
-    return (n << s | n >>> 32 - s) + b;
-  };
-
-  md5._ii = function (a, b, c, d, x, s, t) {
-    var n = a + (c ^ (b | ~d)) + (x >>> 0) + t;
-    return (n << s | n >>> 32 - s) + b;
-  }; // Package private blocksize
-
-
-  md5._blocksize = 16;
-  md5._digestsize = 16;
-
-  module.exports = function (message, options) {
-    if (message === undefined || message === null) throw new Error('Illegal argument ' + message);
-    var digestbytes = crypt.wordsToBytes(md5(message, options));
-    return options && options.asBytes ? digestbytes : options && options.asString ? bin.bytesToString(digestbytes) : crypt.bytesToHex(digestbytes);
-  };
-})();
-
-/***/ }),
-
-/***/ "./node_modules/md5/node_modules/is-buffer/index.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/md5/node_modules/is-buffer/index.js ***!
-  \**********************************************************/
-/***/ ((module) => {
-
-/*!
- * Determine if an object is a Buffer
- *
- * @author   Feross Aboukhadijeh <https://feross.org>
- * @license  MIT
- */
-// The _isBuffer check is for Safari 5-7 support, because it's missing
-// Object.prototype.constructor. Remove this eventually
-module.exports = function (obj) {
-  return obj != null && (isBuffer(obj) || isSlowBuffer(obj) || !!obj._isBuffer);
-};
-
-function isBuffer(obj) {
-  return !!obj.constructor && typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj);
-} // For Node v0.10 support. Remove this eventually.
-
-
-function isSlowBuffer(obj) {
-  return typeof obj.readFloatLE === 'function' && typeof obj.slice === 'function' && isBuffer(obj.slice(0, 0));
-}
 
 /***/ }),
 
@@ -108991,24 +108684,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! hoist-non-react-statics */ "./node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js");
 /* harmony import */ var hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var md5__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! md5 */ "./node_modules/md5/md5.js");
-/* harmony import */ var md5__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(md5__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _defaults_defines_server__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../defaults/defines-server */ "./node_modules/koot/defaults/defines-server.js");
-/* harmony import */ var _defaults_defines_server__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_defaults_defines_server__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _get_render_props__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./get-render-props */ "./node_modules/koot/React/get-render-props.js");
-/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./styles */ "./node_modules/koot/React/styles.js");
-/* harmony import */ var _client_update_page_info__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./client-update-page-info */ "./node_modules/koot/React/client-update-page-info.js");
-/* harmony import */ var _redux__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./redux */ "./node_modules/koot/React/redux.js");
-/* harmony import */ var _is_render_safe__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./is-render-safe */ "./node_modules/koot/React/is-render-safe.js");
-/* harmony import */ var _is_render_safe__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_is_render_safe__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _root_context__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./root-context */ "./node_modules/koot/React/root-context.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _defaults_defines_server__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../defaults/defines-server */ "./node_modules/koot/defaults/defines-server.js");
+/* harmony import */ var _defaults_defines_server__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_defaults_defines_server__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _get_render_props__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./get-render-props */ "./node_modules/koot/React/get-render-props.js");
+/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./styles */ "./node_modules/koot/React/styles.js");
+/* harmony import */ var _client_update_page_info__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./client-update-page-info */ "./node_modules/koot/React/client-update-page-info.js");
+/* harmony import */ var _redux__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./redux */ "./node_modules/koot/React/redux.js");
+/* harmony import */ var _is_render_safe__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./is-render-safe */ "./node_modules/koot/React/is-render-safe.js");
+/* harmony import */ var _is_render_safe__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_is_render_safe__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _root_context__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./root-context */ "./node_modules/koot/React/root-context.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 /* __KOOT_DEV_NO_REACT_HOT_INJECT__ */
 
  // import PropTypes from 'prop-types'
-
 
 
  //
@@ -109027,7 +108717,6 @@ let everMounted = false; // const defaultPageInfo = {
 //     metas: []
 // }
 
-const propsNameForwardRef = 'koot' + md5__WEBPACK_IMPORTED_MODULE_3___default()('forwardedRef');
 /**
  * @type {Number}
  * _开发环境_
@@ -109070,7 +108759,7 @@ let devSSRConnectIndex = 0;
 
 const doFetchData = (store, renderProps, funcFetch) => {
   // return new Promise((resolve) => resolve());
-  if (!_is_render_safe__WEBPACK_IMPORTED_MODULE_5___default()()) return  false ? 0 : undefined;
+  if (!_is_render_safe__WEBPACK_IMPORTED_MODULE_4___default()()) return  false ? 0 : undefined;
   const result = funcFetch(store.getState(), renderProps, store.dispatch); // if (result === true) {
   //     isDataPreloaded = true
   //     return new Promise(resolve => resolve())
@@ -109091,7 +108780,7 @@ const doFetchData = (store, renderProps, funcFetch) => {
 
 
 const doPageinfo = (store, props, pageinfo) => {
-  if (!_is_render_safe__WEBPACK_IMPORTED_MODULE_5___default()()) return {};
+  if (!_is_render_safe__WEBPACK_IMPORTED_MODULE_4___default()()) return {};
   const defaultPageInfo = {
     title: undefined,
     metas: []
@@ -109191,11 +108880,11 @@ const doPageinfo = (store, props, pageinfo) => {
         title,
         metas
       } = typeof to === 'function' ? doPageinfo(this.context.store, this.getRenderProps(), to) : to || doPageinfo(this.context.store, this.getRenderProps(), pageinfo);
-      (0,_client_update_page_info__WEBPACK_IMPORTED_MODULE_6__["default"])(title || "The Fleet (Yuubari)", metas);
+      (0,_client_update_page_info__WEBPACK_IMPORTED_MODULE_5__["default"])(title || "The Fleet (Yuubari)", metas);
     }
 
     getRenderProps() {
-      return (0,_get_render_props__WEBPACK_IMPORTED_MODULE_7__.fromComponentProps)(this.props);
+      return (0,_get_render_props__WEBPACK_IMPORTED_MODULE_6__.fromComponentProps)(this.props);
     } //
 
 
@@ -109217,21 +108906,21 @@ const doPageinfo = (store, props, pageinfo) => {
 
       if (true) {
         const {
-          [_defaults_defines_server__WEBPACK_IMPORTED_MODULE_8__.ssrContext]: SSR
+          [_defaults_defines_server__WEBPACK_IMPORTED_MODULE_7__.ssrContext]: SSR
         } = context.ctx;
 
-        if (SSR[_defaults_defines_server__WEBPACK_IMPORTED_MODULE_8__.needConnectComponents]) {
+        if (SSR[_defaults_defines_server__WEBPACK_IMPORTED_MODULE_7__.needConnectComponents]) {
           if (false) {}
 
           if (Array.isArray(SSR.connectedComponents)) SSR.connectedComponents.unshift(KootComponent);
         }
       }
 
-      if (!_is_render_safe__WEBPACK_IMPORTED_MODULE_5___default()()) return;
+      if (!_is_render_safe__WEBPACK_IMPORTED_MODULE_4___default()()) return;
 
       if (hasStyles) {
         this.kootClassNames = styles.map(obj => obj.wrapper);
-        (0,_styles__WEBPACK_IMPORTED_MODULE_9__.append)(this.getStyleMap(), styles); // console.log('----------')
+        (0,_styles__WEBPACK_IMPORTED_MODULE_8__.append)(this.getStyleMap(), styles); // console.log('----------')
         // console.log('styles', styles)
         // console.log('theStyles', theStyles)
         // console.log('this.classNameWrapper', this.classNameWrapper)
@@ -109291,13 +108980,13 @@ const doPageinfo = (store, props, pageinfo) => {
       this.mounted = false;
 
       if (hasStyles) {
-        (0,_styles__WEBPACK_IMPORTED_MODULE_9__.remove)(this.getStyleMap(), styles);
+        (0,_styles__WEBPACK_IMPORTED_MODULE_8__.remove)(this.getStyleMap(), styles);
       }
 
       if (typeof dataResetWhenUnmount === 'object') {
         setTimeout(() => {
           this.props.dispatch({
-            type: _redux__WEBPACK_IMPORTED_MODULE_10__.RESET_CERTAIN_STATE,
+            type: _redux__WEBPACK_IMPORTED_MODULE_9__.RESET_CERTAIN_STATE,
             data: dataResetWhenUnmount
           });
         });
@@ -109327,18 +109016,15 @@ const doPageinfo = (store, props, pageinfo) => {
       //     console.log(props.forwardedRef);
       // }
 
-      if (typeof props[propsNameForwardRef] !== 'undefined') {
-        props.forwardedRef = props[propsNameForwardRef];
+      if (typeof props.kootForwardedRef !== 'undefined') {
+        var _props$kootForwardedR;
+
+        props.forwardedRef = props.kootForwardedRef;
+        delete props.kootForwardedRef;
+        props.ref = (_props$kootForwardedR = props.kootForwardedRef) !== null && _props$kootForwardedR !== void 0 ? _props$kootForwardedR : props.forwardedRef;
       }
 
-      if (!props.forwardedRef || !Object.keys(props.forwardedRef).includes('current')) {
-        var _ref, _props$propsNameForwa;
-
-        props.ref = (_ref = (_props$propsNameForwa = props[propsNameForwardRef]) !== null && _props$propsNameForwa !== void 0 ? _props$propsNameForwa : props.forwardedRef) !== null && _ref !== void 0 ? _ref : props.ref;
-      }
-
-      delete props[propsNameForwardRef];
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(WrappedComponent, { ...props
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(WrappedComponent, { ...props
       });
     }
 
@@ -109351,21 +109037,21 @@ const doPageinfo = (store, props, pageinfo) => {
     const {
       title,
       metas
-    } = doPageinfo(store, (0,_get_render_props__WEBPACK_IMPORTED_MODULE_7__.fromServerProps)(renderProps), pageinfo);
+    } = doPageinfo(store, (0,_get_render_props__WEBPACK_IMPORTED_MODULE_6__.fromServerProps)(renderProps), pageinfo);
     return {
       title,
       metas
     };
   });
 
-  KootReactComponent.contextType = _root_context__WEBPACK_IMPORTED_MODULE_11__["default"];
+  KootReactComponent.contextType = _root_context__WEBPACK_IMPORTED_MODULE_10__["default"];
   KootReactComponent.styles = {};
 
   if (typeof dataFetch !== 'undefined') {
     KootReactComponent.onServerRenderStoreExtend = ({
       store,
       renderProps
-    }) => doFetchData(store, (0,_get_render_props__WEBPACK_IMPORTED_MODULE_7__.fromServerProps)(renderProps), dataFetch);
+    }) => doFetchData(store, (0,_get_render_props__WEBPACK_IMPORTED_MODULE_6__.fromServerProps)(renderProps), dataFetch);
   } // if (typeof styles === 'object' &&
   //     typeof styles.wrapper === 'string'
   // ) {
@@ -109395,10 +109081,13 @@ const doPageinfo = (store, props, pageinfo) => {
 
 
   return /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.forwardRef)((props, ref) => {
-    const thisProps = { ...props,
-      [propsNameForwardRef]: ref !== null && ref !== void 0 ? ref : props.forwardedRef
-    };
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(KootComponent, { ...thisProps
+    if (props.forwardedRef) return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(KootComponent, { ...props,
+      kootForwardedRef: props.forwardedRef
+    });
+    if (ref) return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(KootComponent, { ...props,
+      kootForwardedRef: ref
+    });
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(KootComponent, { ...props
     });
   });
 });
