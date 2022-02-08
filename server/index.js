@@ -19385,10 +19385,10 @@ RedirectableRequest.prototype._processResponse = function (response) {
     debug("redirecting to", redirectUrl);
     this._isRedirect = true;
     var redirectUrlParts = url.parse(redirectUrl);
-    Object.assign(this._options, redirectUrlParts); // Drop the Authorization header if redirecting to another domain
+    Object.assign(this._options, redirectUrlParts); // Drop the confidential headers when redirecting to another domain
 
     if (!(redirectUrlParts.host === currentHost || isSubdomainOf(redirectUrlParts.host, currentHost))) {
-      removeMatchingHeaders(/^authorization$/i, this._options.headers);
+      removeMatchingHeaders(/^(?:authorization|cookie)$/i, this._options.headers);
     } // Evaluate the beforeRedirect callback
 
 
@@ -19532,12 +19532,12 @@ function removeMatchingHeaders(regex, headers) {
 
   for (var header in headers) {
     if (regex.test(header)) {
-      lastValue = headers[header].toString().trim();
+      lastValue = headers[header];
       delete headers[header];
     }
   }
 
-  return lastValue;
+  return lastValue === null || typeof lastValue === "undefined" ? undefined : String(lastValue).trim();
 }
 
 function createErrorType(code, defaultMessage) {
@@ -19736,7 +19736,7 @@ function parseTokenList(str) {
 "use strict";
 
 
-const fs = __webpack_require__(/*! graceful-fs */ "./node_modules/graceful-fs/graceful-fs.js");
+const fs = __webpack_require__(/*! graceful-fs */ "./node_modules/fs-extra/node_modules/graceful-fs/graceful-fs.js");
 
 const path = __webpack_require__(/*! path */ "path");
 
@@ -19937,7 +19937,7 @@ module.exports = {
 "use strict";
 
 
-const fs = __webpack_require__(/*! graceful-fs */ "./node_modules/graceful-fs/graceful-fs.js");
+const fs = __webpack_require__(/*! graceful-fs */ "./node_modules/fs-extra/node_modules/graceful-fs/graceful-fs.js");
 
 const path = __webpack_require__(/*! path */ "path");
 
@@ -20266,7 +20266,7 @@ const u = (__webpack_require__(/*! universalify */ "./node_modules/universalify/
 
 const path = __webpack_require__(/*! path */ "path");
 
-const fs = __webpack_require__(/*! graceful-fs */ "./node_modules/graceful-fs/graceful-fs.js");
+const fs = __webpack_require__(/*! graceful-fs */ "./node_modules/fs-extra/node_modules/graceful-fs/graceful-fs.js");
 
 const mkdir = __webpack_require__(/*! ../mkdirs */ "./node_modules/fs-extra/lib/mkdirs/index.js");
 
@@ -20385,7 +20385,7 @@ const u = (__webpack_require__(/*! universalify */ "./node_modules/universalify/
 
 const path = __webpack_require__(/*! path */ "path");
 
-const fs = __webpack_require__(/*! graceful-fs */ "./node_modules/graceful-fs/graceful-fs.js");
+const fs = __webpack_require__(/*! graceful-fs */ "./node_modules/fs-extra/node_modules/graceful-fs/graceful-fs.js");
 
 const mkdir = __webpack_require__(/*! ../mkdirs */ "./node_modules/fs-extra/lib/mkdirs/index.js");
 
@@ -20464,7 +20464,7 @@ module.exports = {
 
 const path = __webpack_require__(/*! path */ "path");
 
-const fs = __webpack_require__(/*! graceful-fs */ "./node_modules/graceful-fs/graceful-fs.js");
+const fs = __webpack_require__(/*! graceful-fs */ "./node_modules/fs-extra/node_modules/graceful-fs/graceful-fs.js");
 
 const pathExists = (__webpack_require__(/*! ../path-exists */ "./node_modules/fs-extra/lib/path-exists/index.js").pathExists);
 /**
@@ -20578,7 +20578,7 @@ module.exports = {
 "use strict";
 
 
-const fs = __webpack_require__(/*! graceful-fs */ "./node_modules/graceful-fs/graceful-fs.js");
+const fs = __webpack_require__(/*! graceful-fs */ "./node_modules/fs-extra/node_modules/graceful-fs/graceful-fs.js");
 
 function symlinkType(srcpath, type, callback) {
   callback = typeof type === 'function' ? type : callback;
@@ -20722,7 +20722,7 @@ module.exports = {
 
 const u = (__webpack_require__(/*! universalify */ "./node_modules/universalify/index.js").fromCallback);
 
-const fs = __webpack_require__(/*! graceful-fs */ "./node_modules/graceful-fs/graceful-fs.js");
+const fs = __webpack_require__(/*! graceful-fs */ "./node_modules/fs-extra/node_modules/graceful-fs/graceful-fs.js");
 
 const api = ['access', 'appendFile', 'chmod', 'chown', 'close', 'copyFile', 'fchmod', 'fchown', 'fdatasync', 'fstat', 'fsync', 'ftruncate', 'futimes', 'lchmod', 'lchown', 'link', 'lstat', 'mkdir', 'mkdtemp', 'open', 'opendir', 'readdir', 'readFile', 'readlink', 'realpath', 'rename', 'rm', 'rmdir', 'stat', 'symlink', 'truncate', 'unlink', 'utimes', 'writeFile'].filter(key => {
   // Some commands are not available on some systems. Ex:
@@ -21066,7 +21066,7 @@ module.exports = {
 "use strict";
 
 
-const fs = __webpack_require__(/*! graceful-fs */ "./node_modules/graceful-fs/graceful-fs.js");
+const fs = __webpack_require__(/*! graceful-fs */ "./node_modules/fs-extra/node_modules/graceful-fs/graceful-fs.js");
 
 const path = __webpack_require__(/*! path */ "path");
 
@@ -21156,7 +21156,7 @@ module.exports = {
 "use strict";
 
 
-const fs = __webpack_require__(/*! graceful-fs */ "./node_modules/graceful-fs/graceful-fs.js");
+const fs = __webpack_require__(/*! graceful-fs */ "./node_modules/fs-extra/node_modules/graceful-fs/graceful-fs.js");
 
 const path = __webpack_require__(/*! path */ "path");
 
@@ -21251,7 +21251,7 @@ module.exports = move;
 
 const u = (__webpack_require__(/*! universalify */ "./node_modules/universalify/index.js").fromCallback);
 
-const fs = __webpack_require__(/*! graceful-fs */ "./node_modules/graceful-fs/graceful-fs.js");
+const fs = __webpack_require__(/*! graceful-fs */ "./node_modules/fs-extra/node_modules/graceful-fs/graceful-fs.js");
 
 const path = __webpack_require__(/*! path */ "path");
 
@@ -21327,7 +21327,7 @@ module.exports = {
 "use strict";
 
 
-const fs = __webpack_require__(/*! graceful-fs */ "./node_modules/graceful-fs/graceful-fs.js");
+const fs = __webpack_require__(/*! graceful-fs */ "./node_modules/fs-extra/node_modules/graceful-fs/graceful-fs.js");
 
 const u = (__webpack_require__(/*! universalify */ "./node_modules/universalify/index.js").fromCallback);
 
@@ -21367,7 +21367,7 @@ module.exports = {
 "use strict";
 
 
-const fs = __webpack_require__(/*! graceful-fs */ "./node_modules/graceful-fs/graceful-fs.js");
+const fs = __webpack_require__(/*! graceful-fs */ "./node_modules/fs-extra/node_modules/graceful-fs/graceful-fs.js");
 
 const path = __webpack_require__(/*! path */ "path");
 
@@ -21879,7 +21879,7 @@ module.exports = {
 "use strict";
 
 
-const fs = __webpack_require__(/*! graceful-fs */ "./node_modules/graceful-fs/graceful-fs.js");
+const fs = __webpack_require__(/*! graceful-fs */ "./node_modules/fs-extra/node_modules/graceful-fs/graceful-fs.js");
 
 function utimesMillis(path, atime, mtime, callback) {
   // if (!HAS_MILLIS_RES) return fs.utimes(path, atime, mtime, callback)
@@ -21906,10 +21906,10 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./node_modules/graceful-fs/clone.js":
-/*!*******************************************!*\
-  !*** ./node_modules/graceful-fs/clone.js ***!
-  \*******************************************/
+/***/ "./node_modules/fs-extra/node_modules/graceful-fs/clone.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/fs-extra/node_modules/graceful-fs/clone.js ***!
+  \*****************************************************************/
 /***/ ((module) => {
 
 "use strict";
@@ -21934,19 +21934,19 @@ function clone(obj) {
 
 /***/ }),
 
-/***/ "./node_modules/graceful-fs/graceful-fs.js":
-/*!*************************************************!*\
-  !*** ./node_modules/graceful-fs/graceful-fs.js ***!
-  \*************************************************/
+/***/ "./node_modules/fs-extra/node_modules/graceful-fs/graceful-fs.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/fs-extra/node_modules/graceful-fs/graceful-fs.js ***!
+  \***********************************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var fs = __webpack_require__(/*! fs */ "fs");
 
-var polyfills = __webpack_require__(/*! ./polyfills.js */ "./node_modules/graceful-fs/polyfills.js");
+var polyfills = __webpack_require__(/*! ./polyfills.js */ "./node_modules/fs-extra/node_modules/graceful-fs/polyfills.js");
 
-var legacy = __webpack_require__(/*! ./legacy-streams.js */ "./node_modules/graceful-fs/legacy-streams.js");
+var legacy = __webpack_require__(/*! ./legacy-streams.js */ "./node_modules/fs-extra/node_modules/graceful-fs/legacy-streams.js");
 
-var clone = __webpack_require__(/*! ./clone.js */ "./node_modules/graceful-fs/clone.js");
+var clone = __webpack_require__(/*! ./clone.js */ "./node_modules/fs-extra/node_modules/graceful-fs/clone.js");
 
 var util = __webpack_require__(/*! util */ "util");
 /* istanbul ignore next - node 0.x polyfill */
@@ -22336,10 +22336,10 @@ function retry() {
 
 /***/ }),
 
-/***/ "./node_modules/graceful-fs/legacy-streams.js":
-/*!****************************************************!*\
-  !*** ./node_modules/graceful-fs/legacy-streams.js ***!
-  \****************************************************/
+/***/ "./node_modules/fs-extra/node_modules/graceful-fs/legacy-streams.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/fs-extra/node_modules/graceful-fs/legacy-streams.js ***!
+  \**************************************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var Stream = (__webpack_require__(/*! stream */ "stream").Stream);
@@ -22463,10 +22463,10 @@ function legacy(fs) {
 
 /***/ }),
 
-/***/ "./node_modules/graceful-fs/polyfills.js":
-/*!***********************************************!*\
-  !*** ./node_modules/graceful-fs/polyfills.js ***!
-  \***********************************************/
+/***/ "./node_modules/fs-extra/node_modules/graceful-fs/polyfills.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/fs-extra/node_modules/graceful-fs/polyfills.js ***!
+  \*********************************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var constants = __webpack_require__(/*! constants */ "constants");
@@ -31846,7 +31846,7 @@ module.exports = Array.isArray || function (arr) {
 let _fs;
 
 try {
-  _fs = __webpack_require__(/*! graceful-fs */ "./node_modules/graceful-fs/graceful-fs.js");
+  _fs = __webpack_require__(/*! graceful-fs */ "./node_modules/jsonfile/node_modules/graceful-fs/graceful-fs.js");
 } catch (_) {
   _fs = __webpack_require__(/*! fs */ "fs");
 }
@@ -31933,6 +31933,917 @@ const jsonfile = {
   writeFileSync
 };
 module.exports = jsonfile;
+
+/***/ }),
+
+/***/ "./node_modules/jsonfile/node_modules/graceful-fs/clone.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/jsonfile/node_modules/graceful-fs/clone.js ***!
+  \*****************************************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+module.exports = clone;
+
+var getPrototypeOf = Object.getPrototypeOf || function (obj) {
+  return obj.__proto__;
+};
+
+function clone(obj) {
+  if (obj === null || typeof obj !== 'object') return obj;
+  if (obj instanceof Object) var copy = {
+    __proto__: getPrototypeOf(obj)
+  };else var copy = Object.create(null);
+  Object.getOwnPropertyNames(obj).forEach(function (key) {
+    Object.defineProperty(copy, key, Object.getOwnPropertyDescriptor(obj, key));
+  });
+  return copy;
+}
+
+/***/ }),
+
+/***/ "./node_modules/jsonfile/node_modules/graceful-fs/graceful-fs.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/jsonfile/node_modules/graceful-fs/graceful-fs.js ***!
+  \***********************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var fs = __webpack_require__(/*! fs */ "fs");
+
+var polyfills = __webpack_require__(/*! ./polyfills.js */ "./node_modules/jsonfile/node_modules/graceful-fs/polyfills.js");
+
+var legacy = __webpack_require__(/*! ./legacy-streams.js */ "./node_modules/jsonfile/node_modules/graceful-fs/legacy-streams.js");
+
+var clone = __webpack_require__(/*! ./clone.js */ "./node_modules/jsonfile/node_modules/graceful-fs/clone.js");
+
+var util = __webpack_require__(/*! util */ "util");
+/* istanbul ignore next - node 0.x polyfill */
+
+
+var gracefulQueue;
+var previousSymbol;
+/* istanbul ignore else - node 0.x polyfill */
+
+if (typeof Symbol === 'function' && typeof Symbol.for === 'function') {
+  gracefulQueue = Symbol.for('graceful-fs.queue'); // This is used in testing by future versions
+
+  previousSymbol = Symbol.for('graceful-fs.previous');
+} else {
+  gracefulQueue = '___graceful-fs.queue';
+  previousSymbol = '___graceful-fs.previous';
+}
+
+function noop() {}
+
+function publishQueue(context, queue) {
+  Object.defineProperty(context, gracefulQueue, {
+    get: function () {
+      return queue;
+    }
+  });
+}
+
+var debug = noop;
+if (util.debuglog) debug = util.debuglog('gfs4');else if (/\bgfs4\b/i.test(process.env.NODE_DEBUG || '')) debug = function () {
+  var m = util.format.apply(util, arguments);
+  m = 'GFS4: ' + m.split(/\n/).join('\nGFS4: ');
+  console.error(m);
+}; // Once time initialization
+
+if (!fs[gracefulQueue]) {
+  // This queue can be shared by multiple loaded instances
+  var queue = global[gracefulQueue] || [];
+  publishQueue(fs, queue); // Patch fs.close/closeSync to shared queue version, because we need
+  // to retry() whenever a close happens *anywhere* in the program.
+  // This is essential when multiple graceful-fs instances are
+  // in play at the same time.
+
+  fs.close = function (fs$close) {
+    function close(fd, cb) {
+      return fs$close.call(fs, fd, function (err) {
+        // This function uses the graceful-fs shared queue
+        if (!err) {
+          resetQueue();
+        }
+
+        if (typeof cb === 'function') cb.apply(this, arguments);
+      });
+    }
+
+    Object.defineProperty(close, previousSymbol, {
+      value: fs$close
+    });
+    return close;
+  }(fs.close);
+
+  fs.closeSync = function (fs$closeSync) {
+    function closeSync(fd) {
+      // This function uses the graceful-fs shared queue
+      fs$closeSync.apply(fs, arguments);
+      resetQueue();
+    }
+
+    Object.defineProperty(closeSync, previousSymbol, {
+      value: fs$closeSync
+    });
+    return closeSync;
+  }(fs.closeSync);
+
+  if (/\bgfs4\b/i.test(process.env.NODE_DEBUG || '')) {
+    process.on('exit', function () {
+      debug(fs[gracefulQueue]);
+
+      (__webpack_require__(/*! assert */ "assert").equal)(fs[gracefulQueue].length, 0);
+    });
+  }
+}
+
+if (!global[gracefulQueue]) {
+  publishQueue(global, fs[gracefulQueue]);
+}
+
+module.exports = patch(clone(fs));
+
+if (process.env.TEST_GRACEFUL_FS_GLOBAL_PATCH && !fs.__patched) {
+  module.exports = patch(fs);
+  fs.__patched = true;
+}
+
+function patch(fs) {
+  // Everything that references the open() function needs to be in here
+  polyfills(fs);
+  fs.gracefulify = patch;
+  fs.createReadStream = createReadStream;
+  fs.createWriteStream = createWriteStream;
+  var fs$readFile = fs.readFile;
+  fs.readFile = readFile;
+
+  function readFile(path, options, cb) {
+    if (typeof options === 'function') cb = options, options = null;
+    return go$readFile(path, options, cb);
+
+    function go$readFile(path, options, cb, startTime) {
+      return fs$readFile(path, options, function (err) {
+        if (err && (err.code === 'EMFILE' || err.code === 'ENFILE')) enqueue([go$readFile, [path, options, cb], err, startTime || Date.now(), Date.now()]);else {
+          if (typeof cb === 'function') cb.apply(this, arguments);
+        }
+      });
+    }
+  }
+
+  var fs$writeFile = fs.writeFile;
+  fs.writeFile = writeFile;
+
+  function writeFile(path, data, options, cb) {
+    if (typeof options === 'function') cb = options, options = null;
+    return go$writeFile(path, data, options, cb);
+
+    function go$writeFile(path, data, options, cb, startTime) {
+      return fs$writeFile(path, data, options, function (err) {
+        if (err && (err.code === 'EMFILE' || err.code === 'ENFILE')) enqueue([go$writeFile, [path, data, options, cb], err, startTime || Date.now(), Date.now()]);else {
+          if (typeof cb === 'function') cb.apply(this, arguments);
+        }
+      });
+    }
+  }
+
+  var fs$appendFile = fs.appendFile;
+  if (fs$appendFile) fs.appendFile = appendFile;
+
+  function appendFile(path, data, options, cb) {
+    if (typeof options === 'function') cb = options, options = null;
+    return go$appendFile(path, data, options, cb);
+
+    function go$appendFile(path, data, options, cb, startTime) {
+      return fs$appendFile(path, data, options, function (err) {
+        if (err && (err.code === 'EMFILE' || err.code === 'ENFILE')) enqueue([go$appendFile, [path, data, options, cb], err, startTime || Date.now(), Date.now()]);else {
+          if (typeof cb === 'function') cb.apply(this, arguments);
+        }
+      });
+    }
+  }
+
+  var fs$copyFile = fs.copyFile;
+  if (fs$copyFile) fs.copyFile = copyFile;
+
+  function copyFile(src, dest, flags, cb) {
+    if (typeof flags === 'function') {
+      cb = flags;
+      flags = 0;
+    }
+
+    return go$copyFile(src, dest, flags, cb);
+
+    function go$copyFile(src, dest, flags, cb, startTime) {
+      return fs$copyFile(src, dest, flags, function (err) {
+        if (err && (err.code === 'EMFILE' || err.code === 'ENFILE')) enqueue([go$copyFile, [src, dest, flags, cb], err, startTime || Date.now(), Date.now()]);else {
+          if (typeof cb === 'function') cb.apply(this, arguments);
+        }
+      });
+    }
+  }
+
+  var fs$readdir = fs.readdir;
+  fs.readdir = readdir;
+
+  function readdir(path, options, cb) {
+    if (typeof options === 'function') cb = options, options = null;
+    return go$readdir(path, options, cb);
+
+    function go$readdir(path, options, cb, startTime) {
+      return fs$readdir(path, options, function (err, files) {
+        if (err && (err.code === 'EMFILE' || err.code === 'ENFILE')) enqueue([go$readdir, [path, options, cb], err, startTime || Date.now(), Date.now()]);else {
+          if (files && files.sort) files.sort();
+          if (typeof cb === 'function') cb.call(this, err, files);
+        }
+      });
+    }
+  }
+
+  if (process.version.substr(0, 4) === 'v0.8') {
+    var legStreams = legacy(fs);
+    ReadStream = legStreams.ReadStream;
+    WriteStream = legStreams.WriteStream;
+  }
+
+  var fs$ReadStream = fs.ReadStream;
+
+  if (fs$ReadStream) {
+    ReadStream.prototype = Object.create(fs$ReadStream.prototype);
+    ReadStream.prototype.open = ReadStream$open;
+  }
+
+  var fs$WriteStream = fs.WriteStream;
+
+  if (fs$WriteStream) {
+    WriteStream.prototype = Object.create(fs$WriteStream.prototype);
+    WriteStream.prototype.open = WriteStream$open;
+  }
+
+  Object.defineProperty(fs, 'ReadStream', {
+    get: function () {
+      return ReadStream;
+    },
+    set: function (val) {
+      ReadStream = val;
+    },
+    enumerable: true,
+    configurable: true
+  });
+  Object.defineProperty(fs, 'WriteStream', {
+    get: function () {
+      return WriteStream;
+    },
+    set: function (val) {
+      WriteStream = val;
+    },
+    enumerable: true,
+    configurable: true
+  }); // legacy names
+
+  var FileReadStream = ReadStream;
+  Object.defineProperty(fs, 'FileReadStream', {
+    get: function () {
+      return FileReadStream;
+    },
+    set: function (val) {
+      FileReadStream = val;
+    },
+    enumerable: true,
+    configurable: true
+  });
+  var FileWriteStream = WriteStream;
+  Object.defineProperty(fs, 'FileWriteStream', {
+    get: function () {
+      return FileWriteStream;
+    },
+    set: function (val) {
+      FileWriteStream = val;
+    },
+    enumerable: true,
+    configurable: true
+  });
+
+  function ReadStream(path, options) {
+    if (this instanceof ReadStream) return fs$ReadStream.apply(this, arguments), this;else return ReadStream.apply(Object.create(ReadStream.prototype), arguments);
+  }
+
+  function ReadStream$open() {
+    var that = this;
+    open(that.path, that.flags, that.mode, function (err, fd) {
+      if (err) {
+        if (that.autoClose) that.destroy();
+        that.emit('error', err);
+      } else {
+        that.fd = fd;
+        that.emit('open', fd);
+        that.read();
+      }
+    });
+  }
+
+  function WriteStream(path, options) {
+    if (this instanceof WriteStream) return fs$WriteStream.apply(this, arguments), this;else return WriteStream.apply(Object.create(WriteStream.prototype), arguments);
+  }
+
+  function WriteStream$open() {
+    var that = this;
+    open(that.path, that.flags, that.mode, function (err, fd) {
+      if (err) {
+        that.destroy();
+        that.emit('error', err);
+      } else {
+        that.fd = fd;
+        that.emit('open', fd);
+      }
+    });
+  }
+
+  function createReadStream(path, options) {
+    return new fs.ReadStream(path, options);
+  }
+
+  function createWriteStream(path, options) {
+    return new fs.WriteStream(path, options);
+  }
+
+  var fs$open = fs.open;
+  fs.open = open;
+
+  function open(path, flags, mode, cb) {
+    if (typeof mode === 'function') cb = mode, mode = null;
+    return go$open(path, flags, mode, cb);
+
+    function go$open(path, flags, mode, cb, startTime) {
+      return fs$open(path, flags, mode, function (err, fd) {
+        if (err && (err.code === 'EMFILE' || err.code === 'ENFILE')) enqueue([go$open, [path, flags, mode, cb], err, startTime || Date.now(), Date.now()]);else {
+          if (typeof cb === 'function') cb.apply(this, arguments);
+        }
+      });
+    }
+  }
+
+  return fs;
+}
+
+function enqueue(elem) {
+  debug('ENQUEUE', elem[0].name, elem[1]);
+  fs[gracefulQueue].push(elem);
+  retry();
+} // keep track of the timeout between retry() calls
+
+
+var retryTimer; // reset the startTime and lastTime to now
+// this resets the start of the 60 second overall timeout as well as the
+// delay between attempts so that we'll retry these jobs sooner
+
+function resetQueue() {
+  var now = Date.now();
+
+  for (var i = 0; i < fs[gracefulQueue].length; ++i) {
+    // entries that are only a length of 2 are from an older version, don't
+    // bother modifying those since they'll be retried anyway.
+    if (fs[gracefulQueue][i].length > 2) {
+      fs[gracefulQueue][i][3] = now; // startTime
+
+      fs[gracefulQueue][i][4] = now; // lastTime
+    }
+  } // call retry to make sure we're actively processing the queue
+
+
+  retry();
+}
+
+function retry() {
+  // clear the timer and remove it to help prevent unintended concurrency
+  clearTimeout(retryTimer);
+  retryTimer = undefined;
+  if (fs[gracefulQueue].length === 0) return;
+  var elem = fs[gracefulQueue].shift();
+  var fn = elem[0];
+  var args = elem[1]; // these items may be unset if they were added by an older graceful-fs
+
+  var err = elem[2];
+  var startTime = elem[3];
+  var lastTime = elem[4]; // if we don't have a startTime we have no way of knowing if we've waited
+  // long enough, so go ahead and retry this item now
+
+  if (startTime === undefined) {
+    debug('RETRY', fn.name, args);
+    fn.apply(null, args);
+  } else if (Date.now() - startTime >= 60000) {
+    // it's been more than 60 seconds total, bail now
+    debug('TIMEOUT', fn.name, args);
+    var cb = args.pop();
+    if (typeof cb === 'function') cb.call(null, err);
+  } else {
+    // the amount of time between the last attempt and right now
+    var sinceAttempt = Date.now() - lastTime; // the amount of time between when we first tried, and when we last tried
+    // rounded up to at least 1
+
+    var sinceStart = Math.max(lastTime - startTime, 1); // backoff. wait longer than the total time we've been retrying, but only
+    // up to a maximum of 100ms
+
+    var desiredDelay = Math.min(sinceStart * 1.2, 100); // it's been long enough since the last retry, do it again
+
+    if (sinceAttempt >= desiredDelay) {
+      debug('RETRY', fn.name, args);
+      fn.apply(null, args.concat([startTime]));
+    } else {
+      // if we can't do this job yet, push it to the end of the queue
+      // and let the next iteration check again
+      fs[gracefulQueue].push(elem);
+    }
+  } // schedule our next run if one isn't already scheduled
+
+
+  if (retryTimer === undefined) {
+    retryTimer = setTimeout(retry, 0);
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/jsonfile/node_modules/graceful-fs/legacy-streams.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/jsonfile/node_modules/graceful-fs/legacy-streams.js ***!
+  \**************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var Stream = (__webpack_require__(/*! stream */ "stream").Stream);
+
+module.exports = legacy;
+
+function legacy(fs) {
+  return {
+    ReadStream: ReadStream,
+    WriteStream: WriteStream
+  };
+
+  function ReadStream(path, options) {
+    if (!(this instanceof ReadStream)) return new ReadStream(path, options);
+    Stream.call(this);
+    var self = this;
+    this.path = path;
+    this.fd = null;
+    this.readable = true;
+    this.paused = false;
+    this.flags = 'r';
+    this.mode = 438;
+    /*=0666*/
+
+    this.bufferSize = 64 * 1024;
+    options = options || {}; // Mixin options into this
+
+    var keys = Object.keys(options);
+
+    for (var index = 0, length = keys.length; index < length; index++) {
+      var key = keys[index];
+      this[key] = options[key];
+    }
+
+    if (this.encoding) this.setEncoding(this.encoding);
+
+    if (this.start !== undefined) {
+      if ('number' !== typeof this.start) {
+        throw TypeError('start must be a Number');
+      }
+
+      if (this.end === undefined) {
+        this.end = Infinity;
+      } else if ('number' !== typeof this.end) {
+        throw TypeError('end must be a Number');
+      }
+
+      if (this.start > this.end) {
+        throw new Error('start must be <= end');
+      }
+
+      this.pos = this.start;
+    }
+
+    if (this.fd !== null) {
+      process.nextTick(function () {
+        self._read();
+      });
+      return;
+    }
+
+    fs.open(this.path, this.flags, this.mode, function (err, fd) {
+      if (err) {
+        self.emit('error', err);
+        self.readable = false;
+        return;
+      }
+
+      self.fd = fd;
+      self.emit('open', fd);
+
+      self._read();
+    });
+  }
+
+  function WriteStream(path, options) {
+    if (!(this instanceof WriteStream)) return new WriteStream(path, options);
+    Stream.call(this);
+    this.path = path;
+    this.fd = null;
+    this.writable = true;
+    this.flags = 'w';
+    this.encoding = 'binary';
+    this.mode = 438;
+    /*=0666*/
+
+    this.bytesWritten = 0;
+    options = options || {}; // Mixin options into this
+
+    var keys = Object.keys(options);
+
+    for (var index = 0, length = keys.length; index < length; index++) {
+      var key = keys[index];
+      this[key] = options[key];
+    }
+
+    if (this.start !== undefined) {
+      if ('number' !== typeof this.start) {
+        throw TypeError('start must be a Number');
+      }
+
+      if (this.start < 0) {
+        throw new Error('start must be >= zero');
+      }
+
+      this.pos = this.start;
+    }
+
+    this.busy = false;
+    this._queue = [];
+
+    if (this.fd === null) {
+      this._open = fs.open;
+
+      this._queue.push([this._open, this.path, this.flags, this.mode, undefined]);
+
+      this.flush();
+    }
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/jsonfile/node_modules/graceful-fs/polyfills.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/jsonfile/node_modules/graceful-fs/polyfills.js ***!
+  \*********************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var constants = __webpack_require__(/*! constants */ "constants");
+
+var origCwd = process.cwd;
+var cwd = null;
+var platform = process.env.GRACEFUL_FS_PLATFORM || process.platform;
+
+process.cwd = function () {
+  if (!cwd) cwd = origCwd.call(process);
+  return cwd;
+};
+
+try {
+  process.cwd();
+} catch (er) {} // This check is needed until node.js 12 is required
+
+
+if (typeof process.chdir === 'function') {
+  var chdir = process.chdir;
+
+  process.chdir = function (d) {
+    cwd = null;
+    chdir.call(process, d);
+  };
+
+  if (Object.setPrototypeOf) Object.setPrototypeOf(process.chdir, chdir);
+}
+
+module.exports = patch;
+
+function patch(fs) {
+  // (re-)implement some things that are known busted or missing.
+  // lchmod, broken prior to 0.6.2
+  // back-port the fix here.
+  if (constants.hasOwnProperty('O_SYMLINK') && process.version.match(/^v0\.6\.[0-2]|^v0\.5\./)) {
+    patchLchmod(fs);
+  } // lutimes implementation, or no-op
+
+
+  if (!fs.lutimes) {
+    patchLutimes(fs);
+  } // https://github.com/isaacs/node-graceful-fs/issues/4
+  // Chown should not fail on einval or eperm if non-root.
+  // It should not fail on enosys ever, as this just indicates
+  // that a fs doesn't support the intended operation.
+
+
+  fs.chown = chownFix(fs.chown);
+  fs.fchown = chownFix(fs.fchown);
+  fs.lchown = chownFix(fs.lchown);
+  fs.chmod = chmodFix(fs.chmod);
+  fs.fchmod = chmodFix(fs.fchmod);
+  fs.lchmod = chmodFix(fs.lchmod);
+  fs.chownSync = chownFixSync(fs.chownSync);
+  fs.fchownSync = chownFixSync(fs.fchownSync);
+  fs.lchownSync = chownFixSync(fs.lchownSync);
+  fs.chmodSync = chmodFixSync(fs.chmodSync);
+  fs.fchmodSync = chmodFixSync(fs.fchmodSync);
+  fs.lchmodSync = chmodFixSync(fs.lchmodSync);
+  fs.stat = statFix(fs.stat);
+  fs.fstat = statFix(fs.fstat);
+  fs.lstat = statFix(fs.lstat);
+  fs.statSync = statFixSync(fs.statSync);
+  fs.fstatSync = statFixSync(fs.fstatSync);
+  fs.lstatSync = statFixSync(fs.lstatSync); // if lchmod/lchown do not exist, then make them no-ops
+
+  if (!fs.lchmod) {
+    fs.lchmod = function (path, mode, cb) {
+      if (cb) process.nextTick(cb);
+    };
+
+    fs.lchmodSync = function () {};
+  }
+
+  if (!fs.lchown) {
+    fs.lchown = function (path, uid, gid, cb) {
+      if (cb) process.nextTick(cb);
+    };
+
+    fs.lchownSync = function () {};
+  } // on Windows, A/V software can lock the directory, causing this
+  // to fail with an EACCES or EPERM if the directory contains newly
+  // created files.  Try again on failure, for up to 60 seconds.
+  // Set the timeout this long because some Windows Anti-Virus, such as Parity
+  // bit9, may lock files for up to a minute, causing npm package install
+  // failures. Also, take care to yield the scheduler. Windows scheduling gives
+  // CPU to a busy looping process, which can cause the program causing the lock
+  // contention to be starved of CPU by node, so the contention doesn't resolve.
+
+
+  if (platform === "win32") {
+    fs.rename = function (fs$rename) {
+      return function (from, to, cb) {
+        var start = Date.now();
+        var backoff = 0;
+        fs$rename(from, to, function CB(er) {
+          if (er && (er.code === "EACCES" || er.code === "EPERM") && Date.now() - start < 60000) {
+            setTimeout(function () {
+              fs.stat(to, function (stater, st) {
+                if (stater && stater.code === "ENOENT") fs$rename(from, to, CB);else cb(er);
+              });
+            }, backoff);
+            if (backoff < 100) backoff += 10;
+            return;
+          }
+
+          if (cb) cb(er);
+        });
+      };
+    }(fs.rename);
+  } // if read() returns EAGAIN, then just try it again.
+
+
+  fs.read = function (fs$read) {
+    function read(fd, buffer, offset, length, position, callback_) {
+      var callback;
+
+      if (callback_ && typeof callback_ === 'function') {
+        var eagCounter = 0;
+
+        callback = function (er, _, __) {
+          if (er && er.code === 'EAGAIN' && eagCounter < 10) {
+            eagCounter++;
+            return fs$read.call(fs, fd, buffer, offset, length, position, callback);
+          }
+
+          callback_.apply(this, arguments);
+        };
+      }
+
+      return fs$read.call(fs, fd, buffer, offset, length, position, callback);
+    } // This ensures `util.promisify` works as it does for native `fs.read`.
+
+
+    if (Object.setPrototypeOf) Object.setPrototypeOf(read, fs$read);
+    return read;
+  }(fs.read);
+
+  fs.readSync = function (fs$readSync) {
+    return function (fd, buffer, offset, length, position) {
+      var eagCounter = 0;
+
+      while (true) {
+        try {
+          return fs$readSync.call(fs, fd, buffer, offset, length, position);
+        } catch (er) {
+          if (er.code === 'EAGAIN' && eagCounter < 10) {
+            eagCounter++;
+            continue;
+          }
+
+          throw er;
+        }
+      }
+    };
+  }(fs.readSync);
+
+  function patchLchmod(fs) {
+    fs.lchmod = function (path, mode, callback) {
+      fs.open(path, constants.O_WRONLY | constants.O_SYMLINK, mode, function (err, fd) {
+        if (err) {
+          if (callback) callback(err);
+          return;
+        } // prefer to return the chmod error, if one occurs,
+        // but still try to close, and report closing errors if they occur.
+
+
+        fs.fchmod(fd, mode, function (err) {
+          fs.close(fd, function (err2) {
+            if (callback) callback(err || err2);
+          });
+        });
+      });
+    };
+
+    fs.lchmodSync = function (path, mode) {
+      var fd = fs.openSync(path, constants.O_WRONLY | constants.O_SYMLINK, mode); // prefer to return the chmod error, if one occurs,
+      // but still try to close, and report closing errors if they occur.
+
+      var threw = true;
+      var ret;
+
+      try {
+        ret = fs.fchmodSync(fd, mode);
+        threw = false;
+      } finally {
+        if (threw) {
+          try {
+            fs.closeSync(fd);
+          } catch (er) {}
+        } else {
+          fs.closeSync(fd);
+        }
+      }
+
+      return ret;
+    };
+  }
+
+  function patchLutimes(fs) {
+    if (constants.hasOwnProperty("O_SYMLINK")) {
+      fs.lutimes = function (path, at, mt, cb) {
+        fs.open(path, constants.O_SYMLINK, function (er, fd) {
+          if (er) {
+            if (cb) cb(er);
+            return;
+          }
+
+          fs.futimes(fd, at, mt, function (er) {
+            fs.close(fd, function (er2) {
+              if (cb) cb(er || er2);
+            });
+          });
+        });
+      };
+
+      fs.lutimesSync = function (path, at, mt) {
+        var fd = fs.openSync(path, constants.O_SYMLINK);
+        var ret;
+        var threw = true;
+
+        try {
+          ret = fs.futimesSync(fd, at, mt);
+          threw = false;
+        } finally {
+          if (threw) {
+            try {
+              fs.closeSync(fd);
+            } catch (er) {}
+          } else {
+            fs.closeSync(fd);
+          }
+        }
+
+        return ret;
+      };
+    } else {
+      fs.lutimes = function (_a, _b, _c, cb) {
+        if (cb) process.nextTick(cb);
+      };
+
+      fs.lutimesSync = function () {};
+    }
+  }
+
+  function chmodFix(orig) {
+    if (!orig) return orig;
+    return function (target, mode, cb) {
+      return orig.call(fs, target, mode, function (er) {
+        if (chownErOk(er)) er = null;
+        if (cb) cb.apply(this, arguments);
+      });
+    };
+  }
+
+  function chmodFixSync(orig) {
+    if (!orig) return orig;
+    return function (target, mode) {
+      try {
+        return orig.call(fs, target, mode);
+      } catch (er) {
+        if (!chownErOk(er)) throw er;
+      }
+    };
+  }
+
+  function chownFix(orig) {
+    if (!orig) return orig;
+    return function (target, uid, gid, cb) {
+      return orig.call(fs, target, uid, gid, function (er) {
+        if (chownErOk(er)) er = null;
+        if (cb) cb.apply(this, arguments);
+      });
+    };
+  }
+
+  function chownFixSync(orig) {
+    if (!orig) return orig;
+    return function (target, uid, gid) {
+      try {
+        return orig.call(fs, target, uid, gid);
+      } catch (er) {
+        if (!chownErOk(er)) throw er;
+      }
+    };
+  }
+
+  function statFix(orig) {
+    if (!orig) return orig; // Older versions of Node erroneously returned signed integers for
+    // uid + gid.
+
+    return function (target, options, cb) {
+      if (typeof options === 'function') {
+        cb = options;
+        options = null;
+      }
+
+      function callback(er, stats) {
+        if (stats) {
+          if (stats.uid < 0) stats.uid += 0x100000000;
+          if (stats.gid < 0) stats.gid += 0x100000000;
+        }
+
+        if (cb) cb.apply(this, arguments);
+      }
+
+      return options ? orig.call(fs, target, options, callback) : orig.call(fs, target, callback);
+    };
+  }
+
+  function statFixSync(orig) {
+    if (!orig) return orig; // Older versions of Node erroneously returned signed integers for
+    // uid + gid.
+
+    return function (target, options) {
+      var stats = options ? orig.call(fs, target, options) : orig.call(fs, target);
+      if (stats.uid < 0) stats.uid += 0x100000000;
+      if (stats.gid < 0) stats.gid += 0x100000000;
+      return stats;
+    };
+  } // ENOSYS means that the fs doesn't support the op. Just ignore
+  // that, because it doesn't matter.
+  //
+  // if there's no getuid, or if getuid() is something other
+  // than 0, and the error is EINVAL or EPERM, then just ignore
+  // it.
+  //
+  // This specific case is a silent failure in cp, install, tar,
+  // and most other unix tools that manage permissions.
+  //
+  // When running as root, or if other types of errors are
+  // encountered, then it's strict.
+
+
+  function chownErOk(er) {
+    if (!er) return true;
+    if (er.code === "ENOSYS") return true;
+    var nonroot = !process.getuid || process.getuid() !== 0;
+
+    if (nonroot) {
+      if (er.code === "EINVAL" || er.code === "EPERM") return true;
+    }
+
+    return false;
+  }
+}
 
 /***/ }),
 
@@ -41473,7 +42384,7 @@ const getChunkmap = (localeId, getFullResult = false, ignoreCache = false) => {
     if (typeof global.chunkmap === 'object') chunkmap = global.chunkmap;
 
     try {
-      chunkmap = JSON.parse("{\".zh\":{\".public\":\"public/\",\".out\":\"public/\",\".entrypoints\":{\"critical\":[\"public/includes/extract.122.a06d46ad1746738eecdc.css\",\"public/includes/entry.a06d46ad1746738eecdc.js\"],\"polyfill\":[\"public/includes/entry.45f01e5d47bf8365928f.js\",\"public/includes/entry.226a9f431fc23ac5e9ba.js\"],\"__KOOT__CLIENT__RUN__FIRST__\":[\"public/includes/entry.6d3307c999f5d0fc1875.js\"],\"client\":[\"public/includes/entry.72f4df800d1e6bcb57d7.js\",\"public/includes/entry.23babd346a8741452d3a.js\",\"public/includes/entry.1ac3565c99a7a8c45f54.js\"]},\".files\":{\"critical.css\":\"public/includes/extract.122.a06d46ad1746738eecdc.css\",\"critical.js\":\"public/includes/entry.a06d46ad1746738eecdc.js\",\"polyfill.js\":\"public/includes/entry.226a9f431fc23ac5e9ba.js\",\"__KOOT__CLIENT__RUN__FIRST__.js\":\"public/includes/entry.6d3307c999f5d0fc1875.js\",\"client.js\":\"public/includes/entry.1ac3565c99a7a8c45f54.js\",\"Home_Page.js\":\"public/includes/chunk.add1368b2409b7087676.js\",\"About_Page.js\":\"public/includes/chunk.8c77f9e59ba43aaa5257.js\",\"Fleet_Builder_Entry_Page.js\":\"public/includes/chunk.d3cdfb3c3fb4fc1d8c4c.js\",\"Fleet_Builder_Fleet_Details_Page.js\":\"public/includes/chunk.db736a1f2b98c5effd16.js\",\"Fleet_Builder_WIP_Blank_Page.js\":\"public/includes/chunk.accc75ea5debbebc241f.js\",\"TP_Calculator_Single-Page-Tool.js\":\"public/includes/chunk.86ff38398b8ac7ba557a.js\",\"Academy_Entry_Page.js\":\"public/includes/chunk.771910e431277bc3d5d9.js\",\"Sorties_List_Page.js\":\"public/includes/chunk.1fb9d6eb7234de6a037e.js\",\"Expeditions_List_Page.js\":\"public/includes/chunk.38a714ae7ccc47b99c7f.js\",\"Ship_List_Page.js\":\"public/includes/chunk.7cfba90588cfff8eef9b.js\",\"Ship_Details_Page.css\":\"public/includes/extract.605.39473684c3a18bd06776.css\",\"Ship_Details_Page.js\":\"public/includes/chunk.39473684c3a18bd06776.js\",\"Equipment_List_Page.js\":\"public/includes/chunk.12c6fb90303ad9998ab0.js\",\"Equipment_Details_Page.js\":\"public/includes/chunk.f097a73f4bccd5f1328b.js\",\"Arsenal_Page.js\":\"public/includes/chunk.dc033b414b20ac84098a.js\",\"People_List_Page.js\":\"public/includes/chunk.ec45d4c1e33db2365beb.js\",\"People_Details_Page.js\":\"public/includes/chunk.b7f83a816a2c284076d5.js\",\"Extra_CGs_Page.js\":\"public/includes/chunk.a0e952a5d137ade962e6.js\",\"nedb.js\":\"public/includes/chunk.01eb66bdcf5eda24b090.js\",\"libs.js\":\"public/includes/entry.72f4df800d1e6bcb57d7.js\",\"libs-others.js\":\"public/includes/chunk.7391646a3487ed2386ee.js\",\"vendors.js\":\"public/includes/entry.23babd346a8741452d3a.js\",\"__KOOT__EXTRACT__CSS__.css\":\"public/includes/extract.all.10835fadd6da7cced509017071fe202b.small.css\"},\"service-worker\":[\"public/service-worker.zh.js\"]},\".en\":{\".public\":\"public/\",\".out\":\"public/\",\".entrypoints\":{\"critical\":[\"public/includes/extract.122.b241f31b3dcd1f1ce685.css\",\"public/includes/entry.b241f31b3dcd1f1ce685.js\"],\"polyfill\":[\"public/includes/entry.45f01e5d47bf8365928f.js\",\"public/includes/entry.226a9f431fc23ac5e9ba.js\"],\"__KOOT__CLIENT__RUN__FIRST__\":[\"public/includes/entry.1a71b6319ca352ae80bb.js\"],\"client\":[\"public/includes/entry.72f4df800d1e6bcb57d7.js\",\"public/includes/entry.23babd346a8741452d3a.js\",\"public/includes/entry.c56245ec4e05aea4d837.js\"]},\".files\":{\"critical.css\":\"public/includes/extract.122.b241f31b3dcd1f1ce685.css\",\"critical.js\":\"public/includes/entry.b241f31b3dcd1f1ce685.js\",\"polyfill.js\":\"public/includes/entry.226a9f431fc23ac5e9ba.js\",\"__KOOT__CLIENT__RUN__FIRST__.js\":\"public/includes/entry.1a71b6319ca352ae80bb.js\",\"client.js\":\"public/includes/entry.c56245ec4e05aea4d837.js\",\"Home_Page_17.js\":\"public/includes/chunk.3af79b1b6f9511b5e395.js\",\"About_Page_18.js\":\"public/includes/chunk.d86ddc1de9542b44fc11.js\",\"Fleet_Builder_Entry_Page_21.js\":\"public/includes/chunk.52728b596fc95df32804.js\",\"Fleet_Builder_Fleet_Details_Page_22.js\":\"public/includes/chunk.1c06a844b0f42b553c2a.js\",\"Fleet_Builder_WIP_Blank_Page_23.js\":\"public/includes/chunk.1f7d58dd9b634bccf09d.js\",\"TP_Calculator_Single-Page-Tool_24.js\":\"public/includes/chunk.692526de8409119d19ec.js\",\"Academy_Entry_Page_25.js\":\"public/includes/chunk.5ab3109c0141b5940bff.js\",\"Sorties_List_Page_19.js\":\"public/includes/chunk.04ad19272b4aea23b470.js\",\"Expeditions_List_Page_20.js\":\"public/includes/chunk.3e4ac721596da24b8bde.js\",\"Ship_List_Page_26.js\":\"public/includes/chunk.cb636c00410468973242.js\",\"Ship_Details_Page_27.css\":\"public/includes/extract.688.4601d3323c140f6c282d.css\",\"Ship_Details_Page_27.js\":\"public/includes/chunk.4601d3323c140f6c282d.js\",\"Equipment_List_Page_28.js\":\"public/includes/chunk.17c12b53fe28390d4400.js\",\"Equipment_Details_Page_29.js\":\"public/includes/chunk.b363252453ae1876c1ab.js\",\"Arsenal_Page_30.js\":\"public/includes/chunk.e97cdafdb4c0afe64140.js\",\"People_List_Page_31.js\":\"public/includes/chunk.a4e2762fdfdf0752c8bc.js\",\"People_Details_Page_32.js\":\"public/includes/chunk.95fa86dc7ad2d90deeb3.js\",\"Extra_CGs_Page_33.js\":\"public/includes/chunk.169b4101e83f459cb9a2.js\",\"nedb.js\":\"public/includes/chunk.01eb66bdcf5eda24b090.js\",\"libs.js\":\"public/includes/entry.72f4df800d1e6bcb57d7.js\",\"libs-others.js\":\"public/includes/chunk.385adc28749ae1d6a5bb.js\",\"vendors.js\":\"public/includes/entry.23babd346a8741452d3a.js\",\"__KOOT__EXTRACT__CSS__.css\":\"public/includes/extract.all.10835fadd6da7cced509017071fe202b.small.css\"},\"service-worker\":[\"public/service-worker.en.js\"]},\".ja\":{\".public\":\"public/\",\".out\":\"public/\",\".entrypoints\":{\"critical\":[\"public/includes/extract.122.b241f31b3dcd1f1ce685.css\",\"public/includes/entry.b241f31b3dcd1f1ce685.js\"],\"polyfill\":[\"public/includes/entry.45f01e5d47bf8365928f.js\",\"public/includes/entry.226a9f431fc23ac5e9ba.js\"],\"__KOOT__CLIENT__RUN__FIRST__\":[\"public/includes/entry.1a71b6319ca352ae80bb.js\"],\"client\":[\"public/includes/entry.72f4df800d1e6bcb57d7.js\",\"public/includes/entry.23babd346a8741452d3a.js\",\"public/includes/entry.c7dd03bb5653d0f21777.js\"]},\".files\":{\"critical.css\":\"public/includes/extract.122.b241f31b3dcd1f1ce685.css\",\"critical.js\":\"public/includes/entry.b241f31b3dcd1f1ce685.js\",\"polyfill.js\":\"public/includes/entry.226a9f431fc23ac5e9ba.js\",\"__KOOT__CLIENT__RUN__FIRST__.js\":\"public/includes/entry.1a71b6319ca352ae80bb.js\",\"client.js\":\"public/includes/entry.c7dd03bb5653d0f21777.js\",\"Home_Page_34.js\":\"public/includes/chunk.694724c742a1a3494513.js\",\"About_Page_35.js\":\"public/includes/chunk.e2f6dcb5573a715059e0.js\",\"Fleet_Builder_Entry_Page_36.js\":\"public/includes/chunk.02d4ea48e59447335d7f.js\",\"Fleet_Builder_Fleet_Details_Page_37.js\":\"public/includes/chunk.5a70eec9d85f433e2fb7.js\",\"Fleet_Builder_WIP_Blank_Page_38.js\":\"public/includes/chunk.986f4d8b6462070b29c4.js\",\"TP_Calculator_Single-Page-Tool_39.js\":\"public/includes/chunk.5d220010e1e1f1ae31bb.js\",\"Academy_Entry_Page_40.js\":\"public/includes/chunk.3d2dce526cd6b2eefba1.js\",\"Sorties_List_Page_49.js\":\"public/includes/chunk.5b34e8f46b64a70e8a45.js\",\"Expeditions_List_Page_50.js\":\"public/includes/chunk.7a80376f50eed14e5269.js\",\"Ship_List_Page_41.js\":\"public/includes/chunk.4c02f69b06ad8a9a6cd5.js\",\"Ship_Details_Page_42.css\":\"public/includes/extract.217.aa7a3e6d93bce9141626.css\",\"Ship_Details_Page_42.js\":\"public/includes/chunk.aa7a3e6d93bce9141626.js\",\"Equipment_List_Page_43.js\":\"public/includes/chunk.eb908290d7b796807a25.js\",\"Equipment_Details_Page_44.js\":\"public/includes/chunk.c782cad2d1e7cf5f1326.js\",\"Arsenal_Page_45.js\":\"public/includes/chunk.8b1e5c9cac846a1abcc8.js\",\"People_List_Page_46.js\":\"public/includes/chunk.c6c5f17198a3c61ec828.js\",\"People_Details_Page_47.js\":\"public/includes/chunk.990c2e7ef78bc5e07dd4.js\",\"Extra_CGs_Page_48.js\":\"public/includes/chunk.192a62187b2a69bc5988.js\",\"nedb.js\":\"public/includes/chunk.01eb66bdcf5eda24b090.js\",\"libs.js\":\"public/includes/entry.72f4df800d1e6bcb57d7.js\",\"libs-others.js\":\"public/includes/chunk.385adc28749ae1d6a5bb.js\",\"vendors.js\":\"public/includes/entry.23babd346a8741452d3a.js\",\"__KOOT__EXTRACT__CSS__.css\":\"public/includes/extract.all.10835fadd6da7cced509017071fe202b.small.css\"},\"service-worker\":[\"public/service-worker.ja.js\"]}}");
+      chunkmap = JSON.parse("{\".zh\":{\".public\":\"public/\",\".out\":\"public/\",\".entrypoints\":{\"critical\":[\"public/includes/extract.122.a06d46ad1746738eecdc.css\",\"public/includes/entry.a06d46ad1746738eecdc.js\"],\"polyfill\":[\"public/includes/entry.45f01e5d47bf8365928f.js\",\"public/includes/entry.226a9f431fc23ac5e9ba.js\"],\"__KOOT__CLIENT__RUN__FIRST__\":[\"public/includes/entry.6d3307c999f5d0fc1875.js\"],\"client\":[\"public/includes/entry.72f4df800d1e6bcb57d7.js\",\"public/includes/entry.58110eb24a7e428a9ee0.js\",\"public/includes/entry.ca5ba62591b044ffcbb8.js\"]},\".files\":{\"critical.css\":\"public/includes/extract.122.a06d46ad1746738eecdc.css\",\"critical.js\":\"public/includes/entry.a06d46ad1746738eecdc.js\",\"polyfill.js\":\"public/includes/entry.226a9f431fc23ac5e9ba.js\",\"__KOOT__CLIENT__RUN__FIRST__.js\":\"public/includes/entry.6d3307c999f5d0fc1875.js\",\"client.js\":\"public/includes/entry.ca5ba62591b044ffcbb8.js\",\"Home_Page.js\":\"public/includes/chunk.d54995b270466fe9f855.js\",\"About_Page.js\":\"public/includes/chunk.8c77f9e59ba43aaa5257.js\",\"Fleet_Builder_Entry_Page.js\":\"public/includes/chunk.d3cdfb3c3fb4fc1d8c4c.js\",\"Fleet_Builder_Fleet_Details_Page.js\":\"public/includes/chunk.db736a1f2b98c5effd16.js\",\"Fleet_Builder_WIP_Blank_Page.js\":\"public/includes/chunk.accc75ea5debbebc241f.js\",\"TP_Calculator_Single-Page-Tool.js\":\"public/includes/chunk.86ff38398b8ac7ba557a.js\",\"Academy_Entry_Page.js\":\"public/includes/chunk.771910e431277bc3d5d9.js\",\"Sorties_List_Page.js\":\"public/includes/chunk.1fb9d6eb7234de6a037e.js\",\"Expeditions_List_Page.js\":\"public/includes/chunk.38a714ae7ccc47b99c7f.js\",\"Ship_List_Page.js\":\"public/includes/chunk.f6af6f9174e321455922.js\",\"Ship_Details_Page.css\":\"public/includes/extract.605.75542cdaf5569967390f.css\",\"Ship_Details_Page.js\":\"public/includes/chunk.75542cdaf5569967390f.js\",\"Equipment_List_Page.js\":\"public/includes/chunk.c84907c0e33067b6b43c.js\",\"Equipment_Details_Page.js\":\"public/includes/chunk.f097a73f4bccd5f1328b.js\",\"Arsenal_Page.js\":\"public/includes/chunk.dc033b414b20ac84098a.js\",\"People_List_Page.js\":\"public/includes/chunk.ec45d4c1e33db2365beb.js\",\"People_Details_Page.js\":\"public/includes/chunk.b7f83a816a2c284076d5.js\",\"Extra_CGs_Page.js\":\"public/includes/chunk.a0e952a5d137ade962e6.js\",\"nedb.js\":\"public/includes/chunk.01eb66bdcf5eda24b090.js\",\"libs.js\":\"public/includes/entry.72f4df800d1e6bcb57d7.js\",\"libs-others.js\":\"public/includes/chunk.7391646a3487ed2386ee.js\",\"vendors.js\":\"public/includes/entry.58110eb24a7e428a9ee0.js\",\"__KOOT__EXTRACT__CSS__.css\":\"public/includes/extract.all.10835fadd6da7cced509017071fe202b.small.css\"},\"service-worker\":[\"public/service-worker.zh.js\"]},\".en\":{\".public\":\"public/\",\".out\":\"public/\",\".entrypoints\":{\"critical\":[\"public/includes/extract.122.b241f31b3dcd1f1ce685.css\",\"public/includes/entry.b241f31b3dcd1f1ce685.js\"],\"polyfill\":[\"public/includes/entry.45f01e5d47bf8365928f.js\",\"public/includes/entry.226a9f431fc23ac5e9ba.js\"],\"__KOOT__CLIENT__RUN__FIRST__\":[\"public/includes/entry.1a71b6319ca352ae80bb.js\"],\"client\":[\"public/includes/entry.72f4df800d1e6bcb57d7.js\",\"public/includes/entry.58110eb24a7e428a9ee0.js\",\"public/includes/entry.7a6ff8b236b77e86398d.js\"]},\".files\":{\"critical.css\":\"public/includes/extract.122.b241f31b3dcd1f1ce685.css\",\"critical.js\":\"public/includes/entry.b241f31b3dcd1f1ce685.js\",\"polyfill.js\":\"public/includes/entry.226a9f431fc23ac5e9ba.js\",\"__KOOT__CLIENT__RUN__FIRST__.js\":\"public/includes/entry.1a71b6319ca352ae80bb.js\",\"client.js\":\"public/includes/entry.7a6ff8b236b77e86398d.js\",\"Home_Page_17.js\":\"public/includes/chunk.27ca46ec69be04211553.js\",\"About_Page_18.js\":\"public/includes/chunk.d86ddc1de9542b44fc11.js\",\"Fleet_Builder_Entry_Page_21.js\":\"public/includes/chunk.52728b596fc95df32804.js\",\"Fleet_Builder_Fleet_Details_Page_22.js\":\"public/includes/chunk.0d566efd861c1d624013.js\",\"Fleet_Builder_WIP_Blank_Page_23.js\":\"public/includes/chunk.1f7d58dd9b634bccf09d.js\",\"TP_Calculator_Single-Page-Tool_24.js\":\"public/includes/chunk.692526de8409119d19ec.js\",\"Academy_Entry_Page_25.js\":\"public/includes/chunk.5ab3109c0141b5940bff.js\",\"Sorties_List_Page_19.js\":\"public/includes/chunk.04ad19272b4aea23b470.js\",\"Expeditions_List_Page_20.js\":\"public/includes/chunk.3e4ac721596da24b8bde.js\",\"Ship_List_Page_26.js\":\"public/includes/chunk.c72abcc20b60d42ce159.js\",\"Ship_Details_Page_27.css\":\"public/includes/extract.688.9ce2ff6f889412d6ba49.css\",\"Ship_Details_Page_27.js\":\"public/includes/chunk.9ce2ff6f889412d6ba49.js\",\"Equipment_List_Page_28.js\":\"public/includes/chunk.e6be1d183af70d6b19a1.js\",\"Equipment_Details_Page_29.js\":\"public/includes/chunk.b363252453ae1876c1ab.js\",\"Arsenal_Page_30.js\":\"public/includes/chunk.e97cdafdb4c0afe64140.js\",\"People_List_Page_31.js\":\"public/includes/chunk.a4e2762fdfdf0752c8bc.js\",\"People_Details_Page_32.js\":\"public/includes/chunk.95fa86dc7ad2d90deeb3.js\",\"Extra_CGs_Page_33.js\":\"public/includes/chunk.169b4101e83f459cb9a2.js\",\"nedb.js\":\"public/includes/chunk.01eb66bdcf5eda24b090.js\",\"libs.js\":\"public/includes/entry.72f4df800d1e6bcb57d7.js\",\"libs-others.js\":\"public/includes/chunk.385adc28749ae1d6a5bb.js\",\"vendors.js\":\"public/includes/entry.58110eb24a7e428a9ee0.js\",\"__KOOT__EXTRACT__CSS__.css\":\"public/includes/extract.all.10835fadd6da7cced509017071fe202b.small.css\"},\"service-worker\":[\"public/service-worker.en.js\"]},\".ja\":{\".public\":\"public/\",\".out\":\"public/\",\".entrypoints\":{\"critical\":[\"public/includes/extract.122.b241f31b3dcd1f1ce685.css\",\"public/includes/entry.b241f31b3dcd1f1ce685.js\"],\"polyfill\":[\"public/includes/entry.45f01e5d47bf8365928f.js\",\"public/includes/entry.226a9f431fc23ac5e9ba.js\"],\"__KOOT__CLIENT__RUN__FIRST__\":[\"public/includes/entry.1a71b6319ca352ae80bb.js\"],\"client\":[\"public/includes/entry.72f4df800d1e6bcb57d7.js\",\"public/includes/entry.58110eb24a7e428a9ee0.js\",\"public/includes/entry.a6b55531b3c7c0cbf688.js\"]},\".files\":{\"critical.css\":\"public/includes/extract.122.b241f31b3dcd1f1ce685.css\",\"critical.js\":\"public/includes/entry.b241f31b3dcd1f1ce685.js\",\"polyfill.js\":\"public/includes/entry.226a9f431fc23ac5e9ba.js\",\"__KOOT__CLIENT__RUN__FIRST__.js\":\"public/includes/entry.1a71b6319ca352ae80bb.js\",\"client.js\":\"public/includes/entry.a6b55531b3c7c0cbf688.js\",\"Home_Page_34.js\":\"public/includes/chunk.f8e624b1273cd4455686.js\",\"About_Page_35.js\":\"public/includes/chunk.e2f6dcb5573a715059e0.js\",\"Fleet_Builder_Entry_Page_36.js\":\"public/includes/chunk.02d4ea48e59447335d7f.js\",\"Fleet_Builder_Fleet_Details_Page_37.js\":\"public/includes/chunk.556891c142f97695bdb4.js\",\"Fleet_Builder_WIP_Blank_Page_38.js\":\"public/includes/chunk.986f4d8b6462070b29c4.js\",\"TP_Calculator_Single-Page-Tool_39.js\":\"public/includes/chunk.5d220010e1e1f1ae31bb.js\",\"Academy_Entry_Page_40.js\":\"public/includes/chunk.3d2dce526cd6b2eefba1.js\",\"Sorties_List_Page_49.js\":\"public/includes/chunk.5b34e8f46b64a70e8a45.js\",\"Expeditions_List_Page_50.js\":\"public/includes/chunk.7a80376f50eed14e5269.js\",\"Ship_List_Page_41.js\":\"public/includes/chunk.4c02f69b06ad8a9a6cd5.js\",\"Ship_Details_Page_42.css\":\"public/includes/extract.217.dbd4e4ccf3c67dcc0620.css\",\"Ship_Details_Page_42.js\":\"public/includes/chunk.dbd4e4ccf3c67dcc0620.js\",\"Equipment_List_Page_43.js\":\"public/includes/chunk.8c0cbfb26e688f4a38dd.js\",\"Equipment_Details_Page_44.js\":\"public/includes/chunk.e45b7163cc3074d97072.js\",\"Arsenal_Page_45.js\":\"public/includes/chunk.8b1e5c9cac846a1abcc8.js\",\"People_List_Page_46.js\":\"public/includes/chunk.c6c5f17198a3c61ec828.js\",\"People_Details_Page_47.js\":\"public/includes/chunk.990c2e7ef78bc5e07dd4.js\",\"Extra_CGs_Page_48.js\":\"public/includes/chunk.192a62187b2a69bc5988.js\",\"nedb.js\":\"public/includes/chunk.01eb66bdcf5eda24b090.js\",\"libs.js\":\"public/includes/entry.72f4df800d1e6bcb57d7.js\",\"libs-others.js\":\"public/includes/chunk.385adc28749ae1d6a5bb.js\",\"vendors.js\":\"public/includes/entry.58110eb24a7e428a9ee0.js\",\"__KOOT__EXTRACT__CSS__.css\":\"public/includes/extract.all.10835fadd6da7cced509017071fe202b.small.css\"},\"service-worker\":[\"public/service-worker.ja.js\"]}}");
     } catch (e) {
       chunkmap = false;
     }
