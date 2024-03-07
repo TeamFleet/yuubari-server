@@ -11136,7 +11136,6 @@ module.exports.ISO_2022_JP = function () {
   [0x1b, 0x2e, 0x46] // ISO 8859-7
   ];
 };
-
 util.inherits(module.exports.ISO_2022_JP, ISO_2022);
 module.exports.ISO_2022_KR = function () {
   this.name = function () {
@@ -11172,7 +11171,6 @@ module.exports.ISO_2022_CN = function () {
   [0x1b, 0x4f] // SS3
   ];
 };
-
 util.inherits(module.exports.ISO_2022_CN, ISO_2022);
 
 /***/ }),
@@ -14212,7 +14210,6 @@ function setup(env) {
       hash = (hash << 5) - hash + namespace.charCodeAt(i);
       hash |= 0; // Convert to 32bit integer
     }
-
     return createDebug.colors[Math.abs(hash) % createDebug.colors.length];
   }
   createDebug.selectColor = selectColor;
@@ -15074,13 +15071,11 @@ function formatColor(msg, caller, stack) {
     for (var i = 0; i < stack.length; i++) {
       formatted += '\n    \x1b[36mat ' + stack[i].toString() + '\x1b[39m'; // cyan
     }
-
     return formatted;
   }
   if (caller) {
     formatted += ' \x1b[36m' + formatLocation(caller) + '\x1b[39m'; // cyan
   }
-
   return formatted;
 }
 
@@ -21344,7 +21339,6 @@ var createHistory = function createHistory() {
       }
     });
   };
-
   var push = function push(input) {
     return transitionTo(createLocation(input, _Actions.PUSH));
   };
@@ -21671,11 +21665,9 @@ assert.fail = function (status, msg, opts) {
 assert.equal = function (a, b, status, msg, opts) {
   assert(a == b, status, msg, opts); // eslint-disable-line eqeqeq
 };
-
 assert.notEqual = function (a, b, status, msg, opts) {
   assert(a != b, status, msg, opts); // eslint-disable-line eqeqeq
 };
-
 assert.ok = function (value, status, msg, opts) {
   assert(value, status, msg, opts);
 };
@@ -22135,13 +22127,11 @@ function formatColor(msg, caller, stack) {
     for (var i = 0; i < stack.length; i++) {
       formatted += '\n    \x1b[36mat ' + callSiteToString(stack[i]) + '\x1b[39m'; // cyan
     }
-
     return formatted;
   }
   if (caller) {
     formatted += ' \x1b[36m' + formatLocation(caller) + '\x1b[39m'; // cyan
   }
-
   return formatted;
 }
 
@@ -23730,7 +23720,6 @@ module.exports = {
       server.emit('open', proxySocket);
       server.emit('proxySocket', proxySocket); //DEPRECATED.
     });
-
     return proxyReq.end(); // XXX: CHECK IF THIS IS THIS CORRECT
 
     function onOutgoingError(err) {
@@ -26051,7 +26040,6 @@ iconv.decode = function decode(buf, encoding, options) {
     }
     buf = Buffer.from("" + (buf || ""), "binary"); // Ensure buffer.
   }
-
   var decoder = iconv.getDecoder(encoding, options);
   var res = decoder.write(buf);
   var trail = decoder.end();
@@ -28392,7 +28380,6 @@ class PromptUI extends Base {
     const obs = Array.isArray(questions) ? from(questions) : questions;
     this.process = obs.pipe(concatMap(this.processQuestion.bind(this)), publish() // Creates a hot Observable. It prevents duplicating prompts.
     );
-
     this.process.connect();
     return this.process.pipe(reduce((answers, answer) => {
       _.set(answers, answer.name, answer.answer);
@@ -29586,7 +29573,6 @@ module.exports = (path, options) => {
         if (typeof errorHandler === 'function') {
           errorHandler(e, ...args); // If this error handler sends the headers, the ctx.status setter below is ignored
         }
-
         const status = {
           ECONNREFUSED: 503,
           ETIMEOUT: 504
@@ -30448,7 +30434,6 @@ function setup(env) {
       hash = (hash << 5) - hash + namespace.charCodeAt(i);
       hash |= 0; // Convert to 32bit integer
     }
-
     return createDebug.colors[Math.abs(hash) % createDebug.colors.length];
   }
   createDebug.selectColor = selectColor;
@@ -31114,13 +31099,11 @@ function formatColor(msg, caller, stack) {
     for (var i = 0; i < stack.length; i++) {
       formatted += '\n    \x1b[36mat ' + callSiteToString(stack[i]) + '\x1b[39m'; // cyan
     }
-
     return formatted;
   }
   if (caller) {
     formatted += ' \x1b[36m' + formatLocation(caller) + '\x1b[39m'; // cyan
   }
-
   return formatted;
 }
 
@@ -32192,7 +32175,6 @@ function setup(env) {
       hash = (hash << 5) - hash + namespace.charCodeAt(i);
       hash |= 0; // Convert to 32bit integer
     }
-
     return createDebug.colors[Math.abs(hash) % createDebug.colors.length];
   }
   createDebug.selectColor = selectColor;
@@ -34006,7 +33988,6 @@ module.exports = {
     } = this;
     return typeof res.getHeaders === 'function' ? res.getHeaders() : res._headers || {}; // Node < 7.7
   },
-
   /**
    * Return response header, alias as response.header
    *
@@ -35085,13 +35066,11 @@ function formatColor(msg, caller, stack) {
     for (var i = 0; i < stack.length; i++) {
       formatted += '\n    \x1b[36mat ' + callSiteToString(stack[i]) + '\x1b[39m'; // cyan
     }
-
     return formatted;
   }
   if (caller) {
     formatted += ' \x1b[36m' + formatLocation(caller) + '\x1b[39m'; // cyan
   }
-
   return formatted;
 }
 
@@ -35615,7 +35594,6 @@ const middlewareIsomorphic = (options = {}) => {
     templateInjectCache.set('', cache);
     // styleMap.set('', {})
   }
-
   if (Array.isArray((_i18n_locale_ids__WEBPACK_IMPORTED_MODULE_3___default()))) {
     _i18n_locale_ids__WEBPACK_IMPORTED_MODULE_3___default().forEach(localeId => {
       globalCache.set(localeId, {});
@@ -35627,7 +35605,6 @@ const middlewareIsomorphic = (options = {}) => {
       // });
     });
   }
-
   return async (ctx, next) => {
     /** @type {String} 本次请求的 URL */
     const url = ctx.path + ctx.search;
@@ -35641,7 +35618,6 @@ const middlewareIsomorphic = (options = {}) => {
       if (false) {}
       // log('success', 'server', `render success ${ctx.href}\n`);
     }
-
     try {
       // console.log('request url', url)
       // console.log('\nSSR middleware start')
@@ -35860,13 +35836,11 @@ const ssr =  false ? 0 : ctx => new Promise((resolve, reject) => {
       delete thisContext.global;
       // delete thisContext[KOAContext]
     }
-
     thisContext = undefined;
     purgeSSRContext(ctx);
     resolve(result);
     // });
   };
-
   ctx[_defaults_defines_server__WEBPACK_IMPORTED_MODULE_0__.ssrContext].ssrComplete = ssrComplete;
 
   // if (!__KOOT_SSR_FILE_CONTENT__) {
@@ -35979,7 +35953,6 @@ const purgeSSRContext = ctx => {
   // console.log('purged...', ctx[SSRContext]);
   // console.log(' \n\n\n\n\n ');
 };
-
 const purgeObject = obj => {
   if (!obj || typeof obj !== 'object') return;
   for (const key of Object.keys(obj)) {
@@ -36514,7 +36487,7 @@ __webpack_require__.r(__webpack_exports__);
  */
 const validateTemplate = template => {
   if (false) {}
-  if (true) template = "<!DOCTYPE html>\r\n<html <%- inject.htmlLang -%> <%- inject.htmlClassName -%>>\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n\r\n    <title><%= inject.title -%></title>\r\n\r\n    <base target=\"_self\">\r\n\r\n    <meta name=\"viewport\" content=\"width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no\">\r\n    <meta name=\"format-detection\" content=\"telephone=no,email=no,address=no\">\r\n    <meta name=\"format-detection\" content=\"email=no\">\r\n    <meta name=\"format-detection\" content=\"address=no\">\r\n    <meta name=\"format-detection\" content=\"telephone=no\">\r\n    <meta name=\"HandheldFriendly\" content=\"true\">\r\n    <meta name=\"mobile-web-app-capable\" content=\"yes\">\r\n\r\n    <link rel=\"shortcut icon\" href=\"/favicon.ico\" type=\"image/x-icon\">\r\n    <link rel=\"icon\" href=\"/icon-256.png\" type=\"image/png\" sizes=\"256x256\">\r\n    <link rel=\"icon\" href=\"/icon-128.png\" type=\"image/png\" sizes=\"128x128\">\r\n    <%- inject.manifest -%>\r\n\r\n    <meta name=\"theme-color\" content=\"#263238\" />\r\n\r\n    <!-- IE/Edge -->\r\n    <meta name=\"renderer\" content=\"webkit\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">\r\n\r\n    <!-- iOS -->\r\n    <meta name=\"apple-mobile-web-app-capable\" content=\"yes\">\r\n    <meta name=\"apple-mobile-web-app-status-bar-style\" content=\"black-translucent\">\r\n\r\n    <meta name=\"copyright\" content=\"Copyright (c) 2021 fleet.moe\">\r\n\r\n    <!-- Polyfill for legacy browsers -->\r\n    <script nomodule type=\"text/javascript\" src=\"<%- pathname('polyfill.js') %>\"></script>\r\n\r\n    <%- inject.metas -%>\r\n    <%- inject.styles -%>\r\n    <%- inject.definePath -%>\r\n</head>\r\n\r\n<body>\r\n\r\n    <div id=\"boat-loader\">LOADING...</div>\r\n    <noscript><%- inject.noScriptWarningText %></noscript>\r\n\r\n    <div id=\"root\"><%- inject.react %></div>\r\n\r\n    <%- inject.svgIcons %>\r\n\r\n    <script type=\"text/javascript\"><%- content('critical.js') %></script>\r\n\r\n    <%- inject.scripts %>\r\n\r\n    <script>\r\n        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){\r\n        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),\r\n        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)\r\n        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');\r\n\r\n        ga('create', 'UA-63582858-4', 'auto');\r\n        ga('send', 'pageview');\r\n    </script>\r\n</body>\r\n\r\n</html>\r\n\n<!-- rendered by using koot.js 0.15.13 -->";
+  if (true) template = "<!DOCTYPE html>\r\n<html <%- inject.htmlLang -%> <%- inject.htmlClassName -%>>\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n\r\n    <title><%= inject.title -%></title>\r\n\r\n    <base target=\"_self\">\r\n\r\n    <meta name=\"viewport\" content=\"width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no\">\r\n    <meta name=\"format-detection\" content=\"telephone=no,email=no,address=no\">\r\n    <meta name=\"format-detection\" content=\"email=no\">\r\n    <meta name=\"format-detection\" content=\"address=no\">\r\n    <meta name=\"format-detection\" content=\"telephone=no\">\r\n    <meta name=\"HandheldFriendly\" content=\"true\">\r\n    <meta name=\"mobile-web-app-capable\" content=\"yes\">\r\n\r\n    <link rel=\"shortcut icon\" href=\"/favicon.ico\" type=\"image/x-icon\">\r\n    <link rel=\"icon\" href=\"/icon-256.png\" type=\"image/png\" sizes=\"256x256\">\r\n    <link rel=\"icon\" href=\"/icon-128.png\" type=\"image/png\" sizes=\"128x128\">\r\n    <%- inject.manifest -%>\r\n\r\n    <meta name=\"theme-color\" content=\"#263238\" />\r\n\r\n    <!-- IE/Edge -->\r\n    <meta name=\"renderer\" content=\"webkit\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">\r\n\r\n    <!-- iOS -->\r\n    <meta name=\"apple-mobile-web-app-capable\" content=\"yes\">\r\n    <meta name=\"apple-mobile-web-app-status-bar-style\" content=\"black-translucent\">\r\n\r\n    <meta name=\"copyright\" content=\"Copyright (c) 2021 fleet.moe\">\r\n\r\n    <!-- Polyfill for legacy browsers -->\r\n    <script nomodule type=\"text/javascript\" src=\"<%- pathname('polyfill.js') %>\"></script>\r\n\r\n    <%- inject.metas -%>\r\n    <%- inject.styles -%>\r\n    <%- inject.definePath -%>\r\n</head>\r\n\r\n<body>\r\n\r\n    <div id=\"boat-loader\">LOADING...</div>\r\n    <noscript><%- inject.noScriptWarningText %></noscript>\r\n\r\n    <div id=\"root\"><%- inject.react %></div>\r\n\r\n    <%- inject.svgIcons %>\r\n\r\n    <script type=\"text/javascript\"><%- content('critical.js') %></script>\r\n\r\n    <%- inject.scripts %>\r\n\r\n    <script>\r\n        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){\r\n        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),\r\n        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)\r\n        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');\r\n\r\n        ga('create', 'UA-63582858-4', 'auto');\r\n        ga('send', 'pageview');\r\n    </script>\r\n</body>\r\n\r\n</html>\r\n\n<!-- rendered by using koot.js 0.15.15 -->";
   if (typeof template !== 'string') throw new Error(_libs_error_msg__WEBPACK_IMPORTED_MODULE_0___default()('VALIDATE_TEMPLATE', '`config.template` should be Pathname or EJS String'));
 
   // process.env.KOOT_HTML_TEMPLATE = template
@@ -36859,7 +36832,6 @@ function isFunctionalComponent(Component) {
   // special property
   );
 }
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (isFunctionalComponent);
 
 /***/ }),
@@ -38920,7 +38892,7 @@ const getChunkmap = (localeId, getFullResult = false, ignoreCache = false) => {
     let chunkmap;
     if (typeof global.chunkmap === 'object') chunkmap = global.chunkmap;
     try {
-      chunkmap = JSON.parse("{\".zh\":{\".public\":\"public/\",\".out\":\"public/\",\".entrypoints\":{\"critical\":[\"public/includes/extract.122.7165f99da624e6f73f32.css\",\"public/includes/entry.7165f99da624e6f73f32.js\"],\"polyfill\":[\"public/includes/entry.2d6ac598e8c584364a1a.js\",\"public/includes/entry.f5947ccd02bf19753ad4.js\"],\"__KOOT__CLIENT__RUN__FIRST__\":[\"public/includes/entry.7f8f561531ea12c108ac.js\"],\"client\":[\"public/includes/entry.031c63c9c328b1347315.js\",\"public/includes/entry.e2eacd9db3e38b14bd71.js\",\"public/includes/entry.988dcd5cbd0b0edf8acd.js\"]},\".files\":{\"critical.css\":\"public/includes/extract.122.7165f99da624e6f73f32.css\",\"critical.js\":\"public/includes/entry.7165f99da624e6f73f32.js\",\"polyfill.js\":\"public/includes/entry.f5947ccd02bf19753ad4.js\",\"__KOOT__CLIENT__RUN__FIRST__.js\":\"public/includes/entry.7f8f561531ea12c108ac.js\",\"client.js\":\"public/includes/entry.988dcd5cbd0b0edf8acd.js\",\"Home_Page.js\":\"public/includes/chunk.8fb224418685e20d391d.js\",\"About_Page.js\":\"public/includes/chunk.6854981081a9cd6f84da.js\",\"Fleet_Builder_Entry_Page.js\":\"public/includes/chunk.db2d0b27bf546eb9c5d0.js\",\"Fleet_Builder_Fleet_Details_Page.js\":\"public/includes/chunk.30f428a62e11e5e5ebc8.js\",\"Fleet_Builder_WIP_Blank_Page.js\":\"public/includes/chunk.2f9f364f9956dcd225ae.js\",\"TP_Calculator_Single-Page-Tool.js\":\"public/includes/chunk.8b113003e5db37843022.js\",\"Academy_Entry_Page.js\":\"public/includes/chunk.b706644ffa679bac4507.js\",\"Sorties_List_Page.js\":\"public/includes/chunk.f3e79951c4bd48daa17c.js\",\"Expeditions_List_Page.js\":\"public/includes/chunk.3b75ac8769262fa44f5c.js\",\"Ship_List_Page.js\":\"public/includes/chunk.69e3629a04bc7e108bce.js\",\"Ship_Details_Page.css\":\"public/includes/extract.605.f9a7af411539aa070bab.css\",\"Ship_Details_Page.js\":\"public/includes/chunk.f9a7af411539aa070bab.js\",\"Equipment_List_Page.js\":\"public/includes/chunk.1723e15c3f9e2ebd05ed.js\",\"Equipment_Details_Page.js\":\"public/includes/chunk.416f2d721bd91b9409cc.js\",\"Arsenal_Page.js\":\"public/includes/chunk.f4255f0aa35717bdab2c.js\",\"People_List_Page.js\":\"public/includes/chunk.5b792e828073acecf8e3.js\",\"People_Details_Page.js\":\"public/includes/chunk.c09a13a52404bab11138.js\",\"Extra_CGs_Page.js\":\"public/includes/chunk.30cf5f3de2147cff6ff1.js\",\"nedb.js\":\"public/includes/chunk.8f7fd6e9bcae95fc8b98.js\",\"libs.js\":\"public/includes/entry.031c63c9c328b1347315.js\",\"libs-others.js\":\"public/includes/chunk.a05ea6e4708680598690.js\",\"vendors.js\":\"public/includes/entry.e2eacd9db3e38b14bd71.js\",\"__KOOT__EXTRACT__CSS__.css\":\"public/includes/extract.all.10835fadd6da7cced509017071fe202b.small.css\"},\"service-worker\":[\"public/service-worker.zh.js\"]},\".en\":{\".public\":\"public/\",\".out\":\"public/\",\".entrypoints\":{\"critical\":[\"public/includes/extract.122.cb9e472c708bd1291e43.css\",\"public/includes/entry.cb9e472c708bd1291e43.js\"],\"polyfill\":[\"public/includes/entry.2d6ac598e8c584364a1a.js\",\"public/includes/entry.f5947ccd02bf19753ad4.js\"],\"__KOOT__CLIENT__RUN__FIRST__\":[\"public/includes/entry.283c7976ebc4f2e97024.js\"],\"client\":[\"public/includes/entry.031c63c9c328b1347315.js\",\"public/includes/entry.e2eacd9db3e38b14bd71.js\",\"public/includes/entry.74e7c1805a4d8c334c37.js\"]},\".files\":{\"critical.css\":\"public/includes/extract.122.cb9e472c708bd1291e43.css\",\"critical.js\":\"public/includes/entry.cb9e472c708bd1291e43.js\",\"polyfill.js\":\"public/includes/entry.f5947ccd02bf19753ad4.js\",\"__KOOT__CLIENT__RUN__FIRST__.js\":\"public/includes/entry.283c7976ebc4f2e97024.js\",\"client.js\":\"public/includes/entry.74e7c1805a4d8c334c37.js\",\"Home_Page_17.js\":\"public/includes/chunk.af664faa8ce88f352d38.js\",\"About_Page_18.js\":\"public/includes/chunk.859d150179641eec4b13.js\",\"Fleet_Builder_Entry_Page_29.js\":\"public/includes/chunk.c4192d9602bf5c2065fe.js\",\"Fleet_Builder_Fleet_Details_Page_30.js\":\"public/includes/chunk.ede10f67ea88eea6c517.js\",\"Fleet_Builder_WIP_Blank_Page_31.js\":\"public/includes/chunk.f5335627eaa127c0fd90.js\",\"TP_Calculator_Single-Page-Tool_32.js\":\"public/includes/chunk.358c8bcf01789447a6b6.js\",\"Academy_Entry_Page_33.js\":\"public/includes/chunk.12ded949239f165600b4.js\",\"Sorties_List_Page_27.js\":\"public/includes/chunk.45cc009fe981a689fd6d.js\",\"Expeditions_List_Page_28.js\":\"public/includes/chunk.56030818157cfe9865ea.js\",\"Ship_List_Page_19.js\":\"public/includes/chunk.8f8ab4fecfdc9e6fd47b.js\",\"Ship_Details_Page_20.css\":\"public/includes/extract.752.006365b76052ebafa34e.css\",\"Ship_Details_Page_20.js\":\"public/includes/chunk.006365b76052ebafa34e.js\",\"Equipment_List_Page_21.js\":\"public/includes/chunk.4dc9bfd7df5628abcd73.js\",\"Equipment_Details_Page_22.js\":\"public/includes/chunk.f3276d1a4968d5b4f73b.js\",\"Arsenal_Page_23.js\":\"public/includes/chunk.615e55e1a8c763e87546.js\",\"People_List_Page_24.js\":\"public/includes/chunk.8c3e5f8c5ed6ee401896.js\",\"People_Details_Page_25.js\":\"public/includes/chunk.3accbf441e1c1ca70d22.js\",\"Extra_CGs_Page_26.js\":\"public/includes/chunk.4d51e3b74100b11d251a.js\",\"nedb.js\":\"public/includes/chunk.8f7fd6e9bcae95fc8b98.js\",\"libs.js\":\"public/includes/entry.031c63c9c328b1347315.js\",\"libs-others.js\":\"public/includes/chunk.9311c023ce0a325828b4.js\",\"vendors.js\":\"public/includes/entry.e2eacd9db3e38b14bd71.js\",\"__KOOT__EXTRACT__CSS__.css\":\"public/includes/extract.all.10835fadd6da7cced509017071fe202b.small.css\"},\"service-worker\":[\"public/service-worker.en.js\"]},\".ja\":{\".public\":\"public/\",\".out\":\"public/\",\".entrypoints\":{\"critical\":[\"public/includes/extract.122.cb9e472c708bd1291e43.css\",\"public/includes/entry.cb9e472c708bd1291e43.js\"],\"polyfill\":[\"public/includes/entry.2d6ac598e8c584364a1a.js\",\"public/includes/entry.f5947ccd02bf19753ad4.js\"],\"__KOOT__CLIENT__RUN__FIRST__\":[\"public/includes/entry.283c7976ebc4f2e97024.js\"],\"client\":[\"public/includes/entry.031c63c9c328b1347315.js\",\"public/includes/entry.e2eacd9db3e38b14bd71.js\",\"public/includes/entry.a6df8b2bedc666fd818c.js\"]},\".files\":{\"critical.css\":\"public/includes/extract.122.cb9e472c708bd1291e43.css\",\"critical.js\":\"public/includes/entry.cb9e472c708bd1291e43.js\",\"polyfill.js\":\"public/includes/entry.f5947ccd02bf19753ad4.js\",\"__KOOT__CLIENT__RUN__FIRST__.js\":\"public/includes/entry.283c7976ebc4f2e97024.js\",\"client.js\":\"public/includes/entry.a6df8b2bedc666fd818c.js\",\"Home_Page_34.js\":\"public/includes/chunk.f84948392bace54a9e17.js\",\"About_Page_35.js\":\"public/includes/chunk.63f0cecd4f4d03ee0acb.js\",\"Fleet_Builder_Entry_Page_36.js\":\"public/includes/chunk.09fe437d1f70f98029c9.js\",\"Fleet_Builder_Fleet_Details_Page_37.js\":\"public/includes/chunk.79368a0cb54237c25b53.js\",\"Fleet_Builder_WIP_Blank_Page_38.js\":\"public/includes/chunk.944ec9817f9d207792b2.js\",\"TP_Calculator_Single-Page-Tool_39.js\":\"public/includes/chunk.46979ef0e2e98fe034b6.js\",\"Academy_Entry_Page_40.js\":\"public/includes/chunk.628113157da254fd1c90.js\",\"Sorties_List_Page_49.js\":\"public/includes/chunk.88be282b3a969873163a.js\",\"Expeditions_List_Page_50.js\":\"public/includes/chunk.daa7a49ee0b3e2dfc3d9.js\",\"Ship_List_Page_41.js\":\"public/includes/chunk.54863419ff574b66b836.js\",\"Ship_Details_Page_42.css\":\"public/includes/extract.217.3eaf23b99a7201605354.css\",\"Ship_Details_Page_42.js\":\"public/includes/chunk.3eaf23b99a7201605354.js\",\"Equipment_List_Page_43.js\":\"public/includes/chunk.726e4eee0eb548d9d2a3.js\",\"Equipment_Details_Page_44.js\":\"public/includes/chunk.dd2852c29b0214f8ed78.js\",\"Arsenal_Page_45.js\":\"public/includes/chunk.527d94c117a55736d0c0.js\",\"People_List_Page_46.js\":\"public/includes/chunk.baa8018a57e39e3f0f31.js\",\"People_Details_Page_47.js\":\"public/includes/chunk.b116223fa35ab7485373.js\",\"Extra_CGs_Page_48.js\":\"public/includes/chunk.24a421e04c38a2d237af.js\",\"nedb.js\":\"public/includes/chunk.8f7fd6e9bcae95fc8b98.js\",\"libs.js\":\"public/includes/entry.031c63c9c328b1347315.js\",\"libs-others.js\":\"public/includes/chunk.9311c023ce0a325828b4.js\",\"vendors.js\":\"public/includes/entry.e2eacd9db3e38b14bd71.js\",\"__KOOT__EXTRACT__CSS__.css\":\"public/includes/extract.all.10835fadd6da7cced509017071fe202b.small.css\"},\"service-worker\":[\"public/service-worker.ja.js\"]}}");
+      chunkmap = JSON.parse("{\".zh\":{\".public\":\"public/\",\".out\":\"public/\",\".entrypoints\":{\"critical\":[\"public/includes/extract.122.7165f99da624e6f73f32.css\",\"public/includes/entry.7165f99da624e6f73f32.js\"],\"polyfill\":[\"public/includes/entry.45975731a39c918d01df.js\",\"public/includes/entry.f5947ccd02bf19753ad4.js\"],\"__KOOT__CLIENT__RUN__FIRST__\":[\"public/includes/entry.94b83d6d4b2477433cf1.js\"],\"client\":[\"public/includes/entry.234cb64307bc36342e32.js\",\"public/includes/entry.556453e0e8b09bf80084.js\",\"public/includes/entry.f15e6f143ebab43fbe2d.js\"]},\".files\":{\"critical.css\":\"public/includes/extract.122.7165f99da624e6f73f32.css\",\"critical.js\":\"public/includes/entry.7165f99da624e6f73f32.js\",\"polyfill.js\":\"public/includes/entry.f5947ccd02bf19753ad4.js\",\"__KOOT__CLIENT__RUN__FIRST__.js\":\"public/includes/entry.94b83d6d4b2477433cf1.js\",\"client.js\":\"public/includes/entry.f15e6f143ebab43fbe2d.js\",\"Home_Page.js\":\"public/includes/chunk.a0339b98740e68966fba.js\",\"About_Page.js\":\"public/includes/chunk.f82bb17a151087476b2a.js\",\"Fleet_Builder_Entry_Page.js\":\"public/includes/chunk.5d600f41cf3621f20c99.js\",\"Fleet_Builder_Fleet_Details_Page.js\":\"public/includes/chunk.7852be8d7658685ed676.js\",\"Fleet_Builder_WIP_Blank_Page.js\":\"public/includes/chunk.c75f9ee01b65a56d4c5b.js\",\"TP_Calculator_Single-Page-Tool.js\":\"public/includes/chunk.4d6cc62aafa390277764.js\",\"Academy_Entry_Page.js\":\"public/includes/chunk.39645755ca76911cbbd7.js\",\"Sorties_List_Page.js\":\"public/includes/chunk.6fd1f78758707596e225.js\",\"Expeditions_List_Page.js\":\"public/includes/chunk.4b1df30474963bd8cbf3.js\",\"Ship_List_Page.js\":\"public/includes/chunk.362c6c132873c880a346.js\",\"Ship_Details_Page.css\":\"public/includes/extract.605.0bc374afc8761400f0aa.css\",\"Ship_Details_Page.js\":\"public/includes/chunk.0bc374afc8761400f0aa.js\",\"Equipment_List_Page.js\":\"public/includes/chunk.5bee4bc1b3ed3fc9cebe.js\",\"Equipment_Details_Page.js\":\"public/includes/chunk.ac6d384b8a4625ea5909.js\",\"Arsenal_Page.js\":\"public/includes/chunk.514d8955e4258fd9e1d6.js\",\"People_List_Page.js\":\"public/includes/chunk.f165a97da2d1849ce38f.js\",\"People_Details_Page.js\":\"public/includes/chunk.b018fb0e54f1731109c0.js\",\"Extra_CGs_Page.js\":\"public/includes/chunk.07aed5387501bcdd73f1.js\",\"nedb.js\":\"public/includes/chunk.8f7fd6e9bcae95fc8b98.js\",\"libs.js\":\"public/includes/entry.234cb64307bc36342e32.js\",\"libs-others.js\":\"public/includes/chunk.89eb4e5244e5fe01dff3.js\",\"vendors.js\":\"public/includes/entry.556453e0e8b09bf80084.js\",\"__KOOT__EXTRACT__CSS__.css\":\"public/includes/extract.all.10835fadd6da7cced509017071fe202b.small.css\"},\"service-worker\":[\"public/service-worker.zh.js\"]},\".en\":{\".public\":\"public/\",\".out\":\"public/\",\".entrypoints\":{\"critical\":[\"public/includes/extract.122.cb9e472c708bd1291e43.css\",\"public/includes/entry.cb9e472c708bd1291e43.js\"],\"polyfill\":[\"public/includes/entry.45975731a39c918d01df.js\",\"public/includes/entry.f5947ccd02bf19753ad4.js\"],\"__KOOT__CLIENT__RUN__FIRST__\":[\"public/includes/entry.7d365b3c1493485857e1.js\"],\"client\":[\"public/includes/entry.234cb64307bc36342e32.js\",\"public/includes/entry.556453e0e8b09bf80084.js\",\"public/includes/entry.6e5a6d7938207bd97783.js\"]},\".files\":{\"critical.css\":\"public/includes/extract.122.cb9e472c708bd1291e43.css\",\"critical.js\":\"public/includes/entry.cb9e472c708bd1291e43.js\",\"polyfill.js\":\"public/includes/entry.f5947ccd02bf19753ad4.js\",\"__KOOT__CLIENT__RUN__FIRST__.js\":\"public/includes/entry.7d365b3c1493485857e1.js\",\"client.js\":\"public/includes/entry.6e5a6d7938207bd97783.js\",\"Home_Page_17.js\":\"public/includes/chunk.07331821f564142fbda8.js\",\"About_Page_18.js\":\"public/includes/chunk.23516715718480c154e8.js\",\"Fleet_Builder_Entry_Page_19.js\":\"public/includes/chunk.c5a22ec907fbbd1c82de.js\",\"Fleet_Builder_Fleet_Details_Page_20.js\":\"public/includes/chunk.f4ba748acf0fa2db1df7.js\",\"Fleet_Builder_WIP_Blank_Page_21.js\":\"public/includes/chunk.61b4f800738619e3780b.js\",\"TP_Calculator_Single-Page-Tool_22.js\":\"public/includes/chunk.18b851d9d9ceb53857c7.js\",\"Academy_Entry_Page_23.js\":\"public/includes/chunk.a3ce13aa4bbbe5b4191a.js\",\"Sorties_List_Page_24.js\":\"public/includes/chunk.dfe360c1992cf436b188.js\",\"Expeditions_List_Page_25.js\":\"public/includes/chunk.8cf3674055274c38f3a6.js\",\"Ship_List_Page_26.js\":\"public/includes/chunk.87413e356bfbf76a33fd.js\",\"Ship_Details_Page_27.css\":\"public/includes/extract.688.8517dd8e8c6d54407c2f.css\",\"Ship_Details_Page_27.js\":\"public/includes/chunk.8517dd8e8c6d54407c2f.js\",\"Equipment_List_Page_28.js\":\"public/includes/chunk.588a2772bdfb4f60e073.js\",\"Equipment_Details_Page_29.js\":\"public/includes/chunk.aa5c255a20ede961cb11.js\",\"Arsenal_Page_30.js\":\"public/includes/chunk.9c65d208382cb1ad370f.js\",\"People_List_Page_31.js\":\"public/includes/chunk.e9aa49792b68dff01478.js\",\"People_Details_Page_32.js\":\"public/includes/chunk.7de12f2e1afc0023d923.js\",\"Extra_CGs_Page_33.js\":\"public/includes/chunk.76c89cfaf03eb99e8a2a.js\",\"nedb.js\":\"public/includes/chunk.8f7fd6e9bcae95fc8b98.js\",\"libs.js\":\"public/includes/entry.234cb64307bc36342e32.js\",\"libs-others.js\":\"public/includes/chunk.f96e3c76de6c4ffe041d.js\",\"vendors.js\":\"public/includes/entry.556453e0e8b09bf80084.js\",\"__KOOT__EXTRACT__CSS__.css\":\"public/includes/extract.all.10835fadd6da7cced509017071fe202b.small.css\"},\"service-worker\":[\"public/service-worker.en.js\"]},\".ja\":{\".public\":\"public/\",\".out\":\"public/\",\".entrypoints\":{\"critical\":[\"public/includes/extract.122.cb9e472c708bd1291e43.css\",\"public/includes/entry.cb9e472c708bd1291e43.js\"],\"polyfill\":[\"public/includes/entry.45975731a39c918d01df.js\",\"public/includes/entry.f5947ccd02bf19753ad4.js\"],\"__KOOT__CLIENT__RUN__FIRST__\":[\"public/includes/entry.7d365b3c1493485857e1.js\"],\"client\":[\"public/includes/entry.234cb64307bc36342e32.js\",\"public/includes/entry.556453e0e8b09bf80084.js\",\"public/includes/entry.8091ecf321ba7b768a1e.js\"]},\".files\":{\"critical.css\":\"public/includes/extract.122.cb9e472c708bd1291e43.css\",\"critical.js\":\"public/includes/entry.cb9e472c708bd1291e43.js\",\"polyfill.js\":\"public/includes/entry.f5947ccd02bf19753ad4.js\",\"__KOOT__CLIENT__RUN__FIRST__.js\":\"public/includes/entry.7d365b3c1493485857e1.js\",\"client.js\":\"public/includes/entry.8091ecf321ba7b768a1e.js\",\"Home_Page_34.js\":\"public/includes/chunk.0a4f16cebb1fbf2193e4.js\",\"About_Page_35.js\":\"public/includes/chunk.04eb63cfcb2de67ddda1.js\",\"Fleet_Builder_Entry_Page_46.js\":\"public/includes/chunk.a9a1a361b1d3d420a56f.js\",\"Fleet_Builder_Fleet_Details_Page_47.js\":\"public/includes/chunk.7d2f58c617b022497734.js\",\"Fleet_Builder_WIP_Blank_Page_48.js\":\"public/includes/chunk.f7e0604baf59ad294c90.js\",\"TP_Calculator_Single-Page-Tool_49.js\":\"public/includes/chunk.55a9b41e586490c049d0.js\",\"Academy_Entry_Page_50.js\":\"public/includes/chunk.a294acb55a21916316af.js\",\"Sorties_List_Page_36.js\":\"public/includes/chunk.55c1189ef081291c323e.js\",\"Expeditions_List_Page_37.js\":\"public/includes/chunk.b1005440cee63b0224eb.js\",\"Ship_List_Page_38.js\":\"public/includes/chunk.3d5903a732821d8bd732.js\",\"Ship_Details_Page_39.css\":\"public/includes/extract.399.05f082e43c8e596dd4f4.css\",\"Ship_Details_Page_39.js\":\"public/includes/chunk.05f082e43c8e596dd4f4.js\",\"Equipment_List_Page_40.js\":\"public/includes/chunk.975d1c24f1bd584ee535.js\",\"Equipment_Details_Page_41.js\":\"public/includes/chunk.ef56b351987775fbfa82.js\",\"Arsenal_Page_42.js\":\"public/includes/chunk.14a1a10ea3c3ca63d4cb.js\",\"People_List_Page_43.js\":\"public/includes/chunk.aae4f136d975bc50915f.js\",\"People_Details_Page_44.js\":\"public/includes/chunk.37dbac84d234583104f0.js\",\"Extra_CGs_Page_45.js\":\"public/includes/chunk.825caea297bbdb2f95bf.js\",\"nedb.js\":\"public/includes/chunk.8f7fd6e9bcae95fc8b98.js\",\"libs.js\":\"public/includes/entry.234cb64307bc36342e32.js\",\"libs-others.js\":\"public/includes/chunk.f96e3c76de6c4ffe041d.js\",\"vendors.js\":\"public/includes/entry.556453e0e8b09bf80084.js\",\"__KOOT__EXTRACT__CSS__.css\":\"public/includes/extract.all.10835fadd6da7cced509017071fe202b.small.css\"},\"service-worker\":[\"public/service-worker.ja.js\"]}}");
     } catch (e) {
       chunkmap = false;
     }
@@ -39085,7 +39057,6 @@ const getFilePath = (filename, localeId, isPathname = false, isSSRReading = fals
   //         file
   //     )}`
 };
-
 module.exports = getFilePath;
 // module.exports = (pathname, pathDist = 'dist') => {
 //     if (__DEV__) {
@@ -49599,7 +49570,6 @@ function setup(env) {
       hash = (hash << 5) - hash + namespace.charCodeAt(i);
       hash |= 0; // Convert to 32bit integer
     }
-
     return createDebug.colors[Math.abs(hash) % createDebug.colors.length];
   }
   createDebug.selectColor = selectColor;
@@ -50746,7 +50716,6 @@ if (true) {
           });
           /* eslint-enable react-internal/no-production-logging */
         }
-
         disabledDepth++;
       }
     }
@@ -50786,7 +50755,6 @@ if (true) {
           });
           /* eslint-enable react-internal/no-production-logging */
         }
-
         if (disabledDepth < 0) {
           error('disabledDepth fell below zero. ' + 'This is a bug in React. Please file an issue.');
         }
@@ -51553,7 +51521,6 @@ if (true) {
         // Instead, this is done separately below so that
         // it happens during the hydration code path too.
       });
-
       return content;
     }
     /**
@@ -52128,7 +52095,6 @@ if (true) {
       if (!isCustomProperty && typeof value === 'number' && value !== 0 && !(isUnitlessNumber.hasOwnProperty(name) && isUnitlessNumber[name])) {
         return value + 'px'; // Presumes implicit 'px' suffix for unitless numbers
       }
-
       return ('' + value).trim();
     }
     var uppercasePattern = /([A-Z])/g;
@@ -56551,7 +56517,6 @@ if (true) {
       return x === y && (x !== 0 || 1 / x === 1 / y) || x !== x && y !== y // eslint-disable-line no-self-compare
       ;
     }
-
     var objectIs = typeof Object.is === 'function' ? Object.is : is;
     var hasOwnProperty$2 = Object.prototype.hasOwnProperty;
     /**
@@ -59327,7 +59292,6 @@ if (true) {
               // below since it will bail out on the isMounted check later.
             }
           }
-
           return targetInst;
         }
         targetNode = parentNode;
@@ -65634,7 +65598,6 @@ if (true) {
         if (nextProps.fallback !== undefined) {
           tryToClaimNextHydratableInstance(workInProgress); // This could've been a dehydrated suspense component.
         }
-
         var nextPrimaryChildren = nextProps.children;
         var nextFallbackChildren = nextProps.fallback;
         if (showFallback) {
@@ -66854,7 +66817,6 @@ if (true) {
                   }
                 } // This can happen when we abort work.
               }
-
               var _rootContainerInstance = getRootHostContainer();
               var _currentHostContext = getHostContext();
               var _wasHydrated2 = popHydrationState(workInProgress);
@@ -67328,7 +67290,6 @@ if (true) {
             // For a more detailed description of this block, see:
             // https://github.com/facebook/react/pull/13384
           }
-
           var componentName = source ? getComponentName(source.type) : null;
           var componentNameMessage = componentName ? "The above error occurred in the <" + componentName + "> component:" : 'The above error occurred in one of your React components:';
           var errorBoundaryMessage;
@@ -75194,7 +75155,6 @@ if (true) {
           });
           /* eslint-enable react-internal/no-production-logging */
         }
-
         disabledDepth++;
       }
     }
@@ -75234,7 +75194,6 @@ if (true) {
           });
           /* eslint-enable react-internal/no-production-logging */
         }
-
         if (disabledDepth < 0) {
           error('disabledDepth fell below zero. ' + 'This is a bug in React. Please file an issue.');
         }
@@ -76964,7 +76923,6 @@ if (true) {
       mapChildren(children, function () {
         n++; // Don't return anything
       });
-
       return n;
     }
 
@@ -77424,7 +77382,6 @@ if (true) {
           });
           /* eslint-enable react-internal/no-production-logging */
         }
-
         disabledDepth++;
       }
     }
@@ -77464,7 +77421,6 @@ if (true) {
           });
           /* eslint-enable react-internal/no-production-logging */
         }
-
         if (disabledDepth < 0) {
           error('disabledDepth fell below zero. ' + 'This is a bug in React. Please file an issue.');
         }
@@ -78544,7 +78500,6 @@ function warning(message) {
     throw new Error(message);
   } catch (e) {} // eslint-disable-line no-empty
 }
-
 function getUnexpectedStateShapeWarningMessage(inputState, reducers, action, unexpectedKeyCache) {
   var reducerKeys = Object.keys(reducers);
   var argumentName = action && action.type === ActionTypes.INIT ? 'preloadedState argument passed to createStore' : 'previous state received by the reducer';
@@ -79216,13 +79171,11 @@ function formatColor(msg, caller, stack) {
     for (var i = 0; i < stack.length; i++) {
       formatted += '\n    \x1b[36mat ' + callSiteToString(stack[i]) + '\x1b[39m'; // cyan
     }
-
     return formatted;
   }
   if (caller) {
     formatted += ' \x1b[36m' + formatLocation(caller) + '\x1b[39m'; // cyan
   }
-
   return formatted;
 }
 
@@ -93356,7 +93309,6 @@ if (true) {
           isMessageLoopRunning = false;
         } // Yielding to the browser will give it a chance to paint, so we can
       };
-
       var channel = new MessageChannel();
       var port = channel.port2;
       channel.port1.onmessage = performWorkUntilDeadline;
@@ -94027,7 +93979,6 @@ if (process.platform !== 'win32') {
   // 'SIGPROF'
   );
 }
-
 if (process.platform === 'linux') {
   module.exports.push('SIGIO', 'SIGPOLL', 'SIGPWR', 'SIGSTKFLT', 'SIGUNUSED');
 }
@@ -94338,7 +94289,6 @@ function supportsColor(haveStream, streamIsTTY) {
       // No default
     }
   }
-
   if (/-256(color)?$/i.test(env.TERM)) {
     return 2;
   }
@@ -95464,7 +95414,6 @@ if (true) {
       return x === y && (x !== 0 || 1 / x === 1 / y) || x !== x && y !== y // eslint-disable-line no-self-compare
       ;
     }
-
     var objectIs = typeof Object.is === 'function' ? Object.is : is;
 
     // dispatch for CommonJS interop named imports.
@@ -95650,7 +95599,6 @@ if (true) {
       return x === y && (x !== 0 || 1 / x === 1 / y) || x !== x && y !== y // eslint-disable-line no-self-compare
       ;
     }
-
     var objectIs = typeof Object.is === 'function' ? Object.is : is;
     var useSyncExternalStore = shim.useSyncExternalStore;
 
@@ -96584,8 +96532,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _root_context__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./root-context */ "./node_modules/koot/React/root-context.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return typeof key === "symbol" ? key : String(key); }
-function _toPrimitive(input, hint) { if (typeof input !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (typeof res !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == typeof i ? i : String(i); }
+function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != typeof i) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 /* __KOOT_DEV_NO_REACT_HOT_INJECT__ */
 
 
@@ -96805,7 +96753,6 @@ const doPageinfo = (store, props, pageinfo) => {
         } = context.ctx;
         if (SSR[_defaults_defines_server__WEBPACK_IMPORTED_MODULE_8__.needConnectComponents]) {
           if (false) {}
-
           if (Array.isArray(SSR.connectedComponents)) SSR.connectedComponents.unshift(KootComponent);
         }
       }
@@ -97423,7 +97370,7 @@ function _typeof(obj) {
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"dots":{"interval":80,"frames":["⠋","⠙","⠹","⠸","⠼","⠴","⠦","⠧","⠇","⠏"]},"dots2":{"interval":80,"frames":["⣾","⣽","⣻","⢿","⡿","⣟","⣯","⣷"]},"dots3":{"interval":80,"frames":["⠋","⠙","⠚","⠞","⠖","⠦","⠴","⠲","⠳","⠓"]},"dots4":{"interval":80,"frames":["⠄","⠆","⠇","⠋","⠙","⠸","⠰","⠠","⠰","⠸","⠙","⠋","⠇","⠆"]},"dots5":{"interval":80,"frames":["⠋","⠙","⠚","⠒","⠂","⠂","⠒","⠲","⠴","⠦","⠖","⠒","⠐","⠐","⠒","⠓","⠋"]},"dots6":{"interval":80,"frames":["⠁","⠉","⠙","⠚","⠒","⠂","⠂","⠒","⠲","⠴","⠤","⠄","⠄","⠤","⠴","⠲","⠒","⠂","⠂","⠒","⠚","⠙","⠉","⠁"]},"dots7":{"interval":80,"frames":["⠈","⠉","⠋","⠓","⠒","⠐","⠐","⠒","⠖","⠦","⠤","⠠","⠠","⠤","⠦","⠖","⠒","⠐","⠐","⠒","⠓","⠋","⠉","⠈"]},"dots8":{"interval":80,"frames":["⠁","⠁","⠉","⠙","⠚","⠒","⠂","⠂","⠒","⠲","⠴","⠤","⠄","⠄","⠤","⠠","⠠","⠤","⠦","⠖","⠒","⠐","⠐","⠒","⠓","⠋","⠉","⠈","⠈"]},"dots9":{"interval":80,"frames":["⢹","⢺","⢼","⣸","⣇","⡧","⡗","⡏"]},"dots10":{"interval":80,"frames":["⢄","⢂","⢁","⡁","⡈","⡐","⡠"]},"dots11":{"interval":100,"frames":["⠁","⠂","⠄","⡀","⢀","⠠","⠐","⠈"]},"dots12":{"interval":80,"frames":["⢀⠀","⡀⠀","⠄⠀","⢂⠀","⡂⠀","⠅⠀","⢃⠀","⡃⠀","⠍⠀","⢋⠀","⡋⠀","⠍⠁","⢋⠁","⡋⠁","⠍⠉","⠋⠉","⠋⠉","⠉⠙","⠉⠙","⠉⠩","⠈⢙","⠈⡙","⢈⠩","⡀⢙","⠄⡙","⢂⠩","⡂⢘","⠅⡘","⢃⠨","⡃⢐","⠍⡐","⢋⠠","⡋⢀","⠍⡁","⢋⠁","⡋⠁","⠍⠉","⠋⠉","⠋⠉","⠉⠙","⠉⠙","⠉⠩","⠈⢙","⠈⡙","⠈⠩","⠀⢙","⠀⡙","⠀⠩","⠀⢘","⠀⡘","⠀⠨","⠀⢐","⠀⡐","⠀⠠","⠀⢀","⠀⡀"]},"dots13":{"interval":80,"frames":["⣼","⣹","⢻","⠿","⡟","⣏","⣧","⣶"]},"dots8Bit":{"interval":80,"frames":["⠀","⠁","⠂","⠃","⠄","⠅","⠆","⠇","⡀","⡁","⡂","⡃","⡄","⡅","⡆","⡇","⠈","⠉","⠊","⠋","⠌","⠍","⠎","⠏","⡈","⡉","⡊","⡋","⡌","⡍","⡎","⡏","⠐","⠑","⠒","⠓","⠔","⠕","⠖","⠗","⡐","⡑","⡒","⡓","⡔","⡕","⡖","⡗","⠘","⠙","⠚","⠛","⠜","⠝","⠞","⠟","⡘","⡙","⡚","⡛","⡜","⡝","⡞","⡟","⠠","⠡","⠢","⠣","⠤","⠥","⠦","⠧","⡠","⡡","⡢","⡣","⡤","⡥","⡦","⡧","⠨","⠩","⠪","⠫","⠬","⠭","⠮","⠯","⡨","⡩","⡪","⡫","⡬","⡭","⡮","⡯","⠰","⠱","⠲","⠳","⠴","⠵","⠶","⠷","⡰","⡱","⡲","⡳","⡴","⡵","⡶","⡷","⠸","⠹","⠺","⠻","⠼","⠽","⠾","⠿","⡸","⡹","⡺","⡻","⡼","⡽","⡾","⡿","⢀","⢁","⢂","⢃","⢄","⢅","⢆","⢇","⣀","⣁","⣂","⣃","⣄","⣅","⣆","⣇","⢈","⢉","⢊","⢋","⢌","⢍","⢎","⢏","⣈","⣉","⣊","⣋","⣌","⣍","⣎","⣏","⢐","⢑","⢒","⢓","⢔","⢕","⢖","⢗","⣐","⣑","⣒","⣓","⣔","⣕","⣖","⣗","⢘","⢙","⢚","⢛","⢜","⢝","⢞","⢟","⣘","⣙","⣚","⣛","⣜","⣝","⣞","⣟","⢠","⢡","⢢","⢣","⢤","⢥","⢦","⢧","⣠","⣡","⣢","⣣","⣤","⣥","⣦","⣧","⢨","⢩","⢪","⢫","⢬","⢭","⢮","⢯","⣨","⣩","⣪","⣫","⣬","⣭","⣮","⣯","⢰","⢱","⢲","⢳","⢴","⢵","⢶","⢷","⣰","⣱","⣲","⣳","⣴","⣵","⣶","⣷","⢸","⢹","⢺","⢻","⢼","⢽","⢾","⢿","⣸","⣹","⣺","⣻","⣼","⣽","⣾","⣿"]},"sand":{"interval":80,"frames":["⠁","⠂","⠄","⡀","⡈","⡐","⡠","⣀","⣁","⣂","⣄","⣌","⣔","⣤","⣥","⣦","⣮","⣶","⣷","⣿","⡿","⠿","⢟","⠟","⡛","⠛","⠫","⢋","⠋","⠍","⡉","⠉","⠑","⠡","⢁"]},"line":{"interval":130,"frames":["-","\\\\","|","/"]},"line2":{"interval":100,"frames":["⠂","-","–","—","–","-"]},"pipe":{"interval":100,"frames":["┤","┘","┴","└","├","┌","┬","┐"]},"simpleDots":{"interval":400,"frames":[".  ",".. ","...","   "]},"simpleDotsScrolling":{"interval":200,"frames":[".  ",".. ","..."," ..","  .","   "]},"star":{"interval":70,"frames":["✶","✸","✹","✺","✹","✷"]},"star2":{"interval":80,"frames":["+","x","*"]},"flip":{"interval":70,"frames":["_","_","_","-","`","`","\'","´","-","_","_","_"]},"hamburger":{"interval":100,"frames":["☱","☲","☴"]},"growVertical":{"interval":120,"frames":["▁","▃","▄","▅","▆","▇","▆","▅","▄","▃"]},"growHorizontal":{"interval":120,"frames":["▏","▎","▍","▌","▋","▊","▉","▊","▋","▌","▍","▎"]},"balloon":{"interval":140,"frames":[" ",".","o","O","@","*"," "]},"balloon2":{"interval":120,"frames":[".","o","O","°","O","o","."]},"noise":{"interval":100,"frames":["▓","▒","░"]},"bounce":{"interval":120,"frames":["⠁","⠂","⠄","⠂"]},"boxBounce":{"interval":120,"frames":["▖","▘","▝","▗"]},"boxBounce2":{"interval":100,"frames":["▌","▀","▐","▄"]},"triangle":{"interval":50,"frames":["◢","◣","◤","◥"]},"binary":{"interval":80,"frames":["010010","001100","100101","111010","111101","010111","101011","111000","110011","110101"]},"arc":{"interval":100,"frames":["◜","◠","◝","◞","◡","◟"]},"circle":{"interval":120,"frames":["◡","⊙","◠"]},"squareCorners":{"interval":180,"frames":["◰","◳","◲","◱"]},"circleQuarters":{"interval":120,"frames":["◴","◷","◶","◵"]},"circleHalves":{"interval":50,"frames":["◐","◓","◑","◒"]},"squish":{"interval":100,"frames":["╫","╪"]},"toggle":{"interval":250,"frames":["⊶","⊷"]},"toggle2":{"interval":80,"frames":["▫","▪"]},"toggle3":{"interval":120,"frames":["□","■"]},"toggle4":{"interval":100,"frames":["■","□","▪","▫"]},"toggle5":{"interval":100,"frames":["▮","▯"]},"toggle6":{"interval":300,"frames":["ဝ","၀"]},"toggle7":{"interval":80,"frames":["⦾","⦿"]},"toggle8":{"interval":100,"frames":["◍","◌"]},"toggle9":{"interval":100,"frames":["◉","◎"]},"toggle10":{"interval":100,"frames":["㊂","㊀","㊁"]},"toggle11":{"interval":50,"frames":["⧇","⧆"]},"toggle12":{"interval":120,"frames":["☗","☖"]},"toggle13":{"interval":80,"frames":["=","*","-"]},"arrow":{"interval":100,"frames":["←","↖","↑","↗","→","↘","↓","↙"]},"arrow2":{"interval":80,"frames":["⬆️ ","↗️ ","➡️ ","↘️ ","⬇️ ","↙️ ","⬅️ ","↖️ "]},"arrow3":{"interval":120,"frames":["▹▹▹▹▹","▸▹▹▹▹","▹▸▹▹▹","▹▹▸▹▹","▹▹▹▸▹","▹▹▹▹▸"]},"bouncingBar":{"interval":80,"frames":["[    ]","[=   ]","[==  ]","[=== ]","[ ===]","[  ==]","[   =]","[    ]","[   =]","[  ==]","[ ===]","[====]","[=== ]","[==  ]","[=   ]"]},"bouncingBall":{"interval":80,"frames":["( ●    )","(  ●   )","(   ●  )","(    ● )","(     ●)","(    ● )","(   ●  )","(  ●   )","( ●    )","(●     )"]},"smiley":{"interval":200,"frames":["😄 ","😝 "]},"monkey":{"interval":300,"frames":["🙈 ","🙈 ","🙉 ","🙊 "]},"hearts":{"interval":100,"frames":["💛 ","💙 ","💜 ","💚 ","❤️ "]},"clock":{"interval":100,"frames":["🕛 ","🕐 ","🕑 ","🕒 ","🕓 ","🕔 ","🕕 ","🕖 ","🕗 ","🕘 ","🕙 ","🕚 "]},"earth":{"interval":180,"frames":["🌍 ","🌎 ","🌏 "]},"material":{"interval":17,"frames":["█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁","██▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁","███▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁","████▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁","██████▁▁▁▁▁▁▁▁▁▁▁▁▁▁","██████▁▁▁▁▁▁▁▁▁▁▁▁▁▁","███████▁▁▁▁▁▁▁▁▁▁▁▁▁","████████▁▁▁▁▁▁▁▁▁▁▁▁","█████████▁▁▁▁▁▁▁▁▁▁▁","█████████▁▁▁▁▁▁▁▁▁▁▁","██████████▁▁▁▁▁▁▁▁▁▁","███████████▁▁▁▁▁▁▁▁▁","█████████████▁▁▁▁▁▁▁","██████████████▁▁▁▁▁▁","██████████████▁▁▁▁▁▁","▁██████████████▁▁▁▁▁","▁██████████████▁▁▁▁▁","▁██████████████▁▁▁▁▁","▁▁██████████████▁▁▁▁","▁▁▁██████████████▁▁▁","▁▁▁▁█████████████▁▁▁","▁▁▁▁██████████████▁▁","▁▁▁▁██████████████▁▁","▁▁▁▁▁██████████████▁","▁▁▁▁▁██████████████▁","▁▁▁▁▁██████████████▁","▁▁▁▁▁▁██████████████","▁▁▁▁▁▁██████████████","▁▁▁▁▁▁▁█████████████","▁▁▁▁▁▁▁█████████████","▁▁▁▁▁▁▁▁████████████","▁▁▁▁▁▁▁▁████████████","▁▁▁▁▁▁▁▁▁███████████","▁▁▁▁▁▁▁▁▁███████████","▁▁▁▁▁▁▁▁▁▁██████████","▁▁▁▁▁▁▁▁▁▁██████████","▁▁▁▁▁▁▁▁▁▁▁▁████████","▁▁▁▁▁▁▁▁▁▁▁▁▁███████","▁▁▁▁▁▁▁▁▁▁▁▁▁▁██████","▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█████","▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█████","█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁████","██▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁███","██▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁███","███▁▁▁▁▁▁▁▁▁▁▁▁▁▁███","████▁▁▁▁▁▁▁▁▁▁▁▁▁▁██","█████▁▁▁▁▁▁▁▁▁▁▁▁▁▁█","█████▁▁▁▁▁▁▁▁▁▁▁▁▁▁█","██████▁▁▁▁▁▁▁▁▁▁▁▁▁█","████████▁▁▁▁▁▁▁▁▁▁▁▁","█████████▁▁▁▁▁▁▁▁▁▁▁","█████████▁▁▁▁▁▁▁▁▁▁▁","█████████▁▁▁▁▁▁▁▁▁▁▁","█████████▁▁▁▁▁▁▁▁▁▁▁","███████████▁▁▁▁▁▁▁▁▁","████████████▁▁▁▁▁▁▁▁","████████████▁▁▁▁▁▁▁▁","██████████████▁▁▁▁▁▁","██████████████▁▁▁▁▁▁","▁██████████████▁▁▁▁▁","▁██████████████▁▁▁▁▁","▁▁▁█████████████▁▁▁▁","▁▁▁▁▁████████████▁▁▁","▁▁▁▁▁████████████▁▁▁","▁▁▁▁▁▁███████████▁▁▁","▁▁▁▁▁▁▁▁█████████▁▁▁","▁▁▁▁▁▁▁▁█████████▁▁▁","▁▁▁▁▁▁▁▁▁█████████▁▁","▁▁▁▁▁▁▁▁▁█████████▁▁","▁▁▁▁▁▁▁▁▁▁█████████▁","▁▁▁▁▁▁▁▁▁▁▁████████▁","▁▁▁▁▁▁▁▁▁▁▁████████▁","▁▁▁▁▁▁▁▁▁▁▁▁███████▁","▁▁▁▁▁▁▁▁▁▁▁▁███████▁","▁▁▁▁▁▁▁▁▁▁▁▁▁███████","▁▁▁▁▁▁▁▁▁▁▁▁▁███████","▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█████","▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁████","▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁████","▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁████","▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁███","▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁███","▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁██","▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁██","▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁██","▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█","▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█","▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█","▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁","▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁","▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁","▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁"]},"moon":{"interval":80,"frames":["🌑 ","🌒 ","🌓 ","🌔 ","🌕 ","🌖 ","🌗 ","🌘 "]},"runner":{"interval":140,"frames":["🚶 ","🏃 "]},"pong":{"interval":80,"frames":["▐⠂       ▌","▐⠈       ▌","▐ ⠂      ▌","▐ ⠠      ▌","▐  ⡀     ▌","▐  ⠠     ▌","▐   ⠂    ▌","▐   ⠈    ▌","▐    ⠂   ▌","▐    ⠠   ▌","▐     ⡀  ▌","▐     ⠠  ▌","▐      ⠂ ▌","▐      ⠈ ▌","▐       ⠂▌","▐       ⠠▌","▐       ⡀▌","▐      ⠠ ▌","▐      ⠂ ▌","▐     ⠈  ▌","▐     ⠂  ▌","▐    ⠠   ▌","▐    ⡀   ▌","▐   ⠠    ▌","▐   ⠂    ▌","▐  ⠈     ▌","▐  ⠂     ▌","▐ ⠠      ▌","▐ ⡀      ▌","▐⠠       ▌"]},"shark":{"interval":120,"frames":["▐|\\\\____________▌","▐_|\\\\___________▌","▐__|\\\\__________▌","▐___|\\\\_________▌","▐____|\\\\________▌","▐_____|\\\\_______▌","▐______|\\\\______▌","▐_______|\\\\_____▌","▐________|\\\\____▌","▐_________|\\\\___▌","▐__________|\\\\__▌","▐___________|\\\\_▌","▐____________|\\\\▌","▐____________/|▌","▐___________/|_▌","▐__________/|__▌","▐_________/|___▌","▐________/|____▌","▐_______/|_____▌","▐______/|______▌","▐_____/|_______▌","▐____/|________▌","▐___/|_________▌","▐__/|__________▌","▐_/|___________▌","▐/|____________▌"]},"dqpb":{"interval":100,"frames":["d","q","p","b"]},"weather":{"interval":100,"frames":["☀️ ","☀️ ","☀️ ","🌤 ","⛅️ ","🌥 ","☁️ ","🌧 ","🌨 ","🌧 ","🌨 ","🌧 ","🌨 ","⛈ ","🌨 ","🌧 ","🌨 ","☁️ ","🌥 ","⛅️ ","🌤 ","☀️ ","☀️ "]},"christmas":{"interval":400,"frames":["🌲","🎄"]},"grenade":{"interval":80,"frames":["،  ","′  "," ´ "," ‾ ","  ⸌","  ⸊","  |","  ⁎","  ⁕"," ෴ ","  ⁓","   ","   ","   "]},"point":{"interval":125,"frames":["∙∙∙","●∙∙","∙●∙","∙∙●","∙∙∙"]},"layer":{"interval":150,"frames":["-","=","≡"]},"betaWave":{"interval":80,"frames":["ρββββββ","βρβββββ","ββρββββ","βββρβββ","ββββρββ","βββββρβ","ββββββρ"]},"fingerDance":{"interval":160,"frames":["🤘 ","🤟 ","🖖 ","✋ ","🤚 ","👆 "]},"fistBump":{"interval":80,"frames":["🤜　　　　🤛 ","🤜　　　　🤛 ","🤜　　　　🤛 ","　🤜　　🤛　 ","　　🤜🤛　　 ","　🤜✨🤛　　 ","🤜　✨　🤛　 "]},"soccerHeader":{"interval":80,"frames":[" 🧑⚽️       🧑 ","🧑  ⚽️      🧑 ","🧑   ⚽️     🧑 ","🧑    ⚽️    🧑 ","🧑     ⚽️   🧑 ","🧑      ⚽️  🧑 ","🧑       ⚽️🧑  ","🧑      ⚽️  🧑 ","🧑     ⚽️   🧑 ","🧑    ⚽️    🧑 ","🧑   ⚽️     🧑 ","🧑  ⚽️      🧑 "]},"mindblown":{"interval":160,"frames":["😐 ","😐 ","😮 ","😮 ","😦 ","😦 ","😧 ","😧 ","🤯 ","💥 ","✨ ","　 ","　 ","　 "]},"speaker":{"interval":160,"frames":["🔈 ","🔉 ","🔊 ","🔉 "]},"orangePulse":{"interval":100,"frames":["🔸 ","🔶 ","🟠 ","🟠 ","🔶 "]},"bluePulse":{"interval":100,"frames":["🔹 ","🔷 ","🔵 ","🔵 ","🔷 "]},"orangeBluePulse":{"interval":100,"frames":["🔸 ","🔶 ","🟠 ","🟠 ","🔶 ","🔹 ","🔷 ","🔵 ","🔵 ","🔷 "]},"timeTravel":{"interval":100,"frames":["🕛 ","🕚 ","🕙 ","🕘 ","🕗 ","🕖 ","🕕 ","🕔 ","🕓 ","🕒 ","🕑 ","🕐 "]},"aesthetic":{"interval":80,"frames":["▰▱▱▱▱▱▱","▰▰▱▱▱▱▱","▰▰▰▱▱▱▱","▰▰▰▰▱▱▱","▰▰▰▰▰▱▱","▰▰▰▰▰▰▱","▰▰▰▰▰▰▰","▰▱▱▱▱▱▱"]},"dwarfFortress":{"interval":80,"frames":[" ██████£££  ","☺██████£££  ","☺██████£££  ","☺▓█████£££  ","☺▓█████£££  ","☺▒█████£££  ","☺▒█████£££  ","☺░█████£££  ","☺░█████£££  ","☺ █████£££  "," ☺█████£££  "," ☺█████£££  "," ☺▓████£££  "," ☺▓████£££  "," ☺▒████£££  "," ☺▒████£££  "," ☺░████£££  "," ☺░████£££  "," ☺ ████£££  ","  ☺████£££  ","  ☺████£££  ","  ☺▓███£££  ","  ☺▓███£££  ","  ☺▒███£££  ","  ☺▒███£££  ","  ☺░███£££  ","  ☺░███£££  ","  ☺ ███£££  ","   ☺███£££  ","   ☺███£££  ","   ☺▓██£££  ","   ☺▓██£££  ","   ☺▒██£££  ","   ☺▒██£££  ","   ☺░██£££  ","   ☺░██£££  ","   ☺ ██£££  ","    ☺██£££  ","    ☺██£££  ","    ☺▓█£££  ","    ☺▓█£££  ","    ☺▒█£££  ","    ☺▒█£££  ","    ☺░█£££  ","    ☺░█£££  ","    ☺ █£££  ","     ☺█£££  ","     ☺█£££  ","     ☺▓£££  ","     ☺▓£££  ","     ☺▒£££  ","     ☺▒£££  ","     ☺░£££  ","     ☺░£££  ","     ☺ £££  ","      ☺£££  ","      ☺£££  ","      ☺▓££  ","      ☺▓££  ","      ☺▒££  ","      ☺▒££  ","      ☺░££  ","      ☺░££  ","      ☺ ££  ","       ☺££  ","       ☺££  ","       ☺▓£  ","       ☺▓£  ","       ☺▒£  ","       ☺▒£  ","       ☺░£  ","       ☺░£  ","       ☺ £  ","        ☺£  ","        ☺£  ","        ☺▓  ","        ☺▓  ","        ☺▒  ","        ☺▒  ","        ☺░  ","        ☺░  ","        ☺   ","        ☺  &","        ☺ ☼&","       ☺ ☼ &","       ☺☼  &","      ☺☼  & ","      ‼   & ","     ☺   &  ","    ‼    &  ","   ☺    &   ","  ‼     &   "," ☺     &    ","‼      &    ","      &     ","      &     ","     &   ░  ","     &   ▒  ","    &    ▓  ","    &    £  ","   &    ░£  ","   &    ▒£  ","  &     ▓£  ","  &     ££  "," &     ░££  "," &     ▒££  ","&      ▓££  ","&      £££  ","      ░£££  ","      ▒£££  ","      ▓£££  ","      █£££  ","     ░█£££  ","     ▒█£££  ","     ▓█£££  ","     ██£££  ","    ░██£££  ","    ▒██£££  ","    ▓██£££  ","    ███£££  ","   ░███£££  ","   ▒███£££  ","   ▓███£££  ","   ████£££  ","  ░████£££  ","  ▒████£££  ","  ▓████£££  ","  █████£££  "," ░█████£££  "," ▒█████£££  "," ▓█████£££  "," ██████£££  "," ██████£££  "]}}');
+module.exports = JSON.parse('{"dots":{"interval":80,"frames":["⠋","⠙","⠹","⠸","⠼","⠴","⠦","⠧","⠇","⠏"]},"dots2":{"interval":80,"frames":["⣾","⣽","⣻","⢿","⡿","⣟","⣯","⣷"]},"dots3":{"interval":80,"frames":["⠋","⠙","⠚","⠞","⠖","⠦","⠴","⠲","⠳","⠓"]},"dots4":{"interval":80,"frames":["⠄","⠆","⠇","⠋","⠙","⠸","⠰","⠠","⠰","⠸","⠙","⠋","⠇","⠆"]},"dots5":{"interval":80,"frames":["⠋","⠙","⠚","⠒","⠂","⠂","⠒","⠲","⠴","⠦","⠖","⠒","⠐","⠐","⠒","⠓","⠋"]},"dots6":{"interval":80,"frames":["⠁","⠉","⠙","⠚","⠒","⠂","⠂","⠒","⠲","⠴","⠤","⠄","⠄","⠤","⠴","⠲","⠒","⠂","⠂","⠒","⠚","⠙","⠉","⠁"]},"dots7":{"interval":80,"frames":["⠈","⠉","⠋","⠓","⠒","⠐","⠐","⠒","⠖","⠦","⠤","⠠","⠠","⠤","⠦","⠖","⠒","⠐","⠐","⠒","⠓","⠋","⠉","⠈"]},"dots8":{"interval":80,"frames":["⠁","⠁","⠉","⠙","⠚","⠒","⠂","⠂","⠒","⠲","⠴","⠤","⠄","⠄","⠤","⠠","⠠","⠤","⠦","⠖","⠒","⠐","⠐","⠒","⠓","⠋","⠉","⠈","⠈"]},"dots9":{"interval":80,"frames":["⢹","⢺","⢼","⣸","⣇","⡧","⡗","⡏"]},"dots10":{"interval":80,"frames":["⢄","⢂","⢁","⡁","⡈","⡐","⡠"]},"dots11":{"interval":100,"frames":["⠁","⠂","⠄","⡀","⢀","⠠","⠐","⠈"]},"dots12":{"interval":80,"frames":["⢀⠀","⡀⠀","⠄⠀","⢂⠀","⡂⠀","⠅⠀","⢃⠀","⡃⠀","⠍⠀","⢋⠀","⡋⠀","⠍⠁","⢋⠁","⡋⠁","⠍⠉","⠋⠉","⠋⠉","⠉⠙","⠉⠙","⠉⠩","⠈⢙","⠈⡙","⢈⠩","⡀⢙","⠄⡙","⢂⠩","⡂⢘","⠅⡘","⢃⠨","⡃⢐","⠍⡐","⢋⠠","⡋⢀","⠍⡁","⢋⠁","⡋⠁","⠍⠉","⠋⠉","⠋⠉","⠉⠙","⠉⠙","⠉⠩","⠈⢙","⠈⡙","⠈⠩","⠀⢙","⠀⡙","⠀⠩","⠀⢘","⠀⡘","⠀⠨","⠀⢐","⠀⡐","⠀⠠","⠀⢀","⠀⡀"]},"dots13":{"interval":80,"frames":["⣼","⣹","⢻","⠿","⡟","⣏","⣧","⣶"]},"dots8Bit":{"interval":80,"frames":["⠀","⠁","⠂","⠃","⠄","⠅","⠆","⠇","⡀","⡁","⡂","⡃","⡄","⡅","⡆","⡇","⠈","⠉","⠊","⠋","⠌","⠍","⠎","⠏","⡈","⡉","⡊","⡋","⡌","⡍","⡎","⡏","⠐","⠑","⠒","⠓","⠔","⠕","⠖","⠗","⡐","⡑","⡒","⡓","⡔","⡕","⡖","⡗","⠘","⠙","⠚","⠛","⠜","⠝","⠞","⠟","⡘","⡙","⡚","⡛","⡜","⡝","⡞","⡟","⠠","⠡","⠢","⠣","⠤","⠥","⠦","⠧","⡠","⡡","⡢","⡣","⡤","⡥","⡦","⡧","⠨","⠩","⠪","⠫","⠬","⠭","⠮","⠯","⡨","⡩","⡪","⡫","⡬","⡭","⡮","⡯","⠰","⠱","⠲","⠳","⠴","⠵","⠶","⠷","⡰","⡱","⡲","⡳","⡴","⡵","⡶","⡷","⠸","⠹","⠺","⠻","⠼","⠽","⠾","⠿","⡸","⡹","⡺","⡻","⡼","⡽","⡾","⡿","⢀","⢁","⢂","⢃","⢄","⢅","⢆","⢇","⣀","⣁","⣂","⣃","⣄","⣅","⣆","⣇","⢈","⢉","⢊","⢋","⢌","⢍","⢎","⢏","⣈","⣉","⣊","⣋","⣌","⣍","⣎","⣏","⢐","⢑","⢒","⢓","⢔","⢕","⢖","⢗","⣐","⣑","⣒","⣓","⣔","⣕","⣖","⣗","⢘","⢙","⢚","⢛","⢜","⢝","⢞","⢟","⣘","⣙","⣚","⣛","⣜","⣝","⣞","⣟","⢠","⢡","⢢","⢣","⢤","⢥","⢦","⢧","⣠","⣡","⣢","⣣","⣤","⣥","⣦","⣧","⢨","⢩","⢪","⢫","⢬","⢭","⢮","⢯","⣨","⣩","⣪","⣫","⣬","⣭","⣮","⣯","⢰","⢱","⢲","⢳","⢴","⢵","⢶","⢷","⣰","⣱","⣲","⣳","⣴","⣵","⣶","⣷","⢸","⢹","⢺","⢻","⢼","⢽","⢾","⢿","⣸","⣹","⣺","⣻","⣼","⣽","⣾","⣿"]},"sand":{"interval":80,"frames":["⠁","⠂","⠄","⡀","⡈","⡐","⡠","⣀","⣁","⣂","⣄","⣌","⣔","⣤","⣥","⣦","⣮","⣶","⣷","⣿","⡿","⠿","⢟","⠟","⡛","⠛","⠫","⢋","⠋","⠍","⡉","⠉","⠑","⠡","⢁"]},"line":{"interval":130,"frames":["-","\\\\","|","/"]},"line2":{"interval":100,"frames":["⠂","-","–","—","–","-"]},"pipe":{"interval":100,"frames":["┤","┘","┴","└","├","┌","┬","┐"]},"simpleDots":{"interval":400,"frames":[".  ",".. ","...","   "]},"simpleDotsScrolling":{"interval":200,"frames":[".  ",".. ","..."," ..","  .","   "]},"star":{"interval":70,"frames":["✶","✸","✹","✺","✹","✷"]},"star2":{"interval":80,"frames":["+","x","*"]},"flip":{"interval":70,"frames":["_","_","_","-","`","`","\'","´","-","_","_","_"]},"hamburger":{"interval":100,"frames":["☱","☲","☴"]},"growVertical":{"interval":120,"frames":["▁","▃","▄","▅","▆","▇","▆","▅","▄","▃"]},"growHorizontal":{"interval":120,"frames":["▏","▎","▍","▌","▋","▊","▉","▊","▋","▌","▍","▎"]},"balloon":{"interval":140,"frames":[" ",".","o","O","@","*"," "]},"balloon2":{"interval":120,"frames":[".","o","O","°","O","o","."]},"noise":{"interval":100,"frames":["▓","▒","░"]},"bounce":{"interval":120,"frames":["⠁","⠂","⠄","⠂"]},"boxBounce":{"interval":120,"frames":["▖","▘","▝","▗"]},"boxBounce2":{"interval":100,"frames":["▌","▀","▐","▄"]},"triangle":{"interval":50,"frames":["◢","◣","◤","◥"]},"binary":{"interval":80,"frames":["010010","001100","100101","111010","111101","010111","101011","111000","110011","110101"]},"arc":{"interval":100,"frames":["◜","◠","◝","◞","◡","◟"]},"circle":{"interval":120,"frames":["◡","⊙","◠"]},"squareCorners":{"interval":180,"frames":["◰","◳","◲","◱"]},"circleQuarters":{"interval":120,"frames":["◴","◷","◶","◵"]},"circleHalves":{"interval":50,"frames":["◐","◓","◑","◒"]},"squish":{"interval":100,"frames":["╫","╪"]},"toggle":{"interval":250,"frames":["⊶","⊷"]},"toggle2":{"interval":80,"frames":["▫","▪"]},"toggle3":{"interval":120,"frames":["□","■"]},"toggle4":{"interval":100,"frames":["■","□","▪","▫"]},"toggle5":{"interval":100,"frames":["▮","▯"]},"toggle6":{"interval":300,"frames":["ဝ","၀"]},"toggle7":{"interval":80,"frames":["⦾","⦿"]},"toggle8":{"interval":100,"frames":["◍","◌"]},"toggle9":{"interval":100,"frames":["◉","◎"]},"toggle10":{"interval":100,"frames":["㊂","㊀","㊁"]},"toggle11":{"interval":50,"frames":["⧇","⧆"]},"toggle12":{"interval":120,"frames":["☗","☖"]},"toggle13":{"interval":80,"frames":["=","*","-"]},"arrow":{"interval":100,"frames":["←","↖","↑","↗","→","↘","↓","↙"]},"arrow2":{"interval":80,"frames":["⬆️ ","↗️ ","➡️ ","↘️ ","⬇️ ","↙️ ","⬅️ ","↖️ "]},"arrow3":{"interval":120,"frames":["▹▹▹▹▹","▸▹▹▹▹","▹▸▹▹▹","▹▹▸▹▹","▹▹▹▸▹","▹▹▹▹▸"]},"bouncingBar":{"interval":80,"frames":["[    ]","[=   ]","[==  ]","[=== ]","[====]","[ ===]","[  ==]","[   =]","[    ]","[   =]","[  ==]","[ ===]","[====]","[=== ]","[==  ]","[=   ]"]},"bouncingBall":{"interval":80,"frames":["( ●    )","(  ●   )","(   ●  )","(    ● )","(     ●)","(    ● )","(   ●  )","(  ●   )","( ●    )","(●     )"]},"smiley":{"interval":200,"frames":["😄 ","😝 "]},"monkey":{"interval":300,"frames":["🙈 ","🙈 ","🙉 ","🙊 "]},"hearts":{"interval":100,"frames":["💛 ","💙 ","💜 ","💚 ","❤️ "]},"clock":{"interval":100,"frames":["🕛 ","🕐 ","🕑 ","🕒 ","🕓 ","🕔 ","🕕 ","🕖 ","🕗 ","🕘 ","🕙 ","🕚 "]},"earth":{"interval":180,"frames":["🌍 ","🌎 ","🌏 "]},"material":{"interval":17,"frames":["█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁","██▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁","███▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁","████▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁","██████▁▁▁▁▁▁▁▁▁▁▁▁▁▁","██████▁▁▁▁▁▁▁▁▁▁▁▁▁▁","███████▁▁▁▁▁▁▁▁▁▁▁▁▁","████████▁▁▁▁▁▁▁▁▁▁▁▁","█████████▁▁▁▁▁▁▁▁▁▁▁","█████████▁▁▁▁▁▁▁▁▁▁▁","██████████▁▁▁▁▁▁▁▁▁▁","███████████▁▁▁▁▁▁▁▁▁","█████████████▁▁▁▁▁▁▁","██████████████▁▁▁▁▁▁","██████████████▁▁▁▁▁▁","▁██████████████▁▁▁▁▁","▁██████████████▁▁▁▁▁","▁██████████████▁▁▁▁▁","▁▁██████████████▁▁▁▁","▁▁▁██████████████▁▁▁","▁▁▁▁█████████████▁▁▁","▁▁▁▁██████████████▁▁","▁▁▁▁██████████████▁▁","▁▁▁▁▁██████████████▁","▁▁▁▁▁██████████████▁","▁▁▁▁▁██████████████▁","▁▁▁▁▁▁██████████████","▁▁▁▁▁▁██████████████","▁▁▁▁▁▁▁█████████████","▁▁▁▁▁▁▁█████████████","▁▁▁▁▁▁▁▁████████████","▁▁▁▁▁▁▁▁████████████","▁▁▁▁▁▁▁▁▁███████████","▁▁▁▁▁▁▁▁▁███████████","▁▁▁▁▁▁▁▁▁▁██████████","▁▁▁▁▁▁▁▁▁▁██████████","▁▁▁▁▁▁▁▁▁▁▁▁████████","▁▁▁▁▁▁▁▁▁▁▁▁▁███████","▁▁▁▁▁▁▁▁▁▁▁▁▁▁██████","▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█████","▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█████","█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁████","██▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁███","██▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁███","███▁▁▁▁▁▁▁▁▁▁▁▁▁▁███","████▁▁▁▁▁▁▁▁▁▁▁▁▁▁██","█████▁▁▁▁▁▁▁▁▁▁▁▁▁▁█","█████▁▁▁▁▁▁▁▁▁▁▁▁▁▁█","██████▁▁▁▁▁▁▁▁▁▁▁▁▁█","████████▁▁▁▁▁▁▁▁▁▁▁▁","█████████▁▁▁▁▁▁▁▁▁▁▁","█████████▁▁▁▁▁▁▁▁▁▁▁","█████████▁▁▁▁▁▁▁▁▁▁▁","█████████▁▁▁▁▁▁▁▁▁▁▁","███████████▁▁▁▁▁▁▁▁▁","████████████▁▁▁▁▁▁▁▁","████████████▁▁▁▁▁▁▁▁","██████████████▁▁▁▁▁▁","██████████████▁▁▁▁▁▁","▁██████████████▁▁▁▁▁","▁██████████████▁▁▁▁▁","▁▁▁█████████████▁▁▁▁","▁▁▁▁▁████████████▁▁▁","▁▁▁▁▁████████████▁▁▁","▁▁▁▁▁▁███████████▁▁▁","▁▁▁▁▁▁▁▁█████████▁▁▁","▁▁▁▁▁▁▁▁█████████▁▁▁","▁▁▁▁▁▁▁▁▁█████████▁▁","▁▁▁▁▁▁▁▁▁█████████▁▁","▁▁▁▁▁▁▁▁▁▁█████████▁","▁▁▁▁▁▁▁▁▁▁▁████████▁","▁▁▁▁▁▁▁▁▁▁▁████████▁","▁▁▁▁▁▁▁▁▁▁▁▁███████▁","▁▁▁▁▁▁▁▁▁▁▁▁███████▁","▁▁▁▁▁▁▁▁▁▁▁▁▁███████","▁▁▁▁▁▁▁▁▁▁▁▁▁███████","▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█████","▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁████","▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁████","▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁████","▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁███","▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁███","▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁██","▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁██","▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁██","▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█","▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█","▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█","▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁","▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁","▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁","▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁"]},"moon":{"interval":80,"frames":["🌑 ","🌒 ","🌓 ","🌔 ","🌕 ","🌖 ","🌗 ","🌘 "]},"runner":{"interval":140,"frames":["🚶 ","🏃 "]},"pong":{"interval":80,"frames":["▐⠂       ▌","▐⠈       ▌","▐ ⠂      ▌","▐ ⠠      ▌","▐  ⡀     ▌","▐  ⠠     ▌","▐   ⠂    ▌","▐   ⠈    ▌","▐    ⠂   ▌","▐    ⠠   ▌","▐     ⡀  ▌","▐     ⠠  ▌","▐      ⠂ ▌","▐      ⠈ ▌","▐       ⠂▌","▐       ⠠▌","▐       ⡀▌","▐      ⠠ ▌","▐      ⠂ ▌","▐     ⠈  ▌","▐     ⠂  ▌","▐    ⠠   ▌","▐    ⡀   ▌","▐   ⠠    ▌","▐   ⠂    ▌","▐  ⠈     ▌","▐  ⠂     ▌","▐ ⠠      ▌","▐ ⡀      ▌","▐⠠       ▌"]},"shark":{"interval":120,"frames":["▐|\\\\____________▌","▐_|\\\\___________▌","▐__|\\\\__________▌","▐___|\\\\_________▌","▐____|\\\\________▌","▐_____|\\\\_______▌","▐______|\\\\______▌","▐_______|\\\\_____▌","▐________|\\\\____▌","▐_________|\\\\___▌","▐__________|\\\\__▌","▐___________|\\\\_▌","▐____________|\\\\▌","▐____________/|▌","▐___________/|_▌","▐__________/|__▌","▐_________/|___▌","▐________/|____▌","▐_______/|_____▌","▐______/|______▌","▐_____/|_______▌","▐____/|________▌","▐___/|_________▌","▐__/|__________▌","▐_/|___________▌","▐/|____________▌"]},"dqpb":{"interval":100,"frames":["d","q","p","b"]},"weather":{"interval":100,"frames":["☀️ ","☀️ ","☀️ ","🌤 ","⛅️ ","🌥 ","☁️ ","🌧 ","🌨 ","🌧 ","🌨 ","🌧 ","🌨 ","⛈ ","🌨 ","🌧 ","🌨 ","☁️ ","🌥 ","⛅️ ","🌤 ","☀️ ","☀️ "]},"christmas":{"interval":400,"frames":["🌲","🎄"]},"grenade":{"interval":80,"frames":["،  ","′  "," ´ "," ‾ ","  ⸌","  ⸊","  |","  ⁎","  ⁕"," ෴ ","  ⁓","   ","   ","   "]},"point":{"interval":125,"frames":["∙∙∙","●∙∙","∙●∙","∙∙●","∙∙∙"]},"layer":{"interval":150,"frames":["-","=","≡"]},"betaWave":{"interval":80,"frames":["ρββββββ","βρβββββ","ββρββββ","βββρβββ","ββββρββ","βββββρβ","ββββββρ"]},"fingerDance":{"interval":160,"frames":["🤘 ","🤟 ","🖖 ","✋ ","🤚 ","👆 "]},"fistBump":{"interval":80,"frames":["🤜　　　　🤛 ","🤜　　　　🤛 ","🤜　　　　🤛 ","　🤜　　🤛　 ","　　🤜🤛　　 ","　🤜✨🤛　　 ","🤜　✨　🤛　 "]},"soccerHeader":{"interval":80,"frames":[" 🧑⚽️       🧑 ","🧑  ⚽️      🧑 ","🧑   ⚽️     🧑 ","🧑    ⚽️    🧑 ","🧑     ⚽️   🧑 ","🧑      ⚽️  🧑 ","🧑       ⚽️🧑  ","🧑      ⚽️  🧑 ","🧑     ⚽️   🧑 ","🧑    ⚽️    🧑 ","🧑   ⚽️     🧑 ","🧑  ⚽️      🧑 "]},"mindblown":{"interval":160,"frames":["😐 ","😐 ","😮 ","😮 ","😦 ","😦 ","😧 ","😧 ","🤯 ","💥 ","✨ ","　 ","　 ","　 "]},"speaker":{"interval":160,"frames":["🔈 ","🔉 ","🔊 ","🔉 "]},"orangePulse":{"interval":100,"frames":["🔸 ","🔶 ","🟠 ","🟠 ","🔶 "]},"bluePulse":{"interval":100,"frames":["🔹 ","🔷 ","🔵 ","🔵 ","🔷 "]},"orangeBluePulse":{"interval":100,"frames":["🔸 ","🔶 ","🟠 ","🟠 ","🔶 ","🔹 ","🔷 ","🔵 ","🔵 ","🔷 "]},"timeTravel":{"interval":100,"frames":["🕛 ","🕚 ","🕙 ","🕘 ","🕗 ","🕖 ","🕕 ","🕔 ","🕓 ","🕒 ","🕑 ","🕐 "]},"aesthetic":{"interval":80,"frames":["▰▱▱▱▱▱▱","▰▰▱▱▱▱▱","▰▰▰▱▱▱▱","▰▰▰▰▱▱▱","▰▰▰▰▰▱▱","▰▰▰▰▰▰▱","▰▰▰▰▰▰▰","▰▱▱▱▱▱▱"]},"dwarfFortress":{"interval":80,"frames":[" ██████£££  ","☺██████£££  ","☺██████£££  ","☺▓█████£££  ","☺▓█████£££  ","☺▒█████£££  ","☺▒█████£££  ","☺░█████£££  ","☺░█████£££  ","☺ █████£££  "," ☺█████£££  "," ☺█████£££  "," ☺▓████£££  "," ☺▓████£££  "," ☺▒████£££  "," ☺▒████£££  "," ☺░████£££  "," ☺░████£££  "," ☺ ████£££  ","  ☺████£££  ","  ☺████£££  ","  ☺▓███£££  ","  ☺▓███£££  ","  ☺▒███£££  ","  ☺▒███£££  ","  ☺░███£££  ","  ☺░███£££  ","  ☺ ███£££  ","   ☺███£££  ","   ☺███£££  ","   ☺▓██£££  ","   ☺▓██£££  ","   ☺▒██£££  ","   ☺▒██£££  ","   ☺░██£££  ","   ☺░██£££  ","   ☺ ██£££  ","    ☺██£££  ","    ☺██£££  ","    ☺▓█£££  ","    ☺▓█£££  ","    ☺▒█£££  ","    ☺▒█£££  ","    ☺░█£££  ","    ☺░█£££  ","    ☺ █£££  ","     ☺█£££  ","     ☺█£££  ","     ☺▓£££  ","     ☺▓£££  ","     ☺▒£££  ","     ☺▒£££  ","     ☺░£££  ","     ☺░£££  ","     ☺ £££  ","      ☺£££  ","      ☺£££  ","      ☺▓££  ","      ☺▓££  ","      ☺▒££  ","      ☺▒££  ","      ☺░££  ","      ☺░££  ","      ☺ ££  ","       ☺££  ","       ☺££  ","       ☺▓£  ","       ☺▓£  ","       ☺▒£  ","       ☺▒£  ","       ☺░£  ","       ☺░£  ","       ☺ £  ","        ☺£  ","        ☺£  ","        ☺▓  ","        ☺▓  ","        ☺▒  ","        ☺▒  ","        ☺░  ","        ☺░  ","        ☺   ","        ☺  &","        ☺ ☼&","       ☺ ☼ &","       ☺☼  &","      ☺☼  & ","      ‼   & ","     ☺   &  ","    ‼    &  ","   ☺    &   ","  ‼     &   "," ☺     &    ","‼      &    ","      &     ","      &     ","     &   ░  ","     &   ▒  ","    &    ▓  ","    &    £  ","   &    ░£  ","   &    ▒£  ","  &     ▓£  ","  &     ££  "," &     ░££  "," &     ▒££  ","&      ▓££  ","&      £££  ","      ░£££  ","      ▒£££  ","      ▓£££  ","      █£££  ","     ░█£££  ","     ▒█£££  ","     ▓█£££  ","     ██£££  ","    ░██£££  ","    ▒██£££  ","    ▓██£££  ","    ███£££  ","   ░███£££  ","   ▒███£££  ","   ▓███£££  ","   ████£££  ","  ░████£££  ","  ▒████£££  ","  ▓████£££  ","  █████£££  "," ░█████£££  "," ▒█████£££  "," ▓█████£££  "," ██████£££  "," ██████£££  "]}}');
 
 /***/ }),
 
